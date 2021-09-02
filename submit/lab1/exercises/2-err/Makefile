@@ -1,8 +1,8 @@
 all:
-  		echo "hello $$USER"
+	echo "hello $$USER"
 
 
 .PHONY:		count-bin
 count-bin:
-		cd /usr/bin ;
-		ls | wc -l
+	cd /usr/bin ; \
+	ls | wc -l
