@@ -180,4 +180,292 @@ slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ makenano Makefi
 [1;30r[10;1H[?12l[?25h[?25l[10;27r[27;1H
 [1;30r[9;54H[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;61H(B[0;7m7[28;70H(B[m[9;54H[?12l[?25h[?25l[8;31H[?12l[?25h[?25l[A[?12l[?25h[?25l[6;14H[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[7;27r[7;1HM[1;30r[7;1H[?12l[?25h[?25l7[7;27r8M[1;30r[8;1H[?12l[?25h[?25lS[?12l[?25h[?25lR[?12l[?25h[?25lC[?12l[?25h[?25lF[?12l[?25h[?25lI[?12l[?25h[?25lL[?12l[?25h[?25lE[?12l[?25h[?25lS[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l =[?12l[?25h[?25l[31m =[39m[42m [49m(B[m[?12l[?25h[?25l[31m [39m(B[mm[?12l[?25h[?25la[?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25l.[?12l[?25h[?25lc[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l \[?12l[?25h[?25l7[9;27r8[9dM[1;30r[9;1H[?12l[?25h[?25l[8G[42m[1K[28d[49m(B[m[K[9;9H[?12l[?25h[?25l[16G[42m[1K [49m(B[m[?12l[?25h[?25l[9;9H[K[?12l[?25h[?25l[K[?12l[?25h[?25lq[?12l[?25h[?25lu[?12l[?25h[?25la[?12l[?25h[?25ld[?12l[?25h[?25lr[?12l[?25h[?25l.[?12l[?25h[?25lc[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l \[?12l[?25h[?25l7[10;28r8[10dM[1;30r[10;1H[?12l[?25h[?25lq[?12l[?25h[?25lu[?12l[?25h[?25la[?12l[?25h[?25ld[?12l[?25h[?25lr[?12l[?25h[?25l.[?12l[?25h[?25lh[?12l[?25h[?25l7[11;28r8[11dM[1;30r[11;1H[?12l[?25h[?25l[11;28r[28;1H
 [1;30r[10;8H[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l \[?12l[?25h[?25l7[11;28r8[11dM[1;30r[11;1H[?12l[?25h[?25lM[?12l[?25h[?25la[?12l[?25h[?25lk[?12l[?25h[?25le[?12l[?25h[?25l[42m    [49m(B[m[?12l[?25h[?25l[K[?12l[?25h[?25lf[?12l[?25h[?25li[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l \[?12l[?25h[?25l7[12;28r8[12dM[1;30r[12;1H[?12l[?25h[?25lt[?12l[?25h[?25le[?12l[?25h[?25ls[?12l[?25h[?25lt[?12l[?25h[?25l.[?12l[?25h[?25ld[?12l[?25h[?25la[?12l[?25h[?25lt[?12l[?25h[?25la[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l \[?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 23 lines ](B[m[12;10H[?12l[?25h[?25l[13d[?12l[?25h[?25l[14;10H[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17;10H[?12l[?25h[?25l[A[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[16;27r[16;1HM[1;30r[17;1H[?12l[?25h[?25l[16;27r[16;1HM[1;30r[18;1H[?12l[?25h[?25l[A[?12l[?25h[?25ld[?12l[?25h[?25li[?12l[?25h[?25ls[?12l[?25h[?25lt[?12l[?25h[?25l(B[0;1m[34mdist:[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l $[?12l[?25h[?25l([?12l[?25h[?25lP[?12l[?25h[?25lR[?12l[?25h[?25lO[?12l[?25h[?25lJ[?12l[?25h[?25lE[?12l[?25h[?25lC[?12l[?25h[?25lT[28d[K[17;16H[?12l[?25h[?25l[7G[34m$(PROJECT)[39m(B[m[?12l[?25h[?25l.[?12l[?25h[?25lt[?12l[?25h[?25la[?12l[?25h[?25lr[?12l[?25h[?25l.[?12l[?25h[?25lg[?12l[?25h[?25lz[?12l[?25h[?25l7[18;27r8[18dM[1;30r[18;1H[?12l[?25h[?25l[A[?12l[?25h[?25l[17;9H[?12l[?25h[?25l[17;18H[?12l[?25h[?25l[17;9H[?12l[?25h[?25l[?12l[?25h[?25l[17;9H[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l(B[0;7m$((B[m[?12l[?25h[?25l(B[0;7mPROJECT).(B[m[?12l[?25h[?25l(B[0;7mtar.(B[m[?12l[?25h[?25l(B[0;7mgz[20d# (B[m[?12l[?25h[?25l[17;22Hgz[20d[32m# [17;22H[39m(B[m[?12l[?25h[?25l(B[0;7mg(B[m[?12l[?25h[?25l(B[0;7mz(B[m[?12l[?25h[?25l[28;32H(B[0;7m[ line 15/27 (55%), col 24/24 (100%), char 212/412 (51%) ](B[m[17;24H[?12l[?25h[?25l[7G[34m$(PROJECT)[39m(B[m.tar.gz[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l$[?12l[?25h[?25l([?12l[?25h[?25lP[?12l[?25h[?25lR[?12l[?25h[?25lO[?12l[?25h[?25lJ[?12l[?25h[?25lE[?12l[?25h[?25lC[?12l[?25h[?25lT[?12l[?25h[?25l[34m$(PROJECT)[39m(B[m[?12l[?25h[?25l.[?12l[?25h[?25lt[?12l[?25h[?25la[?12l[?25h[?25lr[?12l[?25h[?25l.[?12l[?25h[?25lg[?12l[?25h[?25lx[?12l[?25h[?25l [?12l[?25h[?25lz[?12l[?25h[?25l([?12l[?25h[?25l [?12l[?25h[?25l(B[0;1m[34m$(PROJECT).tar.gz:[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [28d[K[19;19H[?12l[?25h[?25l[42m      [49m(B[m[?12l[?25h[?25l[19G      $[?12l[?25h[?25l([?12l[?25h[?25lS[?12l[?25h[?25lR[?12l[?25h[?25lC[?12l[?25h[?25lF[?12l[?25h[?25lI[?12l[?25h[?25lL[?12l[?25h[?25lE[?12l[?25h[?25lS[?12l[?25h[?25l[19;25H[34m$(SRCFILES)[39m(B[m[?12l[?25h[?25l7[20;27r8[20dM[1;30r[20;1H[?12l[?25h[?25l[8G[42m[1K [49m(B[m[?12l[?25h[?25l[16G[42m[1K [49m(B[m[?12l[?25h[?25l[24G[42m[1K [49m(B[m[?12l[?25h[?25l[1K t[?12l[?25h[?25la[?12l[?25h[?25lr[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l -[?12l[?25h[?25lc[?12l[?25h[?25lf[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l $[?12l[?25h[?25l([?12l[?25h[?25lP[?12l[?25h[?25lO[?12l[?25h[?25l [?12l[?25h[?25lR[?12l[?25h[?25lO[?12l[?25h[?25lJ[?12l[?25h[?25lE[?12l[?25h[?25lC[?12l[?25h[?25lT[?12l[?25h[?25l[20;33H[34m$(PROJECT)[39m(B[m[?12l[?25h[?25l.[?12l[?25h[?25lt[?12l[?25h[?25la[?12l[?25h[?25lr[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l $[?12l[?25h[?25l([?12l[?25h[?25lS[?12l[?25h[?25lR[?12l[?25h[?25lC[?12l[?25h[?25lF[?12l[?25h[?25lI[?12l[?25h[?25lL[?12l[?25h[?25lE[?12l[?25h[?25lS[?12l[?25h[?25l[20;48H[34m$(SRCFILES)[39m(B[m[?12l[?25h[?25l7[21;28r8[21dM[1;30r[21;1H[?12l[?25h[?25l[8G[42m[1K [49m(B[m[?12l[?25h[?25l[16G[42m[1K [49m(B[m[?12l[?25h[?25l[24G[42m[1K [49m(B[m[?12l[?25h[?25l[1K g[?12l[?25h[?25lx[?12l[?25h[?25l [?12l[?25h[?25lz[?12l[?25h[?25lo[?12l[?25h[?25lp[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l -[?12l[?25h[?25lf[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25lp -f[42m [49m(B[m[K[27G[?12l[?25h[?25lip -f[42m [28G[49m(B[m[?12l[?25h[?25l[33G[?12l[?25h[?25l $[?12l[?25h[?25l([?12l[?25h[?25lP[?12l[?25h[?25lR[?12l[?25h[?25lO[?12l[?25h[?25lJ[?12l[?25h[?25lE[?12l[?25h[?25lC[?12l[?25h[?25lT[?12l[?25h[?25l[21;33H[34m$(PROJECT)[39m(B[m[?12l[?25h[?25l.[?12l[?25h[?25lt[?12l[?25h[?25la[?12l[?25h[?25lr[?12l[?25h[?25l7[22;27r8[22dM[1;30r[22;1H[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 29 lines ](B[m[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l(B[0;7m# automatically generated dependencies produced by make depend(B[m[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[23d[K[?12l[?25h[?25l[22;27r[27;1H
-[1;30r[27;17Hrm -f *.o [34m$(PROJECT)[39m(B[m [34m$(PROJECT)[39m(B[m.tar.gz[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l[24d[?12l[?25h[?25l[25d[?12l[?25h[?25l[26d[?12l[?25h[?25l[27d[?12l[?25h[?25l7[2;27r8[13S[1;30r[2;1H[K[16d(B[0;1m[34mmain.o:[39m(B[m main.c 
+[1;30r[27;17Hrm -f *.o [34m$(PROJECT)[39m(B[m [34m$(PROJECT)[39m(B[m.tar.gz[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l[24d[?12l[?25h[?25l[25d[?12l[?25h[?25l[26d[?12l[?25h[?25l[27d[?12l[?25h[?25l7[2;27r8[13S[1;30r[2;1H[K[16d(B[0;1m[34mmain.o:[39m(B[m main.c quadr.h[17d(B[0;1m[34mquadr.o:[39m(B[m quadr.c quadr.h[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l7[15;27r8M[1;30r[16;1H[?12l[?25h[?25l[32m#[39m(B[m[?12l[?25h[?25l[32ma[39m(B[m[?12l[?25h[?25l[32mu[39m(B[m[?12l[?25h[?25l[32mt[39m(B[m[?12l[?25h[?25l[32mo[28d[39m(B[m[K[16;6H[?12l[?25h[?25l[32mm[39m(B[m[?12l[?25h[?25l[32ma[39m(B[m[?12l[?25h[?25l[32mt[39m(B[m[?12l[?25h[?25l[32mi[39m(B[m[?12l[?25h[?25l[32mc[39m(B[m[?12l[?25h[?25l[32mally[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l[32m g[39m(B[m[?12l[?25h[?25l[32me[39m(B[m[?12l[?25h[?25l[32mn[39m(B[m[?12l[?25h[?25l[32me[39m(B[m[?12l[?25h[?25l[32mr[39m(B[m[?12l[?25h[?25l[32ma[39m(B[m[?12l[?25h[?25l[32mt[39m(B[m[?12l[?25h[?25l[32me[39m(B[m[?12l[?25h[?25l[32md[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l[32m d[39m(B[m[?12l[?25h[?25l[32me[39m(B[m[?12l[?25h[?25l[32mp[39m(B[m[?12l[?25h[?25l[32me[39m(B[m[?12l[?25h[?25l[32mn[39m(B[m[?12l[?25h[?25l[32md[39m(B[m[?12l[?25h[?25l[32me[39m(B[m[?12l[?25h[?25l[32mn[39m(B[m[?12l[?25h[?25l[32mc[39m(B[m[?12l[?25h[?25l[32mi[39m(B[m[?12l[?25h[?25l[32me[39m(B[m[?12l[?25h[?25l[32ms[39m(B[m[?12l[?25h[?25l[16;26H[?12l[?25h[?25l[16;16H[?12l[?25h[?25l[C[?12l[?25h[?25l[14;53H[?12l[?25h[?25l[16;2H[?12l[?25h[?25l[32m automatically generated dependencies# [39m(B[m[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 29 lines ](B[m[16;3H[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[13;3H[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[10;3H[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[6;3H[?12l[?25h[?25l[A[?12l[?25h[?25l[4;3H[?12l[?25h[?25l[A[?12l[?25h[?25l[2;27r[2;1H[13T[1;30r[3;1HPROJECT[31m = [39m(B[mquadr[5dCFLAGS[31m = [39m(B[m-g -Wall -std=c18[6dLDFLAGS[31m = [39m(B[m-lm[8dSRCFILES[31m = [39m(B[mmain.c \[9dquadr.c \[10dquadr.h \[11dMakefile \[12dtest.data[14d(B[0;1m[34m$(PROJECT):[39m(B[m     quadr.o main.o[15;17H[34m$(CC)[39m(B[m [34m$(LDFLAGS)[39m(B[m quadr.o main.o -o $@[?12l[?25h[?25l[14;3H[?12l[?25h[?25l[A[?12l[?25h[?25l[Ate[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14;3H[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[28d[K[17;3H[?12l[?25h[?25l[18d[?12l[?25h[?25l[19;3H[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[A[?12l[?25h[?25l[19;3H[?12l[?25h[?25l[A[?12l[?25h[?25l[19;3H[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[29d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ make dist
+tar -cf quadr.tar main.c quadr.c quadr.h Makefile test.data
+gzip -f quadr.tar
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ ls
+main.c	main.o	Makefile  quadr  quadr.c  quadr.h  quadr.o  quadr.tar.gz  README  test.data
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ pwd
+/home/slohoka1/i220b/submit/lab1/exercises/3-multifile
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ cd [K[K[Kmkdir temp
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ cd temp
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile/temp$ ls
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile/temp$ tar -xf ../quadr.tar.gz 
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile/temp$ ls
+main.c	Makefile  quadr.c  quadr.h  test.data
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile/temp$ cd ..
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ rm -rf temp
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ ls
+main.c	main.o	Makefile  quadr  quadr.c  quadr.h  quadr.o  quadr.tar.gz  README  test.data
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ cat Makefile 
+PROJECT = quadr
+
+CFLAGS = -g -Wall -std=c18
+LDFLAGS = -lm
+
+SRCFILES = main.c \
+quadr.c \
+quadr.h \
+Makefile \
+test.data
+
+$(PROJECT):	quadr.o main.o
+		$(CC) $(LDFLAGS) quadr.o main.o -o $@
+
+dist: $(PROJECT).tar.gz
+
+$(PROJECT).tar.gz:	$(SRCFILES)
+			tar -cf $(PROJECT).tar $(SRCFILES)
+			gzip -f $(PROJECT).tar
+
+depend:
+		$(CC) -MM $(CPPFLAGS) *.c
+
+clean:
+		rm -f *.o $(PROJECT) $(PROJECT).tar.gz
+
+# automatically generated dependencies
+main.o: main.c quadr.h
+quadr.o: quadr.c quadr.h
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ clear
+[H[2J[3Jslohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ cd ~i
+~ibayar1/  ~ilam4/    ~intrieri/ ~ipoon1/   ~isarfat1/ ~iwagner3/ 
+~icheng4/  ~ilis1/    ~iperdom1/ ~irc       ~istampe1/ ~iwobi/    
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ cd ~i/i[C220bs[K/submit/lab1
+slohoka1@remote05:~/i220b/submit/lab1$ git add .
+slohoka1@remote05:~/i220b/submit/lab1$ git commit -m 'completed first 3 exercises'
+[lab1 0491313] completed first 3 exercises
+ Committer: Saumitra Lohokare <slohoka1@cs.binghamton.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 4 files changed, 206 insertions(+), 5 deletions(-)
+ create mode 100644 submit/lab1/lab1.LOG
+slohoka1@remote05:~/i220b/submit/lab1$ git push
+Enter passphrase for key '/home/slohoka1/.ssh/id_ed25519': 
+Enumerating objects: 20, done.
+Counting objects:   5% (1/20)Counting objects:  10% (2/20)Counting objects:  15% (3/20)Counting objects:  20% (4/20)Counting objects:  25% (5/20)Counting objects:  30% (6/20)Counting objects:  35% (7/20)Counting objects:  40% (8/20)Counting objects:  45% (9/20)Counting objects:  50% (10/20)Counting objects:  55% (11/20)Counting objects:  60% (12/20)Counting objects:  65% (13/20)Counting objects:  70% (14/20)Counting objects:  75% (15/20)Counting objects:  80% (16/20)Counting objects:  85% (17/20)Counting objects:  90% (18/20)Counting objects:  95% (19/20)Counting objects: 100% (20/20)Counting objects: 100% (20/20), done.
+Delta compression using up to 8 threads
+Compressing objects:  11% (1/9)Compressing objects:  22% (2/9)Compressing objects:  33% (3/9)Compressing objects:  44% (4/9)Compressing objects:  55% (5/9)Compressing objects:  66% (6/9)Compressing objects:  77% (7/9)Compressing objects:  88% (8/9)Compressing objects: 100% (9/9)Compressing objects: 100% (9/9), done.
+Writing objects:   9% (1/11)Writing objects:  18% (2/11)Writing objects:  27% (3/11)Writing objects:  36% (4/11)Writing objects:  45% (5/11)Writing objects:  54% (6/11)Writing objects:  63% (7/11)Writing objects:  72% (8/11)Writing objects:  81% (9/11)Writing objects:  90% (10/11)Writing objects: 100% (11/11)Writing objects: 100% (11/11), 7.23 KiB | 1.45 MiB/s, done.
+Total 11 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/3)[Kremote: Resolving deltas:  33% (1/3)[Kremote: Resolving deltas:  66% (2/3)[Kremote: Resolving deltas: 100% (3/3)[Kremote: Resolving deltas: 100% (3/3), completed with 3 local objects.[K
+To github.com:SaumitraLohokare/i220b.git
+   c73e08d..0491313  lab1 -> lab1
+slohoka1@remote05:~/i220b/submit/lab1$ cd /home/slohoka1/i220b/submit/lab1/exercises/3-multifile
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ ls
+main.c	main.o	Makefile  quadr  quadr.c  quadr.h  quadr.o  quadr.tar.gz  README  test.data
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ c d..
+bash: c: command not found
+slohoka1@remote05:~/i220b/submit/lab1/exercises/3-multifile$ cd ..
+slohoka1@remote05:~/i220b/submit/lab1/exercises$ clear
+[H[2J[3Jslohoka1@remote05:~/i220b/submit/lab1/exercises$ l[Kcd 4-from-scratch/
+slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ ls
+key-value.c  key-value.h  main.c  process-file.c  process-file.h  README
+slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ nano README 
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;53H(B[0;7m[ Reading File ](B[m[28;52H(B[0;7m[ Read 34 lines ](B[m[H(B[0;7m  GNU nano 3.2                                             README                                                       [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d[39;49m(B[mA simple key-value lookup for alphanumeric keys and integer values[4din a fixed-size table.[6dInsert key/value pair into table by typing a line containing simply[7dkey=value.[9dQuery the value of a key by typing a line containing simply key?.[11dDelete a existing key by typing a line containing simply key-.[13dExample Log:[15d------------------------------------------------------------------[16d$ ./key-value[17da=22[18da?[19d22[20db=33[21dc=44[22de=55[23df=66[24d<stdin>:6: too many key-value pairs[25df?[26d<stdin>:7: unknown key[27de?[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l[24d[?12l[?25h[?25l[25d[?12l[?25h[?25l[26d[?12l[?25h[?25l[27d[?12l[?25h[?25l[3d$ ./key-value[K[4da=22[K[5da?[6d22[K[7db=33[K[8dc=44[9de=55[K[10df=66[11d<stdin>:6: too many key-value pairs[K[12df?[13d<stdin>:7: unknown key[14de?[15d55[K[16de-[K[17de?[K[18d<stdin>:10: unknown key[19df=66[20df?[K[21d66[K[22d$[K[23d------------------------------------------------------------------[24d[K[25d[K[26d[K[27d[K[15d[?12l[?25h[?25l[28d[K[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[22d[?12l[?25h[?25l[29d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ nano Makefile
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;55H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 3.2                                            Makefile                                                      [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d[39;49m(B[m[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[3dm[?12l[?25h[?25la[?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25l(B[0;1m[34mmain:[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l m[?12l[?25h[?25la[?12l[?25h[?25lk[?12l[?25h[?25l [?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25l.[?12l[?25h[?25lo[?12l[?25h[?25l[4d[?12l[?25h[?25l[8G[42m[1K [49m(B[m[?12l[?25h[?25l[1K g[?12l[?25h[?25lc[?12l[?25h[?25lc[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l m[?12l[?25h[?25la[?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25l.[?12l[?25h[?25lo[28d[K[4;19H[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l -[?12l[?25h[?25lo[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l m[?12l[?25h[?25la[?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 2 lines ](B[m[4;27H[?12l[?25h[?25l[28d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ nano Makefile
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;53H(B[0;7m[ Reading File ](B[m[28;59H(B[0;7m 2 lines ](B[m[H(B[0;7m  GNU nano 3.2                                            Makefile                                                      [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d(B[0;1m[34mmain:[39m(B[m main.o[4;9Hgcc main.o -o main[A[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[6d[?12l[?25h[?25lk[?12l[?25h[?25l[K[?12l[?25h[?25lm[?12l[?25h[?25la[?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25l.[?12l[?25h[?25lo[?12l[?25h[?25l(B[0;1m[34mmain.o:[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l m[?12l[?25h[?25la[?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25l.[?12l[?25h[?25lc[?12l[?25h[?25l[7d[?12l[?25h[?25l[8G[42m[1K [49m(B[m[?12l[?25h[?25l[1K g[?12l[?25h[?25lc[28d[K[7;11H[?12l[?25h[?25lc[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l -[?12l[?25h[?25lc[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l m[?12l[?25h[?25la[?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25l.[?12l[?25h[?25lc[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 5 lines ](B[m[7;22H[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[8d[?12l[?25h[?25l[9d[?12l[?25h[?25lk[?12l[?25h[?25le[?12l[?25h[?25ly[?12l[?25h[?25l-[?12l[?25h[?25lv[?12l[?25h[?25la[?12l[?25h[?25ll[?12l[?25h[?25ly[?12l[?25h[?25le[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25lu[?12l[?25h[?25le[?12l[?25h[?25l.[?12l[?25h[?25lc[?12l[?25h[?25l [?12l[?25h[?25l0[?12l[?25h[?25l [?12l[?25h[?25lo[?12l[?25h[?25l(B[0;1m[34mkey-value.o:[39m(B[m[?12l[?25h[?25l[10d[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;60H(B[0;7m8[28;69H(B[m[10d[?12l[?25h[?25l[28d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ nano Makefile
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;53H(B[0;7m[ Reading File ](B[m[28;59H(B[0;7m 8 lines ](B[m[H(B[0;7m  GNU nano 3.2                                            Makefile                                                      [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d(B[0;1m[34mmain:[39m(B[m main.o[4;9Hgcc main.o -o main[6d(B[0;1m[34mmain.o:[39m(B[m main.c[7;9Hgcc -c main.c[9d(B[0;1m[34mkey-value.o:[3d[39m(B[m[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[5G[?12l[?25h[?25l[11G[?12l[?25h[?25l[11d[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[9;13H[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[9;13H[42m [49m(B[m[?12l[?25h[?25l k[?12l[?25h[?25le[?12l[?25h[?25ly[?12l[?25h[?25l-[?12l[?25h[?25lv[?12l[?25h[?25la[?12l[?25h[?25ll[?12l[?25h[?25lu[?12l[?25h[?25le[?12l[?25h[?25l.[?12l[?25h[?25lh[?12l[?25h[?25l [?12l[?25h[?25lc[28d[K[9;25H[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l k[?12l[?25h[?25le[?12l[?25h[?25ly[?12l[?25h[?25lv[?12l[?25h[?25la[?12l[?25h[?25ll[?12l[?25h[?25lu[?12l[?25h[?25le[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l-value[30G[?12l[?25h[?25l[35G[?12l[?25h[?25l.[?12l[?25h[?25lh[?12l[?25h[?25l[10d[?12l[?25h[?25l[8G[42m[1K [49m(B[m[?12l[?25h[?25l[1K g[?12l[?25h[?25lc[?12l[?25h[?25lc[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l -[?12l[?25h[?25lc[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l m[?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l[A[?12l[?25h[?25l[?12l[?25h[?25l[10d[?12l[?25h[?25l[C[?12l[?25h[?25l k[?12l[?25h[?25le[?12l[?25h[?25ly[?12l[?25h[?25l-[?12l[?25h[?25lv[?12l[?25h[?25la[?12l[?25h[?25ll[?12l[?25h[?25lu[?12l[?25h[?25le[?12l[?25h[?25l.[?12l[?25h[?25lc[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l k[?12l[?25h[?25le[?12l[?25h[?25ly[?12l[?25h[?25l-[?12l[?25h[?25lv[?12l[?25h[?25la[?12l[?25h[?25ll[?12l[?25h[?25lu[?12l[?25h[?25le[?12l[?25h[?25l.[?12l[?25h[?25lh[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 9 lines ](B[m[10;39H[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[7;22H[?12l[?25h[?25l[6;15H[?12l[?25h[?25l[A[?12l[?25h[?25l[4;27H[?12l[?25h[?25l[3;13H[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[3;13H[42m [49m(B[m[?12l[?25h[?25l k[?12l[?25h[?25le[?12l[?25h[?25ly[?12l[?25h[?25l-[?12l[?25h[?25lv[?12l[?25h[?25la[?12l[?25h[?25ll[?12l[?25h[?25lu[?12l[?25h[?25le[?12l[?25h[?25l.[?12l[?25h[?25lo[?12l[?25h[?25l[4d[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[28d[K[4;19H[?12l[?25h[?25l  -o main[4;20H[?12l[?25h[?25lk -o main[4;21H[?12l[?25h[?25le -o main[4;22H[?12l[?25h[?25ly -o main[4;23H[?12l[?25h[?25l- -o main[4;24H[?12l[?25h[?25lv -o main[4;25H[?12l[?25h[?25la -o main[4;26H[?12l[?25h[?25ll -o main[4;27H[?12l[?25h[?25lu -o main[4;28H[?12l[?25h[?25le -o main[4;29H[?12l[?25h[?25l. -o main[4;30H[?12l[?25h[?25lo -o main[4;31H[?12l[?25h[?25l[5d[?12l[?25h[?25l[6;15H[?12l[?25h[?25l[7;22H[?12l[?25h[?25l[8d[?12l[?25h[?25l[9;31H[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 9 lines ](B[m[11d[?12l[?25h[?25l[28d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ nano Makefile
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;53H(B[0;7m[ Reading File ](B[m[28;59H(B[0;7m 9 lines ](B[m[H(B[0;7m  GNU nano 3.2                                            Makefile                                                      [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d(B[0;1m[34mmain:[39m(B[m main.o key-value.o[4;9Hgcc main.o key-value.o -o main[6d(B[0;1m[34mmain.o:[39m(B[m main.c[7;9Hgcc -c main.c[9d(B[0;1m[34mkey-value.o:[39m(B[m key-value.c key-value.h[10;9Hgcc -c key-value.c key-value.h[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[12dp[?12l[?25h[?25lr[?12l[?25h[?25lo[?12l[?25h[?25lc[?12l[?25h[?25le[?12l[?25h[?25ls[?12l[?25h[?25ls[?12l[?25h[?25l-[?12l[?25h[?25lf[?12l[?25h[?25li[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25l.[?12l[?25h[?25lo[?12l[?25h[?25l(B[0;1m[34mprocess-file.o:[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l p[28d[K[12;18H[?12l[?25h[?25lr[?12l[?25h[?25lo[?12l[?25h[?25lc[?12l[?25h[?25le[?12l[?25h[?25ls[?12l[?25h[?25ls[?12l[?25h[?25l-[?12l[?25h[?25lf[?12l[?25h[?25li[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25l.[?12l[?25h[?25lc[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l p[?12l[?25h[?25lr[?12l[?25h[?25lo[?12l[?25h[?25lc[?12l[?25h[?25le[?12l[?25h[?25ls[?12l[?25h[?25ls[?12l[?25h[?25l.[?12l[?25h[?25l [?12l[?25h[?25lf[?12l[?25h[?25l [?12l[?25h[?25l-[?12l[?25h[?25lf[?12l[?25h[?25li[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25l.[?12l[?25h[?25lh[?12l[?25h[?25l[13d[?12l[?25h[?25l[8G[42m[1K [49m(B[m[?12l[?25h[?25l[1K g[?12l[?25h[?25lc[?12l[?25h[?25lc[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l -[?12l[?25h[?25lc[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l p[?12l[?25h[?25lr[?12l[?25h[?25lo[?12l[?25h[?25lc[?12l[?25h[?25le[?12l[?25h[?25ls[?12l[?25h[?25ls[?12l[?25h[?25l-[?12l[?25h[?25lf[?12l[?25h[?25li[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25l.[?12l[?25h[?25lc[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l p[?12l[?25h[?25lr[?12l[?25h[?25lo[?12l[?25h[?25lc[?12l[?25h[?25le[?12l[?25h[?25ls[?12l[?25h[?25ls[?12l[?25h[?25l-[?12l[?25h[?25lf[?12l[?25h[?25li[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25l.[?12l[?25h[?25lh[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 11 lines ](B[m[13;45H[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[10;39H[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[7;22H[?12l[?25h[?25l[6;15H[?12l[?25h[?25l[A[?12l[?25h[?25l[4;39H[?12l[?25h[?25l[3;25H[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[3;25H[42m [49m(B[m[?12l[?25h[?25l p[?12l[?25h[?25lr[?12l[?25h[?25lo[?12l[?25h[?25lc[?12l[?25h[?25le[?12l[?25h[?25ls[?12l[?25h[?25ls[?12l[?25h[?25l-[?12l[?25h[?25lf[?12l[?25h[?25li[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25l.[?12l[?25h[?25lo[?12l[?25h[?25l[28d[K[4;39H[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25lo[?12l[?25h[?25l  -o main[4;32H[?12l[?25h[?25lp -o main[4;33H[?12l[?25h[?25lr -o main[4;34H[?12l[?25h[?25lo -o main[4;35H[?12l[?25h[?25lc -o main[4;36H[?12l[?25h[?25le -o main[4;37H[?12l[?25h[?25ls -o main[4;38H[?12l[?25h[?25lss -o main[4;39H[?12l[?25h[?25l- -o main[4;40H[?12l[?25h[?25lf -o main[4;41H[?12l[?25h[?25li -o main[4;42H[?12l[?25h[?25ll -o main[4;43H[?12l[?25h[?25le -o main[4;44H[?12l[?25h[?25l. -o main[4;45H[?12l[?25h[?25lo -o main[4;46H[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 11 lines ](B[m[4;46H[?12l[?25h[?25l[28d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ make
+gcc -c main.c
+gcc -c key-value.c key-value.h
+gcc -c process-file.c process-file.h
+gcc main.o key-value.o process-file.o -o main
+slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ ./main
+a
+<stdin>:1: bad input
+1
+<stdin>:2: bad input
+^C
+slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ clear
+[H[2J[3Jslohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ cat README 
+A simple key-value lookup for alphanumeric keys and integer values
+in a fixed-size table.
+
+Insert key/value pair into table by typing a line containing simply
+key=value.
+
+Query the value of a key by typing a line containing simply key?.
+
+Delete a existing key by typing a line containing simply key-.
+
+Example Log:
+
+------------------------------------------------------------------
+$ ./key-value
+a=22
+a?
+22
+b=33
+c=44
+e=55
+f=66
+<stdin>:6: too many key-value pairs
+f?
+<stdin>:7: unknown key
+e?
+55
+e-
+e?
+<stdin>:10: unknown key
+f=66
+f?
+66
+$
+------------------------------------------------------------------
+slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ ./main[K[K[K[K[K[Knano Makefile 
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;53H(B[0;7m[ Reading File ](B[m[28;52H(B[0;7m[ Read 11 lines ](B[m[H(B[0;7m  GNU nano 3.2                                            Makefile                                                      [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d(B[0;1m[34mmain:[39m(B[m main.o key-value.o process-file.o[4;9Hgcc main.o key-value.o process-file.o -o main[6d(B[0;1m[34mmain.o:[39m(B[m main.c[7;9Hgcc -c main.c[9d(B[0;1m[34mkey-value.o:[39m(B[m key-value.c key-value.h[10;9Hgcc -c key-value.c key-value.h[12d(B[0;1m[34mprocess-file.o:[39m(B[m process-file.c process-file.h[13;9Hgcc -c process-file.c process-file.h[3d[?12l[?25h[?25l[?12l[?25h[?25l[4d[?12l[?25h[?25l[A[?12l[?25h[?25l[14d[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[4;54H[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[4;53H [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l k[?12l[?25h[?25le[?12l[?25h[?25ly[?12l[?25h[?25l-[?12l[?25h[?25lv[?12l[?25h[?25la[28d[K[4;56H[?12l[?25h[?25ll[?12l[?25h[?25lu[?12l[?25h[?25le[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 11 lines ](B[m[4;59H[?12l[?25h[?25l[28d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ ./key-value[K[K[K[K[K[K[K[K[K[K[Kmake
+make: 'main' is up to date.
+slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ makenano Makefile 
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;53H(B[0;7m[ Reading File ](B[m[28;52H(B[0;7m[ Read 11 lines ](B[m[H(B[0;7m  GNU nano 3.2                                            Makefile                                                      [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d(B[0;1m[34mmain:[39m(B[m main.o key-value.o process-file.o[4;9Hgcc main.o key-value.o process-file.o -o key-value[6d(B[0;1m[34mmain.o:[39m(B[m main.c[7;9Hgcc -c main.c[9d(B[0;1m[34mkey-value.o:[39m(B[m key-value.c key-value.h[10;9Hgcc -c key-value.c key-value.h[12d(B[0;1m[34mprocess-file.o:[39m(B[m process-file.c process-file.h[13;9Hgcc -c process-file.c process-file.h[3d[?12l[?25h[?25l[C[?12l[?25h[?25l[C[?12l[?25h[?25l[C[?12l[?25h[?25l[C[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[3;4H[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l:[1P[?12l[?25h[?25l(B[0;1m[34mk:[39m(B[m main.o key-value.o process-file.o[C[?12l[?25h[?25l(B[0;1m[34me:[39m(B[m main.o key-value.o process-file.o[3G[?12l[?25h[?25l(B[0;1m[34my:[39m(B[m main.o key-value.o process-file.o[4G[?12l[?25h[?25l(B[0;1m[34m-:[39m(B[m main.o key-value.o process-file.o[5G[?12l[?25h[?25l(B[0;1m[34mv:[39m(B[m main.o key-value.o process-file.o[6G[?12l[?25h[?25l(B[0;1m[34ma:[39m(B[m main.o key-value.o process-file.o[7G[?12l[?25h[?25l(B[0;1m[34ml:[39m(B[m main.o key-value.o process-file.o[8G[?12l[?25h[?25l(B[0;1m[34mu:[39m(B[m main.o key-value.o process-file.o[3;9H[?12l[?25h[?25l(B[0;1m[34me:[39m(B[m main.o key-value.o process-file.o[3;10H[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;54H(B[0;7mWrote 11 lines ](B[m[3;10H[?12l[?25h[?25l[28d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ nano Makefile 
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;53H(B[0;7m[ Reading File ](B[m[28;52H(B[0;7m[ Read 11 lines ](B[m[H(B[0;7m  GNU nano 3.2                                            Makefile                                                      [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d(B[0;1m[34mkey-value:[39m(B[m main.o key-value.o process-file.o[4;9Hgcc main.o key-value.o process-file.o -o key-value[6d(B[0;1m[34mmain.o:[39m(B[m main.c[7;9Hgcc -c main.c[9d(B[0;1m[34mkey-value.o:[39m(B[m key-value.c key-value.h[10;9Hgcc -c key-value.c key-value.h[12d(B[0;1m[34mprocess-file.o:[39m(B[m process-file.c process-file.h[13;9Hgcc -c process-file.c process-file.h[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[14d[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[15d[?12l[?25h[?25lc[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25la[?12l[?25h[?25ln[?12l[?25h[?25l(B[0;1m[34mclean:[39m(B[m[?12l[?25h[?25l[16d[?12l[?25h[?25l[8G[42m[1K [49m(B[m[?12l[?25h[?25l[1K r[?12l[?25h[?25lm[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l r[?12l[?25h[?25l[42m [49m(B[m[K[28d[K[16;12H[?12l[?25h[?25l -[?12l[?25h[?25lr[?12l[?25h[?25lf[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l *[?12l[?25h[?25l.[?12l[?25h[?25lo[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l *[?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l m[?12l[?25h[?25la[?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 14 lines ](B[m[16;24H[?12l[?25h[?25l[28d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ ls
+key-value.c  key-value.h.gch  main    main.o	process-file.c	process-file.h.gch  README
+key-value.h  key-value.o      main.c  Makefile	process-file.h	process-file.o
+slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ lsnano Makefile 
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;53H(B[0;7m[ Reading File ](B[m[28;52H(B[0;7m[ Read 14 lines ](B[m[H(B[0;7m  GNU nano 3.2                                            Makefile                                                      [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d(B[0;1m[34mkey-value:[39m(B[m main.o key-value.o process-file.o[4;9Hgcc main.o key-value.o process-file.o -o key-value[6d(B[0;1m[34mmain.o:[39m(B[m main.c[7;9Hgcc -c main.c[9d(B[0;1m[34mkey-value.o:[39m(B[m key-value.c key-value.h[10;9Hgcc -c key-value.c key-value.h[12d(B[0;1m[34mprocess-file.o:[39m(B[m process-file.c process-file.h[13;9Hgcc -c process-file.c process-file.h[15d(B[0;1m[34mclean:[16;9H[39m(B[mrm -rf *.o main[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[A[?12l[?25h[?25l[16;24H[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[16;20H*main[?12l[?25h[?25l.main[?12l[?25h[?25lhmain[?12l[?25h[?25l.main[?12l[?25h[?25lgmain[?12l[?25h[?25lcmain[28d[K[16;26H[?12l[?25h[?25lhmain[?12l[?25h[?25l main[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 14 lines ](B[m[16;28H[?12l[?25h[?25l[28d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ make clean
+rm -rf *.o *.h.gch main
+slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ ls
+key-value.c  key-value.h  main.c  Makefile  process-file.c  process-file.h  README
+slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ lsmake cleannano Makefile 
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;53H(B[0;7m[ Reading File ](B[m[28;52H(B[0;7m[ Read 14 lines ](B[m[H(B[0;7m  GNU nano 3.2                                            Makefile                                                      [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d(B[0;1m[34mkey-value:[39m(B[m main.o key-value.o process-file.o[4;9Hgcc main.o key-value.o process-file.o -o key-value[6d(B[0;1m[34mmain.o:[39m(B[m main.c[7;9Hgcc -c main.c[9d(B[0;1m[34mkey-value.o:[39m(B[m key-value.c key-value.h[10;9Hgcc -c key-value.c key-value.h[12d(B[0;1m[34mprocess-file.o:[39m(B[m process-file.c process-file.h[13;9Hgcc -c process-file.c process-file.h[15d(B[0;1m[34mclean:[16;9H[39m(B[mrm -rf *.o *.h.gch main[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[16;32H[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[16;31H [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l k[?12l[?25h[?25le[?12l[?25h[?25ly[?12l[?25h[?25l-[?12l[?25h[?25lv[?12l[?25h[?25la[?12l[?25h[?25ll[?12l[?25h[?25lu[28d[K[16;36H[?12l[?25h[?25le[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 14 lines ](B[m[16;37H[?12l[?25h[?25l[28d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ make
+gcc -c main.c
+gcc -c key-value.c key-value.h
+gcc -c process-file.c process-file.h
+gcc main.o key-value.o process-file.o -o key-value
+slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ ./key-value[K[K[K[K[K[K[K[K[K[K[KcatR[K README 
+A simple key-value lookup for alphanumeric keys and integer values
+in a fixed-size table.
+
+Insert key/value pair into table by typing a line containing simply
+key=value.
+
+Query the value of a key by typing a line containing simply key?.
+
+Delete a existing key by typing a line containing simply key-.
+
+Example Log:
+
+------------------------------------------------------------------
+$ ./key-value
+a=22
+a?
+22
+b=33
+c=44
+e=55
+f=66
+<stdin>:6: too many key-value pairs
+f?
+<stdin>:7: unknown key
+e?
+55
+e-
+e?
+<stdin>:10: unknown key
+f=66
+f?
+66
+$
+------------------------------------------------------------------
+slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ ,.[K[K./key-value 
+a=22
+a?
+22
+b=33
+c=44
+e=55
+f=66
+<stdin>:6: too many key-value pairs
+f?
+<stdin>:7: unknown key
+e?
+55
+e-
+e?
+<stdin>:10: unknown key
+f=66
+f?
+66
+$
+<stdin>:13: bad input
+^C
+slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ cat Makefile
+key-value: main.o key-value.o process-file.o
+	gcc main.o key-value.o process-file.o -o key-value
+
+main.o: main.c
+	gcc -c main.c
+
+key-value.o: key-value.c key-value.h
+	gcc -c key-value.c key-value.h
+
+process-file.o: process-file.c process-file.h
+	gcc -c process-file.c process-file.h
+
+clean:
+	rm -rf *.o *.h.gch key-value
+slohoka1@remote05:~/i220b/submit/lab1/exercises/4-from-scratch$ cd ..
+slohoka1@remote05:~/i220b/submit/lab1/exercises$ cd 5-auto-dependencies/
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ ls
+main.c	Makefile  quadr.c  quadr.h  test.data
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ nano Makefile 
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;53H(B[0;7m[ Reading File ](B[m[28;52H(B[0;7m[ Read 55 lines ](B[m[H(B[0;7m  GNU nano 3.2                                            Makefile                                                      [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d[39;49m(B[mCC[31m = [39m(B[mgcc[4dCPPFLAGS[31m = [39m(B[m-g -Wall -std=c18[5dLDFLAGS[31m = [39m(B[m-lm[7d[32m#produce a list of all cc files[8d[39m(B[mC_FILES[31m = [39m(B[m$(wildcard *.c)[10d[32m#produce a list of all *.o files by substituting cc in CXX_FILES with o.[11d[39m(B[mOFILES[31m = [39m(B[m$(C_FILES:c=o)[14dTARGET[31m = [39m(B[mquadr[16d[32m#default target[17d(B[0;1m[34mall:[17;17H(B[0m[34m$(TARGET)[19d(B[0;1m[34m$(TARGET):[17G(B[0m[34m$(OFILES)[20;17H$(CC)[39m(B[m [34m$(OFILES)[39m(B[m [34m$(LDFLAGS)[39m(B[m -o $@[23d(B[0;1m[34m.PHONY:[23;17H[39m(B[mclean[24d(B[0;1m[34mclean:[25;17H[39m(B[mrm -rf *~ *.o [34m$(TARGET)[39m(B[m [34m$(DEPDIR)[3d[39m(B[m[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l[24d[?12l[?25h[?25l[25d[?12l[?25h[?25l[26d[?12l[?25h[?25l[27d[?12l[?25h[?25l7[2;27r8[13S[1;30r[15;1H[32m#auto-dependences[16d#<http://make.mad-scientist.net/papers/advanced-auto-dependency-generation/>[18d#dir in which to generate dependences[19d[39m(B[mDEPDIR[31m = [39m(B[m.deps[21d[32m#have DEPDIR/*.d file for each *.c file[22d[39m(B[mDEPFILES[31m = [39m(B[m$(C_FILES:%.c=[34m$(DEPDIR)[39m(B[m/%.d)[24d[32m#-MT $@ sets target name in dependency file[25d#-MMD tells compiler to generate prereqs without including system headers[26d#-MP adds target for each prereq[27d#-MF $(DEPDIR)/$*.d sets name of output dependency file[15d[39m(B[m[?12l[?25h[?25l[28d[K[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l[24d[?12l[?25h[?25l[25d[?12l[?25h[?25l[26d[?12l[?25h[?25l[27d[?12l[?25h[?25l7[3;28r8[28d[13S[1;30r[15;1HDEPFLAGS[31m = [39m(B[m-MT $@ -MMD -MP -MF [34m$(DEPDIR)[39m(B[m/$*.d[17d[32m#delete built-in implicit rule for building .o from .c[18d(B[0;1m[34m%.o:[39m(B[m %.c[20d[32m#create our own implicit rule for building %.o from %.c[21d#| $(DEPDIR) makes DEPDIR an order only prereq[22d(B[0;1m[34m%.o:[22;17H[39m(B[m%.c [34m$(DEPDIR)[39m(B[m/%.d | [34m$(DEPDIR)[23;17H$(CC)[39m(B[m [34m$(DEPFLAGS)[39m(B[m [34m$(CFLAGS)[39m(B[m -c $<[25d[32m#create DEPDIR if it does not exist[26d(B[0;1m[34m$(DEPDIR):[27;17H[39m(B[m@mkdir -p $@[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l[24d[?12l[?25h[?25l[25d[?12l[?25h[?25l[26d[?12l[?25h[?25l[27d[?12l[?25h[?25l7[2;28r8[28d[13S[1;30r[2;1H[K[16d[32m#add a target to include all DEPFILES[17d(B[0;1m[34m$(DEPFILES):[18d(B[0m[35minclude[39m(B[m $(wildcard [34m$(DEPFILES)[39m(B[m)[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[29d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ mke
+bash: mke: command not found
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ make
+gcc -MT quadr.o -MMD -MP -MF .deps/quadr.d  -c quadr.c
+gcc -MT main.o -MMD -MP -MF .deps/main.d  -c main.c
+gcc quadr.o main.o -lm -o quadr
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ ls
+main.c	main.o	Makefile  quadr  quadr.c  quadr.h  quadr.o  test.data
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ ls -a
+.  ..  .deps  .gitignore  main.c  main.o  Makefile  quadr  quadr.c  quadr.h  quadr.o  test.data
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ nano [K[K[K[K[Kcd [K[K[Kls -l .deps
+total 8
+-rw-r----- 1 slohoka1 slohoka1 33 Sep  2 17:58 main.d
+-rw-r----- 1 slohoka1 slohoka1 35 Sep  2 17:58 quadr.d
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ cd .deps
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies/.deps$ ls
+main.d	quadr.d
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies/.deps$ cat main.d
+main.o: main.c quadr.h
+
+quadr.h:
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies/.deps$ cat main.dls[Kcat main.d[K[K[K[K[K[Kquadr.d 
+quadr.o: quadr.c quadr.h
+
+quadr.h:
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies/.deps$ cd ..
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ ls
+main.c	main.o	Makefile  quadr  quadr.c  quadr.h  quadr.o  test.data
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ make clean
+rm -rf *~ *.o quadr .deps
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ make
+gcc -MT quadr.o -MMD -MP -MF .deps/quadr.d  -c quadr.c
+gcc -MT main.o -MMD -MP -MF .deps/main.d  -c main.c
+gcc quadr.o main.o -lm -o quadr
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ ./quard[K[Kdr
+^C
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ ./quadr < test.data
+a = 2, b = 6, c = 4, root1 = -1, root2 = -2
+a = 1, b = 5, c = -2, root1 = 0.372281, root2 = -5.37228
+a = 2, b = 3, c = 4, root1 = -nan, root2 = -nan
+<stdin>:4: must have 3 doubles: bad input line 1 2+ 3
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ nano test.data 
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;53H(B[0;7m[ Reading File ](B[m[28;59H(B[0;7m 4 lines ](B[m[H(B[0;7m  GNU nano 3.2                                           test.data                                                      [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d[39;49m(B[m2 6 4[4d1 5 -2[5d2 3 4 5[6d1 2+ 3[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l1 [?12l[?25h[?25l2[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[6;4H 3[K[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote[28;69H(B[m[6;4H[?12l[?25h[?25l[28d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ nano test.data ./quadr < test.data
+a = 2, b = 6, c = 4, root1 = -1, root2 = -2
+a = 1, b = 5, c = -2, root1 = 0.372281, root2 = -5.37228
+a = 2, b = 3, c = 4, root1 = -nan, root2 = -nan
+a = 1, b = 2, c = 3, root1 = -nan, root2 = -nan
+slohoka1@remote05:~/i220b/submit/lab1/exercises/5-auto-dependencies$ exit
+
+Script done on 2021-09-02 18:00:59-04:00 [COMMAND_EXIT_CODE="0"]
