@@ -1,0 +1,182 @@
+Script started on 2021-09-09 16:37:41-04:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="120" LINES="30"]
+bash: /home/umrigar/cs220/bin/student.rc: No such file or directory
+slohoka1@remote04:~/i220b/submit/lab2$ cd exercises/
+slohoka1@remote04:~/i220b/submit/lab2/exercises$ ls
+1-hello-args  2-hello-upcase-args
+slohoka1@remote04:~/i220b/submit/lab2/exercises$ cd 1-hello-args/
+slohoka1@remote04:~/i220b/submit/lab2/exercises/1-hello-args$ ls
+hello.c  Makefile  README
+slohoka1@remote04:~/i220b/submit/lab2/exercises/1-hello-args$ make
+cc -g -Wall -std=c18    hello.c   -o hello
+slohoka1@remote04:~/i220b/submit/lab2/exercises/1-hello-args$ ls
+hello  hello.c	Makefile  README
+slohoka1@remote04:~/i220b/submit/lab2/exercises/1-hello-args$ ./ [Khello bart lisa
+hello bart
+hello lisa
+hello (null)
+slohoka1@remote04:~/i220b/submit/lab2/exercises/1-hello-args$ gdb hello
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) start bart lisa
+Temporary breakpoint 1 at 0x118b: file hello.c, line 13.
+Starting program: /import/linux/home1/slohoka1/projects/i220b/submit/lab2/exercises/1-hello-args/hello bart lisa
+
+Temporary breakpoint 1, main (argc=3, argv=0x7fffffffe838) at hello.c:13
+13	  if (argc == 1) {
+(gdb) p argc
+$1 = 3
+(gdb) p rgv
+No symbol "rgv" in current context.
+(gdb) p rgvargv
+$2 = (const char **) 0x7fffffffe838
+(gdb) b say_hello 
+Breakpoint 2 at 0x555555555161: file hello.c, line 7.
+(gdb) c
+Continuing.
+
+Breakpoint 2, say_hello (name=0x7fffffffeafa "bart") at hello.c:7
+7	  printf("hello %s\n", name);
+(gdb) p name
+$3 = 0x7fffffffeafa "bart"
+(gdb) c
+Continuing.
+hello bart
+
+Breakpoint 2, say_hello (name=0x7fffffffeaff "lisa") at hello.c:7
+7	  printf("hello %s\n", name);
+(gdb) p name
+$4 = 0x7fffffffeaff "lisa"
+(gdb) c
+Continuing.
+hello lisa
+
+Breakpoint 2, say_hello (name=0x0) at hello.c:7
+7	  printf("hello %s\n", name);
+(gdb) p name
+$5 = 0x0
+(gdb) c
+Continuing.
+hello (null)
+[Inferior 1 (process 2176378) exited normally]
+(gdb) exit
+Undefined command: "exit".  Try "help".
+(gdb) close
+Undefined command: "close".  Try "help".
+(gdb) end
+This command cannot be used at the top level.
+(gdb) q
+slohoka1@remote04:~/i220b/submit/lab2/exercises/1-hello-args$ clear
+[H[2J[3Jslohoka1@remote04:~/i220b/submit/lab2/exercises/1-hello-args$ nano hello.c
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;53H(B[0;7m[ Reading File ](B[m[28;52H(B[0;7m[ Read 23 lines ](B[m[H(B[0;7m  GNU nano 3.2                                            hello.c                                                       [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d(B[0;1m[36m#include[39m(B[m (B[0;1m[33m<stdio.h>[4d[36m#include[39m(B[m (B[0;1m[33m<stdlib.h>[6d(B[0m[32mstatic[39m(B[m [32mvoid[7d[39m(B[msay_hello([32mconst[39m(B[m [32mchar[39m(B[m *name)[8d{[9d printf((B[0;1m[33m"hello %s\n"[39m(B[m, name);[10d}[12d[32mint[39m[42m [13d[49m(B[mmain([32mint[39m(B[m argc, [32mconst[39m(B[m [32mchar[39m(B[m *argv[])[14d{[15d (B[0;1m[33mif[39m(B[m (argc == 1) {[16;5Hfprintf(stderr, (B[0;1m[33m"usage: %s NAME...\n"[39m(B[m, argv[0]);[17;5Hexit(1);[18;3H}[19d(B[0;1m[33melse[39m(B[m {[20;5H(B[0;1m[33mfor[39m(B[m ([32mint[39m(B[m i = 1; i <= argc; i++) {[21;7Hsay_hello(argv[i]);[22;5H}[23;3H}[24d[35mreturn[39m(B[m 0;[25d}[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l    [?12l[?25h[?25l[10G[?12l[?25h[?25l[14G[?12l[?25h[?25li = [?12l[?25h[?25l1; [?12l[?25h[?25l[26G[?12l[?25h[?25l[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[20;24H[1P[?12l[?25h[?25l[28d[K[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 23 lines ](B[m[20;24H[?12l[?25h[?25l[28d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote04:~/i220b/submit/lab2/exercises/1-hello-args$ nano hello.c[K[K[K[K[K[K[K[K[K[K[K[Kmake
+cc -g -Wall -std=c18    hello.c   -o hello
+slohoka1@remote04:~/i220b/submit/lab2/exercises/1-hello-args$ ./hello bart lisa
+hello bart
+hello lisa
+slohoka1@remote04:~/i220b/submit/lab2/exercises/1-hello-args$ cd ..
+slohoka1@remote04:~/i220b/submit/lab2/exercises$ cd 2-hello-upcase-args/
+slohoka1@remote04:~/i220b/submit/lab2/exercises/2-hello-upcase-args$ ls
+hello.c  Makefile  README
+slohoka1@remote04:~/i220b/submit/lab2/exercises/2-hello-upcase-args$ make
+cc -g -Wall -std=c18    hello.c   -o hello
+slohoka1@remote04:~/i220b/submit/lab2/exercises/2-hello-upcase-args$ ./ [Khello bart lisa
+Hello Bart
+Hello Lisa
+slohoka1@remote04:~/i220b/submit/lab2/exercises/2-hello-upcase-args$ ./hello bart lisa[C lisas lisai lisam lisap lisas lisao lisan lisa[C[1@"[C[C[C[C[C[C[C[C[C[C[C[C" lisa[C"lisa[C[C[C[C simpson"
+Hello Bart Simpson¹U
+Hello Lisa Simpson¹U
+slohoka1@remote04:~/i220b/submit/lab2/exercises/2-hello-upcase-args$ gdb hello
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) start "bart simpson" "lisa simpson"
+Temporary breakpoint 1 at 0x12be: file hello.c, line 35.
+Starting program: /import/linux/home1/slohoka1/projects/i220b/submit/lab2/exercises/2-hello-upcase-args/hello "bart simpson" "lisa simpson"
+
+Temporary breakpoint 1, main (argc=3, argv=0x7fffffffe818) at hello.c:35
+35	  if (argc == 1) {
+(gdb) b s[Kh[Km[K[K[Kb say_hello 
+Breakpoint 2 at 0x55555555528b: file hello.c, line 29.
+(gdb) b up`[Kcase_words 
+Breakpoint 3 at 0x555555555195: file hello.c, line 13.
+(gdb) c
+Continuing.
+
+Breakpoint 3, upcase_words (in=0x7fffffffeadc "bart simpson", out=0x7fffffffe6c0 "\001") at hello.c:13
+13	  int inWord = 0;
+(gdb) p in
+$1 = 0x7fffffffeadc "bart simpson"
+(gdb) n
+14	  int n = strlen(in);
+(gdb) p n
+$2 = 0
+(gdb) n
+15	  for (int i = 0; i < n; i++) {
+(gdb) p n
+$3 = 12
+(gdb) c
+Continuing.
+
+Breakpoint 2, say_hello (name=0x7fffffffe6c0 "Bart SimpsonUU") at hello.c:29
+29	  printf("Hello %s\n", name);
+(gdb) p name
+$4 = 0x7fffffffe6c0 "Bart SimpsonUU"
+(gdb) c
+Continuing.
+Hello Bart SimpsonUU
+
+Breakpoint 3, upcase_words (in=0x7fffffffeae9 "lisa simpson", out=0x7fffffffe6c0 "Bart Sim)SUUUU") at hello.c:13
+13	  int inWord = 0;
+(gdb) r
+The program being debugged has been started already.
+Start it from the beginning? (y or n) n
+Program not restarted.
+(gdb) c
+Continuing.
+
+Breakpoint 2, say_hello (name=0x7fffffffe6c0 "Lisa SimpsonUU") at hello.c:29
+29	  printf("Hello %s\n", name);
+(gdb) c
+Continuing.
+Hello Lisa SimpsonUU
+[Inferior 1 (process 2177049) exited normally]
+(gdb) c
+The program is not being run.
+(gdb) q
+slohoka1@remote04:~/i220b/submit/lab2/exercises/2-hello-upcase-args$ clear
+[H[2J[3Jslohoka1@remote04:~/i220b/submit/lab2/exercises/2-hello-upcase-args$ nan [Ko hello.c
+[?1049h[22;0;0t[1;30r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[28;53H(B[0;7m[ Reading File ](B[m[28;52H(B[0;7m[ Read 48 lines ](B[m[H(B[0;7m  GNU nano 3.2                                            hello.c                                                       [1;119H(B[m[29d(B[0;7m^G(B[m Get Help    (B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut Text    (B[0;7m^J(B[m Justify     (B[0;7m^C(B[m Cur Pos     (B[0;7mM-U(B[m Undo[106G(B[0;7mM-A(B[m Mark Text[30d(B[0;7m^X(B[m Exit[30;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Uncut Text  (B[0;7m^T(B[m To Spell    (B[0;7m^_(B[m Go To Line  (B[0;7mM-E(B[m Redo[106G(B[0;7mM-6(B[m Copy Text[28d[3d(B[0;1m[36m#include[39m(B[m (B[0;1m[33m<ctype.h>[4d[36m#include[39m(B[m (B[0;1m[33m<stdio.h>[5d[36m#include[39m(B[m (B[0;1m[33m<stdlib.h>[6d[36m#include[39m(B[m (B[0;1m[33m<string.h>[8d[34m/** Upcase the initial letter of each word from in, copying the[9d *  results into out.  The caller is responsible to ensure that out[10d *  has enough space for the strlen(in) characters of in.[11d */[12d(B[0m[32mvoid[13d[39m(B[mupcase_words([32mconst[39m(B[m [32mchar[39m(B[m in[], [32mchar[39m(B[m out[])[14d{[15d [32mint[39m(B[m inWord = 0;[16;3H[32mint[39m(B[m n = strlen(in);[17;3H(B[0;1m[33mfor[39m(B[m ([32mint[39m(B[m i = 0; i < n; i++) {[18;5H(B[0;1m[33mif[39m(B[m (!inWord && isalpha(in[i])) {[19;7Hout[i] = toupper(in[i]);[20;5H}[21d(B[0;1m[33melse[39m(B[m {[22;7Hout[i] = in[i];[23;5H}[24dinWord = isalpha(in[i]);[25;3H}[26d}[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l[24d[?12l[?25h[?25l[25d[?12l[?25h[?25l[26d[?12l[?25h[?25l[27d[?12l[?25h[?25l7[3;27r8[13S[1;30r[15;1H[32mstatic[39m(B[m [32mvoid[16d[39m(B[msay_hello([32mconst[39m(B[m [32mchar[39m(B[m *name)[17d{[18d printf((B[0;1m[33m"Hello %s\n"[39m(B[m, name);[19d}[21d[32mint[22d[39m(B[mmain([32mint[39m(B[m argc, [32mconst[39m(B[m [32mchar[39m(B[m *argv[])[23d{[24d (B[0;1m[33mif[39m(B[m (argc == 1) {[25;5Hfprintf(stderr, (B[0;1m[33m"usage: %s NAME...\n"[39m(B[m, argv[0]);[26;5Hexit(1);[27;3H}[15d[?12l[?25h[?25l[28d[K[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l[24d[?12l[?25h[?25l[25d[?12l[?25h[?25l[26d[?12l[?25h[?25l[27d[?12l[?25h[?25l7[3;28r8[28d[13S[1;30r[15;3H(B[0;1m[33melse[39m(B[m {[16;5H(B[0;1m[33mfor[39m(B[m ([32mint[39m(B[m i = 1; i < argc; i++) {[17;7H[32mconst[39m(B[m [32mchar[39m(B[m *name = argv[i];[18;7H[32mchar[39m(B[m friendlyName[strlen(name)];[19;7Hupcase_words(name, friendlyName);[20;7Hsay_hello(friendlyName);[21;5H}[22;3H}[23d[35mreturn[39m(B[m 0;[24d}[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l[24d[?12l[?25h[?25l[25d[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[18d[?12l[?25h[?25l[7G[?12l[?25h[?25l[12G[?12l[?25h[?25l[18;25H[?12l[?25h[?25l[32G[?12l[?25h[?25l[19;7H[?12l[?25h[?25l[14G[?12l[?25h[?25l[7G[?12l[?25h[?25l[18;32H[?12l[?25h[?25ln[?12l[?25h[?25la[?12l[?25h[?25lm[?12l[?25h[?25le[?12l[?25h[?25l)[?12l[?25h[?25l[1;111H(B[0;7mModified(B[m[18;37H ];[?12l[?25h[?25l+];[?12l[?25h[?25l ];[?12l[?25h[?25l1];[?12l[?25h[?25l[19d[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l)[?12l[?25h[?25l[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A) {[?12l[?25h[?25l[15;9H[?12l[?25h[?25l[A  }[?12l[?25h[?25l[13;13H[?12l[?25h[?25l[12;38H[?12l[?25h[?25l[11;19H[?12l[?25h[?25l[A{[?12l[?25h[?25l[9;35H[?12l[?25h[?25l[8;4H[?12l[?25h[?25l[A[?12l[?25h[?25l[A}[?12l[?25h[?25l[5;30H[?12l[?25h[?25l[A{[?12l[?25h[?25l[3;28H[?12l[?25h[?25l[2;27r[2;1H[13T[1;30r[3;3H[32mint[39m(B[m n = strlen(in);[4;3H(B[0;1m[33mfor[39m(B[m ([32mint[39m(B[m i = 0; i < n; i++) {[5;5H(B[0;1m[33mif[39m(B[m (!inWord && isalpha(in[i])) {[6;7Hout[i] = toupper(in[i]);[7;5H}[8d(B[0;1m[33melse[39m(B[m {[9;7Hout[i] = in[i];[10;5H}[11dinWord = isalpha(in[i]);[12;3H}[13d}[15d[32mstatic[39m(B[m [32mvoid[39m(B[m[?12l[?25h[?25l[A[?12l[?25h[?25l[A}[?12l[?25h[?25l[A }[?12l[?25h[?25l[11;29H[?12l[?25h[?25l[10;6H[?12l[?25h[?25l[9;22H[?12l[?25h[?25l[8;11H[?12l[?25h[?25l[7;6H[?12l[?25h[?25l[6;31H[?12l[?25h[?25l[5;37H[?12l[?25h[?25l[4;32H[?12l[?25h[?25l[3;22H[?12l[?25h[?25l[2;27r[2;1H[13T[1;30r[3;1H(B[0;1m[36m#include[39m(B[m (B[0;1m[33m<ctype.h>[4d[36m#include[39m(B[m (B[0;1m[33m<stdio.h>[5d[36m#include[39m(B[m (B[0;1m[33m<stdlib.h>[6d[36m#include[39m(B[m (B[0;1m[33m<string.h>[8d[34m/** Upcase the initial letter of each word from in, copying the[9d *  results into out.  The caller is responsible to ensure that out[10d *  has enough space for the strlen(in) characters of in.[11d */[12d(B[0m[32mvoid[13d[39m(B[mupcase_words([32mconst[39m(B[m [32mchar[39m(B[m in[], [32mchar[39m(B[m out[])[14d{[15d [32mint[39m(B[m inWord = 0;[?12l[?25h[?25l[A{[?12l[?25h[?25l[13;38H[?12l[?25h[?25l[12;5H[?12l[?25h[?25l[A[?12l[?25h[?25l[10;38H[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[6;20H[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[4d[?12l[?25h[?25l[5;20H[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8;38H[?12l[?25h[?25l[10d[?12l[?25h[?25l[11;4H[?12l[?25h[?25l[12;5H[?12l[?25h[?25l[13;38H[?12l[?25h[?25l[14d{[?12l[?25h[?25l[15;18H[?12l[?25h[?25l[16;22H[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[17d[?12l[?25h[?25l[16;22H[?12l[?25h[?25l[17d[?12l[?25h[?25l[16;22H[?12l[?25h[?25l[17d[?12l[?25h[?25l[16;22H[?12l[?25h[?25l[17d[?12l[?25h[?25l[16;22H[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20;6H[?12l[?25h[?25l[21;11H[?12l[?25h[?25l[22;21H[?12l[?25h[?25l[23;6H[?12l[?25h[?25l[24;21H[?12l[?25h[?25l[25;4H[?12l[?25h[?25l[26d[K[27d}[A[?12l[?25h[?25lo[?12l[?25h[?25lu[?12l[?25h[?25lt[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[8G[1K out[?12l[?25h[?25lout[K[?12l[?25h[?25l out [?12l[?25h[?25l  out[?12l[?25h[?25l   out[?12l[?25h[?25l  out[K[?12l[?25h[?25lout[?12l[?25h[?25l[[?12l[?25h[?25ln[?12l[?25h[?25l][?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l =[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l '[?12l[?25h[?25l\[?12l[?25h[?25l0[?12l[?25h[?25l(B[0;1m[35m'\0'[39m(B[m[?12l[?25h[?25l;[?12l[?25h[?25l[1;119H[1;111H(B[0;7m        (B[m[28;52H(B[0;7m[ Wrote 49 lines ](B[m[26;17H[?12l[?25h[?25l[28d[J[30;120H[?12l[?25h[30;1H[?1049l[23;0;0t[?1l>slohoka1@remote04:~/i220b/submit/lab2/exercises/2-hello-upcase-args$ make
+cc -g -Wall -std=c18    hello.c   -o hello
+slohoka1@remote04:~/i220b/submit/lab2/exercises/2-hello-upcase-args$ ./hello "bart simpson" "lisa simpson"
+Hello Bart Simpson
+Hello Lisa Simpson
+slohoka1@remote04:~/i220b/submit/lab2/exercises/2-hello-upcase-args$ cd ../..
+slohoka1@remote04:~/i220b/submit/lab2$ exit
+
+Script done on 2021-09-09 16:45:14-04:00 [COMMAND_EXIT_CODE="0"]
