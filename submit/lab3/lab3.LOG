@@ -1,0 +1,3814 @@
+Script started on 2021-09-23 16:38:24-04:00 [TERM="xterm-256color" TTY="/dev/pts/13" COLUMNS="99" LINES="54"]
+slohoka1@remote00:~/i220b/submit/lab3$ mkdr[Kir dir
+slohoka1@remote00:~/i220b/submit/lab3$ touch [K[K[K[K[K[Krmdir dir
+slohoka1@remote00:~/i220b/submit/lab3$ cd exercises/
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ mkdir dir
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ touch t1.c T1.c[Ks v.c V1.s[1P1.sv1.s[C[C[C x.c dir/t2.c dir/T2.s1 di r/t3
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ ls
+4  c-stdin-stdout  dir	t1.c  T1.s  v1.s  v.c  x.c
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ s[Kls -l
+total 0
+lrwxrwxrwx 1 slohoka1 slohoka1  14 Sep 23 11:22 4 -> c-stdin-stdout
+drwxr-x--- 2 slohoka1 slohoka1 102 Sep 23 11:22 c-stdin-stdout
+drwxr-x--- 2 slohoka1 slohoka1  54 Sep 23 16:39 dir
+-rw-r----- 1 slohoka1 slohoka1   0 Sep 23 16:39 t1.c
+-rw-r----- 1 slohoka1 slohoka1   0 Sep 23 16:39 T1.s
+-rw-r----- 1 slohoka1 slohoka1   0 Sep 23 16:39 v1.s
+-rw-r----- 1 slohoka1 slohoka1   0 Sep 23 16:39 v.c
+-rw-r----- 1 slohoka1 slohoka1   0 Sep 23 16:39 x.c
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ ls -tl
+total 0
+drwxr-x--- 2 slohoka1 slohoka1  54 Sep 23 16:39 dir
+-rw-r----- 1 slohoka1 slohoka1   0 Sep 23 16:39 x.c
+-rw-r----- 1 slohoka1 slohoka1   0 Sep 23 16:39 T1.s
+-rw-r----- 1 slohoka1 slohoka1   0 Sep 23 16:39 v1.s
+-rw-r----- 1 slohoka1 slohoka1   0 Sep 23 16:39 v.c
+-rw-r----- 1 slohoka1 slohoka1   0 Sep 23 16:39 t1.c
+drwxr-x--- 2 slohoka1 slohoka1 102 Sep 23 11:22 c-stdin-stdout
+lrwxrwxrwx 1 slohoka1 slohoka1  14 Sep 23 11:22 4 -> c-stdin-stdout
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ cd dir
+slohoka1@remote00:~/i220b/submit/lab3/exercises/dir$ ls
+t2.c  T2.s1  t3
+slohoka1@remote00:~/i220b/submit/lab3/exercises/dir$ ls -l
+total 0
+-rw-r----- 1 slohoka1 slohoka1 0 Sep 23 16:39 t2.c
+-rw-r----- 1 slohoka1 slohoka1 0 Sep 23 16:39 T2.s1
+-rw-r----- 1 slohoka1 slohoka1 0 Sep 23 16:39 t3
+slohoka1@remote00:~/i220b/submit/lab3/exercises/dir$ l
+bash: l: command not found
+slohoka1@remote00:~/i220b/submit/lab3/exercises/dir$ s [K[Kls -tl
+total 0
+-rw-r----- 1 slohoka1 slohoka1 0 Sep 23 16:39 t3
+-rw-r----- 1 slohoka1 slohoka1 0 Sep 23 16:39 T2.s1
+-rw-r----- 1 slohoka1 slohoka1 0 Sep 23 16:39 t2.c
+slohoka1@remote00:~/i220b/submit/lab3/exercises/dir$ ls -t
+t3  T2.s1  t2.c
+slohoka1@remote00:~/i220b/submit/lab3/exercises/dir$ man toucj[Kh
+[?1049h[22;0;0t[?1h=TOUCH(1)                                  User Commands                                 TOUCH(1)[m
+[m
+[1mNAME[0m[m
+       touch - change file timestamps[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mtouch[0m [[4mOPTION[24m]... [4mFILE[24m...[m
+[m
+[1mDESCRIPTION[0m[m
+       Update the access and modification times of each FILE to the current time.[m
+[m
+       A FILE argument that does not exist is created empty, unless [1m-c[0m or [1m-h[0m is supplied.[m
+[m
+       A  FILE argument string of - is handled specially and causes touch to change the times of[m
+       the file associated with standard output.[m
+[m
+       Mandatory arguments to long options are mandatory for short options too.[m
+[m
+       [1m-a[0m     change only the access time[m
+[m
+       [1m-c[0m, [1m--no-create[0m[m
+              do not create any files[m
+[m
+       [1m-d[0m, [1m--date[0m=[4mSTRING[24m[m
+              parse STRING and use it instead of current time[m
+[m
+       [1m-f[0m     (ignored)[m
+[m
+       [1m-h[0m, [1m--no-dereference[0m[m
+              affect each symbolic link instead of any referenced file (useful only  on  systems[m
+              that can change the timestamps of a symlink)[m
+[m
+       [1m-m[0m     change only the modification time[m
+[m
+       [1m-r[0m, [1m--reference[0m=[4mFILE[24m[m
+              use this file's times instead of current time[m
+[m
+       [1m-t[0m STAMP[m
+              use [[CC]YY]MMDDhhmm[.ss] instead of current time[m
+[m
+       [1m--time[0m=[4mWORD[24m[m
+              change the specified time: WORD is access, atime, or use: equivalent to [1m-a[0m WORD is[m
+              modify or mtime: equivalent to [1m-m[0m[m
+[m
+       [1m--help[0m display this help and exit[m
+[m
+       [1m--version[0m[m
+              output version information and exit[m
+[m
+       Note that the [1m-d[0m and [1m-t[0m options accept different time-date formats.[m
+[m
+[1mDATE[0m [1mSTRING[0m[m
+       The --date=STRING is a mostly free format human readable date string such as "Sun, 29 Feb[m
+[7m Manual page touch(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0tslohoka1@remote00:~/i220b/submit/lab3/exercises/dir$ man ls
+[?1049h[22;0;0t[?1h=LS(1)                                     User Commands                                    LS(1)[m
+[m
+[1mNAME[0m[m
+       ls - list directory contents[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mls[0m [[4mOPTION[24m]... [[4mFILE[24m]...[m
+[m
+[1mDESCRIPTION[0m[m
+       List information about the FILEs (the current directory by default).  Sort entries alpha‐[m
+       betically if none of [1m-cftuvSUX[0m nor [1m--sort[0m is specified.[m
+[m
+       Mandatory arguments to long options are mandatory for short options too.[m
+[m
+       [1m-a[0m, [1m--all[0m[m
+              do not ignore entries starting with .[m
+[m
+       [1m-A[0m, [1m--almost-all[0m[m
+              do not list implied . and ..[m
+[m
+       [1m--author[0m[m
+              with [1m-l[0m, print the author of each file[m
+[m
+       [1m-b[0m, [1m--escape[0m[m
+              print C-style escapes for nongraphic characters[m
+[m
+       [1m--block-size[0m=[4mSIZE[24m[m
+              with [1m-l[0m, scale sizes by SIZE when printing them; e.g., '--block-size=M'; see  SIZE[m
+              format below[m
+[m
+       [1m-B[0m, [1m--ignore-backups[0m[m
+              do not list implied entries ending with ~[m
+[m
+       [1m-c[0m     with  [1m-lt[0m:  sort by, and show, ctime (time of last modification of file status in‐[m
+              formation); with [1m-l[0m: show ctime and sort by name; otherwise: sort by ctime, newest[m
+              first[m
+[m
+       [1m-C[0m     list entries by columns[m
+[m
+       [1m--color[0m[=[4mWHEN[24m][m
+              colorize  the  output;  WHEN  can  be  'always'  (default  if omitted), 'auto', or[m
+              'never'; more info below[m
+[m
+       [1m-d[0m, [1m--directory[0m[m
+              list directories themselves, not their contents[m
+[m
+       [1m-D[0m, [1m--dired[0m[m
+              generate output designed for Emacs' dired mode[m
+[m
+       [1m-f[0m     do not sort, enable [1m-aU[0m, disable [1m-ls[0m [1m--color[0m[m
+[m
+       [1m-F[0m, [1m--classify[0m[m
+              append indicator (one of */=>@|) to entries[m
+[7m Manual page ls(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0tslohoka1@remote00:~/i220b/submit/lab3/exercises/dir$ ls T*
+T2.s1
+slohoka1@remote00:~/i220b/submit/lab3/exercises/dir$ cd ..
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ ls dir/*.?
+dir/t2.c
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ ls [t-v]*.c
+t1.c  v.c
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ ls /bin ?p*[C[p*[C-*s*]*[C
+ls: cannot access '?[p-s]*': No such file or directory
+/bin:
+bash	       fusermount      ntfscat	      systemd
+bunzip2        getfacl	       ntfscluster    systemd-ask-password
+busybox        grep	       ntfscmp	      systemd-escape
+bzcat	       gunzip	       ntfsfallocate  systemd-hwdb
+bzcmp	       gzexe	       ntfsfix	      systemd-inhibit
+bzdiff	       gzip	       ntfsinfo       systemd-machine-id-setup
+bzegrep        hciconfig       ntfsls	      systemd-notify
+bzexe	       hostname        ntfsmove       systemd-sysusers
+bzfgrep        ip	       ntfsrecover    systemd-tmpfiles
+bzgrep	       journalctl      ntfssecaudit   systemd-tty-ask-password-agent
+bzip2	       kbd_mode        ntfstruncate   tar
+bzip2recover   keyctl	       ntfsusermap    tcsh
+bzless	       kill	       ntfswipe       tempfile
+bzmore	       kmod	       openvt	      touch
+cat	       ln	       pidof	      true
+chacl	       loadkeys        ping	      udevadm
+chgrp	       login	       ping4	      ulockmgr_server
+chmod	       loginctl        ping6	      umount
+chown	       lowntfs-3g      ps	      uname
+chvt	       ls	       pwd	      uncompress
+cp	       lsblk	       rbash	      unicode_start
+cpio	       lsmod	       readlink       vdir
+csh	       mkdir	       red	      wdctl
+dash	       mknod	       rm	      which
+date	       mktemp	       rmdir	      ypdomainname
+dd	       more	       rnano	      zcat
+df	       mount	       run-parts      zcmp
+dir	       mountpoint      rzsh	      zdiff
+dmesg	       mt	       sed	      zegrep
+dnsdomainname  mt-gnu	       setfacl	      zfgrep
+domainname     mv	       setfont	      zforce
+dumpkeys       nano	       setupcon       zgrep
+echo	       nc	       sh	      zless
+ed	       nc.traditional  sh.distrib     zmore
+egrep	       netcat	       sleep	      znew
+false	       netstat	       ss	      zsh
+fgconsole      networkctl      stty	      zsh5
+fgrep	       nisdomainname   su
+findmnt        ntfs-3g	       sync
+fuser	       ntfs-3g.probe   systemctl
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ ls /etc/*rc
+/etc/bash.bashrc    /etc/gnashrc	   /etc/matplotlibrc  /etc/quilt.quiltrc  /etc/wgetrc
+/etc/chktexrc	    /etc/gnashthumbnailrc  /etc/Muttrc	      /etc/sbclrc
+/etc/csh.cshrc	    /etc/inputrc	   /etc/nanorc	      /etc/screenrc
+/etc/gnashpluginrc  /etc/mail.rc	   /etc/pbuilderrc    /etc/slsh.rc
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ ls /bin/???
+/bin/cat  /bin/csh  /bin/dir  /bin/pwd	/bin/red  /bin/sed  /bin/tar  /bin/zsh
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ clear
+[H[2J[3Jslohoka1@remote00:~/i220b/submit/lab3/exercises$ ls > ls.log
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ cat ls.log
+4
+c-stdin-stdout
+dir
+ls.log
+t1.c
+T1.s
+v1.s
+v.c
+x.c
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ cat > cat.log
+askdha
+asjhdad
+askjdhads
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ dir >> ls.log[1@l[1@s[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ cat ls.log
+4
+c-stdin-stdout
+dir
+ls.log
+t1.c
+T1.s
+v1.s
+v.c
+x.c
+t2.c
+T2.s1
+t3
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ cat < ls.log
+4
+c-stdin-stdout
+dir
+ls.log
+t1.c
+T1.s
+v1.s
+v.c
+x.c
+t2.c
+T2.s1
+t3
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ ls "[K| wc -l
+10
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ ls /bin/???? | wc -l
+23
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ ls /bin/c* > bin-c.log
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ cat bin-c.log 
+/bin/cat
+/bin/chacl
+/bin/chgrp
+/bin/chmod
+/bin/chown
+/bin/chvt
+/bin/cp
+/bin/cpio
+/bin/csh
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ ls -R /etc
+/etc:
+3270			       hosts.deny		  polkit-1
+a2ps.cfg		       hosts.external		  postgresql-common
+a2ps-site.cfg		       hosts.internal		  ppp
+acpi			       idmapd.conf		  printcap
+adduser.conf		       idmapd.conf.ucf-dist	  profile
+adjtime			       ifplugd			  profile.d
+aliases			       ImageMagick-6		  protocols
+alsa			       init			  pulse
+alternatives		       init.d			  purple
+anacrontab		       initramfs-tools		  python
+apache2			       inputrc			  python2.7
+apm			       insserv			  python3
+apparmor		       insserv.conf		  python3.5
+apparmor.d		       insserv.conf.d		  python3.7
+apt			       installed_packages	  qemu-ifdown
+apt-venv.conf		       iproute2			  qemu-ifup
+at.deny			       iscsi			  quilt.quiltrc
+at-spi2			       issue			  quotagrpadmins
+autoconf2.13		       issue.net		  quotatab
+avahi			       java			  R
+bash.bashrc		       java-10-oracle		  racket
+bash_completion		       java-11-oracle		  rarfiles.lst
+bash_completion.d	       java-8-oracle		  rc0.d
+bindresvport.blacklist	       jed.d			  rc1.d
+binfmt.d		       jython			  rc2.d
+bluetooth		       kernel			  rc3.d
+bogofilter.cf		       kernel-img.conf		  rc4.d
+bonobo-activation	       krb5.conf		  rc5.d
+bootchartd.conf		       krb5.keytab		  rc6.d
+ca-certificates		       latex2html.conf		  rc.local
+ca-certificates.conf	       LatexMk			  rcS.d
+ca-certificates.conf.dpkg-old  ldap			  reader.conf.d
+calendar		       ld.so.cache		  rearj.cfg
+chatscripts		       ld.so.conf		  reportbug.conf
+chktexrc		       ld.so.conf.d		  request-key.conf
+chromium		       libao.conf		  request-key.d
+chromium.d		       libaudit.conf		  resolv.conf
+cifs-utils		       libblockdev		  resolvconf
+clutter-imcontext	       libccid_Info.plist	  resolv.conf.class
+common-lisp		       libgda-5.0		  resolv.conf.external
+complete.tcsh		       libibverbs.d		  resolv.conf.internal
+console			       libnl-3			  rlwrap
+console-setup		       libnss-ldap.conf		  rmt
+cowpoke.conf		       libnss-ldap.conf.class	  rpc
+cracklib		       libnss-ldap.conf.linux	  rsyslog.conf
+cron.d			       libpaper.d		  rsyslog.d
+cron.daily		       libreoffice		  rsyslog-haproxy.conf
+cron.hourly		       lightdm			  rsyslog-normal.conf
+cron.monthly		       lighttpd			  runit
+crontab			       lisp-config.lisp		  samba
+cron.weekly		       lldpd.d			  sane.d
+cruft			       locale.alias		  sbclrc
+csh			       locale.gen		  scite
+csh.cshrc		       localtime		  screenrc
+csh.login		       logcheck			  securetty
+csh.logout		       login.defs		  security
+cupshelpers		       login.warn		  selinux
+cvsdeb.conf		       logrotate.conf		  sensors3.conf
+dat.conf		       logrotate.conf.dpkg-old	  sensors.d
+dbus-1			       logrotate.d		  services
+dconf			       logrotate.d.save		  sgml
+debconf.conf		       ltrace.conf		  shadow
+debian_version		       lynx			  shadow-
+debsums-ignore		       machine-id		  shells
+debtree			       magic			  skel
+default			       magic.mime		  slsh.rc
+deluser.conf		       mailcap			  smartd.conf
+devscripts.conf		       mailcap.order		  smartmontools
+dhcp			       mailname			  smi.conf
+dictionaries-common	       mail.rc			  snmp
+dirmngr			       manpath.config		  sound
+discover.conf.d		       matplotlibrc		  speech-dispatcher
+discover-modprobe.conf	       matplotlibrc2		  ssh
+dkms			       mediaprm			  ssl
+dleyna-server-service.conf     mercurial		  staff-group-for-usr-local
+doc-base		       mime.types		  stunnel
+dpkg			       minicom			  subgid
+dpkg-list		       mke2fs.conf		  subgid-
+dput.cf			       modprobe.d		  subuid
+e2scrub.conf		       modules			  subuid-
+emacs			       modules-load.d		  subversion
+email-addresses		       monit			  sudoers
+environment		       motd			  sudoers.d
+environment.d		       mtab			  sudoers.old
+ethertypes		       mtools.conf		  sudoers.save
+exim4			       Muttrc			  sv
+fail2ban		       Muttrc.d			  sysctl.conf
+fail2ban.new		       mysql			  sysctl.d
+fail2ban.save		       nanorc			  sysfs.conf
+fail2ban.stein		       netconf			  sysfs.d
+fdmount.conf		       netconfig		  sysstat
+firebird		       netgroup			  systemd
+firefox-esr		       netscsid.conf		  terminfo
+fonts			       network			  tex4ht
+freeipmi		       NetworkManager		  texmf
+fstab			       networks			  thunderbird
+fstab.save		       nftables.conf		  tigervnc
+fstab.save.1		       node-exporter		  timezone
+fuse.conf		       nscd.conf		  timidity
+gai.conf		       nslcd.conf		  tmpfiles.d
+gamin			       nslcd.conf.buster-upgrade  ucf.conf
+gconf			       nslcd.conf.class		  udev
+gdb			       nslcd.conf.linux		  udisks2
+geoclue			       nsswitch.conf		  ufw
+ghostscript		       ntp.conf			  updatedb.conf
+gimp			       ntp.conf.dpkg-old	  update-motd.d
+git-buildpackage	       nvcc.profile		  UPower
+glvnd			       nvidia			  usb_modeswitch.conf
+gnashpluginrc		       nxagent			  usb_modeswitch.d
+gnashrc			       ocamlfind.conf		  vbox
+gnashthumbnailrc	       ODBCDataSources		  vdpau_wrapper.cfg
+gnome			       odbc.ini			  video_format
+gnome-vfs-2.0		       odbcinst.ini		  vim
+gnome-vfs-mime-magic	       openal			  visualvm
+GNUstep			       OpenCL			  vmware-tools
+go-mmproxy		       openmpi			  vnc.conf
+groff			       opensc			  vulkan
+groovy			       openvpn			  w3m
+group			       opt			  warnquota.conf
+group-			       os-release		  wgetrc
+gshadow			       PackageKit		  wildmidi
+gshadow-		       pam.conf			  wireshark
+gss			       pam.d			  wodim.conf
+gssapi_mech.conf	       pam_ldap.conf		  wpa_supplicant
+gssapi_mech.conf.dpkg-dist     pam_ldap.conf.class	  X11
+gtk-2.0			       pam_ldap.conf.linux	  x2go
+gtk-3.0			       papersize		  xattr.conf
+hddtemp.db		       passwd			  xdg
+hdparm.conf		       passwd-			  xfce4
+highlight		       pbuilder			  xinetd.conf
+host.conf		       pbuilderrc		  xinetd.d
+hostname		       perl			  xml
+hosts			       php			  xpdf
+hosts.allow		       piuparts			  xprofile
+hosts.class		       pm			  zsh
+
+/etc/3270:
+ibm_hosts
+
+/etc/acpi:
+events	powerbtn-acpi-support.sh
+
+/etc/acpi/events:
+powerbtn-acpi-support
+
+/etc/alsa:
+conf.d
+
+/etc/alsa/conf.d:
+10-rate-lav.conf      50-jack.conf	   60-upmix.conf		       99-pulse.conf
+10-samplerate.conf    50-oss.conf	   60-vdownmix.conf
+10-speexrate.conf     50-pulseaudio.conf   98-usb-stream.conf
+50-arcam-av-ctl.conf  60-a52-encoder.conf  99-pulseaudio-default.conf.example
+
+/etc/alternatives:
+ABORT.7.gz				    javap.1
+aclocal					    javapackager
+aclocal.1.gz				    javapackager.1.gz
+ALTER_AGGREGATE.7.gz			    javaws
+ALTER_COLLATION.7.gz			    javaws.1.gz
+ALTER_CONVERSION.7.gz			    javaws.real
+ALTER_DATABASE.7.gz			    jcmd
+ALTER_DEFAULT_PRIVILEGES.7.gz		    jcmd.1
+ALTER_DOMAIN.7.gz			    jconsole
+ALTER_EVENT_TRIGGER.7.gz		    jconsole.1
+ALTER_EXTENSION.7.gz			    jcontrol
+ALTER_FOREIGN_DATA_WRAPPER.7.gz		    jdb
+ALTER_FOREIGN_TABLE.7.gz		    jdb.1
+ALTER_FUNCTION.7.gz			    jdeprscan
+ALTER_GROUP.7.gz			    jdeprscan.1
+ALTER_INDEX.7.gz			    jdeps
+ALTER_LANGUAGE.7.gz			    jdeps.1
+ALTER_LARGE_OBJECT.7.gz			    jed-script
+ALTER_MATERIALIZED_VIEW.7.gz		    jed-script.1.gz
+ALTER_OPERATOR.7.gz			    jexec
+ALTER_OPERATOR_CLASS.7.gz		    jexec-binfmt
+ALTER_OPERATOR_FAMILY.7.gz		    jfr
+ALTER_POLICY.7.gz			    jfr.1
+ALTER_PROCEDURE.7.gz			    jhat
+ALTER_PUBLICATION.7.gz			    jhat.1.gz
+ALTER_ROLE.7.gz				    jhsdb
+ALTER_ROUTINE.7.gz			    jhsdb.1
+ALTER_RULE.7.gz				    jimage
+ALTER_SCHEMA.7.gz			    jinfo
+ALTER_SEQUENCE.7.gz			    jinfo.1
+ALTER_SERVER.7.gz			    jjs
+ALTER_STATISTICS.7.gz			    jjs.1
+ALTER_SUBSCRIPTION.7.gz			    jlink
+ALTER_SYSTEM.7.gz			    jlink.1
+ALTER_TABLE.7.gz			    jmap
+ALTER_TABLESPACE.7.gz			    jmap.1
+ALTER_TEXT_SEARCH_CONFIGURATION.7.gz	    jmc
+ALTER_TEXT_SEARCH_DICTIONARY.7.gz	    jmc.1.gz
+ALTER_TEXT_SEARCH_PARSER.7.gz		    jmod
+ALTER_TEXT_SEARCH_TEMPLATE.7.gz		    jmod.1
+ALTER_TRIGGER.7.gz			    jpackage
+ALTER_TYPE.7.gz				    jpackage.1
+ALTER_USER.7.gz				    jps
+ALTER_USER_MAPPING.7.gz			    jps.1
+ALTER_VIEW.7.gz				    jrunscript
+ANALYZE.7.gz				    jrunscript.1
+animate					    js
+animate.1.gz				    js.1.gz
+animate-im6				    jsadebugd
+animate-im6.1.gz			    jsadebugd.1.gz
+appletviewer				    jshell
+appletviewer.1.gz			    jshell.1
+aptitude				    jstack
+aptitude.8.gz				    jstack.1
+aptitude.cs.8.gz			    jstat
+aptitude.de.8.gz			    jstat.1
+aptitude.es.8.gz			    jstatd
+aptitude.fi.8.gz			    jstatd.1
+aptitude.fr.8.gz			    jvisualvm
+aptitude.gl.8.gz			    jvisualvm.1.gz
+aptitude.it.8.gz			    jweblauncher
+aptitude.ja.8.gz			    kdesu
+aptitude.pl.8.gz			    keytool
+arptables				    keytool.1.gz
+arptables-restore			    lapack.pc-x86_64-linux-gnu
+arptables-save				    lft
+automake				    lft.1.gz
+automake.1.gz				    libblas.a-x86_64-linux-gnu
+awk					    libblas.so.3-x86_64-linux-gnu
+awk.1.gz				    libblas.so-x86_64-linux-gnu
+BEGIN.7.gz				    libGL.so-master
+bf_compact				    liblapack.a-x86_64-linux-gnu
+bf_copy					    liblapack.so.3-x86_64-linux-gnu
+bf_tar					    liblapack.so-x86_64-linux-gnu
+bibtex					    libmpi++.so-x86_64-linux-gnu
+bibtex.1.gz				    libmpi.so-x86_64-linux-gnu
+blas.pc-x86_64-linux-gnu		    libpsm_infinipath.so.1
+bogofilter				    lightdm-greeter
+bogolexer				    LISTEN.7.gz
+bogotune				    LOAD.7.gz
+bogoupgrade				    locate
+bogoutil				    locate.1.gz
+builtins.7.gz				    LOCK.7.gz
+bzr					    lzcat
+bzr.1.gz				    lzcat.1.gz
+c++					    lzip
+c89					    lzip.1.gz
+c89.1.gz				    lzip-compressor
+c99					    lzip-compressor.1.gz
+c99.1.gz				    lzip-compressor.info.gz
+CALL.7.gz				    lzip-decompressor
+cblas.h-x86_64-linux-gnu		    lzip-decompressor.1.gz
+cc					    lzip-decompressor.info.gz
+CHECKPOINT.7.gz				    lzip.info.gz
+clojure					    lzma
+clojure.1.gz				    lzma.1.gz
+clojurec				    mail
+clojurec.1.gz				    Mail
+clojure.jar				    mail.1.gz
+CLOSE.7.gz				    Mail.1.gz
+CLUSTER.7.gz				    mailx
+clusterdb.1.gz				    mailx.1.gz
+COMMENT.7.gz				    messages
+COMMIT.7.gz				    messages.1.gz
+COMMIT_PREPARED.7.gz			    mogrify
+compare					    mogrify.1.gz
+compare.1.gz				    mogrify-im6
+compare-im6				    mogrify-im6.1.gz
+compare-im6.1.gz			    montage
+composite				    montage.1.gz
+composite.1.gz				    montage-im6
+composite-im6				    montage-im6.1.gz
+composite-im6.1.gz			    MOVE.7.gz
+conjure					    movemail
+conjure.1.gz				    movemail.1.gz
+conjure-im6				    mozilla-javaplugin.so
+conjure-im6.1.gz			    mpi
+ControlPanel				    mpic++
+convert					    mpic++.1.gz
+convert.1.gz				    mpiCC
+convert-im6				    mpicc.1.gz
+convert-im6.1.gz			    mpiCC.1.gz
+COPY.7.gz				    mpi-c.pc-x86_64-linux-gnu
+cpp					    mpicxx
+CREATE_ACCESS_METHOD.7.gz		    mpicxx.1.gz
+CREATE_AGGREGATE.7.gz			    mpi-cxx.pc-x86_64-linux-gnu
+CREATE_CAST.7.gz			    mpiexec
+CREATE_COLLATION.7.gz			    mpiexec.1.gz
+CREATE_CONVERSION.7.gz			    mpif77
+CREATE_DATABASE.7.gz			    mpif77.1.gz
+createdb.1.gz				    mpif90
+CREATE_DOMAIN.7.gz			    mpif90.1.gz
+CREATE_EVENT_TRIGGER.7.gz		    mpifort
+CREATE_EXTENSION.7.gz			    mpifort.1.gz
+CREATE_FOREIGN_DATA_WRAPPER.7.gz	    mpi-fort.pc-x86_64-linux-gnu
+CREATE_FOREIGN_TABLE.7.gz		    mpi.pc-x86_64-linux-gnu
+CREATE_FUNCTION.7.gz			    mpirun
+CREATE_GROUP.7.gz			    mpirun.1.gz
+CREATE_INDEX.7.gz			    mpi-x86_64-linux-gnu
+CREATE_LANGUAGE.7.gz			    mt
+CREATE_MATERIALIZED_VIEW.7.gz		    mt.1.gz
+CREATE_OPERATOR.7.gz			    my.cnf
+CREATE_OPERATOR_CLASS.7.gz		    native2ascii
+CREATE_OPERATOR_FAMILY.7.gz		    native2ascii.1.gz
+CREATE_POLICY.7.gz			    nawk
+CREATE_PROCEDURE.7.gz			    nawk.1.gz
+CREATE_PUBLICATION.7.gz			    nc
+CREATE_ROLE.7.gz			    nc.1.gz
+CREATE_RULE.7.gz			    netcat
+CREATE_SCHEMA.7.gz			    netcat.1.gz
+CREATE_SEQUENCE.7.gz			    netrc.5.gz
+CREATE_SERVER.7.gz			    nodejs
+CREATE_STATISTICS.7.gz			    nodejs.1.gz
+CREATE_SUBSCRIPTION.7.gz		    NOTIFY.7.gz
+CREATE_TABLE.7.gz			    nvidia
+CREATE_TABLE_AS.7.gz			    nvidia--libcuda.so.1-x86_64-linux-gnu
+CREATE_TABLESPACE.7.gz			    nvidia--libcuda.so-x86_64-linux-gnu
+CREATE_TEXT_SEARCH_CONFIGURATION.7.gz	    nvidia--libEGL_nvidia.so.0-i386-linux-gnu
+CREATE_TEXT_SEARCH_DICTIONARY.7.gz	    nvidia--libEGL_nvidia.so.0-x86_64-linux-gnu
+CREATE_TEXT_SEARCH_PARSER.7.gz		    nvidia--libGLESv1_CM_nvidia.so.1-i386-linux-gnu
+CREATE_TEXT_SEARCH_TEMPLATE.7.gz	    nvidia--libGLESv1_CM_nvidia.so.1-x86_64-linux-gnu
+CREATE_TRANSFORM.7.gz			    nvidia--libGLESv2_nvidia.so.2-i386-linux-gnu
+CREATE_TRIGGER.7.gz			    nvidia--libGLESv2_nvidia.so.2-x86_64-linux-gnu
+CREATE_TYPE.7.gz			    nvidia--libGLX_nvidia.so.0-i386-linux-gnu
+createuser.1.gz				    nvidia--libGLX_nvidia.so.0-x86_64-linux-gnu
+CREATE_USER.7.gz			    nvidia--libglx.so
+CREATE_USER_MAPPING.7.gz		    nvidia--libnvcuvid.so.1-x86_64-linux-gnu
+CREATE_VIEW.7.gz			    nvidia--libnvcuvid.so-x86_64-linux-gnu
+csh					    nvidia--libnvidia-cfg.so.1-x86_64-linux-gnu
+csh.1.gz				    nvidia--libnvidia-ml.so.1-x86_64-linux-gnu
+ctags					    nvidia--libnvidia-ml.so-x86_64-linux-gnu
+ctags.1.gz				    nvidia--libnvidia-opencl.so.1-x86_64-linux-gnu
+DEALLOCATE.7.gz				    nvidia--libnvidia-ptxjitcompiler.so.1-x86_64-linux-gnu
+DECLARE.7.gz				    nvidia--libvdpau_nvidia.so.1-x86_64-linux-gnu
+DELETE.7.gz				    nvidia--nv-control-dpy
+desktop-background			    nvidia--nvidia-application-profiles-key-documentation
+desktop-background.xml			    nvidia--nvidia-blacklists-nouveau.conf
+desktop-grub				    nvidia--nvidia-bug-report.sh
+desktop-grub.sh				    nvidia--nvidia-debugdump
+desktop-lockscreen.xml			    nvidia--nvidia-drm-outputclass.conf
+desktop-login-background		    nvidia--nvidia_drv.so
+desktop-plasma5-wallpaper		    nvidia--nvidia-load.conf
+desktop-theme				    nvidia--nvidia-modprobe.conf
+DISCARD.7.gz				    nvidia--nvidia-settings
+display					    nvidia--nvidia-settings.1.gz
+display.1.gz				    nvidia--nvidia-settings.desktop
+display-im6				    nvidia--nvidia-smi
+display-im6.1.gz			    nvidia--nvidia-smi.1.gz
+DO.7.gz					    openjade
+dotlock					    openjade.1.gz
+dotlock.1.gz				    orbd
+DROP_ACCESS_METHOD.7.gz			    orbd.1.gz
+DROP_AGGREGATE.7.gz			    pack200
+DROP_CAST.7.gz				    pack200.1.gz
+DROP_COLLATION.7.gz			    pager
+DROP_CONVERSION.7.gz			    pager.1.gz
+DROP_DATABASE.7.gz			    pasteurize
+dropdb.1.gz				    pbr
+DROP_DOMAIN.7.gz			    pdftk
+DROP_EVENT_TRIGGER.7.gz			    pdftkman
+DROP_EXTENSION.7.gz			    pftp
+DROP_FOREIGN_DATA_WRAPPER.7.gz		    pftp.1.gz
+DROP_FOREIGN_TABLE.7.gz			    pg_basebackup.1.gz
+DROP_FUNCTION.7.gz			    pg_dump.1.gz
+DROP_GROUP.7.gz				    pg_dumpall.1.gz
+DROP_INDEX.7.gz				    pg_isready.1.gz
+DROP_LANGUAGE.7.gz			    pg_receivewal.1.gz
+DROP_MATERIALIZED_VIEW.7.gz		    pg_recvlogical.1.gz
+DROP_OPERATOR.7.gz			    pg_restore.1.gz
+DROP_OPERATOR_CLASS.7.gz		    phar
+DROP_OPERATOR_FAMILY.7.gz		    phar.1.gz
+DROP_OWNED.7.gz				    phar.phar
+DROP_POLICY.7.gz			    phar.phar.1.gz
+DROP_PROCEDURE.7.gz			    php
+DROP_PUBLICATION.7.gz			    php.1.gz
+DROP_ROLE.7.gz				    pico
+DROP_ROUTINE.7.gz			    pico.1.gz
+DROP_RULE.7.gz				    pinentry
+DROP_SCHEMA.7.gz			    pinentry.1.gz
+DROP_SEQUENCE.7.gz			    pinentry-x11
+DROP_SERVER.7.gz			    pinentry-x11.1.gz
+DROP_STATISTICS.7.gz			    policytool
+DROP_SUBSCRIPTION.7.gz			    policytool.1.gz
+DROP_TABLE.7.gz				    PREPARE.7.gz
+DROP_TABLESPACE.7.gz			    PREPARE_TRANSACTION.7.gz
+DROP_TEXT_SEARCH_CONFIGURATION.7.gz	    prolog
+DROP_TEXT_SEARCH_DICTIONARY.7.gz	    prolog.1.gz
+DROP_TEXT_SEARCH_PARSER.7.gz		    psql.1.gz
+DROP_TEXT_SEARCH_TEMPLATE.7.gz		    python
+DROP_TRANSFORM.7.gz			    rcp
+DROP_TRIGGER.7.gz			    rcp.1.gz
+DROP_TYPE.7.gz				    readline-editor
+dropuser.1.gz				    readline-editor.1.gz
+DROP_USER.7.gz				    README
+DROP_USER_MAPPING.7.gz			    readmsg
+DROP_VIEW.7.gz				    readmsg.1.gz
+ebrowse					    REASSIGN_OWNED.7.gz
+ebrowse.1.gz				    REFRESH_MATERIALIZED_VIEW.7.gz
+ebtables				    regulatory.db
+ebtables-restore			    regulatory.db.p7s
+ebtables-save				    REINDEX.7.gz
+editor					    reindexdb.1.gz
+editor.1.gz				    RELEASE_SAVEPOINT.7.gz
+editor.da.1.gz				    RESET.7.gz
+editor.de.1.gz				    REVOKE.7.gz
+editor.fr.1.gz				    rgview
+editor.it.1.gz				    rgvim
+editor.ja.1.gz				    rlogin
+editor.pl.1.gz				    rlogin.1.gz
+editor.ru.1.gz				    rmic
+emacs					    rmic.1.gz
+emacs.1.gz				    rmid
+emacsclient				    rmid.1.gz
+emacsclient.1.gz			    rmiregistry
+emblem-vendor-128			    rmiregistry.1.gz
+emblem-vendor-256			    rmt
+emblem-vendor-64			    rmt.8.gz
+emblem-vendor-scalable			    ROLLBACK.7.gz
+emblem-vendor-symbolic-128		    ROLLBACK_PREPARED.7.gz
+emblem-vendor-symbolic-256		    ROLLBACK_TO_SAVEPOINT.7.gz
+emblem-vendor-symbolic-64		    rsh
+emblem-vendor-symbolic-scalable		    rsh.1.gz
+emblem-vendor-white-128			    rst2html
+emblem-vendor-white-256			    rst2html4
+emblem-vendor-white-64			    rst2html5
+emblem-vendor-white-scalable		    rst2latex
+END.7.gz				    rst2man
+etags					    rst2odt
+etags.1.gz				    rst2odt_prepstyles
+eview					    rst2pseudoxml
+evim					    rst2s5
+ex					    rst2xetex
+ex.1.gz					    rst2xml
+ex.da.1.gz				    rst-buildhtml
+ex.de.1.gz				    rstpep2html
+EXECUTE.7.gz				    runhaskell
+ex.fr.1.gz				    runhaskell.1.gz
+ex.it.1.gz				    rview
+ex.ja.1.gz				    rvim
+ex.pl.1.gz				    sar
+EXPLAIN.7.gz				    sar.1.gz
+ex.ru.1.gz				    SAVEPOINT.7.gz
+extcheck				    schemagen
+extcheck.1.gz				    schemagen.1.gz
+f77					    SECURITY_LABEL.7.gz
+f95					    SELECT.7.gz
+faked.1.gz				    SELECT_INTO.7.gz
+faked.es.1.gz				    serialver
+faked.fr.1.gz				    serialver.1.gz
+faked.sv.1.gz				    servertool
+fakeroot				    servertool.1.gz
+fakeroot.1.gz				    SET.7.gz
+fakeroot.es.1.gz			    SET_CONSTRAINTS.7.gz
+fakeroot.fr.1.gz			    SET_ROLE.7.gz
+fakeroot.sv.1.gz			    SET_SESSION_AUTHORIZATION.7.gz
+FETCH.7.gz				    SET_TRANSACTION.7.gz
+figlet					    SHOW.7.gz
+flash-mozilla.so			    startGroovy
+fonts-japanese-gothic.ttf		    start-here-16.png
+fonts-japanese-mincho.ttf		    start-here-22.png
+frm					    start-here-24.png
+frm.1.gz				    start-here-256.png
+from					    start-here-32.png
+from.1.gz				    start-here-48.png
+ftp					    start-here.svg
+ftp.1.gz				    START_TRANSACTION.7.gz
+futurize				    stream
+gcc-arm-none-eabi-include		    stream.1.gz
+gcc-arm-none-eabi-lib			    stream-im6
+glx					    stream-im6.1.gz
+glx--libEGL.so.1-i386-linux-gnu		    TABLE.7.gz
+glx--libEGL.so.1-x86_64-linux-gnu	    tcptraceroute
+glx--libEGL.so-x86_64-linux-gnu		    tcptraceroute.1.gz
+glx--libGLESv1_CM.so.1-i386-linux-gnu	    tdbbackup
+glx--libGLESv1_CM.so.1-x86_64-linux-gnu     tdbbackup.8.gz
+glx--libGLESv1_CM.so-x86_64-linux-gnu	    telnet
+glx--libGLESv2.so.2-i386-linux-gnu	    telnet.1.gz
+glx--libGLESv2.so.2-x86_64-linux-gnu	    tnameserv
+glx--libGLESv2.so-x86_64-linux-gnu	    tnameserv.1.gz
+glx--libGL.so.1-i386-linux-gnu		    traceproto
+glx--libGL.so.1-x86_64-linux-gnu	    traceproto.1.gz
+glx--libGL.so-x86_64-linux-gnu		    traceroute
+glx--libGLX_indirect.so.0-i386-linux-gnu    traceroute.1.gz
+glx--libGLX_indirect.so.0-x86_64-linux-gnu  traceroute6
+glx--libnvidia-cfg.so.1-x86_64-linux-gnu    traceroute6.8.gz
+glx--linux-libglx.so			    traceroute.sbin
+glx--nvidia-blacklists-nouveau.conf	    TRUNCATE.7.gz
+glx--nvidia-bug-report.sh		    UNLISTEN.7.gz
+glx--nvidia-drm-outputclass.conf	    unlzma
+glx--nvidia_drv.so			    unlzma.1.gz
+glx--nvidia-load.conf			    unpack200
+glx--nvidia-modprobe.conf		    unpack200.1.gz
+gnome-text-editor			    unrar
+gnome-text-editor.1.gz			    unrar.1.gz
+gnome-www-browser			    UPDATE.7.gz
+gnuplot					    updatedb
+gnuplot.1.gz				    updatedb.8.gz
+gnuplot.gih				    VACUUM.7.gz
+google-chrome				    vacuumdb.1.gz
+gplc					    VALUES.7.gz
+gprolog					    vendor-logos
+gprolog-inc				    vi
+GRANT.7.gz				    vi.1.gz
+grape					    vi.da.1.gz
+grape.1.gz				    vi.de.1.gz
+groovy					    view
+groovy.1.gz				    view.1.gz
+groovyc					    view.da.1.gz
+groovyc.1.gz				    view.de.1.gz
+groovyConsole				    view.fr.1.gz
+groovydoc				    view.it.1.gz
+groovysh				    view.ja.1.gz
+gview					    view.pl.1.gz
+gvim					    view.ru.1.gz
+gvimdiff				    vi.fr.1.gz
+haskell-compiler			    vi.it.1.gz
+haskell-compiler.1.gz			    vi.ja.1.gz
+hexgplc					    vim
+identify				    vimdiff
+identify.1.gz				    vi.pl.1.gz
+identify-im6				    vi.ru.1.gz
+identify-im6.1.gz			    vncconfig
+idlj					    vncconfig.1.gz
+idlj.1.gz				    vncpasswd
+idmap-plugin				    vncpasswd.1.gz
+idmap-plugin.8.gz			    vncserver
+import					    vncserver.1.gz
+import.1.gz				    vncviewer
+IMPORT_FOREIGN_SCHEMA.7.gz		    vncviewer.1.gz
+import-im6				    w
+import-im6.1.gz				    w.1.gz
+infobrowser				    WITH.7.gz
+infobrowser.1.gz			    write
+INSERT.7.gz				    write.1.gz
+ip6tables				    wsgen
+ip6tables-restore			    wsgen.1.gz
+ip6tables-save				    wsimport
+iptables				    wsimport.1.gz
+iptables-restore			    www-browser
+iptables-save				    www-browser.1.gz
+jaotc					    wx.pth
+jaotc.1					    x-cursor-theme
+jar					    xdvi.bin
+jar.1					    xjc
+jarsigner				    xjc.1.gz
+jarsigner.1				    x-session-manager
+java					    x-session-manager.1.gz
+java.1					    x-terminal-emulator
+java2groovy				    x-terminal-emulator.1.gz
+javac					    Xvnc
+javac.1					    Xvnc.1.gz
+javadoc					    xvncviewer
+javadoc.1				    xvncviewer.1.gz
+javafxpackager				    x-window-manager
+javafxpackager.1.gz			    x-window-manager.1.gz
+javah					    x-www-browser
+javah.1.gz				    yacc
+javap					    yaccman
+
+/etc/apache2:
+conf-available
+
+/etc/apache2/conf-available:
+javascript-common.conf
+
+/etc/apm:
+event.d
+
+/etc/apm/event.d:
+
+/etc/apparmor:
+init  parser.conf
+
+/etc/apparmor/init:
+network-interface-security
+
+/etc/apparmor/init/network-interface-security:
+usr.sbin.ntpd
+
+/etc/apparmor.d:
+abstractions	       usr.bin.man
+cache		       usr.bin.thunderbird
+disable		       usr.lib.libreoffice.program.oosplash
+force-complain	       usr.lib.libreoffice.program.senddoc
+lightdm-guest-session  usr.lib.libreoffice.program.soffice.bin
+local		       usr.lib.libreoffice.program.xpdfimport
+nvidia_modprobe        usr.sbin.gpsd
+samba		       usr.sbin.ntpd
+tunables	       usr.sbin.ntpd.dpkg-old
+usr.bin.evince
+
+/etc/apparmor.d/abstractions:
+apache2-common		   libpam-systemd	     smbpass
+apparmor_api		   lightdm		     ssl_certs
+aspell			   lightdm_chromium-browser  ssl_keys
+audio			   likewise		     svn-repositories
+authentication		   mdns			     ubuntu-bittorrent-clients
+base			   mesa			     ubuntu-browsers
+bash			   mir			     ubuntu-browsers.d
+consoles		   mozc			     ubuntu-console-browsers
+cups-client		   mysql		     ubuntu-console-email
+dbus			   nameservice		     ubuntu-email
+dbus-accessibility	   nis			     ubuntu-feed-readers
+dbus-accessibility-strict  nvidia		     ubuntu-gnome-terminal
+dbus-session		   opencl		     ubuntu-helpers
+dbus-session-strict	   opencl-common	     ubuntu-konsole
+dbus-strict		   opencl-intel		     ubuntu-media-players
+dconf			   opencl-mesa		     ubuntu-unity7-base
+dovecot-common		   opencl-nvidia	     ubuntu-unity7-launcher
+dri-common		   opencl-pocl		     ubuntu-unity7-messaging
+dri-enumerate		   openssl		     ubuntu-xterm
+enchant			   orbit2		     user-download
+evince			   p11-kit		     user-mail
+fcitx			   perl			     user-manpages
+fcitx-strict		   php			     user-tmp
+fonts			   php5			     user-write
+freedesktop.org		   postfix-common	     video
+gnome			   private-files	     vulkan
+gnupg			   private-files-strict      wayland
+ibus			   python		     web-data
+kde			   qt5			     winbind
+kde-globals-write	   qt5-compose-cache-write   wutmp
+kde-icon-cache-write	   qt5-settings-write	     X
+kde-language-write	   recent-documents-write    xad
+kerberosclient		   ruby			     xdg-desktop
+ldapclient		   samba
+
+/etc/apparmor.d/abstractions/apparmor_api:
+change_profile	examine  find_mountpoint  introspect  is_enabled
+
+/etc/apparmor.d/abstractions/ubuntu-browsers.d:
+java  mailto	  plugins-common  text-editors	      ubuntu-integration-xul
+kde   multimedia  productivity	  ubuntu-integration  user-files
+
+/etc/apparmor.d/cache:
+
+/etc/apparmor.d/disable:
+usr.bin.thunderbird
+
+/etc/apparmor.d/force-complain:
+
+/etc/apparmor.d/local:
+nvidia_modprobe  usr.bin.thunderbird			  usr.lib.libreoffice.program.xpdfimport
+README		 usr.lib.libreoffice.program.oosplash	  usr.sbin.gpsd
+usr.bin.evince	 usr.lib.libreoffice.program.senddoc	  usr.sbin.ntpd
+usr.bin.man	 usr.lib.libreoffice.program.soffice.bin
+
+/etc/apparmor.d/samba:
+
+/etc/apparmor.d/tunables:
+alias	    dovecot  home    kernelvars  multiarch.d  proc	  share  xdg-user-dirs
+apparmorfs  global   home.d  multiarch	 ntpd	      securityfs  sys	 xdg-user-dirs.d
+
+/etc/apparmor.d/tunables/home.d:
+site.local  ubuntu
+
+/etc/apparmor.d/tunables/multiarch.d:
+site.local
+
+/etc/apparmor.d/tunables/xdg-user-dirs.d:
+site.local
+
+/etc/apt:
+apt.conf.d   listchanges.conf  sources.list   sources.list.csp1  trusted.gpg   trusted.gpg.d
+auth.conf.d  preferences.d     sources.list~  sources.list.d	 trusted.gpg~
+
+/etc/apt/apt.conf.d:
+000DefaultRelease  00trustcdrom  01autoremove-kernels  20dbus	      20packagekit     70debconf
+00CDMountPoint	   01autoremove  20adequate	       20listchanges  50apt-file.conf  99synaptic
+
+/etc/apt/auth.conf.d:
+
+/etc/apt/preferences.d:
+libssh-4  manpages  remmina
+
+/etc/apt/sources.list.d:
+backports.list	    linuxuprising-java.list  paparazzi.list	webupd8team-java.list
+google-chrome.list  neo4j.list		     sublime-text.list	x2go.list
+google.list	    nodesource.list	     virtualbox.list	zulu-openjdk.list
+
+/etc/apt/trusted.gpg.d:
+debian-archive-bullseye-automatic.gpg
+debian-archive-bullseye-security-automatic.gpg
+debian-archive-bullseye-stable.gpg
+debian-archive-buster-automatic.gpg
+debian-archive-buster-security-automatic.gpg
+debian-archive-buster-stable.gpg
+debian-archive-stretch-automatic.gpg
+debian-archive-stretch-security-automatic.gpg
+debian-archive-stretch-stable.gpg
+x2go-archive-debian-ubuntu-signing-key.gpg
+x2go-archive-git-admin.gpg
+x2go-archive-ncryer.gpg
+x2go-archive-X2Go-Packages-Automatic-Signing-Key.gpg
+
+/etc/at-spi2:
+
+/etc/autoconf2.13:
+acconfig.h
+
+/etc/avahi:
+avahi-daemon.conf  hosts  services
+
+/etc/avahi/services:
+
+/etc/bash_completion.d:
+apt-venv	       fail2ban    licensecheck  svn-buildpackage  virtualenvwrapper
+desktop-file-validate  git-prompt  ocamlfind	 thunderbird
+dkms		       insserv	   openvpn	 unp
+
+/etc/binfmt.d:
+
+/etc/bluetooth:
+input.conf  main.conf  network.conf  proximity.conf.dpkg-remove
+
+/etc/bonobo-activation:
+bonobo-activation-config.xml
+
+/etc/ca-certificates:
+update.d
+
+/etc/ca-certificates/update.d:
+
+/etc/calendar:
+default
+
+/etc/chatscripts:
+gprs  pap  provider
+
+/etc/chromium:
+master_preferences
+
+/etc/chromium.d:
+apikeys  default-flags	extensions  README
+
+/etc/cifs-utils:
+idmap-plugin
+
+/etc/clutter-imcontext:
+clutter.immodules
+
+/etc/common-lisp:
+asdf-output-translations.conf.d  source-registry.conf.d
+
+/etc/common-lisp/asdf-output-translations.conf.d:
+01-common-lisp-controller.conf
+
+/etc/common-lisp/source-registry.conf.d:
+01-common-lisp-controller.conf	02-common-lisp-controller-userdir.conf	03-clbuild.conf
+
+/etc/console:
+
+/etc/console-setup:
+cached_Lat15-Fixed16.psf.gz   compose.IBM1133.inc      compose.ISO-8859-4.inc
+cached_setup_font.sh	      compose.ISIRI-3342.inc   compose.ISO-8859-5.inc
+cached_setup_keyboard.sh      compose.ISO-8859-10.inc  compose.ISO-8859-6.inc
+cached_setup_terminal.sh      compose.ISO-8859-11.inc  compose.ISO-8859-7.inc
+cached_UTF-8_del.kmap.gz      compose.ISO-8859-13.inc  compose.ISO-8859-8.inc
+compose.ARMSCII-8.inc	      compose.ISO-8859-14.inc  compose.ISO-8859-9.inc
+compose.CP1251.inc	      compose.ISO-8859-15.inc  compose.KOI8-R.inc
+compose.CP1255.inc	      compose.ISO-8859-16.inc  compose.KOI8-U.inc
+compose.CP1256.inc	      compose.ISO-8859-1.inc   compose.TIS-620.inc
+compose.GEORGIAN-ACADEMY.inc  compose.ISO-8859-2.inc   compose.VISCII.inc
+compose.GEORGIAN-PS.inc       compose.ISO-8859-3.inc   remap.inc
+
+/etc/cracklib:
+cracklib.conf
+
+/etc/cron.d:
+anacron  e2scrub_all  php  sysstat
+
+/etc/cron.daily:
+0anacron      aptitude		dpkg	       google-chrome	   man-db.dpkg-old   passwd
+acct	      bsdmainutils	dpkg.dpkg-old  logrotate	   mlocate	     quota
+apt-compat    cracklib-runtime	dpkg-list      logrotate.dpkg-old  mlocate.dpkg-old  samba
+apt.dpkg-bak  debsums		exim4-base     man-db		   ntp		     sysstat
+
+/etc/cron.hourly:
+
+/etc/cron.monthly:
+0anacron  acct	debsums
+
+/etc/cron.weekly:
+0anacron  debsums  man-db  man-db.dpkg-old
+
+/etc/cruft:
+explain  filters
+
+/etc/cruft/explain:
+
+/etc/cruft/filters:
+
+/etc/csh:
+login.d
+
+/etc/csh/login.d:
+cs424.csh  umask.csh
+
+/etc/cupshelpers:
+preferreddrivers.xml
+
+/etc/dbus-1:
+session.d  system.d
+
+/etc/dbus-1/session.d:
+
+/etc/dbus-1/system.d:
+avahi-dbus.conf				 org.freedesktop.PackageKit.conf
+bluetooth.conf				 org.freedesktop.RealtimeKit1.conf
+com.redhat.NewPrinterNotification.conf	 org.gnome.GConf.Defaults.conf
+com.redhat.PrinterDriversInstaller.conf  org.kde.auth.conf
+net.hadess.SensorProxy.conf		 org.kde.kcontrol.kcmremotewidgets.conf
+org.debian.apt.conf			 org.kde.kf5auth.conf
+org.freedesktop.Accounts.conf		 org.kde.ktexteditor.katetextbuffer.conf
+org.freedesktop.DisplayManager.conf	 org.opensuse.CupsPkHelper.Mechanism.conf
+org.freedesktop.GeoClue2.Agent.conf	 pulseaudio-system.conf
+org.freedesktop.GeoClue2.conf		 wpa_supplicant.conf
+org.freedesktop.ModemManager1.conf
+
+/etc/dconf:
+db  profile
+
+/etc/dconf/db:
+ibus  ibus.d
+
+/etc/dconf/db/ibus.d:
+00-upstream-settings
+
+/etc/dconf/profile:
+ibus
+
+/etc/debtree:
+endlist  skiplist
+
+/etc/default:
+acct		 debsums	intel-microcode   openipmi		       snmpd.dpkg-old
+acpid		 devpts		ipmievd		  openvpn		       ssh
+amd64-microcode  exim4		ipmievd.dpkg-old  prometheus-node-exporter     stunnel4
+anacron		 fail2ban	irqbalance	  prometheus-process-exporter  sysstat
+aufs		 gdomap		keyboard	  pyro-nsd		       tmpfs
+avahi-daemon	 go-mmproxy	lldpd		  quota			       useradd
+bluetooth	 google-chrome	locale		  rcS			       winbind
+bsdmainutils	 gpsd		networking	  rsync			       xinetd
+console-setup	 halt		nfs-common	  rsyslog
+crda		 hddtemp	nslcd		  saned
+cron		 hwclock	nss		  smartmontools
+dbus		 im-config	ntp		  snmpd
+
+/etc/dhcp:
+debug  dhclient.conf  dhclient-enter-hooks.d  dhclient-exit-hooks.d
+
+/etc/dhcp/dhclient-enter-hooks.d:
+debug  samba
+
+/etc/dhcp/dhclient-exit-hooks.d:
+debug  ntp  rfc3442-classless-routes  timesyncd
+
+/etc/dictionaries-common:
+default.aff  default.hash  ispell-default  words
+
+/etc/dirmngr:
+
+/etc/discover.conf.d:
+00discover
+
+/etc/dkms:
+framework.conf	       sign_helper.sh	      template-dkms-mkdeb
+kernel_install.d_dkms  template-dkms-mkbmdeb  template-dkms-mkdsc
+
+/etc/dkms/template-dkms-mkbmdeb:
+debian	Makefile
+
+/etc/dkms/template-dkms-mkbmdeb/debian:
+changelog  compat  control  copyright  README.Debian  rules
+
+/etc/dkms/template-dkms-mkdeb:
+debian	Makefile
+
+/etc/dkms/template-dkms-mkdeb/debian:
+changelog  compat  control  copyright  dirs  postinst  prerm  README.Debian  rules
+
+/etc/doc-base:
+documents
+
+/etc/doc-base/documents:
+README
+
+/etc/dpkg:
+dpkg.cfg  dpkg.cfg.d  origins  shlibs.default  shlibs.override
+
+/etc/dpkg/dpkg.cfg.d:
+pkg-config-hook-config
+
+/etc/dpkg/origins:
+debian	default
+
+/etc/emacs:
+site-start.d
+
+/etc/emacs/site-start.d:
+00debian.el	50cmake-data.el		  50haskell-mode.el	 50python-docutils.el
+50a2ps.el	50devhelp.el		  50latex-cjk-common.el  50tcsh.el
+50asymptote.el	50dictionaries-common.el  50latex-cjk-thai.el	 50texlive-lang-english.el
+50autoconf.el	50erlang-mode.el	  50psvn.el
+
+/etc/environment.d:
+90atk-adaptor.conf  90qt-a11y.conf
+
+/etc/exim4:
+conf.d	exim4.conf.template  passwd.client  update-exim4.conf.conf
+
+/etc/exim4/conf.d:
+acl  auth  main  retry	rewrite  router  transport
+
+/etc/exim4/conf.d/acl:
+00_exim4-config_header		       30_exim4-config_check_mail  40_exim4-config_check_data
+20_exim4-config_local_deny_exceptions  30_exim4-config_check_rcpt
+
+/etc/exim4/conf.d/auth:
+00_exim4-config_header	30_exim4-config_examples
+
+/etc/exim4/conf.d/main:
+01_exim4-config_listmacrosdefs	03_exim4-config_tlsoptions
+02_exim4-config_options		90_exim4-config_log_selector
+
+/etc/exim4/conf.d/retry:
+00_exim4-config_header	30_exim4-config
+
+/etc/exim4/conf.d/rewrite:
+00_exim4-config_header	31_exim4-config_rewriting
+
+/etc/exim4/conf.d/router:
+00_exim4-config_header		 400_exim4-config_system_aliases  850_exim4-config_lowuid
+100_exim4-config_domain_literal  500_exim4-config_hubuser	  900_exim4-config_local_user
+150_exim4-config_hubbed_hosts	 600_exim4-config_userforward	  mmm_mail4root
+200_exim4-config_primary	 700_exim4-config_procmail
+300_exim4-config_real_local	 800_exim4-config_maildrop
+
+/etc/exim4/conf.d/transport:
+00_exim4-config_header		  30_exim4-config_maildrop_pipe
+10_exim4-config_transport-macros  30_exim4-config_mail_spool
+30_exim4-config_address_file	  30_exim4-config_procmail_pipe
+30_exim4-config_address_pipe	  30_exim4-config_remote_smtp
+30_exim4-config_address_reply	  30_exim4-config_remote_smtp_smarthost
+30_exim4-config_maildir_home	  35_exim4-config_address_directory
+
+/etc/fail2ban:
+action.d		 fail2ban.d  jail.d	      paths-common.conf
+fail2ban.conf		 filter.d    jail.local       paths-debian.conf
+fail2ban.conf.dpkg-dist  jail.conf   paths-arch.conf  paths-opensuse.conf
+
+/etc/fail2ban/action.d:
+abuseipdb.conf			     mail-buffered.conf
+apf.conf			     mail.conf
+badips.conf			     mail-whois-common.conf
+badips.py			     mail-whois.conf
+blocklist_de.conf		     mail-whois-lines.conf
+bsd-ipfw.conf			     mynetwatchman.conf
+cloudflare.conf			     netscaler.conf
+complain.conf			     nftables-allports.conf
+dshield.conf			     nftables-common.conf
+dummy.conf			     nftables-multiport.conf
+firewallcmd-allports.conf	     nginx-block-map.conf
+firewallcmd-common.conf		     npf.conf
+firewallcmd-ipset.conf		     nsupdate.conf
+firewallcmd-multiport.conf	     osx-afctl.conf
+firewallcmd-new.conf		     osx-ipfw.conf
+firewallcmd-rich-logging.conf	     pf.conf
+firewallcmd-rich-rules.conf	     route.conf
+helpers-common.conf		     sendmail-buffered.conf
+hostsdeny.conf			     sendmail-common.conf
+ipfilter.conf			     sendmail.conf
+ipfw.conf			     sendmail-geoip-lines.conf
+iptables-allports.conf		     sendmail-whois.conf
+iptables-blocktype.local	     sendmail-whois-ipjailmatches.conf
+iptables-common.conf		     sendmail-whois-ipmatches.conf
+iptables.conf			     sendmail-whois-lines.conf
+iptables-ipset-proto4.conf	     sendmail-whois-matches.conf
+iptables-ipset-proto6-allports.conf  shorewall.conf
+iptables-ipset-proto6.conf	     shorewall-ipset-proto6.conf
+iptables-multiport.conf		     smtp.py
+iptables-multiport-log.conf	     symbiosis-blacklist-allports.conf
+iptables-new.conf		     ufw.conf
+iptables-xt_recent-echo.conf	     xarf-login-attack.conf
+
+/etc/fail2ban/fail2ban.d:
+
+/etc/fail2ban/filter.d:
+3proxy.conf		   dovecot.conf		   named-refused.conf	   selinux-common.conf
+apache-auth.conf	   dropbear.conf	   nginx-botsearch.conf    selinux-ssh.conf
+apache-badbots.conf	   drupal-auth.conf	   nginx-http-auth.conf    sendmail-auth.conf
+apache-botsearch.conf	   ejabberd-auth.conf	   nginx-limit-req.conf    sendmail-reject.conf
+apache-common.conf	   exim-common.conf	   nsd.conf		   sieve.conf
+apache-fakegooglebot.conf  exim.conf		   openhab.conf		   slapd.conf
+apache-modsecurity.conf    exim-spam.conf	   openwebmail.conf	   sogo-auth.conf
+apache-nohome.conf	   freeswitch.conf	   oracleims.conf	   solid-pop3d.conf
+apache-noscript.conf	   froxlor-auth.conf	   pam-generic.conf	   squid.conf
+apache-overflows.conf	   groupoffice.conf	   perdition.conf	   squirrelmail.conf
+apache-pass.conf	   gssftpd.conf		   phpmyadmin-syslog.conf  sshd.conf
+apache-shellshock.conf	   guacamole.conf	   php-url-fopen.conf	   sshd-ddos.conf
+assp.conf		   haproxy-http-auth.conf  portsentry.conf	   stunnel.conf
+asterisk.conf		   horde.conf		   postfix.conf		   suhosin.conf
+botsearch-common.conf	   ignorecommands	   postfix-rbl.conf	   tine20.conf
+common.conf		   kerio.conf		   postfix-sasl.conf	   uwimap-auth.conf
+counter-strike.conf	   lighttpd-auth.conf	   proftpd.conf		   vsftpd.conf
+courier-auth.conf	   mongodb-auth.conf	   pure-ftpd.conf	   webmin-auth.conf
+courier-smtp.conf	   monit.conf		   qmail.conf		   wuftpd.conf
+cyrus-imap.conf		   murmur.conf		   recidive.conf	   xinetd-fail.conf
+directadmin.conf	   mysqld-auth.conf	   roundcube-auth.conf	   zoneminder.conf
+domino-smtp.conf	   nagios.conf		   screensharingd.conf
+
+/etc/fail2ban/filter.d/ignorecommands:
+apache-fakegooglebot
+
+/etc/fail2ban/jail.d:
+defaults-debian.conf
+
+/etc/fail2ban.new:
+action.d		 fail2ban.d  jail.d	      paths-common.conf
+fail2ban.conf		 filter.d    jail.local       paths-debian.conf
+fail2ban.conf.dpkg-dist  jail.conf   paths-arch.conf  paths-opensuse.conf
+
+/etc/fail2ban.new/action.d:
+abuseipdb.conf			     mail.conf
+apf.conf			     mail-whois-common.conf
+badips.conf			     mail-whois.conf
+badips.py			     mail-whois-lines.conf
+blocklist_de.conf		     mynetwatchman.conf
+bsd-ipfw.conf			     netscaler.conf
+cloudflare.conf			     nftables-allports.conf
+complain.conf			     nftables-common.conf
+dshield.conf			     nftables-multiport.conf
+dummy.conf			     nginx-block-map.conf
+firewallcmd-allports.conf	     npf.conf
+firewallcmd-common.conf		     nsupdate.conf
+firewallcmd-ipset.conf		     osx-afctl.conf
+firewallcmd-multiport.conf	     osx-ipfw.conf
+firewallcmd-new.conf		     pf.conf
+firewallcmd-rich-logging.conf	     route.conf
+firewallcmd-rich-rules.conf	     sendmail-buffered.conf
+helpers-common.conf		     sendmail-common.conf
+hostsdeny.conf			     sendmail.conf
+ipfilter.conf			     sendmail-geoip-lines.conf
+ipfw.conf			     sendmail-user-warn.conf
+iptables-allports.conf		     sendmail-whois.conf
+iptables-blocktype.local	     sendmail-whois-ipjailmatches.conf
+iptables-common.conf		     sendmail-whois-ipmatches.conf
+iptables.conf			     sendmail-whois-lines.conf
+iptables-ipset-proto4.conf	     sendmail-whois-matches.conf
+iptables-ipset-proto6-allports.conf  shorewall.conf
+iptables-ipset-proto6.conf	     shorewall-ipset-proto6.conf
+iptables-multiport.conf		     smtp.py
+iptables-multiport-log.conf	     symbiosis-blacklist-allports.conf
+iptables-new.conf		     ufw.conf
+iptables-xt_recent-echo.conf	     user_warn.py
+mail-buffered.conf		     xarf-login-attack.conf
+
+/etc/fail2ban.new/fail2ban.d:
+
+/etc/fail2ban.new/filter.d:
+3proxy.conf		   dovecot.conf		   named-refused.conf	   selinux-common.conf
+apache-auth.conf	   dropbear.conf	   nginx-botsearch.conf    selinux-ssh.conf
+apache-badbots.conf	   drupal-auth.conf	   nginx-http-auth.conf    sendmail-auth.conf
+apache-botsearch.conf	   ejabberd-auth.conf	   nginx-limit-req.conf    sendmail-reject.conf
+apache-common.conf	   exim-common.conf	   nsd.conf		   sieve.conf
+apache-fakegooglebot.conf  exim.conf		   openhab.conf		   slapd.conf
+apache-modsecurity.conf    exim-spam.conf	   openwebmail.conf	   sogo-auth.conf
+apache-nohome.conf	   freeswitch.conf	   oracleims.conf	   solid-pop3d.conf
+apache-noscript.conf	   froxlor-auth.conf	   pam-generic.conf	   squid.conf
+apache-overflows.conf	   groupoffice.conf	   perdition.conf	   squirrelmail.conf
+apache-pass.conf	   gssftpd.conf		   phpmyadmin-syslog.conf  sshd.conf
+apache-shellshock.conf	   guacamole.conf	   php-url-fopen.conf	   sshd-ddos.conf
+assp.conf		   haproxy-http-auth.conf  portsentry.conf	   stunnel.conf
+asterisk.conf		   horde.conf		   postfix.conf		   suhosin.conf
+botsearch-common.conf	   ignorecommands	   postfix-rbl.conf	   tine20.conf
+common.conf		   kerio.conf		   postfix-sasl.conf	   uwimap-auth.conf
+counter-strike.conf	   lighttpd-auth.conf	   proftpd.conf		   vsftpd.conf
+courier-auth.conf	   mongodb-auth.conf	   pure-ftpd.conf	   webmin-auth.conf
+courier-smtp.conf	   monit.conf		   qmail.conf		   wuftpd.conf
+cyrus-imap.conf		   murmur.conf		   recidive.conf	   xinetd-fail.conf
+directadmin.conf	   mysqld-auth.conf	   roundcube-auth.conf	   zoneminder.conf
+domino-smtp.conf	   nagios.conf		   screensharingd.conf
+
+/etc/fail2ban.new/filter.d/ignorecommands:
+apache-fakegooglebot
+
+/etc/fail2ban.new/jail.d:
+defaults-debian.conf
+
+/etc/fail2ban.save:
+action.d		 fail2ban.d  jail.d	      paths-common.conf
+fail2ban.conf		 filter.d    jail.local       paths-debian.conf
+fail2ban.conf.dpkg-dist  jail.conf   paths-arch.conf  paths-opensuse.conf
+
+/etc/fail2ban.save/action.d:
+abuseipdb.conf			     mail-buffered.conf
+apf.conf			     mail.conf
+badips.conf			     mail-whois-common.conf
+badips.py			     mail-whois.conf
+blocklist_de.conf		     mail-whois-lines.conf
+bsd-ipfw.conf			     mynetwatchman.conf
+cloudflare.conf			     netscaler.conf
+complain.conf			     nftables-allports.conf
+dshield.conf			     nftables-common.conf
+dummy.conf			     nftables-multiport.conf
+firewallcmd-allports.conf	     nginx-block-map.conf
+firewallcmd-common.conf		     npf.conf
+firewallcmd-ipset.conf		     nsupdate.conf
+firewallcmd-multiport.conf	     osx-afctl.conf
+firewallcmd-new.conf		     osx-ipfw.conf
+firewallcmd-rich-logging.conf	     pf.conf
+firewallcmd-rich-rules.conf	     route.conf
+helpers-common.conf		     sendmail-buffered.conf
+hostsdeny.conf			     sendmail-common.conf
+ipfilter.conf			     sendmail.conf
+ipfw.conf			     sendmail-geoip-lines.conf
+iptables-allports.conf		     sendmail-whois.conf
+iptables-blocktype.local	     sendmail-whois-ipjailmatches.conf
+iptables-common.conf		     sendmail-whois-ipmatches.conf
+iptables.conf			     sendmail-whois-lines.conf
+iptables-ipset-proto4.conf	     sendmail-whois-matches.conf
+iptables-ipset-proto6-allports.conf  shorewall.conf
+iptables-ipset-proto6.conf	     shorewall-ipset-proto6.conf
+iptables-multiport.conf		     smtp.py
+iptables-multiport-log.conf	     symbiosis-blacklist-allports.conf
+iptables-new.conf		     ufw.conf
+iptables-xt_recent-echo.conf	     xarf-login-attack.conf
+
+/etc/fail2ban.save/fail2ban.d:
+
+/etc/fail2ban.save/filter.d:
+3proxy.conf		   dovecot.conf		   named-refused.conf	   selinux-common.conf
+apache-auth.conf	   dropbear.conf	   nginx-botsearch.conf    selinux-ssh.conf
+apache-badbots.conf	   drupal-auth.conf	   nginx-http-auth.conf    sendmail-auth.conf
+apache-botsearch.conf	   ejabberd-auth.conf	   nginx-limit-req.conf    sendmail-reject.conf
+apache-common.conf	   exim-common.conf	   nsd.conf		   sieve.conf
+apache-fakegooglebot.conf  exim.conf		   openhab.conf		   slapd.conf
+apache-modsecurity.conf    exim-spam.conf	   openwebmail.conf	   sogo-auth.conf
+apache-nohome.conf	   freeswitch.conf	   oracleims.conf	   solid-pop3d.conf
+apache-noscript.conf	   froxlor-auth.conf	   pam-generic.conf	   squid.conf
+apache-overflows.conf	   groupoffice.conf	   perdition.conf	   squirrelmail.conf
+apache-pass.conf	   gssftpd.conf		   phpmyadmin-syslog.conf  sshd.conf
+apache-shellshock.conf	   guacamole.conf	   php-url-fopen.conf	   sshd-ddos.conf
+assp.conf		   haproxy-http-auth.conf  portsentry.conf	   stunnel.conf
+asterisk.conf		   horde.conf		   postfix.conf		   suhosin.conf
+botsearch-common.conf	   ignorecommands	   postfix-rbl.conf	   tine20.conf
+common.conf		   kerio.conf		   postfix-sasl.conf	   uwimap-auth.conf
+counter-strike.conf	   lighttpd-auth.conf	   proftpd.conf		   vsftpd.conf
+courier-auth.conf	   mongodb-auth.conf	   pure-ftpd.conf	   webmin-auth.conf
+courier-smtp.conf	   monit.conf		   qmail.conf		   wuftpd.conf
+cyrus-imap.conf		   murmur.conf		   recidive.conf	   xinetd-fail.conf
+directadmin.conf	   mysqld-auth.conf	   roundcube-auth.conf	   zoneminder.conf
+domino-smtp.conf	   nagios.conf		   screensharingd.conf
+
+/etc/fail2ban.save/filter.d/ignorecommands:
+apache-fakegooglebot
+
+/etc/fail2ban.save/jail.d:
+defaults-debian.conf
+
+/etc/fail2ban.stein:
+action.d		 fail2ban.d  jail.d	      paths-common.conf
+fail2ban.conf		 filter.d    jail.local       paths-debian.conf
+fail2ban.conf.dpkg-dist  jail.conf   paths-arch.conf  paths-opensuse.conf
+
+/etc/fail2ban.stein/action.d:
+abuseipdb.conf			     mail.conf
+apf.conf			     mail-whois-common.conf
+badips.conf			     mail-whois.conf
+badips.py			     mail-whois-lines.conf
+blocklist_de.conf		     mynetwatchman.conf
+bsd-ipfw.conf			     netscaler.conf
+cloudflare.conf			     nftables-allports.conf
+complain.conf			     nftables-common.conf
+dshield.conf			     nftables-multiport.conf
+dummy.conf			     nginx-block-map.conf
+firewallcmd-allports.conf	     npf.conf
+firewallcmd-common.conf		     nsupdate.conf
+firewallcmd-ipset.conf		     osx-afctl.conf
+firewallcmd-multiport.conf	     osx-ipfw.conf
+firewallcmd-new.conf		     pf.conf
+firewallcmd-rich-logging.conf	     route.conf
+firewallcmd-rich-rules.conf	     sendmail-buffered.conf
+helpers-common.conf		     sendmail-common.conf
+hostsdeny.conf			     sendmail.conf
+ipfilter.conf			     sendmail-geoip-lines.conf
+ipfw.conf			     sendmail-user-warn.conf
+iptables-allports.conf		     sendmail-whois.conf
+iptables-blocktype.local	     sendmail-whois-ipjailmatches.conf
+iptables-common.conf		     sendmail-whois-ipmatches.conf
+iptables.conf			     sendmail-whois-lines.conf
+iptables-ipset-proto4.conf	     sendmail-whois-matches.conf
+iptables-ipset-proto6-allports.conf  shorewall.conf
+iptables-ipset-proto6.conf	     shorewall-ipset-proto6.conf
+iptables-multiport.conf		     smtp.py
+iptables-multiport-log.conf	     symbiosis-blacklist-allports.conf
+iptables-new.conf		     ufw.conf
+iptables-xt_recent-echo.conf	     user_warn.py
+mail-buffered.conf		     xarf-login-attack.conf
+
+/etc/fail2ban.stein/fail2ban.d:
+
+/etc/fail2ban.stein/filter.d:
+3proxy.conf		   dovecot.conf		   named-refused.conf	   selinux-common.conf
+apache-auth.conf	   dropbear.conf	   nginx-botsearch.conf    selinux-ssh.conf
+apache-badbots.conf	   drupal-auth.conf	   nginx-http-auth.conf    sendmail-auth.conf
+apache-botsearch.conf	   ejabberd-auth.conf	   nginx-limit-req.conf    sendmail-reject.conf
+apache-common.conf	   exim-common.conf	   nsd.conf		   sieve.conf
+apache-fakegooglebot.conf  exim.conf		   openhab.conf		   slapd.conf
+apache-modsecurity.conf    exim-spam.conf	   openwebmail.conf	   sogo-auth.conf
+apache-nohome.conf	   freeswitch.conf	   oracleims.conf	   solid-pop3d.conf
+apache-noscript.conf	   froxlor-auth.conf	   pam-generic.conf	   squid.conf
+apache-overflows.conf	   groupoffice.conf	   perdition.conf	   squirrelmail.conf
+apache-pass.conf	   gssftpd.conf		   phpmyadmin-syslog.conf  sshd.conf
+apache-shellshock.conf	   guacamole.conf	   php-url-fopen.conf	   sshd-ddos.conf
+assp.conf		   haproxy-http-auth.conf  portsentry.conf	   stunnel.conf
+asterisk.conf		   horde.conf		   postfix.conf		   suhosin.conf
+botsearch-common.conf	   ignorecommands	   postfix-rbl.conf	   tine20.conf
+common.conf		   kerio.conf		   postfix-sasl.conf	   uwimap-auth.conf
+counter-strike.conf	   lighttpd-auth.conf	   proftpd.conf		   vsftpd.conf
+courier-auth.conf	   mongodb-auth.conf	   pure-ftpd.conf	   webmin-auth.conf
+courier-smtp.conf	   monit.conf		   qmail.conf		   wuftpd.conf
+cyrus-imap.conf		   murmur.conf		   recidive.conf	   xinetd-fail.conf
+directadmin.conf	   mysqld-auth.conf	   roundcube-auth.conf	   zoneminder.conf
+domino-smtp.conf	   nagios.conf		   screensharingd.conf
+
+/etc/fail2ban.stein/filter.d/ignorecommands:
+apache-fakegooglebot
+
+/etc/fail2ban.stein/jail.d:
+defaults-debian.conf
+
+/etc/firebird:
+3.0
+
+/etc/firebird/3.0:
+fbintl.conf  firebird.conf  plugins.conf
+
+/etc/firefox-esr:
+firefox-esr.js
+
+/etc/fonts:
+conf.avail  conf.d  fonts.conf
+
+/etc/fonts/conf.avail:
+20-unhint-small-dejavu-lgc-sans.conf	       57-dejavu-sans-mono.conf
+20-unhint-small-dejavu-lgc-sans-mono.conf      57-dejavu-serif.conf
+20-unhint-small-dejavu-lgc-serif.conf	       58-dejavu-lgc-sans.conf
+20-unhint-small-dejavu-sans.conf	       58-dejavu-lgc-sans-mono.conf
+20-unhint-small-dejavu-sans-mono.conf	       58-dejavu-lgc-serif.conf
+20-unhint-small-dejavu-serif.conf	       62-google-crosextra-carlito-fontconfig.conf
+30-0-google-crosextra-carlito-fontconfig.conf  65-droid-sans-fallback.conf
+30-droid-noto.conf			       65-fonts-lmodern.conf
+30-droid-noto-mono.conf			       65-fonts-texgyre.conf
+57-dejavu-sans.conf
+
+/etc/fonts/conf.d:
+10-hinting-slight.conf			       64-01-tlwg-kinnari.conf
+10-scale-bitmap-fonts.conf		       64-02-tlwg-norasi.conf
+11-lcdfilter-default.conf		       64-10-tlwg-loma.conf
+20-unhint-small-dejavu-lgc-sans.conf	       64-11-tlwg-waree.conf
+20-unhint-small-dejavu-lgc-sans-mono.conf      64-13-tlwg-garuda.conf
+20-unhint-small-dejavu-lgc-serif.conf	       64-14-tlwg-umpush.conf
+20-unhint-small-dejavu-sans.conf	       64-15-laksaman.conf
+20-unhint-small-dejavu-sans-mono.conf	       64-21-tlwg-typo.conf
+20-unhint-small-dejavu-serif.conf	       64-22-tlwg-typist.conf
+20-unhint-small-vera.conf		       64-23-tlwg-mono.conf
+30-0-google-crosextra-carlito-fontconfig.conf  65-fonts-lmodern.conf
+30-metric-aliases.conf			       65-fonts-persian.conf
+30-opensymbol.conf			       65-fonts-texgyre.conf
+40-nonlatin.conf			       65-nonlatin.conf
+45-generic.conf				       69-unifont.conf
+45-latin.conf				       70-no-bitmaps.conf
+49-sansserif.conf			       80-delicious.conf
+50-user.conf				       89-tlwg-garuda-synthetic.conf
+51-local.conf				       89-tlwg-kinnari-synthetic.conf
+57-dejavu-sans.conf			       89-tlwg-laksaman-synthetic.conf
+57-dejavu-sans-mono.conf		       89-tlwg-umpush-synthetic.conf
+57-dejavu-serif.conf			       90-fonts-baekmuk.conf
+58-dejavu-lgc-sans.conf			       90-fonts-linux-libertine.conf
+58-dejavu-lgc-sans-mono.conf		       90-fonts-unfonts-core.conf
+58-dejavu-lgc-serif.conf		       90-fonts-unfonts-extra.conf
+60-generic.conf				       90-synthetic.conf
+60-latin.conf				       README
+
+/etc/freeipmi:
+freeipmi.conf  freeipmi_interpret_sel.conf  freeipmi_interpret_sensor.conf  libipmiconsole.conf
+
+/etc/gamin:
+gaminrc
+
+/etc/gconf:
+2  gconf.xml.defaults  gconf.xml.mandatory
+
+/etc/gconf/2:
+evoldap.conf  path
+
+/etc/gconf/gconf.xml.defaults:
+%gconf-tree.xml
+
+/etc/gconf/gconf.xml.mandatory:
+%gconf-tree.xml
+
+/etc/gdb:
+gdbinit
+
+/etc/geoclue:
+geoclue.conf
+
+/etc/ghostscript:
+cidfmap.d  fontmap.d
+
+/etc/ghostscript/cidfmap.d:
+90gs-cjk-resource-cns1.conf  90gs-cjk-resource-japan1.conf  90gs-cjk-resource-korea1.conf
+90gs-cjk-resource-gb1.conf   90gs-cjk-resource-japan2.conf
+
+/etc/ghostscript/fontmap.d:
+10gsfonts.conf
+
+/etc/gimp:
+2.0
+
+/etc/gimp/2.0:
+controllerrc  gimprc  gtkrc  menurc  sessionrc	templaterc  unitrc
+
+/etc/git-buildpackage:
+gbp.conf
+
+/etc/glvnd:
+egl_vendor.d
+
+/etc/glvnd/egl_vendor.d:
+
+/etc/gnome:
+menus.blacklist
+
+/etc/gnome-vfs-2.0:
+modules
+
+/etc/gnome-vfs-2.0/modules:
+default-modules.conf  extra-modules.conf
+
+/etc/GNUstep:
+gdomap_probes  GNUstep.conf
+
+/etc/go-mmproxy:
+path-prefixes.txt
+
+/etc/groff:
+man.local  mdoc.local
+
+/etc/groovy:
+groovy-starter.conf
+
+/etc/gss:
+mech.d
+
+/etc/gss/mech.d:
+README
+
+/etc/gtk-2.0:
+im-multipress.conf
+
+/etc/gtk-3.0:
+im-multipress.conf
+
+/etc/highlight:
+filetypes.conf
+
+/etc/ifplugd:
+action.d
+
+/etc/ifplugd/action.d:
+action_wpa
+
+/etc/ImageMagick-6:
+coder.xml      log.xml	  policy.xml		  type-apple.xml	type-urw-base35.xml
+colors.xml     magic.xml  quantization-table.xml  type-dejavu.xml	type-windows.xml
+delegates.xml  mime.xml   thresholds.xml	  type-ghostscript.xml	type.xml
+
+/etc/init:
+lldpd.conf  nmbd.override  smbd.override  winbind.override
+
+/etc/init.d:
+acct			halt		       ntp			    screen-cleanup
+acpid			hddtemp		       nvidia-persistenced	    sendsigs
+alsa-utils		hostname.sh	       openipmi			    single
+anacron			hwclock.sh	       open-vm-tools		    smartmontools
+apparmor		ipmievd		       openvpn			    smbd
+atd			irqbalance	       pcscd			    snmpd
+avahi-daemon		keyboard-setup.sh      pppd-dns			    speech-dispatcher
+binfmt-support		killprocs	       procps			    ssh
+bluetooth		kmod		       prometheus-node-exporter     stunnel4
+bootchart-done		lightdm		       prometheus-process-exporter  sudo
+bootlogs		lldpd		       pyro-nsd			    sysfsutils
+bootmisc.sh		lm-sensors	       quota			    sysstat
+brightness		loadcpufreq	       quotarpc			    udev
+checkfs.sh		mountall-bootclean.sh  rc			    umountfs
+checkroot-bootclean.sh	mountall.sh	       rc.local			    umountnfs.sh
+checkroot.sh		mountdevsubfs.sh       rcS			    umountroot
+console-setup.sh	mountkernfs.sh	       README			    urandom
+cpufrequtils		mountnfs-bootclean.sh  reboot			    winbind
+cron			mountnfs.sh	       rmnologin		    x11-common
+dbus			networking	       rpcbind			    x2goserver
+exim4			nfs-common	       rsync			    xinetd
+fail2ban		nmbd		       rsyslog
+fancontrol		nscd		       samba-ad-dc
+gdomap			nslcd		       saned
+
+/etc/initramfs-tools:
+conf.d	hooks  initramfs.conf  initramfs.conf.dpkg-old	modules  scripts  update-initramfs.conf
+
+/etc/initramfs-tools/conf.d:
+resume
+
+/etc/initramfs-tools/hooks:
+
+/etc/initramfs-tools/scripts:
+init-bottom    init-top      local-premount  nfs-bottom    nfs-top
+init-premount  local-bottom  local-top	     nfs-premount  panic
+
+/etc/initramfs-tools/scripts/init-bottom:
+
+/etc/initramfs-tools/scripts/init-premount:
+
+/etc/initramfs-tools/scripts/init-top:
+
+/etc/initramfs-tools/scripts/local-bottom:
+
+/etc/initramfs-tools/scripts/local-premount:
+
+/etc/initramfs-tools/scripts/local-top:
+
+/etc/initramfs-tools/scripts/nfs-bottom:
+
+/etc/initramfs-tools/scripts/nfs-premount:
+
+/etc/initramfs-tools/scripts/nfs-top:
+
+/etc/initramfs-tools/scripts/panic:
+
+/etc/insserv:
+overrides
+
+/etc/insserv/overrides:
+
+/etc/insserv.conf.d:
+rpcbind
+
+/etc/iproute2:
+bpf_pinning  group	rt_dsfield  rt_protos.d  rt_scopes  rt_tables.d
+ematch_map   nl_protos	rt_protos   rt_realms	 rt_tables
+
+/etc/iproute2/rt_protos.d:
+README
+
+/etc/iproute2/rt_tables.d:
+README
+
+/etc/iscsi:
+iscsid.conf
+
+/etc/java:
+security
+
+/etc/java/security:
+security.d
+
+/etc/java/security/security.d:
+2000-org.bouncycastle.jce.provider.BouncyCastleProvider
+
+/etc/java-10-oracle:
+conf
+
+/etc/java-10-oracle/conf:
+logging.properties  management	net.properties	security  sound.properties
+
+/etc/java-10-oracle/conf/management:
+jmxremote.access  management.properties
+
+/etc/java-10-oracle/conf/security:
+java.policy  java.security  javaws.policy
+
+/etc/java-11-oracle:
+conf
+
+/etc/java-11-oracle/conf:
+logging.properties  management	net.properties	security  sound.properties
+
+/etc/java-11-oracle/conf/management:
+jmxremote.access  management.properties
+
+/etc/java-11-oracle/conf/security:
+java.policy  java.security
+
+/etc/java-8-oracle:
+security
+
+/etc/java-8-oracle/security:
+blacklist  blacklisted.certs  java.policy  java.security  javaws.policy  trusted.libraries
+
+/etc/jed.d:
+05jed-common.sl  README
+
+/etc/jython:
+jython.conf
+
+/etc/kernel:
+header_postinst.d  install.d  postinst.d  postrm.d  preinst.d  prerm.d
+
+/etc/kernel/header_postinst.d:
+dkms
+
+/etc/kernel/install.d:
+
+/etc/kernel/postinst.d:
+apt-auto-removal  dkms	initramfs-tools  pm-utils
+
+/etc/kernel/postrm.d:
+initramfs-tools
+
+/etc/kernel/preinst.d:
+intel-microcode
+
+/etc/kernel/prerm.d:
+dkms
+
+/etc/ldap:
+ldap.conf  ldap.conf.dpkg-dist
+
+/etc/ld.so.conf.d:
+fakeroot-x86_64-linux-gnu.conf	libc.conf	       zz_i386-biarch-compat.conf
+i386-linux-gnu.conf		x86_64-linux-gnu.conf  zz_x32-biarch-compat.conf
+
+/etc/libblockdev:
+conf.d
+
+/etc/libblockdev/conf.d:
+00-default.cfg
+
+/etc/libgda-5.0:
+config
+
+/etc/libibverbs.d:
+bnxt_re.driver	hfi1verbs.driver   mlx4.driver	 ocrdma.driver
+cxgb3.driver	hns.driver	   mlx5.driver	 qedr.driver
+cxgb4.driver	i40iw.driver	   mthca.driver  rxe.driver
+efa.driver	ipathverbs.driver  nes.driver	 vmw_pvrdma.driver
+
+/etc/libnl-3:
+classid  pktloc
+
+/etc/libpaper.d:
+texlive-base
+
+/etc/libreoffice:
+psprint.conf  registry	sofficerc  soffice.sh
+
+/etc/libreoffice/registry:
+base.xcd	   Langpack-en-US.xcd  ogltrans.xcd	      pyuno.xcd
+calc.xcd	   librelogo.xcd       oo-ad-ldap.xcd.sample  reportbuilder.xcd
+draw.xcd	   lingucomponent.xcd  oo-ldap.xcd.sample     res
+graphicfilter.xcd  main.xcd	       pdfimport.xcd	      writer.xcd
+impress.xcd	   math.xcd	       postgresql.xcd	      xsltfilter.xcd
+
+/etc/libreoffice/registry/res:
+fcfg_langpack_en-US.xcd
+
+/etc/lightdm:
+keys.conf  lightdm.conf  lightdm-gtk-greeter.conf  users.conf
+
+/etc/lighttpd:
+conf-available	conf-enabled
+
+/etc/lighttpd/conf-available:
+90-javascript-alias.conf
+
+/etc/lighttpd/conf-enabled:
+90-javascript-alias.conf
+
+/etc/lldpd.d:
+README.conf
+
+/etc/logcheck:
+ignore.d.paranoid  ignore.d.server
+
+/etc/logcheck/ignore.d.paranoid:
+cracklib-runtime
+
+/etc/logcheck/ignore.d.server:
+gpg-agent  hddtemp  libsasl2-modules  rsyslog  x2goserver
+
+/etc/logrotate.d:
+alternatives  dpkg	      pacct			prometheus-process-exporter  stunnel4
+apt	      exim4-base      pm-utils			rsyslog			     winbind
+aptitude      exim4-paniclog  ppp			samba			     wtmp
+btmp	      fail2ban	      prometheus-node-exporter	speech-dispatcher
+
+/etc/logrotate.d.save:
+fail2ban  wtmp.conf
+
+/etc/lynx:
+lynx.cfg  lynx.lss
+
+/etc/mercurial:
+hgrc  hgrc.d
+
+/etc/mercurial/hgrc.d:
+cacerts.rc  hgext.rc
+
+/etc/minicom:
+
+/etc/modprobe.d:
+amd64-microcode-blacklist.conf	nvidia-blacklists-nouveau.conf	nvidia-kernel-common.conf.dpkg-old
+dkms.conf			nvidia.conf			open-vm-tools-dkms.conf
+intel-microcode-blacklist.conf	nvidia-kernel-common.conf
+
+/etc/modules-load.d:
+ipmievd.conf  modules.conf  nvidia.conf
+
+/etc/monit:
+conf-available	monitrc.d
+
+/etc/monit/conf-available:
+
+/etc/monit/monitrc.d:
+fail2ban
+
+/etc/Muttrc.d:
+charset.rc  colors.rc  compressed-folders.rc  gpg.rc  smime.rc
+
+/etc/mysql:
+conf.d	mariadb.cnf  mariadb.conf.d  my.cnf  my.cnf.fallback
+
+/etc/mysql/conf.d:
+mysql.cnf  mysqldump.cnf
+
+/etc/mysql/mariadb.conf.d:
+
+/etc/netconf:
+hostname  hosts  ip  libnss-ldap.conf  nslcd.conf  pam_ldap.conf  resolv.conf  rsyslog.conf
+
+/etc/network:
+if-down.d  if-post-down.d  if-pre-up.d	if-up.d  interfaces  interfaces.d  run
+
+/etc/network/if-down.d:
+openvpn  wpasupplicant
+
+/etc/network/if-post-down.d:
+wpasupplicant
+
+/etc/network/if-pre-up.d:
+ethtool  wpasupplicant
+
+/etc/network/if-up.d:
+ethtool  mountnfs  nslcd  openvpn  wpasupplicant
+
+/etc/network/interfaces.d:
+
+/etc/NetworkManager:
+dispatcher.d
+
+/etc/NetworkManager/dispatcher.d:
+ntp
+
+/etc/node-exporter:
+save  secrets
+ls: cannot open directory '/etc/node-exporter/save': Permission denied
+ls: cannot open directory '/etc/node-exporter/secrets': Permission denied
+
+/etc/nvidia:
+current       nvidia-blacklists-nouveau.conf  nvidia-load.conf
+legacy-390xx  nvidia-drm-outputclass.conf     nvidia-modprobe.conf
+
+/etc/nvidia/current:
+nvidia-drm-outputclass.conf
+
+/etc/nvidia/legacy-390xx:
+nvidia-blacklists-nouveau.conf	nvidia-load.conf
+nvidia-drm-outputclass.conf	nvidia-modprobe.conf
+
+/etc/nxagent:
+keystrokes.cfg
+
+/etc/ODBCDataSources:
+
+/etc/openal:
+alsoft.conf
+
+/etc/OpenCL:
+vendors
+
+/etc/OpenCL/vendors:
+nvidia.icd
+
+/etc/openmpi:
+openmpi-default-hostfile  openmpi-mca-params.conf  openmpi-totalview.tcl
+
+/etc/opensc:
+opensc.conf
+
+/etc/openvpn:
+client	server	update-resolv-conf
+
+/etc/openvpn/client:
+
+/etc/openvpn/server:
+
+/etc/opt:
+
+/etc/PackageKit:
+PackageKit.conf  Vendor.conf
+
+/etc/pam.d:
+atd		common-auth		       lightdm		  other     runuser-l  su-l
+chfn		common-password		       lightdm-autologin  passwd    samba      tigervnc
+chpasswd	common-session		       lightdm-greeter	  polkit-1  sshd       vmtoolsd
+chsh		common-session-noninteractive  login		  ppp	    su
+common-account	cron			       newusers		  runuser   sudo
+
+/etc/pbuilder:
+buildd-config.sh
+
+/etc/perl:
+CPAN  Net  XML
+
+/etc/perl/CPAN:
+
+/etc/perl/Net:
+libnet.cfg
+
+/etc/perl/XML:
+SAX
+
+/etc/perl/XML/SAX:
+ParserDetails.ini
+
+/etc/php:
+7.0  7.3
+
+/etc/php/7.0:
+cli  mods-available
+
+/etc/php/7.0/cli:
+conf.d
+
+/etc/php/7.0/cli/conf.d:
+
+/etc/php/7.0/mods-available:
+
+/etc/php/7.3:
+cli  mods-available
+
+/etc/php/7.3/cli:
+conf.d	php.ini
+
+/etc/php/7.3/cli/conf.d:
+10-mysqlnd.ini	 20-dom.ini	  20-json.ini	    20-readline.ini   20-sysvshm.ini
+10-opcache.ini	 20-exif.ini	  20-ldap.ini	    20-shmop.ini      20-tokenizer.ini
+10-pdo.ini	 20-fileinfo.ini  20-mysqli.ini     20-simplexml.ini  20-wddx.ini
+15-xml.ini	 20-ftp.ini	  20-pdo_mysql.ini  20-sockets.ini    20-xmlreader.ini
+20-calendar.ini  20-gettext.ini   20-phar.ini	    20-sysvmsg.ini    20-xmlwriter.ini
+20-ctype.ini	 20-iconv.ini	  20-posix.ini	    20-sysvsem.ini    20-xsl.ini
+
+/etc/php/7.3/mods-available:
+calendar.ini  ftp.ini	   mysqli.ini	  phar.ini	 sockets.ini	wddx.ini
+ctype.ini     gettext.ini  mysqlnd.ini	  posix.ini	 sysvmsg.ini	xml.ini
+dom.ini       iconv.ini    opcache.ini	  readline.ini	 sysvsem.ini	xmlreader.ini
+exif.ini      json.ini	   pdo.ini	  shmop.ini	 sysvshm.ini	xmlwriter.ini
+fileinfo.ini  ldap.ini	   pdo_mysql.ini  simplexml.ini  tokenizer.ini	xsl.ini
+
+/etc/piuparts:
+distros.conf		       scripts-debug-remove	     scripts-no-usr-share-doc
+scripts			       scripts-debug-triggers	     scripts-squeeze
+scripts-apt-first	       scripts-jessie		     scripts-sysvinit
+scripts-broken-symlinks        scripts-leftovers	     scripts-unused-examples
+scripts-debug-packagemanager   scripts-lenny		     scripts-wheezy
+scripts-debug-problemresolver  scripts-log-alternatives
+scripts-debug-purge	       scripts-multi-distro-upgrade
+
+/etc/piuparts/scripts:
+is_testable_uninstallable		  pre_distupgrade_exceptions
+post_chroot_unpack_allow_unauthenticated  pre_distupgrade_foreign_architecture_i386
+post_distupgrade_base_cleanup		  pre_distupgrade_zz_database-server
+post_distupgrade_exceptions		  pre_distupgrade_zz_upgrade_early
+post_distupgrade_force-unsafe-io	  pre_install_database-server
+post_distupgrade_squeeze-backports	  pre_install_exceptions
+post_distupgrade_zz_backports		  pre_install_extras
+post_install_exceptions			  pre_install_foreign_architecture
+post_purge_exceptions			  pre_install_foreign_architecture_i386
+post_remove_exceptions			  pre_remove_40_find_missing_md5sums
+post_setup_dummy_users			  pre_remove_40_find_obsolete_conffiles
+post_setup_forbid_home			  pre_remove_40_find_unowned_lib_links
+post_setup_force-unsafe-io		  pre_remove_50_find_bad_permissions
+post_setup_minimize			  pre_remove_50_find_missing_copyright
+post_setup_squeeze-backports		  pre_remove_exceptions
+post_setup_zz_backports			  pre_test_exceptions
+post_test_exceptions			  pre_test_root_password
+pre_distupgrade_allow_unauthenticated
+
+/etc/piuparts/scripts-apt-first:
+pre_distupgrade_zz_apt_first
+
+/etc/piuparts/scripts-broken-symlinks:
+post_install_extras_unbreak_symlinks  post_setup_fake-essential_unbreak_symlinks
+
+/etc/piuparts/scripts-debug-packagemanager:
+pre_distupgrade_debug_packagemanager
+
+/etc/piuparts/scripts-debug-problemresolver:
+pre_distupgrade_debug_problemresolver  pre_install_debug_problemresolver
+
+/etc/piuparts/scripts-debug-purge:
+post_remove_postrm_set-x
+
+/etc/piuparts/scripts-debug-remove:
+pre_remove_prerm_postrm_set-x
+
+/etc/piuparts/scripts-debug-triggers:
+pre_distupgrade_debug_triggers	pre_install_debug_triggers
+
+/etc/piuparts/scripts-jessie:
+post_setup_jessie-fake-essential
+
+/etc/piuparts/scripts-leftovers:
+post_purge_manual_cleanup  post_setup_fake-essential
+post_remove_cleanup	   pre_remove_preseed_cleanup
+
+/etc/piuparts/scripts-lenny:
+post_remove_exceptions_lenny  post_setup_lenny-fake-essential
+
+/etc/piuparts/scripts-log-alternatives:
+post_install_log_alternatives  pre_install_log_alternatives
+
+/etc/piuparts/scripts-multi-distro-upgrade:
+post_distupgrade_base_cleanup_multi-distro-upgrade  post_setup_fake-essential_multi-distro-upgrade
+post_distupgrade_exceptions_multi-distro-upgrade    pre_remove_exceptions_multi-distro-upgrade
+
+/etc/piuparts/scripts-no-usr-share-doc:
+post_setup_disable_usr_share_doc
+
+/etc/piuparts/scripts-squeeze:
+post_distupgrade_squeeze-fake-essential  post_setup_squeeze-fake-essential
+post_remove_exceptions_squeeze
+
+/etc/piuparts/scripts-sysvinit:
+pre_distupgrade_zz_sysvinit
+
+/etc/piuparts/scripts-unused-examples:
+post_chroot_unpack_key_setup
+
+/etc/piuparts/scripts-wheezy:
+post_setup_wheezy-fake-essential  pre_distupgrade_wheezy
+
+/etc/pm:
+config.d  power.d  sleep.d
+
+/etc/pm/config.d:
+
+/etc/pm/power.d:
+
+/etc/pm/sleep.d:
+
+/etc/polkit-1:
+localauthority	localauthority.conf.d  nullbackend.conf.d
+ls: cannot open directory '/etc/polkit-1/localauthority': Permission denied
+
+/etc/polkit-1/localauthority.conf.d:
+50-localauthority.conf	51-debian-sudo.conf
+
+/etc/polkit-1/nullbackend.conf.d:
+50-nullbackend.conf
+
+/etc/postgresql-common:
+supported_versions  user_clusters
+
+/etc/ppp:
+chap-secrets  ip-down.d  ip-up.d    ipv6-down.d  ipv6-up.d  pap-secrets
+ip-down       ip-up	 ipv6-down  ipv6-up	 options    peers
+
+/etc/ppp/ip-down.d:
+0000usepeerdns	0stunnel4
+
+/etc/ppp/ip-up.d:
+0000usepeerdns	0stunnel4  exim4
+
+/etc/ppp/ipv6-down.d:
+
+/etc/ppp/ipv6-up.d:
+
+/etc/ppp/peers:
+provider
+
+/etc/profile.d:
+bash_completion.sh  cs424.sh  gawk.csh	gawk.sh  jdk.csh  jdk.sh  umask.sh  vte-2.91.sh
+
+/etc/pulse:
+client.conf  client.conf.d  daemon.conf  default.pa  system.pa
+
+/etc/pulse/client.conf.d:
+00-disable-autospawn.conf
+
+/etc/purple:
+prefs.xml
+
+/etc/python:
+debian_config
+
+/etc/python2.7:
+sitecustomize.py
+
+/etc/python3:
+debian_config
+
+/etc/python3.5:
+sitecustomize.py
+
+/etc/python3.7:
+sitecustomize.py
+
+/etc/R:
+ldpaths  Makeconf  Renviron  Renviron.site  repositories  Rprofile.site
+
+/etc/racket:
+config.rktd
+
+/etc/rc0.d:
+K01acct		 K01lldpd			 K01samba-ad-dc        K04rsyslog
+K01alsa-utils	 K01nmbd			 K01saned	       K05umountnfs.sh
+K01atd		 K01nscd			 K01smbd	       K06nfs-common
+K01avahi-daemon  K01nslcd			 K01snmpd	       K06rpcbind
+K01bluetooth	 K01nvidia-persistenced		 K01speech-dispatcher  K07hwclock.sh
+K01brightness	 K01openipmi			 K01stunnel4	       K07networking
+K01exim4	 K01open-vm-tools		 K01urandom	       K08umountfs
+K01fail2ban	 K01openvpn			 K01winbind	       K09umountroot
+K01gdomap	 K01pcscd			 K01x2goserver	       K10halt
+K01hddtemp	 K01prometheus-node-exporter	 K01xinetd	       README
+K01ipmievd	 K01prometheus-process-exporter  K02quota
+K01irqbalance	 K01pyro-nsd			 K02udev
+K01lightdm	 K01quotarpc			 K03sendsigs
+
+/etc/rc1.d:
+K01acct		 K01lightdm		      K01prometheus-process-exporter  K01x2goserver
+K01alsa-utils	 K01lldpd		      K01pyro-nsd		      K01xinetd
+K01atd		 K01nmbd		      K01quotarpc		      K04rsyslog
+K01avahi-daemon  K01nscd		      K01samba-ad-dc		      K06nfs-common
+K01bluetooth	 K01nslcd		      K01saned			      K06rpcbind
+K01exim4	 K01nvidia-persistenced       K01smartmontools		      README
+K01fail2ban	 K01openipmi		      K01smbd			      S01killprocs
+K01gdomap	 K01open-vm-tools	      K01snmpd			      S02single
+K01hddtemp	 K01openvpn		      K01speech-dispatcher	      S06bootlogs
+K01ipmievd	 K01pcscd		      K01stunnel4		      S07bootchart-done
+K01irqbalance	 K01prometheus-node-exporter  K01winbind
+
+/etc/rc2.d:
+K01gdomap		S02prometheus-node-exporter	S04lldpd	S05atd
+K01ipmievd		S02prometheus-process-exporter	S04loadcpufreq	S05avahi-daemon
+K01nmbd			S02pyro-nsd			S04nscd		S05bluetooth
+K01nvidia-persistenced	S02rsyslog			S04nslcd	S05cpufrequtils
+K01openipmi		S02samba-ad-dc			S04ntp		S05exim4
+K01smartmontools	S02sudo				S04pcscd	S05lightdm
+K01smbd			S03openvpn			S04quotarpc	S06bootlogs
+K01speech-dispatcher	S04acct				S04rmnologin	S06cron
+K01winbind		S04acpid			S04snmpd	S06rsync
+README			S04anacron			S04ssh		S06saned
+S01console-setup.sh	S04dbus				S04stunnel4	S06sysfsutils
+S02binfmt-support	S04fail2ban			S04sysstat	S07bootchart-done
+S02fancontrol		S04hddtemp			S04x2goserver	S07rc.local
+S02open-vm-tools	S04irqbalance			S04xinetd
+
+/etc/rc3.d:
+K01gdomap		S02prometheus-node-exporter	S04lldpd	S05atd
+K01ipmievd		S02prometheus-process-exporter	S04loadcpufreq	S05avahi-daemon
+K01nmbd			S02pyro-nsd			S04nscd		S05bluetooth
+K01nvidia-persistenced	S02rsyslog			S04nslcd	S05cpufrequtils
+K01openipmi		S02samba-ad-dc			S04ntp		S05exim4
+K01smartmontools	S02sudo				S04pcscd	S05lightdm
+K01smbd			S03openvpn			S04quotarpc	S06bootlogs
+K01speech-dispatcher	S04acct				S04rmnologin	S06cron
+K01winbind		S04acpid			S04snmpd	S06rsync
+README			S04anacron			S04ssh		S06saned
+S01console-setup.sh	S04dbus				S04stunnel4	S06sysfsutils
+S02binfmt-support	S04fail2ban			S04sysstat	S07bootchart-done
+S02fancontrol		S04hddtemp			S04x2goserver	S07rc.local
+S02open-vm-tools	S04irqbalance			S04xinetd
+
+/etc/rc4.d:
+K01gdomap		S02prometheus-node-exporter	S04lldpd	S05atd
+K01ipmievd		S02prometheus-process-exporter	S04loadcpufreq	S05avahi-daemon
+K01nmbd			S02pyro-nsd			S04nscd		S05bluetooth
+K01nvidia-persistenced	S02rsyslog			S04nslcd	S05cpufrequtils
+K01openipmi		S02samba-ad-dc			S04ntp		S05exim4
+K01smartmontools	S02sudo				S04pcscd	S05lightdm
+K01smbd			S03openvpn			S04quotarpc	S06bootlogs
+K01speech-dispatcher	S04acct				S04rmnologin	S06cron
+K01winbind		S04acpid			S04snmpd	S06rsync
+README			S04anacron			S04ssh		S06saned
+S01console-setup.sh	S04dbus				S04stunnel4	S06sysfsutils
+S02binfmt-support	S04fail2ban			S04sysstat	S07bootchart-done
+S02fancontrol		S04hddtemp			S04x2goserver	S07rc.local
+S02open-vm-tools	S04irqbalance			S04xinetd
+
+/etc/rc5.d:
+K01gdomap		S02prometheus-node-exporter	S04lldpd	S05atd
+K01ipmievd		S02prometheus-process-exporter	S04loadcpufreq	S05avahi-daemon
+K01nmbd			S02pyro-nsd			S04nscd		S05bluetooth
+K01nvidia-persistenced	S02rsyslog			S04nslcd	S05cpufrequtils
+K01openipmi		S02samba-ad-dc			S04ntp		S05exim4
+K01smartmontools	S02sudo				S04pcscd	S05lightdm
+K01smbd			S03openvpn			S04quotarpc	S06bootlogs
+K01speech-dispatcher	S04acct				S04rmnologin	S06cron
+K01winbind		S04acpid			S04snmpd	S06rsync
+README			S04anacron			S04ssh		S06saned
+S01console-setup.sh	S04dbus				S04stunnel4	S06sysfsutils
+S02binfmt-support	S04fail2ban			S04sysstat	S07bootchart-done
+S02fancontrol		S04hddtemp			S04x2goserver	S07rc.local
+S02open-vm-tools	S04irqbalance			S04xinetd
+
+/etc/rc6.d:
+K01acct		 K01lldpd			 K01samba-ad-dc        K04rsyslog
+K01alsa-utils	 K01nmbd			 K01saned	       K05umountnfs.sh
+K01atd		 K01nscd			 K01smbd	       K06nfs-common
+K01avahi-daemon  K01nslcd			 K01snmpd	       K06rpcbind
+K01bluetooth	 K01nvidia-persistenced		 K01speech-dispatcher  K07hwclock.sh
+K01brightness	 K01openipmi			 K01stunnel4	       K07networking
+K01exim4	 K01open-vm-tools		 K01urandom	       K08umountfs
+K01fail2ban	 K01openvpn			 K01winbind	       K09umountroot
+K01gdomap	 K01pcscd			 K01x2goserver	       K10reboot
+K01hddtemp	 K01prometheus-node-exporter	 K01xinetd	       README
+K01ipmievd	 K01prometheus-process-exporter  K02quota
+K01irqbalance	 K01pyro-nsd			 K02udev
+K01lightdm	 K01quotarpc			 K03sendsigs
+
+/etc/rcS.d:
+K11apparmor	      S04mountdevsubfs.sh	 S11brightness		   S16alsa-utils
+K15nfs-common	      S05hwclock.sh		 S11pppd-dns		   S16bootmisc.sh
+K20quota	      S06checkroot.sh		 S11procps		   S16lm-sensors
+README		      S07checkfs.sh		 S11urandom		   S16screen-cleanup
+S01hostname.sh	      S08checkroot-bootclean.sh  S12networking		   S16x11-common
+S01mountkernfs.sh     S08kmod			 S13rpcbind
+S02udev		      S09mountall.sh		 S14mountnfs.sh
+S03keyboard-setup.sh  S10mountall-bootclean.sh	 S15mountnfs-bootclean.sh
+
+/etc/reader.conf.d:
+libccidtwin
+
+/etc/request-key.d:
+cifs.idmap.conf  cifs.spnego.conf  id_resolver.conf
+
+/etc/resolvconf:
+update-libc.d
+
+/etc/resolvconf/update-libc.d:
+
+/etc/rlwrap:
+clojure1.2  clojure1.6
+
+/etc/rsyslog.d:
+
+/etc/runit:
+runsvdir
+
+/etc/runit/runsvdir:
+default
+
+/etc/runit/runsvdir/default:
+irqbalance
+
+/etc/samba:
+gdbcommands  smb.conf  tls
+
+/etc/samba/tls:
+
+/etc/sane.d:
+abaton.conf	     dc25.conf		 hpsj5s.conf	  net.conf	   st400.conf
+agfafocus.conf	     dell1600n_net.conf  hs2p.conf	  p5.conf	   stv680.conf
+apple.conf	     dll.conf		 ibm.conf	  pie.conf	   tamarack.conf
+artec.conf	     dll.d		 kodakaio.conf	  pieusb.conf	   teco1.conf
+artec_eplus48u.conf  dmc.conf		 kodak.conf	  pixma.conf	   teco2.conf
+avision.conf	     epjitsu.conf	 kvs1025.conf	  plustek.conf	   teco3.conf
+bh.conf		     epson2.conf	 leo.conf	  plustek_pp.conf  test.conf
+canon630u.conf	     epson.conf		 lexmark.conf	  qcam.conf	   u12.conf
+canon.conf	     epsonds.conf	 ma1509.conf	  ricoh.conf	   umax1220u.conf
+canon_dr.conf	     fujitsu.conf	 magicolor.conf   rts8891.conf	   umax.conf
+canon_pp.conf	     genesys.conf	 matsushita.conf  s9036.conf	   umax_pp.conf
+cardscan.conf	     gphoto2.conf	 microtek2.conf   saned.conf	   v4l.conf.dpkg-remove
+coolscan2.conf	     gt68xx.conf	 microtek.conf	  sceptre.conf	   xerox_mfp.conf
+coolscan3.conf	     hp3900.conf	 mustek.conf	  sharp.conf
+coolscan.conf	     hp4200.conf	 mustek_pp.conf   sm3840.conf
+dc210.conf	     hp5400.conf	 mustek_usb.conf  snapscan.conf
+dc240.conf	     hp.conf		 nec.conf	  sp15c.conf
+
+/etc/sane.d/dll.d:
+
+/etc/scite:
+abaqus.properties	 eiffel.properties     maxima.properties      ruby.properties
+abbrev.properties	 Embedded.properties   metapost.properties    rust.properties
+ada.properties		 erlang.properties     mmixal.properties      SciTEGlobal.properties
+asl.properties		 escript.properties    modula3.properties     SciTE.properties
+asm.properties		 flagship.properties   nim.properties	      scriptol.properties
+asn1.properties		 forth.properties      nimrod.properties      smalltalk.properties
+au3.properties		 fortran.properties    nncrontab.properties   sorcins.properties
+ave.properties		 freebasic.properties  nsis.properties	      specman.properties
+avs.properties		 gap.properties        opal.properties	      spice.properties
+baan.properties		 haskell.properties    oscript.properties     sql.properties
+blitzbasic.properties	 hex.properties        others.properties      tacl.properties
+bullant.properties	 html.properties       pascal.properties      tal.properties
+caml.properties		 inno.properties       perl.properties	      tcl.properties
+cmake.properties	 json.properties       pov.properties	      tex.properties
+cobol.properties	 kix.properties        powerpro.properties    txt2tags.properties
+coffeescript.properties  latex.properties      powershell.properties  vb.properties
+conf.properties		 lisp.properties       ps.properties	      verilog.properties
+cpp.properties		 lot.properties        purebasic.properties   vhdl.properties
+csound.properties	 lout.properties       python.properties      visualprolog.properties
+css.properties		 lua.properties        rebol.properties       yaml.properties
+d.properties		 markdown.properties   registry.properties
+ecl.properties		 matlab.properties     r.properties
+
+/etc/security:
+access.conf	 limits.conf	       limits.ssh.conf	namespace.init	sepermit.conf
+capability.conf  limits.conf.dpkg-old  namespace.conf	opasswd		time.conf
+group.conf	 limits.d	       namespace.d	pam_env.conf
+
+/etc/security/limits.d:
+
+/etc/security/namespace.d:
+
+/etc/selinux:
+semanage.conf
+
+/etc/sensors.d:
+
+/etc/sgml:
+catalog      docbook-xml.cat	  jade.cat	sgml-data.cat	   xml-core.cat
+docbook-xml  docutils-common.cat  openjade.cat	w3c-dtd-xhtml.cat
+
+/etc/sgml/docbook-xml:
+4.0  4.1.2  4.2  4.3  4.4  4.5
+
+/etc/sgml/docbook-xml/4.0:
+dbgenent.ent
+
+/etc/sgml/docbook-xml/4.1.2:
+dbgenent.mod
+
+/etc/sgml/docbook-xml/4.2:
+dbgenent.mod
+
+/etc/sgml/docbook-xml/4.3:
+dbgenent.mod
+
+/etc/sgml/docbook-xml/4.4:
+dbgenent.mod
+
+/etc/sgml/docbook-xml/4.5:
+dbgenent.mod
+
+/etc/skel:
+
+/etc/smartmontools:
+run.d  smartd_warning.d
+
+/etc/smartmontools/run.d:
+10mail
+
+/etc/smartmontools/smartd_warning.d:
+
+/etc/snmp:
+snmp.conf  snmpd.conf  snmpd.conf.save
+
+/etc/sound:
+events
+
+/etc/sound/events:
+gnome-2.soundlist  gtk-events-2.soundlist
+
+/etc/speech-dispatcher:
+clients  modules  speechd.conf
+
+/etc/speech-dispatcher/clients:
+emacs.conf
+
+/etc/speech-dispatcher/modules:
+baratinoo.conf	   espeak-generic.conf		  flite.conf		  mary-generic.conf
+cicero.conf	   espeak-mbrola-generic.conf	  ibmtts.conf		  pico-generic.conf
+dtk-generic.conf   espeak-ng.conf		  ivona.conf		  swift-generic.conf
+epos-generic.conf  espeak-ng-mbrola-generic.conf  kali.conf
+espeak.conf	   festival.conf		  llia_phon-generic.conf
+
+/etc/ssh:
+moduli		     sshd_config	   ssh_host_dsa_key.pub    ssh_host_ed25519_key.pub
+ssh_config	     sshd_config.d	   ssh_host_ecdsa_key	   ssh_host_rsa_key
+ssh_config.d	     sshd_config.ucf-dist  ssh_host_ecdsa_key.pub  ssh_host_rsa_key.pub
+ssh_config.dpkg-old  ssh_host_dsa_key	   ssh_host_ed25519_key
+
+/etc/ssh/ssh_config.d:
+
+/etc/ssh/sshd_config.d:
+
+/etc/ssl:
+cacert_2017.pem  cacert_2021.pem  cacert.pem  certs  openssl.cnf  private
+
+/etc/ssl/certs:
+ 02265526.0
+ 03179a64.0
+ 062cdee6.0
+ 064e0aa9.0
+ 06dc52d5.0
+ 07ec2cc8
+ 07ec2cc8.0
+ 080911ac.0
+ 09789157.0
+ 0a775a30.0
+ 0b1b94ef.0
+ 0bf05006.0
+ 0c4c9b6c.0
+ 0f5dc4f3.0
+ 0f6fa695.0
+ 1001acf7.0
+ 106f3e4d.0
+ 128805a3.0
+ 14bc7599.0
+ 1636090b.0
+ 18856ac4.0
+ 1d3472b9.0
+ 1e08bfd1.0
+ 1e09d511.0
+ 244b5494.0
+ 2923b3f9.0
+ 2ae6433e.0
+ 2b349938.0
+ 2e5ac55d.0
+ 32888f65.0
+ 349f2832.0
+ 3513523f.0
+ 3bde41ac.0
+ 3e44d2f7.0
+ 3e45d192.0
+ 40193066.0
+ 4042bcee.0
+ 40547a79.0
+ 406c9bb1.0
+ 4304c5e5.0
+ 48bec511.0
+ 4a6481c9.0
+ 4b718d9b.0
+ 4bfab552.0
+ 4f316efb.0
+ 5273a94c.0
+ 5443e9e3.0
+ 54657681.0
+ 57bcb2da.0
+ 5a4d6896.0
+ 5ad8a5d6.0
+ 5c44d531.0
+ 5cd81ad7.0
+ 5d3033c5.0
+ 5e98733a.0
+ 5f15c80c.0
+ 607986c7.0
+ 626dceaf.0
+ 6410666e.0
+ 653b494a.0
+ 68dd7389.0
+ 6b99d060.0
+ 6d41d539.0
+ 6fa5da56.0
+ 706f604c.0
+ 749e9e03.0
+ 75d1b2ed.0
+ 76cb8f92.0
+ 76faf6c0.0
+ 7719f463.0
+ 773e07ad.0
+ 7aaf71c0.0
+ 7f3d5d1d.0
+ 8160b96c.0
+ 8867006a.0
+ 8cb5ee0f.0
+ 8d86cdd1.0
+ 930ac5d2.0
+ 93bc0acc.0
+ 988a38cb.0
+ 9c2e7d30.0
+ 9c8dfbd4.0
+ 9d04f354.0
+ a3418fda.0
+ a94d09e5.0
+ ACCVRAIZ1.pem
+ AC_RAIZ_FNMT-RCM.pem
+ Actalis_Authentication_Root_CA.pem
+ aee5f10d.0
+ AffirmTrust_Commercial.pem
+ AffirmTrust_Networking.pem
+ AffirmTrust_Premium_ECC.pem
+ AffirmTrust_Premium.pem
+ Amazon_Root_CA_1.pem
+ Amazon_Root_CA_2.pem
+ Amazon_Root_CA_3.pem
+ Amazon_Root_CA_4.pem
+ Atos_TrustedRoot_2011.pem
+ Autoridad_de_Certificacion_Firmaprofesional_CIF_A62634068.pem
+ b0e59380.0
+ b1159c4c.0
+ b1b8a7f3.0
+ b66938e9.0
+ b727005e.0
+ b7a5b843.0
+ Baltimore_CyberTrust_Root.pem
+ Buypass_Class_2_Root_CA.pem
+ Buypass_Class_3_Root_CA.pem
+ c01eb047.0
+ c0ff1f52.0
+ c28a8a30.0
+ c47d9980.0
+ ca6e4ad9.0
+ ca-certificates.crt
+ CA_Disig_Root_R2.pem
+ cbf06781.0
+ cc450945.0
+ cd58d51e.0
+ cd8c0d63.0
+ ce5e74ef.0
+ Certigna.pem
+ Certigna_Root_CA.pem
+ certSIGN_ROOT_CA.pem
+ Certum_Trusted_Network_CA_2.pem
+ Certum_Trusted_Network_CA.pem
+ CFCA_EV_ROOT.pem
+ Chambers_of_Commerce_Root_-_2008.pem
+ Comodo_AAA_Services_root.pem
+ COMODO_Certification_Authority.pem
+ COMODO_ECC_Certification_Authority.pem
+ COMODO_RSA_Certification_Authority.pem
+ Cybertrust_Global_Root.pem
+ d4dae3dd.0
+ d6325660.0
+ d7e8dc79.0
+ d853d49e.0
+ dc4d6a89.0
+ dd8e9d41.0
+ de6d66f3.0
+ def36a68.0
+ DigiCert_Assured_ID_Root_CA.pem
+ DigiCert_Assured_ID_Root_G2.pem
+ DigiCert_Assured_ID_Root_G3.pem
+ DigiCert_Global_Root_CA.pem
+ DigiCert_Global_Root_G2.pem
+ DigiCert_Global_Root_G3.pem
+ DigiCert_High_Assurance_EV_Root_CA.pem
+ DigiCert_Trusted_Root_G4.pem
+ DST_Root_CA_X3.pem
+ D-TRUST_Root_Class_3_CA_2_2009.pem
+ D-TRUST_Root_Class_3_CA_2_EV_2009.pem
+ e113c810.0
+ e18bfb83.0
+ e36a6752.0
+ e73d606e.0
+ e8de2f56.0
+ EC-ACC.pem
+ ee64a828.0
+ EE_Certification_Centre_Root_CA.pem
+ eed8c118.0
+ ef954a4e.0
+ emSign_ECC_Root_CA_-_C3.pem
+ emSign_ECC_Root_CA_-_G3.pem
+ emSign_Root_CA_-_C1.pem
+ emSign_Root_CA_-_G1.pem
+ Entrust.net_Premium_2048_Secure_Server_CA.pem
+ Entrust_Root_Certification_Authority_-_EC1.pem
+ Entrust_Root_Certification_Authority_-_G2.pem
+ Entrust_Root_Certification_Authority_-_G4.pem
+ Entrust_Root_Certification_Authority.pem
+ ePKI_Root_Certification_Authority.pem
+ E-Tugra_Certification_Authority.pem
+ f081611a.0
+ f0c70a8d.0
+ f30dd6ad.0
+ f3377b1b.0
+ f387163d.0
+ f39fc864.0
+ f51bb24c.0
+ fc5a8f99.0
+ fe8a2cd8.0
+ ff34af3f.0
+ GDCA_TrustAUTH_R5_ROOT.pem
+ GeoTrust_Universal_CA_2.pem
+ Global_Chambersign_Root_-_2008.pem
+ GlobalSign_ECC_Root_CA_-_R4.pem
+ GlobalSign_ECC_Root_CA_-_R5.pem
+ GlobalSign_Root_CA.pem
+ GlobalSign_Root_CA_-_R2.pem
+ GlobalSign_Root_CA_-_R3.pem
+ GlobalSign_Root_CA_-_R6.pem
+ Go_Daddy_Class_2_CA.pem
+ Go_Daddy_Root_Certificate_Authority_-_G2.pem
+ GTS_Root_R1.pem
+ GTS_Root_R2.pem
+ GTS_Root_R3.pem
+ GTS_Root_R4.pem
+ Hellenic_Academic_and_Research_Institutions_ECC_RootCA_2015.pem
+ Hellenic_Academic_and_Research_Institutions_RootCA_2011.pem
+ Hellenic_Academic_and_Research_Institutions_RootCA_2015.pem
+ Hongkong_Post_Root_CA_1.pem
+ Hongkong_Post_Root_CA_3.pem
+ IdenTrust_Commercial_Root_CA_1.pem
+ IdenTrust_Public_Sector_Root_CA_1.pem
+ ISRG_Root_X1.pem
+ Izenpe.com.pem
+ LuxTrust_Global_Root_2.pem
+ Microsec_e-Szigno_Root_CA_2009.pem
+'NetLock_Arany_=Class_Gold=_Főtanúsítvány.pem'
+ Network_Solutions_Certificate_Authority.pem
+ OISTE_WISeKey_Global_Root_GA_CA.pem
+ OISTE_WISeKey_Global_Root_GB_CA.pem
+ OISTE_WISeKey_Global_Root_GC_CA.pem
+ QuoVadis_Root_CA_1_G3.pem
+ QuoVadis_Root_CA_2_G3.pem
+ QuoVadis_Root_CA_2.pem
+ QuoVadis_Root_CA_3_G3.pem
+ QuoVadis_Root_CA_3.pem
+ QuoVadis_Root_CA.pem
+ Secure_Global_CA.pem
+ SecureSign_RootCA11.pem
+ SecureTrust_CA.pem
+ Security_Communication_RootCA2.pem
+ Security_Communication_Root_CA.pem
+ Sonera_Class_2_Root_CA.pem
+ ssl-cert-snakeoil.pem
+ SSL.com_EV_Root_Certification_Authority_ECC.pem
+ SSL.com_EV_Root_Certification_Authority_RSA_R2.pem
+ SSL.com_Root_Certification_Authority_ECC.pem
+ SSL.com_Root_Certification_Authority_RSA.pem
+ Staat_der_Nederlanden_EV_Root_CA.pem
+ Staat_der_Nederlanden_Root_CA_-_G2.pem
+ Staat_der_Nederlanden_Root_CA_-_G3.pem
+ Starfield_Class_2_CA.pem
+ Starfield_Root_Certificate_Authority_-_G2.pem
+ Starfield_Services_Root_Certificate_Authority_-_G2.pem
+ SwissSign_Gold_CA_-_G2.pem
+ SwissSign_Silver_CA_-_G2.pem
+ SZAFIR_ROOT_CA2.pem
+ Taiwan_GRCA.pem
+ TeliaSonera_Root_CA_v1.pem
+ TrustCor_ECA-1.pem
+ TrustCor_RootCert_CA-1.pem
+ TrustCor_RootCert_CA-2.pem
+ Trustis_FPS_Root_CA.pem
+ T-TeleSec_GlobalRoot_Class_2.pem
+ T-TeleSec_GlobalRoot_Class_3.pem
+ TUBITAK_Kamu_SM_SSL_Kok_Sertifikasi_-_Surum_1.pem
+ TWCA_Global_Root_CA.pem
+ TWCA_Root_Certification_Authority.pem
+ UCA_Extended_Validation_Root.pem
+ UCA_Global_G2_Root.pem
+ USERTrust_ECC_Certification_Authority.pem
+ USERTrust_RSA_Certification_Authority.pem
+ Verisign_Class_3_Public_Primary_Certification_Authority_-_G3.pem
+ XRamp_Global_CA_Root.pem
+ls: cannot open directory '/etc/ssl/private': Permission denied
+
+/etc/stunnel:
+README
+
+/etc/subversion:
+config	servers
+
+/etc/sudoers.d:
+cs424  README  x2goserver
+
+/etc/sv:
+irqbalance
+
+/etc/sv/irqbalance:
+run  supervise
+
+/etc/sysctl.d:
+00-perf.conf  99-sysctl.conf  core-dump.conf  protect-links.conf  README.sysctl
+
+/etc/sysfs.d:
+
+/etc/sysstat:
+sysstat  sysstat.ioconf
+
+/etc/systemd:
+journald.conf		 network	sleep.conf	user
+journald.conf.dpkg-dist  networkd.conf	system		user.conf
+logind.conf		 pstore.conf	system.conf	user.conf.dpkg-dist
+logind.conf.dpkg-dist	 resolved.conf	timesyncd.conf	user.conf.save
+
+/etc/systemd/network:
+10-eth0.link
+
+/etc/systemd/system:
+ acct.service.d				       mountnfs.service
+ anacron.service.d			       multi-user.target.wants
+ apparmor.service.d			       networking.service.d
+ autovt@.service.d			       network-online.target.d
+ backup.mount				       network-online.target.wants
+ backup.mount.d				       nfs-client.target.d
+ bluetooth.target.wants			       nfs-client.target.wants
+ bootlogs.service			       nfs-idmapd.service.d
+ bootmisc.service			       nfs-idmapd.service.requires
+ brightness.service			       nfs-mounts.service
+ cbdaemon.service			       nfs-server.service.wants
+ cbebpfdaemon.service			       nfs-utils.service.requires
+ cbkernelupdate.service			       nmbd.service.d
+ checkfs.service			       nscd.service.d
+ checkroot-bootclean.service		       nslcd.service.d
+ checkroot.service			       nvidia-persistenced.service.d
+ console-kit-daemon.service.d		       open-vm-tools.service.d
+ console-kit-log-system-restart.service.d      paths.target.wants
+ console-kit-log-system-start.service.d        prometheus-node-exporter.d
+ console-kit-log-system-stop.service.d	       prometheus-process-exporter.d
+ cron.service.d				       rc.local.service
+ dbus-fi.w1.wpa_supplicant1.service	       reboot.service
+ dbus-org.freedesktop.ModemManager1.service    remote-fs-pre.target.wants
+ dbus-org.freedesktop.timesync1.service        remote-fs.target.requires
+ default.target.wants			       rmnologin.service
+'dev-disk-by\x2dlabel-shared\x2dswap.swap.d'   rpcbind.service.d
+ display-manager.service		       rpc-gssd.service.requires
+ exim4-base.service.d			       rpc-statd.service.d
+ exim4-base.timer.d			       rpc-svcgssd.service.requires
+ exim4.service.d			       rsyslog.service.d
+ fail2ban.service.d			       samba-ad-dc.service
+ getty@.service.d			       sendsigs.service
+ getty.target.requires			       single.service
+ getty.target.wants			       smbd.service.d
+ go-mmproxy.service			       snmpd.service
+ go-mmproxy.service.d			       snmpd.service.d
+ graphical.target.wants			       sockets.target.wants
+ gssproxy.service.requires		       sshd.service
+ halt.service				       ssh.service.d
+ headless.service			       sudo.service.d
+ hostname.service			       sysinit.target.wants
+ import-linux1.mount			       syslog.service
+ import-linux1.mount.d			       systemd-networkd-wait-online.service.d
+ import-linux.mount			       systemd-random-seed.service.d
+ import-linux.mount.d			       systemd-tmpfiles-setup.service.d
+ killprocs.service			       timers.target.wants
+ lightdm.service.d			       umountfs.service
+ local-fs.target.d			       umountnfs.service
+ microchip.mount.d			       umountroot.service
+ mountall-bootclean.service		       urandom.service
+ mountall.service			       var-log.mount.d
+ mountdevsubfs.service			       var-work.mount.d
+ mountkernfs.service			       vmtoolsd.service
+ mountnfs-bootclean.service		       x2goserver.service.d
+
+/etc/systemd/system/acct.service.d:
+unit.conf
+
+/etc/systemd/system/anacron.service.d:
+mounts.conf
+ls: cannot open directory '/etc/systemd/system/apparmor.service.d': Permission denied
+
+/etc/systemd/system/backup.mount.d:
+unit.conf
+
+/etc/systemd/system/bluetooth.target.wants:
+bluetooth.service
+
+/etc/systemd/system/console-kit-daemon.service.d:
+mounts.conf
+
+/etc/systemd/system/console-kit-log-system-restart.service.d:
+mounts.conf
+
+/etc/systemd/system/console-kit-log-system-start.service.d:
+mounts.conf
+
+/etc/systemd/system/console-kit-log-system-stop.service.d:
+mounts.conf
+
+/etc/systemd/system/cron.service.d:
+mounts.conf
+
+/etc/systemd/system/default.target.wants:
+e2scrub_reap.service
+
+'/etc/systemd/system/dev-disk-by\x2dlabel-shared\x2dswap.swap.d':
+override.conf
+
+/etc/systemd/system/exim4-base.service.d:
+mounts.conf
+
+/etc/systemd/system/exim4-base.timer.d:
+mounts.conf
+
+/etc/systemd/system/exim4.service.d:
+mounts.conf  override.conf
+
+/etc/systemd/system/fail2ban.service.d:
+unit.conf
+
+/etc/systemd/system/getty@.service.d:
+notty.conf
+
+/etc/systemd/system/getty.target.requires:
+headless.service
+
+/etc/systemd/system/getty.target.wants:
+getty@tty1.service
+
+/etc/systemd/system/go-mmproxy.service.d:
+mm.conf
+
+/etc/systemd/system/graphical.target.wants:
+accounts-daemon.service  rtkit-daemon.service  udisks2.service
+
+/etc/systemd/system/gssproxy.service.requires:
+network-online.target
+
+/etc/systemd/system/import-linux1.mount.d:
+unit.conf
+
+/etc/systemd/system/import-linux.mount.d:
+mounts.conf
+
+/etc/systemd/system/lightdm.service.d:
+mount.conf
+
+/etc/systemd/system/local-fs.target.d:
+mounts.conf
+
+/etc/systemd/system/microchip.mount.d:
+mounts.conf
+
+/etc/systemd/system/multi-user.target.wants:
+anacron.service		networking.service		     rsync.service
+atd.service		nfs-client.target		     rsyslog.service
+avahi-daemon.service	nscd.service			     snmpd.service
+binfmt-support.service	ntp.service			     ssh.service
+console-setup.service	open-vm-tools.service		     sysstat.service
+cron.service		openvpn.service			     vboxautostart-service.service
+fail2ban.service	pppd-dns.service		     vboxballoonctrl-service.service
+fancontrol.service	prometheus-node-exporter.service     vboxdrv.service
+go-mmproxy.service	prometheus-process-exporter.service  vboxweb-service.service
+irqbalance.service	quotarpc.service		     wpa_supplicant.service
+lldpd.service		remote-fs.target		     x2goserver.service
+lm-sensors.service	rpcbind.service
+ModemManager.service	rpc-gssd.service
+
+/etc/systemd/system/networking.service.d:
+service.conf
+
+/etc/systemd/system/network-online.target.d:
+unit.conf
+
+/etc/systemd/system/network-online.target.wants:
+networking.service  systemd-networkd-wait-online.service
+
+/etc/systemd/system/nfs-client.target.d:
+unit.conf
+
+/etc/systemd/system/nfs-client.target.wants:
+rpc-statd-notify.service
+
+/etc/systemd/system/nfs-idmapd.service.d:
+unit.conf
+
+/etc/systemd/system/nfs-idmapd.service.requires:
+network-online.target
+
+/etc/systemd/system/nfs-server.service.wants:
+rpc-statd.service
+
+/etc/systemd/system/nfs-utils.service.requires:
+network-online.target
+
+/etc/systemd/system/nmbd.service.d:
+mounts.conf
+
+/etc/systemd/system/nscd.service.d:
+unit.conf
+
+/etc/systemd/system/nslcd.service.d:
+unit.conf
+
+/etc/systemd/system/nvidia-persistenced.service.d:
+unit.conf
+
+/etc/systemd/system/open-vm-tools.service.d:
+service.conf
+
+/etc/systemd/system/paths.target.wants:
+acpid.path
+
+/etc/systemd/system/prometheus-node-exporter.d:
+mounts.conf
+
+/etc/systemd/system/prometheus-process-exporter.d:
+mounts.conf
+
+/etc/systemd/system/remote-fs-pre.target.wants:
+rpcbind.target
+
+/etc/systemd/system/remote-fs.target.requires:
+nfs-mounts.service
+
+/etc/systemd/system/rpcbind.service.d:
+unit.conf
+
+/etc/systemd/system/rpc-gssd.service.requires:
+network-online.target
+
+/etc/systemd/system/rpc-statd.service.d:
+mounts.conf
+
+/etc/systemd/system/rpc-svcgssd.service.requires:
+network-online.target
+
+/etc/systemd/system/rsyslog.service.d:
+storage.conf
+
+/etc/systemd/system/smbd.service.d:
+mounts.conf
+
+/etc/systemd/system/snmpd.service.d:
+unit.conf
+
+/etc/systemd/system/sockets.target.wants:
+acpid.socket  avahi-daemon.socket  gpsd.socket	pcscd.socket  rpcbind.socket
+
+/etc/systemd/system/ssh.service.d:
+unit.conf
+
+/etc/systemd/system/sudo.service.d:
+mounts.conf
+
+/etc/systemd/system/sysinit.target.wants:
+keyboard-setup.service	systemd-pstore.service	systemd-timesyncd.service
+
+/etc/systemd/system/systemd-networkd-wait-online.service.d:
+unit.conf
+
+/etc/systemd/system/systemd-random-seed.service.d:
+unit.conf
+
+/etc/systemd/system/systemd-tmpfiles-setup.service.d:
+mounts.conf
+
+/etc/systemd/system/timers.target.wants:
+anacron.timer	   logrotate.timer	  prometheus-node-exporter-ipmitool-sensor.timer
+e2scrub_all.timer  man-db.timer		  prometheus-node-exporter-mellanox-hca-temp.timer
+exim4-base.timer   phpsessionclean.timer
+
+/etc/systemd/system/var-log.mount.d:
+mounts.conf
+
+/etc/systemd/system/var-work.mount.d:
+override.conf
+ls: cannot open directory '/etc/systemd/system/x2goserver.service.d': Permission denied
+
+/etc/systemd/user:
+default.target.wants  sockets.target.wants
+
+/etc/systemd/user/default.target.wants:
+pulseaudio.service
+
+/etc/systemd/user/sockets.target.wants:
+dirmngr.socket		  gpg-agent-extra.socket  gpg-agent-ssh.socket
+gpg-agent-browser.socket  gpg-agent.socket	  pulseaudio.socket
+
+/etc/terminfo:
+README
+
+/etc/tex4ht:
+tex4ht.env
+
+/etc/texmf:
+dvipdfmx  dvips  hyphen.d  tex	texdoctk  texmf.d  web2c
+
+/etc/texmf/dvipdfmx:
+
+/etc/texmf/dvips:
+config
+
+/etc/texmf/dvips/config:
+
+/etc/texmf/hyphen.d:
+
+/etc/texmf/tex:
+context  generic
+
+/etc/texmf/tex/context:
+user
+
+/etc/texmf/tex/context/user:
+cont-sys.rme
+
+/etc/texmf/tex/generic:
+config
+
+/etc/texmf/tex/generic/config:
+
+/etc/texmf/texdoctk:
+texdocrc.defaults
+
+/etc/texmf/texmf.d:
+00debian.cnf
+
+/etc/texmf/web2c:
+mktex.cnf  texmf.cnf
+
+/etc/thunderbird:
+pref
+
+/etc/thunderbird/pref:
+thunderbird.js
+
+/etc/tigervnc:
+ecparams.pem  ssleay.cnf
+
+/etc/timidity:
+freepats.cfg
+
+/etc/tmpfiles.d:
+acct.conf  debian.conf	    legacy.conf   nfs-common.conf      ssh.conf		     var-work.conf
+atd.conf   home.conf	    lightdm.conf  screen-cleanup.conf  var-log.conf	     x2go.conf
+dbus.conf  home.local.conf  media.conf	  snmpd.conf	       var-spool-exim4.conf
+
+/etc/udev:
+hwdb.d	rules.d  udev.conf
+
+/etc/udev/hwdb.d:
+
+/etc/udev/rules.d:
+1-jtag-rule.rules   60-vboxdrv.rules	     99-usb-power.rules  z010_mchp_tools.rules
+50-paparazzi.rules  80-net-setup-link.rules  wis-ezusb.rules	 z25_persistent-serial.rules
+
+/etc/udisks2:
+udisks2.conf
+
+/etc/ufw:
+applications.d
+
+/etc/ufw/applications.d:
+openssh-server	samba
+
+/etc/update-motd.d:
+10-uname
+
+/etc/UPower:
+UPower.conf
+
+/etc/usb_modeswitch.d:
+
+/etc/vbox:
+
+/etc/vim:
+gvimrc	vimrc  vimrc.tiny
+
+/etc/visualvm:
+visualvm.clusters  visualvm.conf
+
+/etc/vmware-tools:
+guestproxy-ssl.conf  quiesce_manifest.xml  statechange.subr    tools.conf.dpkg-old  vgauth
+poweroff-vm-default  resume-vm-default	   suspend-vm-default  tools.conf.example   vgauth.conf
+poweron-vm-default   scripts		   tools.conf	       tools.conf.old	    vm-support
+
+/etc/vmware-tools/scripts:
+vmware
+
+/etc/vmware-tools/scripts/vmware:
+network
+
+/etc/vmware-tools/vgauth:
+schemas
+
+/etc/vmware-tools/vgauth/schemas:
+catalog.xml		       xenc-schema.xsd		XMLSchema-hasFacetAndProperty.xsd  xml.xsd
+datatypes.dtd		       xmldsig-core-schema.xsd	XMLSchema-instance.xsd
+saml-schema-assertion-2.0.xsd  XMLSchema.dtd		XMLSchema.xsd
+
+/etc/vulkan:
+explicit_layer.d  icd.d  implicit_layer.d
+
+/etc/vulkan/explicit_layer.d:
+
+/etc/vulkan/icd.d:
+
+/etc/vulkan/implicit_layer.d:
+
+/etc/w3m:
+config	mailcap
+
+/etc/wildmidi:
+wildmidi.cfg
+
+/etc/wireshark:
+init.lua
+
+/etc/wpa_supplicant:
+action_wpa.sh  functions.sh  ifupdown.sh
+
+/etc/X11:
+app-defaults		 xorg.conf.basic			      xorg.conf.qxx-00
+conf			 xorg.conf.g7				      xorg.conf.radeon
+default-display-manager  xorg.conf.g7-00-nouveau		      Xreset
+fonts			 xorg.conf.g7-00-nvidia			      Xreset.d
+old.xorg.conf.class00	 xorg.conf.G98				      Xresources
+old.xorg.conf.g7-00	 xorg.conf.jessie-current-working-2016-12-28  Xsession
+rgb.txt			 xorg.conf.lab				      Xsession.d
+X			 xorg.conf.nvidia			      Xsession.options
+xinit			 xorg.conf.nvidia-xconfig-original	      xsm
+xkb			 xorg.conf.omega			      XvMCConfig
+xorg.conf		 xorg.conf.optimus			      Xvnc-session
+xorg.conf.backup	 xorg.conf.optimus-w			      Xwrapper.config
+
+/etc/X11/app-defaults:
+Bitmap	       GV		 Viewres	XConsole	Xgc	     Xmessage
+Bitmap-color   GXditview	 Viewres-color	Xditview	Xgc-color    Xmessage-color
+Bitmap-nocase  GXditview-color	 XCalc		Xditview-chrtr	XLoad	     XMore
+Clock-color    KOI8RXTerm	 XCalc-color	Xedit		XLogo	     XSm
+Ddd	       KOI8RXTerm-color  XClipboard	Xedit-color	XLogo-color  XTerm
+Editres        UXTerm		 XClock		Xfd		Xmag	     XTerm-color
+Editres-color  UXTerm-color	 XClock-color	XFontSel	Xman	     Xvidtune
+
+/etc/X11/conf:
+
+/etc/X11/fonts:
+100dpi	75dpi  misc  Type1
+
+/etc/X11/fonts/100dpi:
+xfonts-100dpi.alias
+
+/etc/X11/fonts/75dpi:
+xfonts-75dpi.alias
+
+/etc/X11/fonts/misc:
+xfonts-base.alias
+
+/etc/X11/fonts/Type1:
+gsfonts-x11.alias  gsfonts-x11.scale  lmodern.scale  tex-gyre.scale  xfonts-scalable.scale
+
+/etc/X11/xinit:
+xinitrc  xinputrc  xserverrc
+
+/etc/X11/xkb:
+
+/etc/X11/Xreset.d:
+README
+
+/etc/X11/Xresources:
+x11-common  xpdf
+
+/etc/X11/Xsession.d:
+20dbus_xdg-runtime		54xfce4-umask	    90qt-a11y
+20x11-common_process-args	55xfce4-session     90x11-common_ssh-agent
+30x11-common_xresources		70im-config_launch  90xbrlapi
+35x11-common_xhost-local	75dbus_dbus-launch  95dbus_update-activation-env
+40x11-common_xsessionrc		90atk-adaptor	    99x11-common_start
+50x11-common_determine-startup	90gpg-agent
+
+/etc/X11/xsm:
+system.xsm
+
+/etc/x2go:
+applications	x2goagent.options  x2go_logout.d    x2gosql	Xsession    Xsession.options
+keystrokes.cfg	x2go_logout	   x2goserver.conf  Xresources	Xsession.d
+
+/etc/x2go/x2go_logout.d:
+010_userscripts.sh
+
+/etc/x2go/x2gosql:
+passwords  sql	sql.postgres
+ls: cannot open directory '/etc/x2go/x2gosql/passwords': Permission denied
+
+/etc/xdg:
+accept-languages.codes	   kcoreaddons.categories	      kxmlgui.categories
+ark.categories		   kcrash.categories		      kxmlrpcclient.categories
+attica.categories	   kdbusaddons.categories	      kxmlrpcclient.renamecategories
+autostart		   kglobalaccel.categories	      menus
+cantor_kalgebra.knsrc	   kiconthemes.categories	      new-xfce4
+cantor.knsrc		   kidletime.categories		      okular.categories
+cantor_lua.knsrc	   kinit.categories		      org_kde_kwayland.categories
+cantor_octave.knsrc	   kio.categories		      save-xfce4
+cantor_qalculate.knsrc	   kitemmodels.categories	      solid.categories
+cantor_scilab.knsrc	   kjobwidgets.categories	      sonnet.categories
+drkonqi.categories	   knewstuff.categories		      systemd
+filelightrc		   knotifications.categories	      Thunar
+kactivities.categories	   kservice.categories		      tumbler
+karchive.categories	   kshorturifilterrc		      ui
+kauth.categories	   ktexteditor.categories	      user-dirs.conf
+kbookmarks.categories	   kwallet.categories		      user-dirs.defaults
+kcodecs.categories	   kwindowsystem.categories	      xfce4
+kconfigwidgets.categories  kwindowsystem.kwayland.categories
+
+/etc/xdg/autostart:
+at-spi-dbus-bus.desktop
+geoclue-demo-agent.desktop
+gnome-keyring-pkcs11.desktop
+gnome-keyring-secrets.desktop
+gnome-keyring-ssh.desktop
+gsettings-data-convert.desktop
+im-launch.desktop
+light-locker.desktop
+orca-autostart.desktop
+org.gnome.SettingsDaemon.A11ySettings.desktop
+org.gnome.SettingsDaemon.Clipboard.desktop
+org.gnome.SettingsDaemon.Color.desktop
+org.gnome.SettingsDaemon.Datetime.desktop
+org.gnome.SettingsDaemon.Housekeeping.desktop
+org.gnome.SettingsDaemon.Keyboard.desktop
+org.gnome.SettingsDaemon.MediaKeys.desktop
+org.gnome.SettingsDaemon.Mouse.desktop
+org.gnome.SettingsDaemon.Power.desktop
+org.gnome.SettingsDaemon.PrintNotifications.desktop
+org.gnome.SettingsDaemon.Rfkill.desktop
+org.gnome.SettingsDaemon.ScreensaverProxy.desktop
+org.gnome.SettingsDaemon.Sharing.desktop
+org.gnome.SettingsDaemon.Smartcard.desktop
+org.gnome.SettingsDaemon.Sound.desktop
+org.gnome.SettingsDaemon.Wacom.desktop
+org.gnome.SettingsDaemon.XSettings.desktop
+polkit-gnome-authentication-agent-1.desktop
+print-applet.desktop
+pulseaudio.desktop
+tracker-extract.desktop
+tracker-miner-apps.desktop
+tracker-miner-fs.desktop
+tracker-store.desktop
+xdg-user-dirs.desktop
+xfce4-clipman-plugin-autostart.desktop
+xfce4-notes-autostart.desktop
+xfce4-power-manager.desktop
+xfsettingsd.desktop
+xscreensaver.desktop
+zeitgeist-datahub.desktop
+
+/etc/xdg/menus:
+gnome-applications.menu  kde-information.menu	xfce-applications.menu
+kde4-applications.menu	 kf5-applications.menu	xfce-settings-manager.menu
+
+/etc/xdg/new-xfce4:
+desktop  helpers.rc  panel  terminal  xfconf  xfwm4
+ls: cannot open directory '/etc/xdg/new-xfce4/desktop': Permission denied
+
+/etc/xdg/new-xfce4/panel:
+launcher-10  launcher-15  launcher-19  launcher-23  xfce4-mixer-plugin-16.rc
+launcher-11  launcher-17  launcher-21  launcher-5   xfce4-orageclock-plugin-24.rc
+launcher-12  launcher-18  launcher-22  launcher-9
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-10': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-11': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-12': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-15': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-17': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-18': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-19': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-21': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-22': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-23': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-5': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-9': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/terminal': Permission denied
+
+/etc/xdg/new-xfce4/xfconf:
+xfce-perchannel-xml
+ls: cannot open directory '/etc/xdg/new-xfce4/xfconf/xfce-perchannel-xml': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/xfwm4': Permission denied
+
+/etc/xdg/save-xfce4:
+helpers.rc  panel  xfconf  Xft.xrdb  xinitrc
+
+/etc/xdg/save-xfce4/panel:
+default.xml  xfce4-clipman-actions.xml
+
+/etc/xdg/save-xfce4/xfconf:
+xfce-perchannel-xml
+
+/etc/xdg/save-xfce4/xfconf/xfce-perchannel-xml:
+thunar-volman.xml	      xfce4-panel.xml	       xfce4-session.xml
+xfce4-keyboard-shortcuts.xml  xfce4-power-manager.xml  xsettings.xml
+
+/etc/xdg/systemd:
+user
+
+/etc/xdg/Thunar:
+uca.xml
+
+/etc/xdg/tumbler:
+tumbler.rc
+
+/etc/xdg/ui:
+ui_standards.rc
+
+/etc/xdg/xfce4:
+helpers.rc  panel  whiskermenu	xfconf	Xft.xrdb  xinitrc
+
+/etc/xdg/xfce4/panel:
+default.xml  xfce4-clipman-actions.xml
+
+/etc/xdg/xfce4/whiskermenu:
+defaults.rc
+
+/etc/xdg/xfce4/xfconf:
+xfce-perchannel-xml
+
+/etc/xdg/xfce4/xfconf/xfce-perchannel-xml:
+thunar-volman.xml	      xfce4-power-manager.xml  xsettings.xml
+xfce4-keyboard-shortcuts.xml  xfce4-session.xml
+
+/etc/xfce4:
+defaults.list
+
+/etc/xinetd.d:
+chargen      daytime	  discard      echo	 haproxy-agent-check  services	time-udp
+chargen-udp  daytime-udp  discard-udp  echo-udp  servers	      time
+
+/etc/xml:
+catalog		    docbook-xml.xml.old      rarian-compat.xml	    w3c-dtd-xhtml.xml
+catalog.old	    docbook-xsl.xml	     rarian-compat.xml.old  w3c-dtd-xhtml.xml.old
+dia-common.xml	    docbook-xsl.xml.old      resolver		    xml-core.xml
+dia-common.xml.old  docutils-common.xml      sgml-data.xml	    xml-core.xml.old
+docbook-xml.xml     docutils-common.xml.old  sgml-data.xml.old
+
+/etc/xml/resolver:
+CatalogManager.properties
+
+/etc/xpdf:
+includes  xpdfrc
+
+/etc/zsh:
+newuser.zshrc.recommended  zlogin  zlogout  zprofile  zshenv  zshrc
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ ls -R /etc | wc -l
+ls: cannot open directory '/etc/node-exporter/save': Permission denied
+ls: cannot open directory '/etc/node-exporter/secrets': Permission denied
+ls: cannot open directory '/etc/polkit-1/localauthority': Permission denied
+ls: cannot open directory '/etc/ssl/private': Permission denied
+ls: cannot open directory '/etc/systemd/system/apparmor.service.d': Permission denied
+ls: cannot open directory '/etc/systemd/system/x2goserver.service.d': Permission denied
+ls: cannot open directory '/etc/x2go/x2gosql/passwords': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/desktop': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-10': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-11': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-12': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-15': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-17': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-18': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-19': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-21': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-22': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-23': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-5': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-9': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/terminal': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/xfconf/xfce-perchannel-xml': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/xfwm4': Permission denied
+5864
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ wc -l bin-c.log 
+9 bin-c.log
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ man tr
+[?1049h[22;0;0t[?1h=TR(1)                                     User Commands                                    TR(1)[m
+[m
+[1mNAME[0m[m
+       tr - translate or delete characters[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mtr[0m [[4mOPTION[24m]... [4mSET1[24m [[4mSET2[24m][m
+[m
+[1mDESCRIPTION[0m[m
+       Translate,  squeeze,  and/or  delete  characters from standard input, writing to standard[m
+       output.[m
+[m
+       [1m-c[0m, [1m-C[0m, [1m--complement[0m[m
+              use the complement of SET1[m
+[m
+       [1m-d[0m, [1m--delete[0m[m
+              delete characters in SET1, do not translate[m
+[m
+       [1m-s[0m, [1m--squeeze-repeats[0m[m
+              replace each sequence of a repeated character that is listed in the last specified[m
+              SET, with a single occurrence of that character[m
+[m
+       [1m-t[0m, [1m--truncate-set1[0m[m
+              first truncate SET1 to length of SET2[m
+[m
+       [1m--help[0m display this help and exit[m
+[m
+       [1m--version[0m[m
+              output version information and exit[m
+[m
+       SETs are specified as strings of characters.  Most represent themselves.  Interpreted se‐[m
+       quences are:[m
+[m
+       \NNN   character with octal value NNN (1 to 3 octal digits)[m
+[m
+       \\     backslash[m
+[m
+       \a     audible BEL[m
+[m
+       \b     backspace[m
+[m
+       \f     form feed[m
+[m
+       \n     new line[m
+[m
+       \r     return[m
+[m
+       \t     horizontal tab[m
+[m
+       \v     vertical tab[m
+[m
+       CHAR1-CHAR2[m
+              all characters from CHAR1 to CHAR2 in ascending order[m
+[7m Manual page tr(1) line 1 (press h for help or q to quit)[27m[K[K [KESCESC[K[[[K66[K~~[K[m
+       [CHAR*][m
+              in SET2, copies of CHAR until length of SET1[m
+[m
+       [CHAR*REPEAT][m
+              REPEAT copies of CHAR, REPEAT octal if starting with 0[m
+[m
+       [:alnum:][m
+              all letters and digits[m
+[m
+       [:alpha:][m
+              all letters[m
+[m
+       [:blank:][m
+              all horizontal whitespace[m
+[m
+       [:cntrl:][m
+              all control characters[m
+[m
+       [:digit:][m
+              all digits[m
+[m
+       [:graph:][m
+              all printable characters, not including space[m
+[m
+       [:lower:][m
+              all lower case letters[m
+[m
+       [:print:][m
+              all printable characters, including space[m
+[m
+       [:punct:][m
+              all punctuation characters[m
+[m
+       [:space:][m
+              all horizontal or vertical whitespace[m
+[m
+       [:upper:][m
+              all upper case letters[m
+[m
+       [:xdigit:][m
+              all hexadecimal digits[m
+[m
+       [=CHAR=][m
+              all characters which are equivalent to CHAR[m
+[m
+       Translation occurs if [1m-d[0m is not given and both SET1 and SET2 appear.  [1m-t[0m may be used only[m
+       when  translating.  SET2 is extended to length of SET1 by repeating its last character as[m
+       necessary.  Excess characters of SET2 are ignored.   Only  [:lower:]  and  [:upper:]  are[m
+       guaranteed to expand in ascending order; used in SET2 while translating, they may only be[m
+       used in pairs to specify case conversion.  [1m-s[0m uses the last specified SET, and occurs af‐[m
+       ter translation or deletion.[m
+[m
+[7m Manual page tr(1) line 54 (press h for help or q to quit)[27m[K[K [KESCESC[K[[[K66[K~~[K[1mAUTHOR[0m[m
+       Written by Jim Meyering.[m
+[m
+[1mREPORTING[0m [1mBUGS[0m[m
+       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>[m
+       Report tr translation bugs to <https://translationproject.org/team/>[m
+[m
+[1mCOPYRIGHT[0m[m
+       Copyright  ©  2018  Free  Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or[m
+       later <https://gnu.org/licenses/gpl.html>.[m
+       This is free software: you are free to change and redistribute it.  There is NO WARRANTY,[m
+       to the extent permitted by law.[m
+[m
+[1mSEE[0m [1mALSO[0m[m
+       Full documentation at: <https://www.gnu.org/software/coreutils/tr>[m
+       or available locally via: info '(coreutils) tr invocation'[m
+[m
+GNU coreutils 8.30                        February 2019                                    TR(1)[m
+[7m Manual page tr(1) line 72/124 (END) (press h for help or q to quit)[27m[K[K[7m Manual page tr(1) line 72/124 (END) (press h for help or q to quit)[27m[K[K[7m Manual page tr(1) line 72/124 (END) (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0tslohoka1@remote00:~/i220b/submit/lab3/exercises$ ls | tr [a-z]'[a-z][C[C[C[C[C' '[A-Z]'
+4
+BIN-C.LOG
+CAT.LOG
+C-STDIN-STDOUT
+DIR
+LS.LOG
+T1.C
+T1.S
+V1.S
+V.C
+X.C
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ clear
+[H[2J[3Jslohoka1@remote00:~/i220b/submit/lab3/exercises$ ls
+4  bin-c.log  cat.log  c-stdin-stdout  dir  ls.log  t1.c  T1.s	v1.s  v.c  x.c
+slohoka1@remote00:~/i220b/submit/lab3/exercises$ cd c-stdin-stdout/
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ ls
+-  Makefile  sum-ints.c  test1.in
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ nano sum-ints.c 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;42H(B[0;7m[ Reading File ](B[m[52;48H(B[0;7m 48 lines ](B[m[H(B[0;7m  GNU nano 3.2                                sum-ints.c                                           [1;98H(B[m[53d(B[0;7m^G(B[m Get Help     (B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut Text     (B[0;7m^J(B[m Justify[81G(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;17H(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Uncut Text   (B[0;7m^T(B[m To Spell     (B[0;7m^_(B[m Go To Line[52d[3d(B[0;1m[36m#include[39m(B[m (B[0;1m[33m<errno.h>[4d[36m#include[39m(B[m (B[0;1m[33m<stdio.h>[5d[36m#include[39m(B[m (B[0;1m[33m<stdlib.h>[6d[36m#include[39m(B[m (B[0;1m[33m<string.h>[8d[34m/** Sum pairs of ints read from the first argument; if first arg is[9d *  "-", then read from stdin.  Write line containing each sum to file[10d *  specified by second argument.  If second argument is not[11d *  specified, then write sum to stdout.[12d */[14d(B[0m[32mstatic[39m(B[m [32mvoid[15d[39m(B[msumInts((B[0;1m[31mFILE[39m(B[m *in, (B[0;1m[31mFILE[39m(B[m *out)[16d{[17d (B[0;1m[33mdo[39m(B[m {[18d[32mint[39m(B[m i1, i2;[19;5H(B[0;1m[33mif[39m(B[m (fscanf(in, (B[0;1m[33m"%d %d"[39m(B[m, &i1, &i2) != 2) [35mbreak[39m(B[m;[20;5Hfprintf(out, (B[0;1m[33m"%d\n"[39m(B[m, i1 + i2);[21;3H} (B[0;1m[33mwhile[39m(B[m (1);[22d}[25d[32mint[26d[39m(B[mmain([32mint[39m(B[m argc, [32mconst[39m(B[m [32mchar[39m(B[m *argv[])[27d{[28d (B[0;1m[33mif[39m(B[m (argc != 2 && argc != 3) {[29;5Hfprintf(stderr, (B[0;1m[33m"usage: %s IN_FILE|- [OUT_FILE]\n"[39m(B[m, argv[0]);[30;5Hexit(1);[31;3H}[32d[32mconst[39m(B[m [32mchar[39m(B[m *inName = argv[1];[33;3H(B[0;1m[31mFILE[39m(B[m *in = strcmp(inName, (B[0;1m[33m"-"[39m(B[m) == 0 ? stdin : fopen(inName, (B[0;1m[33m"r"[39m(B[m);[34;3H(B[0;1m[33mif[39m(B[m (!in) {[35;5Hfprintf(stderr, (B[0;1m[33m"cannot read %s: %s\n"[39m(B[m, inName, strerror(errno));[36;5Hexit(1);[37;3H}[39d(B[0;1m[31mFILE[39m(B[m *out = argc < 3 ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[40;3H(B[0;1m[33mif[39m(B[m (!out) {[41;5Hfprintf(stderr, (B[0;1m[33m"cannot write %s: %s\n"[39m(B[m, argv[2], strerror(errno));[42;5Hexit(1);[43;3H}[45dsumInts(in, out);[47;3H(B[0;1m[33mif[39m(B[m (fclose(in) != 0 || fclose(out) != 0) {[48;5Hfprintf(stderr, (B[0;1m[33m"cannot close files: %s\n"[39m(B[m, strerror(errno));[49;3H}[50d}[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l[24d[?12l[?25h[?25l[25d[?12l[?25h[?25l[26d[?12l[?25h[?25l[27d[?12l[?25h[?25l[28d[?12l[?25h[?25l[52d[K[29d[?12l[?25h[?25l[30d[?12l[?25h[?25l[31d[?12l[?25h[?25l[32d[?12l[?25h[?25l[33d[?12l[?25h[?25l[34d[?12l[?25h[?25l[35d[?12l[?25h[?25l[36d[?12l[?25h[?25l[37d[?12l[?25h[?25l[38d[?12l[?25h[?25l[39d[?12l[?25h[?25l[40d[?12l[?25h[?25l[41d[?12l[?25h[?25l[42d[?12l[?25h[?25l[44d[?12l[?25h[?25l[45d[?12l[?25h[?25l[46d[?12l[?25h[?25l[47d[?12l[?25h[?25l[48d[?12l[?25h[?25l[49d[?12l[?25h[?25l[50d[?12l[?25h[?25l[51d[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[53d[J[54;99H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ make
+cc -g -Wall -std=c18    sum-ints.c   -o sum-ints
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ ls
+-  Makefile  sum-ints  sum-ints.c  test1.in
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ ./sum-ints 
+usage: ./sum-ints IN_FILE|- [OUT_FILE]
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ man fopen
+[?1049h[22;0;0t[?1h=FOPEN(3)                            Linux Programmer's Manual                           FOPEN(3)[m
+[m
+[1mNAME[0m[m
+       fopen, fdopen, freopen - stream open functions[m
+[m
+[1mSYNOPSIS[0m[m
+       [1m#include[0m [1m<stdio.h>[0m[m
+[m
+       [1mFILE[0m [1m*fopen(const[0m [1mchar[0m [1m*[0m[4mpathname[24m[1m,[0m [1mconst[0m [1mchar[0m [1m*[0m[4mmode[24m[1m);[0m[m
+[m
+       [1mFILE[0m [1m*fdopen(int[0m [4mfd[24m[1m,[0m [1mconst[0m [1mchar[0m [1m*[0m[4mmode[24m[1m);[0m[m
+[m
+       [1mFILE[0m [1m*freopen(const[0m [1mchar[0m [1m*[0m[4mpathname[24m[1m,[0m [1mconst[0m [1mchar[0m [1m*[0m[4mmode[24m[1m,[0m [1mFILE[0m [1m*[0m[4mstream[24m[1m);[0m[m
+[m
+   Feature Test Macro Requirements for glibc (see [1mfeature_test_macros[0m(7)):[m
+[m
+       [1mfdopen[0m(): _POSIX_C_SOURCE[m
+[m
+[1mDESCRIPTION[0m[m
+       The  [1mfopen[0m()  function opens the file whose name is the string pointed to by [4mpathname[24m and[m
+       associates a stream with it.[m
+[m
+       The argument [4mmode[24m points to a string beginning with one of the following sequences  (pos‐[m
+       sibly followed by additional characters, as described below):[m
+[m
+       [1mr[0m      Open  text  file  for  reading.   The stream is positioned at the beginning of the[m
+              file.[m
+[m
+       [1mr+[0m     Open for reading and writing.  The stream is positioned at the  beginning  of  the[m
+              file.[m
+[m
+       [1mw[0m      Truncate file to zero length or create text file for writing.  The stream is posi‐[m
+              tioned at the beginning of the file.[m
+[m
+       [1mw+[0m     Open for reading and writing.  The file is created if it does not exist, otherwise[m
+              it is truncated.  The stream is positioned at the beginning of the file.[m
+[m
+       [1ma[0m      Open  for  appending (writing at end of file).  The file is created if it does not[m
+              exist.  The stream is positioned at the end of the file.[m
+[m
+       [1ma+[0m     Open for reading and appending (writing at end of file).  The file is  created  if[m
+              it  does  not  exist.  Output is always appended to the end of the file.  POSIX is[m
+              silent on what the initial read position is when using this mode.  For glibc,  the[m
+              initial  file  position  for  reading is at the beginning of the file, but for An‐[m
+              droid/BSD/MacOS, the initial file position for reading is at the end of the file.[m
+[m
+       The [4mmode[24m string can also include the letter 'b' either as a last character or as a  char‐[m
+       acter  between  the characters in any of the two-character strings described above.  This[m
+       is strictly for compatibility with C89 and has no effect; the 'b' is ignored on all POSIX[m
+       conforming  systems,  including  Linux.   (Other  systems may treat text files and binary[m
+       files differently, and adding the 'b' may be a good idea if you do I/O to a  binary  file[m
+       and expect that your program may be ported to non-UNIX environments.)[m
+[m
+[7m Manual page fopen(3) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0tslohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ man strcmp
+[?1049h[22;0;0t[?1h=STRCMP(3)                           Linux Programmer's Manual                          STRCMP(3)[m
+[m
+[1mNAME[0m[m
+       strcmp, strncmp - compare two strings[m
+[m
+[1mSYNOPSIS[0m[m
+       [1m#include[0m [1m<string.h>[0m[m
+[m
+       [1mint[0m [1mstrcmp(const[0m [1mchar[0m [1m*[0m[4ms1[24m[1m,[0m [1mconst[0m [1mchar[0m [1m*[0m[4ms2[24m[1m);[0m[m
+[m
+       [1mint[0m [1mstrncmp(const[0m [1mchar[0m [1m*[0m[4ms1[24m[1m,[0m [1mconst[0m [1mchar[0m [1m*[0m[4ms2[24m[1m,[0m [1msize_t[0m [4mn[24m[1m);[0m[m
+[m
+[1mDESCRIPTION[0m[m
+       The  [1mstrcmp[0m()  function compares the two strings [4ms1[24m and [4ms2[24m.  The locale is not taken into[m
+       account (for a locale-aware comparison, see [1mstrcoll[0m(3)).   It  returns  an  integer  less[m
+       than,  equal  to,  or greater than zero if [4ms1[24m is found, respectively, to be less than, to[m
+       match, or be greater than [4ms2[24m.[m
+[m
+       The [1mstrncmp[0m() function is similar, except it compares only the first (at most) [4mn[24m bytes of[m
+       [4ms1[24m and [4ms2[24m.[m
+[m
+[1mRETURN[0m [1mVALUE[0m[m
+       The  [1mstrcmp[0m()  and  [1mstrncmp[0m() functions return an integer less than, equal to, or greater[m
+       than zero if [4ms1[24m (or the first [4mn[24m bytes thereof) is found, respectively, to be  less  than,[m
+       to match, or be greater than [4ms2[24m.[m
+[m
+[1mATTRIBUTES[0m[m
+       For an explanation of the terms used in this section, see [1mattributes[0m(7).[m
+[m
+       ┌────────────────────┬───────────────┬─────────┐[m
+       │[1mInterface[0m           │ [1mAttribute[0m     │ [1mValue[0m   │[m
+       ├────────────────────┼───────────────┼─────────┤[m
+       │[1mstrcmp[0m(), [1mstrncmp[0m() │ Thread safety │ MT-Safe │[m
+       └────────────────────┴───────────────┴─────────┘[m
+[1mCONFORMING[0m [1mTO[0m[m
+       POSIX.1-2001, POSIX.1-2008, C89, C99, SVr4, 4.3BSD.[m
+[m
+[1mSEE[0m [1mALSO[0m[m
+       [1mbcmp[0m(3),  [1mmemcmp[0m(3), [1mstrcasecmp[0m(3), [1mstrcoll[0m(3), [1mstring[0m(3), [1mstrncasecmp[0m(3), [1mstrverscmp[0m(3),[m
+       [1mwcscmp[0m(3), [1mwcsncmp[0m(3)[m
+[m
+[1mCOLOPHON[0m[m
+       This page is part of release 5.04 of the Linux [4mman-pages[24m project.  A description  of  the[m
+       project,  information  about  reporting bugs, and the latest version of this page, can be[m
+       found at https://www.kernel.org/doc/man-pages/.[m
+[m
+                                           2019-03-06                                  STRCMP(3)[m
+[7m Manual page strcmp(3) line 1/47 (END) (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0tslohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ man s[Kfsa[K[Kcanf
+No manual entry for fcanf
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ manf[K fscanf
+[?1049h[22;0;0t[?1h=SCANF(3)                            Linux Programmer's Manual                           SCANF(3)[m
+[m
+[1mNAME[0m[m
+       scanf, fscanf, sscanf, vscanf, vsscanf, vfscanf - input format conversion[m
+[m
+[1mSYNOPSIS[0m[m
+       [1m#include[0m [1m<stdio.h>[0m[m
+[m
+       [1mint[0m [1mscanf(const[0m [1mchar[0m [1m*[0m[4mformat[24m[1m,[0m [1m...);[0m[m
+       [1mint[0m [1mfscanf(FILE[0m [1m*[0m[4mstream[24m[1m,[0m [1mconst[0m [1mchar[0m [1m*[0m[4mformat[24m[1m,[0m [1m...);[0m[m
+       [1mint[0m [1msscanf(const[0m [1mchar[0m [1m*[0m[4mstr[24m[1m,[0m [1mconst[0m [1mchar[0m [1m*[0m[4mformat[24m[1m,[0m [1m...);[0m[m
+[m
+       [1m#include[0m [1m<stdarg.h>[0m[m
+[m
+       [1mint[0m [1mvscanf(const[0m [1mchar[0m [1m*[0m[4mformat[24m[1m,[0m [1mva_list[0m [4map[24m[1m);[0m[m
+       [1mint[0m [1mvsscanf(const[0m [1mchar[0m [1m*[0m[4mstr[24m[1m,[0m [1mconst[0m [1mchar[0m [1m*[0m[4mformat[24m[1m,[0m [1mva_list[0m [4map[24m[1m);[0m[m
+       [1mint[0m [1mvfscanf(FILE[0m [1m*[0m[4mstream[24m[1m,[0m [1mconst[0m [1mchar[0m [1m*[0m[4mformat[24m[1m,[0m [1mva_list[0m [4map[24m[1m);[0m[m
+[m
+   Feature Test Macro Requirements for glibc (see [1mfeature_test_macros[0m(7)):[m
+[m
+       [1mvscanf[0m(), [1mvsscanf[0m(), [1mvfscanf[0m():[m
+           _ISOC99_SOURCE || _POSIX_C_SOURCE >= 200112L[m
+[m
+[1mDESCRIPTION[0m[m
+       The [1mscanf[0m() family of functions scans input according to [4mformat[24m as described below.  This[m
+       format may contain [4mconversion[24m [4mspecifications[24m; the results from such conversions, if  any,[m
+       are stored in the locations pointed to by the [4mpointer[24m arguments that follow [4mformat[24m.  Each[m
+       [4mpointer[24m argument must be of a type that is appropriate for the value returned by the cor‐[m
+       responding conversion specification.[m
+[m
+       If  the number of conversion specifications in [4mformat[24m exceeds the number of [4mpointer[24m argu‐[m
+       ments, the results are undefined.  If the number of [4mpointer[24m arguments exceeds the  number[m
+       of  conversion  specifications,  then the excess [4mpointer[24m arguments are evaluated, but are[m
+       otherwise ignored.[m
+[m
+       The [1mscanf[0m() function reads input from the standard input stream [4mstdin[24m, [1mfscanf[0m() reads in‐[m
+       put  from  the  stream  pointer  [4mstream[24m,  and [1msscanf[0m() reads its input from the character[m
+       string pointed to by [4mstr[24m.[m
+[m
+       The [1mvfscanf[0m() function is analogous to  [1mvfprintf[0m(3)  and  reads  input  from  the  stream[m
+       pointer  [4mstream[24m  using a variable argument list of pointers (see [1mstdarg[0m(3).  The [1mvscanf[0m()[m
+       function scans a variable argument list from the standard input and the  [1mvsscanf[0m()  func‐[m
+       tion  scans it from a string; these are analogous to the [1mvprintf[0m(3) and [1mvsprintf[0m(3) func‐[m
+       tions respectively.[m
+[m
+       The [4mformat[24m string consists of a sequence of [4mdirectives[24m which describe how to process  the[m
+       sequence  of  input  characters.  If processing of a directive fails, no further input is[m
+       read, and [1mscanf[0m() returns.  A "failure" can be either of the  following:  [4minput[24m  [4mfailure[24m,[m
+       meaning that input characters were unavailable, or [4mmatching[24m [4mfailure[24m, meaning that the in‐[m
+       put was inappropriate (see below).[m
+[m
+       A directive is one of the following:[m
+[m
+[7m Manual page fscanf(3) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0tslohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ cat test1.in 
+3 5
+3 -3
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ ./ [Ksum-ints test1.in 
+8
+0
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ ./sum-ints test1.in test1.in [K[K[Kout
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ cat test1.out
+8
+0
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ ./sum-ints -
+7 4
+11
+34 35
+69
+-1 1
+0
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ ./sum-ints - test2.out
+1 1
+2 3  
+4 -5
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ cat test2.out 
+2
+5
+-1
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ cat test2.out ./sum-ints - test2.out[1P.out1.out[C[C[C[C[K[K[Kin[C test1.in< test1.in< test1.in
+> 1 1
+> 2 2
+> bash: warning: here-document at line 59 delimited by end-of-file (wanted `test1.in')
+2
+4
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ ./sum-ints - << test1.in
+1 1
+2 2
+[A[C[C[C[A[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+
+[K[A[C[C[C[K[K[K[K[A[C[C[C[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K test1.in
+8
+0
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ nano sum-ints.c 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;42H(B[0;7m[ Reading File ](B[m[52;48H(B[0;7m 48 lines ](B[m[H(B[0;7m  GNU nano 3.2                                sum-ints.c                                           [1;98H(B[m[53d(B[0;7m^G(B[m Get Help     (B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut Text     (B[0;7m^J(B[m Justify[81G(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;17H(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Uncut Text   (B[0;7m^T(B[m To Spell     (B[0;7m^_(B[m Go To Line[52d[3d(B[0;1m[36m#include[39m(B[m (B[0;1m[33m<errno.h>[4d[36m#include[39m(B[m (B[0;1m[33m<stdio.h>[5d[36m#include[39m(B[m (B[0;1m[33m<stdlib.h>[6d[36m#include[39m(B[m (B[0;1m[33m<string.h>[8d[34m/** Sum pairs of ints read from the first argument; if first arg is[9d *  "-", then read from stdin.  Write line containing each sum to file[10d *  specified by second argument.  If second argument is not[11d *  specified, then write sum to stdout.[12d */[14d(B[0m[32mstatic[39m(B[m [32mvoid[15d[39m(B[msumInts((B[0;1m[31mFILE[39m(B[m *in, (B[0;1m[31mFILE[39m(B[m *out)[16d{[17d (B[0;1m[33mdo[39m(B[m {[18d[32mint[39m(B[m i1, i2;[19;5H(B[0;1m[33mif[39m(B[m (fscanf(in, (B[0;1m[33m"%d %d"[39m(B[m, &i1, &i2) != 2) [35mbreak[39m(B[m;[20;5Hfprintf(out, (B[0;1m[33m"%d\n"[39m(B[m, i1 + i2);[21;3H} (B[0;1m[33mwhile[39m(B[m (1);[22d}[25d[32mint[26d[39m(B[mmain([32mint[39m(B[m argc, [32mconst[39m(B[m [32mchar[39m(B[m *argv[])[27d{[28d (B[0;1m[33mif[39m(B[m (argc != 2 && argc != 3) {[29;5Hfprintf(stderr, (B[0;1m[33m"usage: %s IN_FILE|- [OUT_FILE]\n"[39m(B[m, argv[0]);[30;5Hexit(1);[31;3H}[32d[32mconst[39m(B[m [32mchar[39m(B[m *inName = argv[1];[33;3H(B[0;1m[31mFILE[39m(B[m *in = strcmp(inName, (B[0;1m[33m"-"[39m(B[m) == 0 ? stdin : fopen(inName, (B[0;1m[33m"r"[39m(B[m);[34;3H(B[0;1m[33mif[39m(B[m (!in) {[35;5Hfprintf(stderr, (B[0;1m[33m"cannot read %s: %s\n"[39m(B[m, inName, strerror(errno));[36;5Hexit(1);[37;3H}[39d(B[0;1m[31mFILE[39m(B[m *out = argc < 3 ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[40;3H(B[0;1m[33mif[39m(B[m (!out) {[41;5Hfprintf(stderr, (B[0;1m[33m"cannot write %s: %s\n"[39m(B[m, argv[2], strerror(errno));[42;5Hexit(1);[43;3H}[45dsumInts(in, out);[47;3H(B[0;1m[33mif[39m(B[m (fclose(in) != 0 || fclose(out) != 0) {[48;5Hfprintf(stderr, (B[0;1m[33m"cannot close files: %s\n"[39m(B[m, strerror(errno));[49;3H}[50d}[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[11d[?12l[?25h[?25l[14d[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[24d[?12l[?25h[?25l[25d[?12l[?25h[?25l[52d[K[29d[?12l[?25h[?25l[30d[?12l[?25h[?25l[31d[?12l[?25h[?25l[32d[?12l[?25h[?25l[33d[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[C[?12l[?25h[?25l[C[?12l[?25h[?25l[34d[?12l[?25h[?25l[35d[?12l[?25h[?25l[36d[?12l[?25h[?25l[37d[?12l[?25h[?25l[38d[?12l[?25h[?25l[39;5H[?12l[?25h[?25l[C[?12l[?25h[?25l[C[?12l[?25h[?25l [?12l[?25h[?25l*[?12l[?25h[?25lo[?12l[?25h[?25lu[?12l[?25h[?25lt[?12l[?25h[?25l [?12l[?25h[?25l=[?12l[?25h[?25l [?12l[?25h[?25la[?12l[?25h[?25lr[?12l[?25h[?25lg[?12l[?25h[?25lc[?12l[?25h[?25l [?12l[?25h[?25l<[?12l[?25h[?25l [?12l[?25h[?25l3[?12l[?25h[?25l(B[0;7m3(B[m[?12l[?25h[?25l(B[0;7m (B[m[?12l[?25h[?25l(B[0;7m<(B[m[?12l[?25h[?25l(B[0;7m (B[m[?12l[?25h[?25l(B[0;7mc(B[m[?12l[?25h[?25l(B[0;7mg(B[m[?12l[?25h[?25l(B[0;7mr(B[m[?12l[?25h[?25l(B[0;7ma(B[m[?12l[?25h[?25l[1;90H(B[0;7mModified(B[m[39;15Hsargc < 3 ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;16H[?12l[?25h[?25ltargc < 3 ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;17H[?12l[?25h[?25lrargc < 3 ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;18H[?12l[?25h[?25lcargc < 3 ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;19H[?12l[?25h[?25lmargc < 3 ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;20H[?12l[?25h[?25lpargc < 3 ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;21H[?12l[?25h[?25l(argc < 3 ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;22H[?12l[?25h[?25l[A[?12l[?25h[?25l[42m    [49m(B[m[?12l[?25h[?25l[K[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l  c[?12l[?25h[?25lo[?12l[?25h[?25ln[?12l[?25h[?25ls[?12l[?25h[?25l  [32mconst[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l c[?12l[?25h[?25lh[?12l[?25h[?25la[?12l[?25h[?25l[32mchar[39m(B[m[?12l[?25h[?25l*[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l *[?12l[?25h[?25lo[?12l[?25h[?25lt[?12l[?25h[?25lu[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25lu[?12l[?25h[?25lt[?12l[?25h[?25lN[?12l[?25h[?25la[?12l[?25h[?25lm[?12l[?25h[?25le[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[1P[?12l[?25h[?25l[22G[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l =[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l a[?12l[?25h[?25lr[?12l[?25h[?25lg[?12l[?25h[?25lv[?12l[?25h[?25l[[?12l[?25h[?25l2[?12l[?25h[?25l][?12l[?25h[?25l;[?12l[?25h[?25l[A  }[?12l[?25h[?25l[36;13H[?12l[?25h[?25l[35;33H[?12l[?25h[?25l[34;13H[?12l[?25h[?25l[33;33H[?12l[?25h[?25l[A[?12l[?25h[?25l[A  }[?12l[?25h[?25l[30;13H[?12l[?25h[?25l[31d[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[29;66H[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[1P[?12l[?25h[?25l(B[0;1m[33m|\n"[39m(B[m, argv[0]);[29;52H[?12l[?25h[?25l(B[0;1m[33m-\n"[39m(B[m, argv[0]);[29;53H[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[1P[?12l[?25h[?25l[30;13H[?12l[?25h[?25l[31;4H[?12l[?25h[?25l[32;32H[?12l[?25h[?25l[33;42H[?12l[?25h[?25l[32;32H[?12l[?25h[?25l[A  }[?12l[?25h[?25l[30;13H[?12l[?25h[?25l[29;42H[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[28;32H[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P&[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[29d[?12l[?25h[?25l[30d[?12l[?25h[?25l[31;4H[?12l[?25h[?25l[32;7H[?12l[?25h[?25l[33d[?12l[?25h[?25l[34d[?12l[?25h[?25l[35d[?12l[?25h[?25l[36d[?12l[?25h[?25l[37;4H[?12l[?25h[?25l[38;7H[?12l[?25h[?25l[39d[?12l[?25h[?25l [?12l[?25h[?25l*[?12l[?25h[?25lo[?12l[?25h[?25lu[?12l[?25h[?25lt[?12l[?25h[?25l [?12l[?25h[?25l=[?12l[?25h[?25l [?12l[?25h[?25ls[?12l[?25h[?25lt[?12l[?25h[?25lr[?12l[?25h[?25lc[?12l[?25h[?25lm[?12l[?25h[?25lp[?12l[?25h[?25l([?12l[?25h[?25lar[?12l[?25h[?25lg[?12l[?25h[?25lc[?12l[?25h[?25l [?12l[?25h[?25l<[?12l[?25h[?25l [?12l[?25h[?25l3[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25lo ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;23H[?12l[?25h[?25lu ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;24H[?12l[?25h[?25lt ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;25H[?12l[?25h[?25lN ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;26H[?12l[?25h[?25la ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;27H[?12l[?25h[?25lm ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;28H[?12l[?25h[?25le ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;29H[?12l[?25h[?25l, ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;30H[?12l[?25h[?25l  ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;31H[?12l[?25h[?25l(B[0;1m[33m" ? stdout : fopen(argv[2], "[39m(B[mw");[39;32H[?12l[?25h[?25l(B[0;1m[33m= ? stdout : fopen(argv[2], "[39m(B[mw");[39;33H[?12l[?25h[?25l(B[0;1m[33m"[39m(B[m ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;34H[?12l[?25h[?25l_ ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;35H[?12l[?25h[?25l[1P[?12l[?25h[?25l) ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;35H[?12l[?25h[?25l  ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;36H[?12l[?25h[?25l= ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;37H[?12l[?25h[?25l== ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;38H[?12l[?25h[?25l  ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;39H[?12l[?25h[?25l0 ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;40H[?12l[?25h[?25l [?12l[?25h[?25l[1;98H[1;90H(B[0;7m        (B[m[52;41H(B[0;7m[ Wrote 48 lines ](B[m[39;41H[?12l[?25h[?25l[52d[J[54;99H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ make
+cc -g -Wall -std=c18    sum-ints.c   -o sum-ints
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ ./std[K[Kum-ints -
+usage: ./sum-ints IN_FILE|- OUT_FILE|-
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ ./sum-ints - -
+1 1
+34 35
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ ./sum-ints - -[K[8Pmakenano sum-ints.c 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;42H(B[0;7m[ Reading File ](B[m[52;48H(B[0;7m 48 lines ](B[m[H(B[0;7m  GNU nano 3.2                                sum-ints.c                                           [1;98H(B[m[53d(B[0;7m^G(B[m Get Help     (B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut Text     (B[0;7m^J(B[m Justify[81G(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;17H(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Uncut Text   (B[0;7m^T(B[m To Spell     (B[0;7m^_(B[m Go To Line[52d[3d(B[0;1m[36m#include[39m(B[m (B[0;1m[33m<errno.h>[4d[36m#include[39m(B[m (B[0;1m[33m<stdio.h>[5d[36m#include[39m(B[m (B[0;1m[33m<stdlib.h>[6d[36m#include[39m(B[m (B[0;1m[33m<string.h>[8d[34m/** Sum pairs of ints read from the first argument; if first arg is[9d *  "-", then read from stdin.  Write line containing each sum to file[10d *  specified by second argument.  If second argument is not[11d *  specified, then write sum to stdout.[12d */[14d(B[0m[32mstatic[39m(B[m [32mvoid[15d[39m(B[msumInts((B[0;1m[31mFILE[39m(B[m *in, (B[0;1m[31mFILE[39m(B[m *out)[16d{[17d (B[0;1m[33mdo[39m(B[m {[18d[32mint[39m(B[m i1, i2;[19;5H(B[0;1m[33mif[39m(B[m (fscanf(in, (B[0;1m[33m"%d %d"[39m(B[m, &i1, &i2) != 2) [35mbreak[39m(B[m;[20;5Hfprintf(out, (B[0;1m[33m"%d\n"[39m(B[m, i1 + i2);[21;3H} (B[0;1m[33mwhile[39m(B[m (1);[22d}[25d[32mint[26d[39m(B[mmain([32mint[39m(B[m argc, [32mconst[39m(B[m [32mchar[39m(B[m *argv[])[27d{[28d (B[0;1m[33mif[39m(B[m (argc != 3) {[29;5Hfprintf(stderr, (B[0;1m[33m"usage: %s IN_FILE|- OUT_FILE|-\n"[39m(B[m, argv[0]);[30;5Hexit(1);[31;3H}[32d[32mconst[39m(B[m [32mchar[39m(B[m *inName = argv[1];[33;3H(B[0;1m[31mFILE[39m(B[m *in = strcmp(inName, (B[0;1m[33m"-"[39m(B[m) == 0 ? stdin : fopen(inName, (B[0;1m[33m"r"[39m(B[m);[34;3H(B[0;1m[33mif[39m(B[m (!in) {[35;5Hfprintf(stderr, (B[0;1m[33m"cannot read %s: %s\n"[39m(B[m, inName, strerror(errno));[36;5Hexit(1);[37;3H}[38d[32mconst[39m(B[m [32mchar[39m(B[m* outName = argv[2];[39;3H(B[0;1m[31mFILE[39m(B[m *out = strcmp(outName, (B[0;1m[33m"="[39m(B[m) == 0 ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[40;3H(B[0;1m[33mif[39m(B[m (!out) {[41;5Hfprintf(stderr, (B[0;1m[33m"cannot write %s: %s\n"[39m(B[m, argv[2], strerror(errno));[42;5Hexit(1);[43;3H}[45dsumInts(in, out);[47;3H(B[0;1m[33mif[39m(B[m (fclose(in) != 0 || fclose(out) != 0) {[48;5Hfprintf(stderr, (B[0;1m[33m"cannot close files: %s\n"[39m(B[m, strerror(errno));[49;3H}[50d}[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l[24d[?12l[?25h[?25l[25d[?12l[?25h[?25l[26d[?12l[?25h[?25l[27d[?12l[?25h[?25l[28d[?12l[?25h[?25l[52d[K[29d[?12l[?25h[?25l[30d[?12l[?25h[?25l[31d[?12l[?25h[?25l[32d[?12l[?25h[?25l[33d[?12l[?25h[?25l[34d[?12l[?25h[?25l[35d[?12l[?25h[?25l[36d[?12l[?25h[?25l[37d[?12l[?25h[?25l[38d[?12l[?25h[?25l[39d[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[C[?12l[?25h[?25l[C[?12l[?25h[?25l[C[?12l[?25h[?25l[C[?12l[?25h[?25l [?12l[?25h[?25l*[?12l[?25h[?25lo[?12l[?25h[?25lu[?12l[?25h[?25lt[?12l[?25h[?25l [?12l[?25h[?25l=[?12l[?25h[?25l [?12l[?25h[?25ls[?12l[?25h[?25lt[?12l[?25h[?25lr[?12l[?25h[?25lc[?12l[?25h[?25lm[?12l[?25h[?25lp[?12l[?25h[?25l([?12l[?25h[?25lo[?12l[?25h[?25lu[?12l[?25h[?25lt[?12l[?25h[?25lN[?12l[?25h[?25la[?12l[?25h[?25lm[?12l[?25h[?25le[?12l[?25h[?25l,[?12l[?25h[?25l [?12l[?25h[?25l[C[?12l[?25h[?25l[C[?12l[?25h[?25l[1;90H(B[0;7mModified(B[m[39;32H[1P[?12l[?25h[?25l(B[0;1m[33m-"[39m(B[m) == 0 ? stdout : fopen(argv[2], (B[0;1m[33m"w"[39m(B[m);[39;33H[?12l[?25h[?25l[1;98H[1;90H(B[0;7m        (B[m[52;41H(B[0;7m[ Wrote 48 lines ](B[m[39;33H[?12l[?25h[?25l[52d[J[54;99H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ nano sum-ints.c [2P./sum-ints - -[K[8Pmake
+cc -g -Wall -std=c18    sum-ints.c   -o sum-ints
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ makenano sum-ints.c [2P./sum-ints - -
+1 1
+2
+34 35
+69
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ ./sum-ints - - < test1.in > test1.o ut
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ cat test1.out
+8
+0
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ git checkout man\[K[Kin
+error: Your local changes to the following files would be overwritten by checkout:
+	submit/lab3/exercises/c-stdin-stdout/-
+	submit/lab3/exercises/c-stdin-stdout/sum-ints.c
+Please commit your changes or stash them before you switch branches.
+Aborting
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ git checkout lab3
+D	submit/lab0/.nfs00000002a596183800000372
+M	submit/lab3/exercises/c-stdin-stdout/-
+M	submit/lab3/exercises/c-stdin-stdout/sum-ints.c
+Already on 'lab3'
+Your branch is up to date with 'origin/lab3'.
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ git status -s
+ [31mD[m ../../../lab0/.nfs00000002a596183800000372
+ [31mM[m -
+ [31mM[m sum-ints.c
+[31m??[m ../T1.s
+[31m??[m ../bin-c.log
+[31m??[m ../cat.log
+[31m??[m ../dir/
+[31m??[m ../ls.log
+[31m??[m ../t1.c
+[31m??[m ../v.c
+[31m??[m ../v1.s
+[31m??[m ../x.c
+[31m??[m ../../lab3.LOG
+slohoka1@remote00:~/i220b/submit/lab3/exercises/c-stdin-stdout$ exit
+
+Script done on 2021-09-23 17:07:59-04:00 [COMMAND_EXIT_CODE="0"]
