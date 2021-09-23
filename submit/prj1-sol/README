@@ -1,6 +1,11 @@
-Name:		XXX
-B-Number:	XXX
-Email:		XXX
+Name:		Saumitra Lohokare
+B-Number:	B00926896
+Email:		slohoka1@binghamton.edu
 
-Add text here as needed.
+The sos-with-spaces test did not work as expected. If the files start with spaces
+my code is currently ignoring those spaces. Also while testing by myself, files 
+with multiple lines do not work as expected, all the lines appear on the same line
+after the decoding.
+
+Simply run `make` to make the code, or if it does not work `make all` should work.
 
