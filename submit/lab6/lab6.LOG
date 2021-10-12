@@ -1,0 +1,1980 @@
+Script started on 2021-10-12 15:21:01-04:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="120" LINES="30"]
+slohoka1@remote05:~/i220b/submit/lab6$ [Kslohoka1@remote05:~/i220b/submit/lab6$ cd exercises/f
+feed-cookie-monster.c  full-example/          
+slohoka1@remote05:~/i220b/submit/lab6$ cd exercises/full-example/
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ make -f ../Makefile 
+gcc -g -Og -Wall -std=c18   -c -o feed-cookie-monster.o feed-cookie-monster.c
+gcc feed-cookie-monster.o cookie-wrapper.obj -o feed-cookie-monster
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ ./feed-cookie-monster 
+Me want cookie!
+cannot read ../.cookie: No such file or directory
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ cd ..
+slohoka1@remote05:~/i220b/submit/lab6/exercises$ ls
+1  3		cookie-wrapper.h       full-example  Makefile
+2  another-one	feed-cookie-monster.c  gen-cookie    simple
+slohoka1@remote05:~/i220b/submit/lab6/exercises$ cd ..[K[K[K[K[Kls -l[Kal
+total 28
+drwxr-x--- 5 slohoka1 slohoka1 4096 Oct 12 15:17 .
+drwxr-x--- 3 slohoka1 slohoka1   49 Oct 12 15:21 ..
+lrwxrwxrwx 1 slohoka1 slohoka1   12 Oct 12 15:17 1 -> full-example
+lrwxrwxrwx 1 slohoka1 slohoka1    6 Oct 12 15:17 2 -> simple
+lrwxrwxrwx 1 slohoka1 slohoka1   11 Oct 12 15:17 3 -> another-one
+drwxr-x--- 2 slohoka1 slohoka1   98 Oct 12 15:17 another-one
+-rw-r----- 1 slohoka1 slohoka1  287 Oct 12 15:17 cookie-wrapper.h
+-rw-r----- 1 slohoka1 slohoka1  994 Oct 12 15:17 feed-cookie-monster.c
+drwxr-x--- 2 slohoka1 slohoka1 4096 Oct 12 15:21 full-example
+-rwxr-x--- 1 slohoka1 slohoka1  141 Oct 12 15:17 gen-cookie
+-rw-r----- 1 slohoka1 slohoka1   20 Oct 12 15:17 .gitignore
+-rw-r----- 1 slohoka1 slohoka1  413 Oct 12 15:17 Makefile
+drwxr-x--- 2 slohoka1 slohoka1   98 Oct 12 15:17 simple
+slohoka1@remote05:~/i220b/submit/lab6/exercises$ cd ..
+slohoka1@remote05:~/i220b/submit/lab6$ ./gen-coo[K[K[K[K[K[K[K[K[Kcd exercises/
+slohoka1@remote05:~/i220b/submit/lab6/exercises$ ./gen-cookie 
+slohoka1@remote05:~/i220b/submit/lab6/exercises$ cat .cookie
+0x23bc
+slohoka1@remote05:~/i220b/submit/lab6/exercises$ cd full-example/
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ ./feed-cookie-monster 
+Me want cookie!
+enter cookie unwrap key in hex: 0x23bc
+🥶 AARGH YUCK!!
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ gdb feed-cookie-monster
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from feed-cookie-monster...done.
+(gdb) b unwrapCookie
+Breakpoint 1 at 0x13e5
+(gdb) r
+Starting program: /import/linux/home1/slohoka1/projects/i220b/submit/lab6/exercises/full-example/feed-cookie-monster 
+Me want cookie!
+enter cookie unwrap key in hex: 23bc
+
+Breakpoint 1, 0x00005555555553e5 in unwrapCookie ()
+(gdb) disass
+Dump of assembler code for function unwrapCookie:
+=> 0x00005555555553e5 <+0>:	endbr64 
+   0x00005555555553e9 <+4>:	lea    (%rdi,%rdi,2),%eax
+   0x00005555555553ec <+7>:	and    $0xf,%eax
+   0x00005555555553ef <+10>:	lea    0x2cea(%rip),%rdx        # 0x5555555580e0 <vals>
+   0x00005555555553f6 <+17>:	add    (%rdx,%rax,4),%esi
+   0x00005555555553f9 <+20>:	mov    %esi,%eax
+   0x00005555555553fb <+22>:	retq   
+End of assembler dump.
+(gdb) p $rdi
+$1 = 11
+(gdb) r[Kc
+Continuing.
+🥶 AARGH YUCK!!
+[Inferior 1 (process 3936586) exited normally]
+(gdb) q
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ objdump -d feed-cookie-monster
+
+feed-cookie-monster:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	48 83 ec 08          	sub    $0x8,%rsp
+    1004:	48 8b 05 dd 2f 00 00 	mov    0x2fdd(%rip),%rax        # 3fe8 <__gmon_start__>
+    100b:	48 85 c0             	test   %rax,%rax
+    100e:	74 02                	je     1012 <_init+0x12>
+    1010:	ff d0                	callq  *%rax
+    1012:	48 83 c4 08          	add    $0x8,%rsp
+    1016:	c3                   	retq   
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 e2 2f 00 00    	pushq  0x2fe2(%rip)        # 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	ff 25 e4 2f 00 00    	jmpq   *0x2fe4(%rip)        # 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000001030 <__errno_location@plt>:
+    1030:	ff 25 e2 2f 00 00    	jmpq   *0x2fe2(%rip)        # 4018 <__errno_location@GLIBC_2.2.5>
+    1036:	68 00 00 00 00       	pushq  $0x0
+    103b:	e9 e0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001040 <__isoc99_fscanf@plt>:
+    1040:	ff 25 da 2f 00 00    	jmpq   *0x2fda(%rip)        # 4020 <__isoc99_fscanf@GLIBC_2.7>
+    1046:	68 01 00 00 00       	pushq  $0x1
+    104b:	e9 d0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001050 <puts@plt>:
+    1050:	ff 25 d2 2f 00 00    	jmpq   *0x2fd2(%rip)        # 4028 <puts@GLIBC_2.2.5>
+    1056:	68 02 00 00 00       	pushq  $0x2
+    105b:	e9 c0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001060 <fclose@plt>:
+    1060:	ff 25 ca 2f 00 00    	jmpq   *0x2fca(%rip)        # 4030 <fclose@GLIBC_2.2.5>
+    1066:	68 03 00 00 00       	pushq  $0x3
+    106b:	e9 b0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001070 <printf@plt>:
+    1070:	ff 25 c2 2f 00 00    	jmpq   *0x2fc2(%rip)        # 4038 <printf@GLIBC_2.2.5>
+    1076:	68 04 00 00 00       	pushq  $0x4
+    107b:	e9 a0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001080 <fprintf@plt>:
+    1080:	ff 25 ba 2f 00 00    	jmpq   *0x2fba(%rip)        # 4040 <fprintf@GLIBC_2.2.5>
+    1086:	68 05 00 00 00       	pushq  $0x5
+    108b:	e9 90 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001090 <fflush@plt>:
+    1090:	ff 25 b2 2f 00 00    	jmpq   *0x2fb2(%rip)        # 4048 <fflush@GLIBC_2.2.5>
+    1096:	68 06 00 00 00       	pushq  $0x6
+    109b:	e9 80 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010a0 <fopen@plt>:
+    10a0:	ff 25 aa 2f 00 00    	jmpq   *0x2faa(%rip)        # 4050 <fopen@GLIBC_2.2.5>
+    10a6:	68 07 00 00 00       	pushq  $0x7
+    10ab:	e9 70 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010b0 <__isoc99_scanf@plt>:
+    10b0:	ff 25 a2 2f 00 00    	jmpq   *0x2fa2(%rip)        # 4058 <__isoc99_scanf@GLIBC_2.7>
+    10b6:	68 08 00 00 00       	pushq  $0x8
+    10bb:	e9 60 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010c0 <exit@plt>:
+    10c0:	ff 25 9a 2f 00 00    	jmpq   *0x2f9a(%rip)        # 4060 <exit@GLIBC_2.2.5>
+    10c6:	68 09 00 00 00       	pushq  $0x9
+    10cb:	e9 50 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010d0 <fwrite@plt>:
+    10d0:	ff 25 92 2f 00 00    	jmpq   *0x2f92(%rip)        # 4068 <fwrite@GLIBC_2.2.5>
+    10d6:	68 0a 00 00 00       	pushq  $0xa
+    10db:	e9 40 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010e0 <strerror@plt>:
+    10e0:	ff 25 8a 2f 00 00    	jmpq   *0x2f8a(%rip)        # 4070 <strerror@GLIBC_2.2.5>
+    10e6:	68 0b 00 00 00       	pushq  $0xb
+    10eb:	e9 30 ff ff ff       	jmpq   1020 <.plt>
+
+Disassembly of section .plt.got:
+
+00000000000010f0 <__cxa_finalize@plt>:
+    10f0:	ff 25 02 2f 00 00    	jmpq   *0x2f02(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    10f6:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .text:
+
+0000000000001100 <_start>:
+    1100:	31 ed                	xor    %ebp,%ebp
+    1102:	49 89 d1             	mov    %rdx,%r9
+    1105:	5e                   	pop    %rsi
+    1106:	48 89 e2             	mov    %rsp,%rdx
+    1109:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    110d:	50                   	push   %rax
+    110e:	54                   	push   %rsp
+    110f:	4c 8d 05 4a 03 00 00 	lea    0x34a(%rip),%r8        # 1460 <__libc_csu_fini>
+    1116:	48 8d 0d e3 02 00 00 	lea    0x2e3(%rip),%rcx        # 1400 <__libc_csu_init>
+    111d:	48 8d 3d c8 01 00 00 	lea    0x1c8(%rip),%rdi        # 12ec <main>
+    1124:	ff 15 b6 2e 00 00    	callq  *0x2eb6(%rip)        # 3fe0 <__libc_start_main@GLIBC_2.2.5>
+    112a:	f4                   	hlt    
+    112b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001130 <deregister_tm_clones>:
+    1130:	48 8d 3d 51 2f 00 00 	lea    0x2f51(%rip),%rdi        # 4088 <__TMC_END__>
+    1137:	48 8d 05 4a 2f 00 00 	lea    0x2f4a(%rip),%rax        # 4088 <__TMC_END__>
+    113e:	48 39 f8             	cmp    %rdi,%rax
+    1141:	74 15                	je     1158 <deregister_tm_clones+0x28>
+    1143:	48 8b 05 8e 2e 00 00 	mov    0x2e8e(%rip),%rax        # 3fd8 <_ITM_deregisterTMCloneTable>
+    114a:	48 85 c0             	test   %rax,%rax
+    114d:	74 09                	je     1158 <deregister_tm_clones+0x28>
+    114f:	ff e0                	jmpq   *%rax
+    1151:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1158:	c3                   	retq   
+    1159:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001160 <register_tm_clones>:
+    1160:	48 8d 3d 21 2f 00 00 	lea    0x2f21(%rip),%rdi        # 4088 <__TMC_END__>
+    1167:	48 8d 35 1a 2f 00 00 	lea    0x2f1a(%rip),%rsi        # 4088 <__TMC_END__>
+    116e:	48 29 fe             	sub    %rdi,%rsi
+    1171:	48 c1 fe 03          	sar    $0x3,%rsi
+    1175:	48 89 f0             	mov    %rsi,%rax
+    1178:	48 c1 e8 3f          	shr    $0x3f,%rax
+    117c:	48 01 c6             	add    %rax,%rsi
+    117f:	48 d1 fe             	sar    %rsi
+    1182:	74 14                	je     1198 <register_tm_clones+0x38>
+    1184:	48 8b 05 65 2e 00 00 	mov    0x2e65(%rip),%rax        # 3ff0 <_ITM_registerTMCloneTable>
+    118b:	48 85 c0             	test   %rax,%rax
+    118e:	74 08                	je     1198 <register_tm_clones+0x38>
+    1190:	ff e0                	jmpq   *%rax
+    1192:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1198:	c3                   	retq   
+    1199:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000011a0 <__do_global_dtors_aux>:
+    11a0:	80 3d 21 2f 00 00 00 	cmpb   $0x0,0x2f21(%rip)        # 40c8 <completed.7325>
+    11a7:	75 2f                	jne    11d8 <__do_global_dtors_aux+0x38>
+    11a9:	55                   	push   %rbp
+    11aa:	48 83 3d 46 2e 00 00 	cmpq   $0x0,0x2e46(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    11b1:	00 
+    11b2:	48 89 e5             	mov    %rsp,%rbp
+    11b5:	74 0c                	je     11c3 <__do_global_dtors_aux+0x23>
+    11b7:	48 8b 3d c2 2e 00 00 	mov    0x2ec2(%rip),%rdi        # 4080 <__dso_handle>
+    11be:	e8 2d ff ff ff       	callq  10f0 <__cxa_finalize@plt>
+    11c3:	e8 68 ff ff ff       	callq  1130 <deregister_tm_clones>
+    11c8:	c6 05 f9 2e 00 00 01 	movb   $0x1,0x2ef9(%rip)        # 40c8 <completed.7325>
+    11cf:	5d                   	pop    %rbp
+    11d0:	c3                   	retq   
+    11d1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    11d8:	c3                   	retq   
+    11d9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000011e0 <frame_dummy>:
+    11e0:	e9 7b ff ff ff       	jmpq   1160 <register_tm_clones>
+
+00000000000011e5 <getCookie>:
+    11e5:	55                   	push   %rbp
+    11e6:	53                   	push   %rbx
+    11e7:	48 83 ec 18          	sub    $0x18,%rsp
+    11eb:	48 8d 35 12 0e 00 00 	lea    0xe12(%rip),%rsi        # 2004 <_IO_stdin_used+0x4>
+    11f2:	48 8d 3d 0d 0e 00 00 	lea    0xe0d(%rip),%rdi        # 2006 <_IO_stdin_used+0x6>
+    11f9:	e8 a2 fe ff ff       	callq  10a0 <fopen@plt>
+    11fe:	48 85 c0             	test   %rax,%rax
+    1201:	74 3e                	je     1241 <getCookie+0x5c>
+    1203:	48 89 c3             	mov    %rax,%rbx
+    1206:	c7 44 24 0c ff ff ff 	movl   $0xffffffff,0xc(%rsp)
+    120d:	ff 
+    120e:	48 8d 54 24 0c       	lea    0xc(%rsp),%rdx
+    1213:	48 8d 35 0b 0e 00 00 	lea    0xe0b(%rip),%rsi        # 2025 <_IO_stdin_used+0x25>
+    121a:	48 89 c7             	mov    %rax,%rdi
+    121d:	b8 00 00 00 00       	mov    $0x0,%eax
+    1222:	e8 19 fe ff ff       	callq  1040 <__isoc99_fscanf@plt>
+    1227:	89 c5                	mov    %eax,%ebp
+    1229:	48 89 df             	mov    %rbx,%rdi
+    122c:	e8 2f fe ff ff       	callq  1060 <fclose@plt>
+    1231:	83 fd 01             	cmp    $0x1,%ebp
+    1234:	75 43                	jne    1279 <getCookie+0x94>
+    1236:	8b 44 24 0c          	mov    0xc(%rsp),%eax
+    123a:	48 83 c4 18          	add    $0x18,%rsp
+    123e:	5b                   	pop    %rbx
+    123f:	5d                   	pop    %rbp
+    1240:	c3                   	retq   
+    1241:	e8 ea fd ff ff       	callq  1030 <__errno_location@plt>
+    1246:	8b 38                	mov    (%rax),%edi
+    1248:	e8 93 fe ff ff       	callq  10e0 <strerror@plt>
+    124d:	48 89 c1             	mov    %rax,%rcx
+    1250:	48 8d 15 af 0d 00 00 	lea    0xdaf(%rip),%rdx        # 2006 <_IO_stdin_used+0x6>
+    1257:	48 8d 35 b3 0d 00 00 	lea    0xdb3(%rip),%rsi        # 2011 <_IO_stdin_used+0x11>
+    125e:	48 8b 3d 5b 2e 00 00 	mov    0x2e5b(%rip),%rdi        # 40c0 <stderr@@GLIBC_2.2.5>
+    1265:	b8 00 00 00 00       	mov    $0x0,%eax
+    126a:	e8 11 fe ff ff       	callq  1080 <fprintf@plt>
+    126f:	bf 01 00 00 00       	mov    $0x1,%edi
+    1274:	e8 47 fe ff ff       	callq  10c0 <exit@plt>
+    1279:	48 8b 0d 40 2e 00 00 	mov    0x2e40(%rip),%rcx        # 40c0 <stderr@@GLIBC_2.2.5>
+    1280:	ba 1b 00 00 00       	mov    $0x1b,%edx
+    1285:	be 01 00 00 00       	mov    $0x1,%esi
+    128a:	48 8d 3d 99 0d 00 00 	lea    0xd99(%rip),%rdi        # 202a <_IO_stdin_used+0x2a>
+    1291:	e8 3a fe ff ff       	callq  10d0 <fwrite@plt>
+    1296:	bf 01 00 00 00       	mov    $0x1,%edi
+    129b:	e8 20 fe ff ff       	callq  10c0 <exit@plt>
+
+00000000000012a0 <getUnwrapKey>:
+    12a0:	48 83 ec 18          	sub    $0x18,%rsp
+    12a4:	b8 00 00 00 00       	mov    $0x0,%eax
+    12a9:	83 f8 01             	cmp    $0x1,%eax
+    12ac:	74 35                	je     12e3 <getUnwrapKey+0x43>
+    12ae:	48 8d 3d d3 0d 00 00 	lea    0xdd3(%rip),%rdi        # 2088 <_IO_stdin_used+0x88>
+    12b5:	b8 00 00 00 00       	mov    $0x0,%eax
+    12ba:	e8 b1 fd ff ff       	callq  1070 <printf@plt>
+    12bf:	48 8b 3d da 2d 00 00 	mov    0x2dda(%rip),%rdi        # 40a0 <stdout@@GLIBC_2.2.5>
+    12c6:	e8 c5 fd ff ff       	callq  1090 <fflush@plt>
+    12cb:	48 8d 74 24 0c       	lea    0xc(%rsp),%rsi
+    12d0:	48 8d 3d 50 0d 00 00 	lea    0xd50(%rip),%rdi        # 2027 <_IO_stdin_used+0x27>
+    12d7:	b8 00 00 00 00       	mov    $0x0,%eax
+    12dc:	e8 cf fd ff ff       	callq  10b0 <__isoc99_scanf@plt>
+    12e1:	eb c6                	jmp    12a9 <getUnwrapKey+0x9>
+    12e3:	8b 44 24 0c          	mov    0xc(%rsp),%eax
+    12e7:	48 83 c4 18          	add    $0x18,%rsp
+    12eb:	c3                   	retq   
+
+00000000000012ec <main>:
+    12ec:	55                   	push   %rbp
+    12ed:	53                   	push   %rbx
+    12ee:	48 83 ec 08          	sub    $0x8,%rsp
+    12f2:	48 8d 3d 78 0d 00 00 	lea    0xd78(%rip),%rdi        # 2071 <_IO_stdin_used+0x71>
+    12f9:	e8 52 fd ff ff       	callq  1050 <puts@plt>
+    12fe:	b8 00 00 00 00       	mov    $0x0,%eax
+    1303:	e8 dd fe ff ff       	callq  11e5 <getCookie>
+    1308:	89 c3                	mov    %eax,%ebx
+    130a:	89 c7                	mov    %eax,%edi
+    130c:	e8 7a 00 00 00       	callq  138b <wrapCookie>
+    1311:	89 c5                	mov    %eax,%ebp
+    1313:	b8 00 00 00 00       	mov    $0x0,%eax
+    1318:	e8 83 ff ff ff       	callq  12a0 <getUnwrapKey>
+    131d:	89 c6                	mov    %eax,%esi
+    131f:	89 ef                	mov    %ebp,%edi
+    1321:	e8 bf 00 00 00       	callq  13e5 <unwrapCookie>
+    1326:	39 d8                	cmp    %ebx,%eax
+    1328:	40 0f 94 c5          	sete   %bpl
+    132c:	40 0f b6 ed          	movzbl %bpl,%ebp
+    1330:	74 1a                	je     134c <main+0x60>
+    1332:	48 8d 3d 0d 0d 00 00 	lea    0xd0d(%rip),%rdi        # 2046 <_IO_stdin_used+0x46>
+    1339:	b8 00 00 00 00       	mov    $0x0,%eax
+    133e:	e8 2d fd ff ff       	callq  1070 <printf@plt>
+    1343:	89 e8                	mov    %ebp,%eax
+    1345:	48 83 c4 08          	add    $0x8,%rsp
+    1349:	5b                   	pop    %rbx
+    134a:	5d                   	pop    %rbp
+    134b:	c3                   	retq   
+    134c:	48 8d 3d 06 0d 00 00 	lea    0xd06(%rip),%rdi        # 2059 <_IO_stdin_used+0x59>
+    1353:	eb e4                	jmp    1339 <main+0x4d>
+
+0000000000001355 <f1>:
+    1355:	89 f8                	mov    %edi,%eax
+    1357:	c1 f8 05             	sar    $0x5,%eax
+    135a:	83 e0 0f             	and    $0xf,%eax
+    135d:	74 01                	je     1360 <f1+0xb>
+    135f:	c3                   	retq   
+    1360:	b8 0c 00 00 00       	mov    $0xc,%eax
+    1365:	eb f8                	jmp    135f <f1+0xa>
+
+0000000000001367 <f2>:
+    1367:	89 f8                	mov    %edi,%eax
+    1369:	c1 f8 04             	sar    $0x4,%eax
+    136c:	83 e0 0f             	and    $0xf,%eax
+    136f:	74 01                	je     1372 <f2+0xb>
+    1371:	c3                   	retq   
+    1372:	b8 07 00 00 00       	mov    $0x7,%eax
+    1377:	eb f8                	jmp    1371 <f2+0xa>
+
+0000000000001379 <f3>:
+    1379:	89 f8                	mov    %edi,%eax
+    137b:	c1 f8 08             	sar    $0x8,%eax
+    137e:	83 e0 0f             	and    $0xf,%eax
+    1381:	74 01                	je     1384 <f3+0xb>
+    1383:	c3                   	retq   
+    1384:	b8 0a 00 00 00       	mov    $0xa,%eax
+    1389:	eb f8                	jmp    1383 <f3+0xa>
+
+000000000000138b <wrapCookie>:
+    138b:	f3 0f 1e fa          	endbr64 
+    138f:	41 54                	push   %r12
+    1391:	55                   	push   %rbp
+    1392:	53                   	push   %rbx
+    1393:	41 89 fc             	mov    %edi,%r12d
+    1396:	e8 ba ff ff ff       	callq  1355 <f1>
+    139b:	89 c3                	mov    %eax,%ebx
+    139d:	44 89 e7             	mov    %r12d,%edi
+    13a0:	e8 c2 ff ff ff       	callq  1367 <f2>
+    13a5:	89 c5                	mov    %eax,%ebp
+    13a7:	44 89 e7             	mov    %r12d,%edi
+    13aa:	e8 ca ff ff ff       	callq  1379 <f3>
+    13af:	ba 00 00 00 00       	mov    $0x0,%edx
+    13b4:	83 fa 0f             	cmp    $0xf,%edx
+    13b7:	7f 18                	jg     13d1 <wrapCookie+0x46>
+    13b9:	8d 0c 1a             	lea    (%rdx,%rbx,1),%ecx
+    13bc:	83 e1 0f             	and    $0xf,%ecx
+    13bf:	48 63 fa             	movslq %edx,%rdi
+    13c2:	48 8d 35 17 2d 00 00 	lea    0x2d17(%rip),%rsi        # 40e0 <vals>
+    13c9:	89 0c be             	mov    %ecx,(%rsi,%rdi,4)
+    13cc:	83 c2 01             	add    $0x1,%edx
+    13cf:	eb e3                	jmp    13b4 <wrapCookie+0x29>
+    13d1:	8d 14 03             	lea    (%rbx,%rax,1),%edx
+    13d4:	85 d2                	test   %edx,%edx
+    13d6:	7e 07                	jle    13df <wrapCookie+0x54>
+    13d8:	89 e8                	mov    %ebp,%eax
+    13da:	5b                   	pop    %rbx
+    13db:	5d                   	pop    %rbp
+    13dc:	41 5c                	pop    %r12
+    13de:	c3                   	retq   
+    13df:	29 c3                	sub    %eax,%ebx
+    13e1:	89 dd                	mov    %ebx,%ebp
+    13e3:	eb f3                	jmp    13d8 <wrapCookie+0x4d>
+
+00000000000013e5 <unwrapCookie>:
+    13e5:	f3 0f 1e fa          	endbr64 
+    13e9:	8d 04 7f             	lea    (%rdi,%rdi,2),%eax
+    13ec:	83 e0 0f             	and    $0xf,%eax
+    13ef:	48 8d 15 ea 2c 00 00 	lea    0x2cea(%rip),%rdx        # 40e0 <vals>
+    13f6:	03 34 82             	add    (%rdx,%rax,4),%esi
+    13f9:	89 f0                	mov    %esi,%eax
+    13fb:	c3                   	retq   
+    13fc:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000001400 <__libc_csu_init>:
+    1400:	41 57                	push   %r15
+    1402:	49 89 d7             	mov    %rdx,%r15
+    1405:	41 56                	push   %r14
+    1407:	49 89 f6             	mov    %rsi,%r14
+    140a:	41 55                	push   %r13
+    140c:	41 89 fd             	mov    %edi,%r13d
+    140f:	41 54                	push   %r12
+    1411:	4c 8d 25 d0 29 00 00 	lea    0x29d0(%rip),%r12        # 3de8 <__frame_dummy_init_array_entry>
+    1418:	55                   	push   %rbp
+    1419:	48 8d 2d d0 29 00 00 	lea    0x29d0(%rip),%rbp        # 3df0 <__init_array_end>
+    1420:	53                   	push   %rbx
+    1421:	4c 29 e5             	sub    %r12,%rbp
+    1424:	48 83 ec 08          	sub    $0x8,%rsp
+    1428:	e8 d3 fb ff ff       	callq  1000 <_init>
+    142d:	48 c1 fd 03          	sar    $0x3,%rbp
+    1431:	74 1b                	je     144e <__libc_csu_init+0x4e>
+    1433:	31 db                	xor    %ebx,%ebx
+    1435:	0f 1f 00             	nopl   (%rax)
+    1438:	4c 89 fa             	mov    %r15,%rdx
+    143b:	4c 89 f6             	mov    %r14,%rsi
+    143e:	44 89 ef             	mov    %r13d,%edi
+    1441:	41 ff 14 dc          	callq  *(%r12,%rbx,8)
+    1445:	48 83 c3 01          	add    $0x1,%rbx
+    1449:	48 39 dd             	cmp    %rbx,%rbp
+    144c:	75 ea                	jne    1438 <__libc_csu_init+0x38>
+    144e:	48 83 c4 08          	add    $0x8,%rsp
+    1452:	5b                   	pop    %rbx
+    1453:	5d                   	pop    %rbp
+    1454:	41 5c                	pop    %r12
+    1456:	41 5d                	pop    %r13
+    1458:	41 5e                	pop    %r14
+    145a:	41 5f                	pop    %r15
+    145c:	c3                   	retq   
+    145d:	0f 1f 00             	nopl   (%rax)
+
+0000000000001460 <__libc_csu_fini>:
+    1460:	c3                   	retq   
+
+Disassembly of section .fini:
+
+0000000000001464 <_fini>:
+    1464:	48 83 ec 08          	sub    $0x8,%rsp
+    1468:	48 83 c4 08          	add    $0x8,%rsp
+    146c:	c3                   	retq   
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ objdump -d feed-cookie-monster[7Pgdb[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from feed-cookie-monster...done.
+(gdb) b unwrapCookie 
+Breakpoint 1 at 0x13e5
+(gdb) r
+Starting program: /import/linux/home1/slohoka1/projects/i220b/submit/lab6/exercises/full-example/feed-cookie-monster 
+Me want cookie!
+enter cookie unwrap key in hex: 33
+
+Breakpoint 1, 0x00005555555553e5 in unwrapCookie ()
+(gdb) disass
+Dump of assembler code for function unwrapCookie:
+=> 0x00005555555553e5 <+0>:	endbr64 
+   0x00005555555553e9 <+4>:	lea    (%rdi,%rdi,2),%eax
+   0x00005555555553ec <+7>:	and    $0xf,%eax
+   0x00005555555553ef <+10>:	lea    0x2cea(%rip),%rdx        # 0x5555555580e0 <vals>
+   0x00005555555553f6 <+17>:	add    (%rdx,%rax,4),%esi
+   0x00005555555553f9 <+20>:	mov    %esi,%eax
+   0x00005555555553fb <+22>:	retq   
+End of assembler dump.
+(gdb) i reg $rdi
+rdi            0xb                 11
+(gdb) i reg $rsi
+rsi            0x33                51
+(gdb) c
+Continuing.
+🥶 AARGH YUCK!!
+[Inferior 1 (process 3939759) exited normally]
+(gdb) q
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ cat ../.cookie 
+0x23bc
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ ./feed-cookie-monster 
+Me want cookie!
+enter cookie unwrap key in hex: 23bb
+🥶 AARGH YUCK!!
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ ./feed-cookie-monster 
+Me want cookie!
+enter cookie unwrap key in hex: 7a00
+🥶 AARGH YUCK!!
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ ls
+cookie-wrapper.h    feed-cookie-monster    feed-cookie-monster.o
+cookie-wrapper.obj  feed-cookie-monster.c
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ nano feed-cookie-monster.c
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;42H(B[0;7m[ Reading File ](B[m[52;48H(B[0;7m 47 lines ](B[m[H(B[0;7m  GNU nano 3.2                           feed-cookie-monster.c                                     [1;98H(B[m[53d(B[0;7m^G(B[m Get Help     (B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut Text     (B[0;7m^J(B[m Justify[81G(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;17H(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Uncut Text   (B[0;7m^T(B[m To Spell     (B[0;7m^_(B[m Go To Line[52d[3d(B[0;1m[36m#include[39m(B[m (B[0;1m[33m<errno.h>[4d[36m#include[39m(B[m (B[0;1m[33m<stdio.h>[5d[36m#include[39m(B[m (B[0;1m[33m<stdlib.h>[6d[36m#include[39m(B[m (B[0;1m[33m<string.h>[8d[36m#include[39m(B[m (B[0;1m[33m"cookie-wrapper.h"[10d[36m#define[39m(B[m (B[0;1m[31mCOOKIE_FILE[39m(B[m  (B[0;1m[33m"../.cookie"[12d(B[0m[32mstatic[39m(B[m [32mint[39m(B[m getCookie() {[13;3H(B[0;1m[31mFILE[39m(B[m *cookieFile = fopen((B[0;1m[31mCOOKIE_FILE[39m(B[m, (B[0;1m[33m"r"[39m(B[m);[14;3H(B[0;1m[33mif[39m(B[m (!cookieFile) {[15;5Hfprintf(stderr, (B[0;1m[33m"cannot read %s: %s\n"[39m(B[m, (B[0;1m[31mCOOKIE_FILE[39m(B[m, strerror(errno));[16;5Hexit(1);[17;3H}[18d[32mint[39m(B[m cookie = -1;[19;3H[32mint[39m(B[m n = fscanf(cookieFile, (B[0;1m[33m"0x%x"[39m(B[m, &cookie);[20;3Hfclose(cookieFile);[21;3H(B[0;1m[33mif[39m(B[m (n != 1) {[22;5Hfprintf(stderr, (B[0;1m[33m"unable to scan cookie file\n"[39m(B[m);[23;5Hexit(1);[24;3H}[25d[35mreturn[39m(B[m cookie;[26d}[28d[32mstatic[39m(B[m [32mint[39m(B[m getUnwrapKey() {[29;3H[32mint[39m(B[m key;[30;3H[32mint[39m(B[m n = 0;[31;3H(B[0;1m[33mwhile[39m(B[m (n != 1) {[32;5Hprintf((B[0;1m[33m"enter cookie unwrap key in hex: "[39m(B[m);[33;5Hfflush(stdout);[34;5Hn = scanf((B[0;1m[33m"%x"[39m(B[m, &key);[35;3H}[36d[35mreturn[39m(B[m key;[37d}[39d[32mint[39m(B[m main() {[41;3Hprintf((B[0;1m[33m"Me want cookie!\n"[39m(B[m);[42;3H[32mconst[39m(B[m [32mint[39m(B[m cookie = getCookie();[43;3H[32mint[39m(B[m wrapped = wrapCookie(cookie);[44;3H[32mint[39m(B[m key = getUnwrapKey();[45;3H[32mint[39m(B[m gotIt = unwrapCookie(wrapped, key) == cookie;[46;3Hprintf(gotIt ? (B[0;1m[33m"😂 CHOMP!!! CHOMP!!!\n"[39m(B[m : (B[0;1m[33m"🥶 AARGH YUCK!!\n"[39m(B[m);[47;3H[35mreturn[39m(B[m !!gotIt;[49d}[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l[24d[?12l[?25h[?25l  }[?12l[?25h[?25l[1;90H(B[0;7mModified(B[m[25;51r[25;1HM[1;54r[25;1H[42m  [49m(B[m[?12l[?25h[?25l  p[?12l[?25h[?25lr[?12l[?25h[?25li[52d[K[25;6H[?12l[?25h[?25ln[?12l[?25h[?25lt[?12l[?25h[?25lf[?12l[?25h[?25l([?12l[?25h[?25l"[?12l[?25h[?25l%[?12l[?25h[?25l [?12l[?25h[?25l0[?12l[?25h[?25lx[?12l[?25h[?25l%[?12l[?25h[?25lx[?12l[?25h[?25ld[?12l[?25h[?25l [?12l[?25h[?25l\[?12l[?25h[?25ln[?12l[?25h[?25l[10G(B[0;1m[33m"0x%x\n"[39m(B[m[?12l[?25h[?25l,[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l c[?12l[?25h[?25lo[?12l[?25h[?25lo[?12l[?25h[?25lk[?12l[?25h[?25li[?12l[?25h[?25le[?12l[?25h[?25l)[?12l[?25h[?25l;[?12l[?25h[?25l[1;98H[1;90H(B[0;7m        (B[m[52;41H(B[0;7m[ Wrote 48 lines ](B[m[25;28H[?12l[?25h[?25l[52d[J[54;99H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ make -f ../Makefile 
+gcc -g -Og -Wall -std=c18   -c -o feed-cookie-monster.o feed-cookie-monster.c
+gcc feed-cookie-monster.o cookie-wrapper.obj -o feed-cookie-monster
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ ./feed-cookie-monster 
+Me want cookie!
+0x23bc
+enter cookie unwrap key in hex: 23ba
+🥶 AARGH YUCK!!
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ ./feed-cookie-monster [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kgdb feed-cookie-monster
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from feed-cookie-monster...done.
+(gdb) b unwrapCookie 
+Breakpoint 1 at 0x13fa
+(gdb) r
+Starting program: /import/linux/home1/slohoka1/projects/i220b/submit/lab6/exercises/full-example/feed-cookie-monster 
+Me want cookie!
+0x23bc
+enter cookie unwrap key in hex: 23bb
+
+Breakpoint 1, 0x00005555555553fa in unwrapCookie ()
+(gdb) ni[K[Kdiad[K[Ksass
+Dump of assembler code for function unwrapCookie:
+=> 0x00005555555553fa <+0>:	endbr64 
+   0x00005555555553fe <+4>:	lea    (%rdi,%rdi,2),%eax
+   0x0000555555555401 <+7>:	and    $0xf,%eax
+   0x0000555555555404 <+10>:	lea    0x2cd5(%rip),%rdx        # 0x5555555580e0 <vals>
+   0x000055555555540b <+17>:	add    (%rdx,%rax,4),%esi
+   0x000055555555540e <+20>:	mov    %esi,%eax
+   0x0000555555555410 <+22>:	retq   
+End of assembler dump.
+(gdb) p ((int*)0x000055555555540b[K[K[K[K80e0)[0]@16
+$1 = {13, 14, 15, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}
+(gdb) bhjkm[K[K[K[K[Kc
+Continuing.
+🥶 AARGH YUCK!!
+[Inferior 1 (process 3943849) exited normally]
+(gdb) q
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ ./feed-cookie-monster 
+Me want cookie!
+0x23bc
+enter cookie unwrap key in hex: 23ae
+😂 CHOMP!!! CHOMP!!!
+slohoka1@remote05:~/i220b/submit/lab6/exercises/full-example$ cd ..
+slohoka1@remote05:~/i220b/submit/lab6/exercises$ ls
+1  3		cookie-wrapper.h       full-example  Makefile
+2  another-one	feed-cookie-monster.c  gen-cookie    simple
+slohoka1@remote05:~/i220b/submit/lab6/exercises$ cd cimp
+bash: cd: cimp: No such file or directory
+slohoka1@remote05:~/i220b/submit/lab6/exercises$ cd simple/
+slohoka1@remote05:~/i220b/submit/lab6/exercises/simple$ ls
+cookie-wrapper.h  cookie-wrapper.obj  feed-cookie-monster.c
+slohoka1@remote05:~/i220b/submit/lab6/exercises/simple$ make -f ../Makefile 
+gcc -g -Og -Wall -std=c18   -c -o feed-cookie-monster.o feed-cookie-monster.c
+gcc feed-cookie-monster.o cookie-wrapper.obj -o feed-cookie-monster
+slohoka1@remote05:~/i220b/submit/lab6/exercises/simple$ ./feed-cookie-monster 
+Me want cookie!
+0x23bc
+enter cookie unwrap key in hex: 23ae
+🥶 AARGH YUCK!!
+slohoka1@remote05:~/i220b/submit/lab6/exercises/simple$ objdump -d feed-cookie-monster
+
+feed-cookie-monster:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	48 83 ec 08          	sub    $0x8,%rsp
+    1004:	48 8b 05 dd 2f 00 00 	mov    0x2fdd(%rip),%rax        # 3fe8 <__gmon_start__>
+    100b:	48 85 c0             	test   %rax,%rax
+    100e:	74 02                	je     1012 <_init+0x12>
+    1010:	ff d0                	callq  *%rax
+    1012:	48 83 c4 08          	add    $0x8,%rsp
+    1016:	c3                   	retq   
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 e2 2f 00 00    	pushq  0x2fe2(%rip)        # 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	ff 25 e4 2f 00 00    	jmpq   *0x2fe4(%rip)        # 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000001030 <__errno_location@plt>:
+    1030:	ff 25 e2 2f 00 00    	jmpq   *0x2fe2(%rip)        # 4018 <__errno_location@GLIBC_2.2.5>
+    1036:	68 00 00 00 00       	pushq  $0x0
+    103b:	e9 e0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001040 <__isoc99_fscanf@plt>:
+    1040:	ff 25 da 2f 00 00    	jmpq   *0x2fda(%rip)        # 4020 <__isoc99_fscanf@GLIBC_2.7>
+    1046:	68 01 00 00 00       	pushq  $0x1
+    104b:	e9 d0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001050 <puts@plt>:
+    1050:	ff 25 d2 2f 00 00    	jmpq   *0x2fd2(%rip)        # 4028 <puts@GLIBC_2.2.5>
+    1056:	68 02 00 00 00       	pushq  $0x2
+    105b:	e9 c0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001060 <fclose@plt>:
+    1060:	ff 25 ca 2f 00 00    	jmpq   *0x2fca(%rip)        # 4030 <fclose@GLIBC_2.2.5>
+    1066:	68 03 00 00 00       	pushq  $0x3
+    106b:	e9 b0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001070 <printf@plt>:
+    1070:	ff 25 c2 2f 00 00    	jmpq   *0x2fc2(%rip)        # 4038 <printf@GLIBC_2.2.5>
+    1076:	68 04 00 00 00       	pushq  $0x4
+    107b:	e9 a0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001080 <fprintf@plt>:
+    1080:	ff 25 ba 2f 00 00    	jmpq   *0x2fba(%rip)        # 4040 <fprintf@GLIBC_2.2.5>
+    1086:	68 05 00 00 00       	pushq  $0x5
+    108b:	e9 90 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001090 <fflush@plt>:
+    1090:	ff 25 b2 2f 00 00    	jmpq   *0x2fb2(%rip)        # 4048 <fflush@GLIBC_2.2.5>
+    1096:	68 06 00 00 00       	pushq  $0x6
+    109b:	e9 80 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010a0 <fopen@plt>:
+    10a0:	ff 25 aa 2f 00 00    	jmpq   *0x2faa(%rip)        # 4050 <fopen@GLIBC_2.2.5>
+    10a6:	68 07 00 00 00       	pushq  $0x7
+    10ab:	e9 70 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010b0 <__isoc99_scanf@plt>:
+    10b0:	ff 25 a2 2f 00 00    	jmpq   *0x2fa2(%rip)        # 4058 <__isoc99_scanf@GLIBC_2.7>
+    10b6:	68 08 00 00 00       	pushq  $0x8
+    10bb:	e9 60 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010c0 <exit@plt>:
+    10c0:	ff 25 9a 2f 00 00    	jmpq   *0x2f9a(%rip)        # 4060 <exit@GLIBC_2.2.5>
+    10c6:	68 09 00 00 00       	pushq  $0x9
+    10cb:	e9 50 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010d0 <fwrite@plt>:
+    10d0:	ff 25 92 2f 00 00    	jmpq   *0x2f92(%rip)        # 4068 <fwrite@GLIBC_2.2.5>
+    10d6:	68 0a 00 00 00       	pushq  $0xa
+    10db:	e9 40 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010e0 <strerror@plt>:
+    10e0:	ff 25 8a 2f 00 00    	jmpq   *0x2f8a(%rip)        # 4070 <strerror@GLIBC_2.2.5>
+    10e6:	68 0b 00 00 00       	pushq  $0xb
+    10eb:	e9 30 ff ff ff       	jmpq   1020 <.plt>
+
+Disassembly of section .plt.got:
+
+00000000000010f0 <__cxa_finalize@plt>:
+    10f0:	ff 25 02 2f 00 00    	jmpq   *0x2f02(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    10f6:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .text:
+
+0000000000001100 <_start>:
+    1100:	31 ed                	xor    %ebp,%ebp
+    1102:	49 89 d1             	mov    %rdx,%r9
+    1105:	5e                   	pop    %rsi
+    1106:	48 89 e2             	mov    %rsp,%rdx
+    1109:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    110d:	50                   	push   %rax
+    110e:	54                   	push   %rsp
+    110f:	4c 8d 05 2a 03 00 00 	lea    0x32a(%rip),%r8        # 1440 <__libc_csu_fini>
+    1116:	48 8d 0d c3 02 00 00 	lea    0x2c3(%rip),%rcx        # 13e0 <__libc_csu_init>
+    111d:	48 8d 3d dd 01 00 00 	lea    0x1dd(%rip),%rdi        # 1301 <main>
+    1124:	ff 15 b6 2e 00 00    	callq  *0x2eb6(%rip)        # 3fe0 <__libc_start_main@GLIBC_2.2.5>
+    112a:	f4                   	hlt    
+    112b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001130 <deregister_tm_clones>:
+    1130:	48 8d 3d 51 2f 00 00 	lea    0x2f51(%rip),%rdi        # 4088 <__TMC_END__>
+    1137:	48 8d 05 4a 2f 00 00 	lea    0x2f4a(%rip),%rax        # 4088 <__TMC_END__>
+    113e:	48 39 f8             	cmp    %rdi,%rax
+    1141:	74 15                	je     1158 <deregister_tm_clones+0x28>
+    1143:	48 8b 05 8e 2e 00 00 	mov    0x2e8e(%rip),%rax        # 3fd8 <_ITM_deregisterTMCloneTable>
+    114a:	48 85 c0             	test   %rax,%rax
+    114d:	74 09                	je     1158 <deregister_tm_clones+0x28>
+    114f:	ff e0                	jmpq   *%rax
+    1151:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1158:	c3                   	retq   
+    1159:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001160 <register_tm_clones>:
+    1160:	48 8d 3d 21 2f 00 00 	lea    0x2f21(%rip),%rdi        # 4088 <__TMC_END__>
+    1167:	48 8d 35 1a 2f 00 00 	lea    0x2f1a(%rip),%rsi        # 4088 <__TMC_END__>
+    116e:	48 29 fe             	sub    %rdi,%rsi
+    1171:	48 c1 fe 03          	sar    $0x3,%rsi
+    1175:	48 89 f0             	mov    %rsi,%rax
+    1178:	48 c1 e8 3f          	shr    $0x3f,%rax
+    117c:	48 01 c6             	add    %rax,%rsi
+    117f:	48 d1 fe             	sar    %rsi
+    1182:	74 14                	je     1198 <register_tm_clones+0x38>
+    1184:	48 8b 05 65 2e 00 00 	mov    0x2e65(%rip),%rax        # 3ff0 <_ITM_registerTMCloneTable>
+    118b:	48 85 c0             	test   %rax,%rax
+    118e:	74 08                	je     1198 <register_tm_clones+0x38>
+    1190:	ff e0                	jmpq   *%rax
+    1192:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1198:	c3                   	retq   
+    1199:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000011a0 <__do_global_dtors_aux>:
+    11a0:	80 3d 21 2f 00 00 00 	cmpb   $0x0,0x2f21(%rip)        # 40c8 <completed.7325>
+    11a7:	75 2f                	jne    11d8 <__do_global_dtors_aux+0x38>
+    11a9:	55                   	push   %rbp
+    11aa:	48 83 3d 46 2e 00 00 	cmpq   $0x0,0x2e46(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    11b1:	00 
+    11b2:	48 89 e5             	mov    %rsp,%rbp
+    11b5:	74 0c                	je     11c3 <__do_global_dtors_aux+0x23>
+    11b7:	48 8b 3d c2 2e 00 00 	mov    0x2ec2(%rip),%rdi        # 4080 <__dso_handle>
+    11be:	e8 2d ff ff ff       	callq  10f0 <__cxa_finalize@plt>
+    11c3:	e8 68 ff ff ff       	callq  1130 <deregister_tm_clones>
+    11c8:	c6 05 f9 2e 00 00 01 	movb   $0x1,0x2ef9(%rip)        # 40c8 <completed.7325>
+    11cf:	5d                   	pop    %rbp
+    11d0:	c3                   	retq   
+    11d1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    11d8:	c3                   	retq   
+    11d9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000011e0 <frame_dummy>:
+    11e0:	e9 7b ff ff ff       	jmpq   1160 <register_tm_clones>
+
+00000000000011e5 <getCookie>:
+    11e5:	55                   	push   %rbp
+    11e6:	53                   	push   %rbx
+    11e7:	48 83 ec 18          	sub    $0x18,%rsp
+    11eb:	48 8d 35 12 0e 00 00 	lea    0xe12(%rip),%rsi        # 2004 <_IO_stdin_used+0x4>
+    11f2:	48 8d 3d 0d 0e 00 00 	lea    0xe0d(%rip),%rdi        # 2006 <_IO_stdin_used+0x6>
+    11f9:	e8 a2 fe ff ff       	callq  10a0 <fopen@plt>
+    11fe:	48 85 c0             	test   %rax,%rax
+    1201:	74 53                	je     1256 <getCookie+0x71>
+    1203:	48 89 c3             	mov    %rax,%rbx
+    1206:	c7 44 24 0c ff ff ff 	movl   $0xffffffff,0xc(%rsp)
+    120d:	ff 
+    120e:	48 8d 54 24 0c       	lea    0xc(%rsp),%rdx
+    1213:	48 8d 35 0b 0e 00 00 	lea    0xe0b(%rip),%rsi        # 2025 <_IO_stdin_used+0x25>
+    121a:	48 89 c7             	mov    %rax,%rdi
+    121d:	b8 00 00 00 00       	mov    $0x0,%eax
+    1222:	e8 19 fe ff ff       	callq  1040 <__isoc99_fscanf@plt>
+    1227:	89 c5                	mov    %eax,%ebp
+    1229:	48 89 df             	mov    %rbx,%rdi
+    122c:	e8 2f fe ff ff       	callq  1060 <fclose@plt>
+    1231:	83 fd 01             	cmp    $0x1,%ebp
+    1234:	75 58                	jne    128e <getCookie+0xa9>
+    1236:	8b 74 24 0c          	mov    0xc(%rsp),%esi
+    123a:	48 8d 3d 05 0e 00 00 	lea    0xe05(%rip),%rdi        # 2046 <_IO_stdin_used+0x46>
+    1241:	b8 00 00 00 00       	mov    $0x0,%eax
+    1246:	e8 25 fe ff ff       	callq  1070 <printf@plt>
+    124b:	8b 44 24 0c          	mov    0xc(%rsp),%eax
+    124f:	48 83 c4 18          	add    $0x18,%rsp
+    1253:	5b                   	pop    %rbx
+    1254:	5d                   	pop    %rbp
+    1255:	c3                   	retq   
+    1256:	e8 d5 fd ff ff       	callq  1030 <__errno_location@plt>
+    125b:	8b 38                	mov    (%rax),%edi
+    125d:	e8 7e fe ff ff       	callq  10e0 <strerror@plt>
+    1262:	48 89 c1             	mov    %rax,%rcx
+    1265:	48 8d 15 9a 0d 00 00 	lea    0xd9a(%rip),%rdx        # 2006 <_IO_stdin_used+0x6>
+    126c:	48 8d 35 9e 0d 00 00 	lea    0xd9e(%rip),%rsi        # 2011 <_IO_stdin_used+0x11>
+    1273:	48 8b 3d 46 2e 00 00 	mov    0x2e46(%rip),%rdi        # 40c0 <stderr@@GLIBC_2.2.5>
+    127a:	b8 00 00 00 00       	mov    $0x0,%eax
+    127f:	e8 fc fd ff ff       	callq  1080 <fprintf@plt>
+    1284:	bf 01 00 00 00       	mov    $0x1,%edi
+    1289:	e8 32 fe ff ff       	callq  10c0 <exit@plt>
+    128e:	48 8b 0d 2b 2e 00 00 	mov    0x2e2b(%rip),%rcx        # 40c0 <stderr@@GLIBC_2.2.5>
+    1295:	ba 1b 00 00 00       	mov    $0x1b,%edx
+    129a:	be 01 00 00 00       	mov    $0x1,%esi
+    129f:	48 8d 3d 84 0d 00 00 	lea    0xd84(%rip),%rdi        # 202a <_IO_stdin_used+0x2a>
+    12a6:	e8 25 fe ff ff       	callq  10d0 <fwrite@plt>
+    12ab:	bf 01 00 00 00       	mov    $0x1,%edi
+    12b0:	e8 0b fe ff ff       	callq  10c0 <exit@plt>
+
+00000000000012b5 <getUnwrapKey>:
+    12b5:	48 83 ec 18          	sub    $0x18,%rsp
+    12b9:	b8 00 00 00 00       	mov    $0x0,%eax
+    12be:	83 f8 01             	cmp    $0x1,%eax
+    12c1:	74 35                	je     12f8 <getUnwrapKey+0x43>
+    12c3:	48 8d 3d be 0d 00 00 	lea    0xdbe(%rip),%rdi        # 2088 <_IO_stdin_used+0x88>
+    12ca:	b8 00 00 00 00       	mov    $0x0,%eax
+    12cf:	e8 9c fd ff ff       	callq  1070 <printf@plt>
+    12d4:	48 8b 3d c5 2d 00 00 	mov    0x2dc5(%rip),%rdi        # 40a0 <stdout@@GLIBC_2.2.5>
+    12db:	e8 b0 fd ff ff       	callq  1090 <fflush@plt>
+    12e0:	48 8d 74 24 0c       	lea    0xc(%rsp),%rsi
+    12e5:	48 8d 3d 3b 0d 00 00 	lea    0xd3b(%rip),%rdi        # 2027 <_IO_stdin_used+0x27>
+    12ec:	b8 00 00 00 00       	mov    $0x0,%eax
+    12f1:	e8 ba fd ff ff       	callq  10b0 <__isoc99_scanf@plt>
+    12f6:	eb c6                	jmp    12be <getUnwrapKey+0x9>
+    12f8:	8b 44 24 0c          	mov    0xc(%rsp),%eax
+    12fc:	48 83 c4 18          	add    $0x18,%rsp
+    1300:	c3                   	retq   
+
+0000000000001301 <main>:
+    1301:	55                   	push   %rbp
+    1302:	53                   	push   %rbx
+    1303:	48 83 ec 08          	sub    $0x8,%rsp
+    1307:	48 8d 3d 69 0d 00 00 	lea    0xd69(%rip),%rdi        # 2077 <_IO_stdin_used+0x77>
+    130e:	e8 3d fd ff ff       	callq  1050 <puts@plt>
+    1313:	b8 00 00 00 00       	mov    $0x0,%eax
+    1318:	e8 c8 fe ff ff       	callq  11e5 <getCookie>
+    131d:	89 c3                	mov    %eax,%ebx
+    131f:	89 c7                	mov    %eax,%edi
+    1321:	e8 7a 00 00 00       	callq  13a0 <wrapCookie>
+    1326:	89 c5                	mov    %eax,%ebp
+    1328:	b8 00 00 00 00       	mov    $0x0,%eax
+    132d:	e8 83 ff ff ff       	callq  12b5 <getUnwrapKey>
+    1332:	89 c6                	mov    %eax,%esi
+    1334:	89 ef                	mov    %ebp,%edi
+    1336:	e8 9d 00 00 00       	callq  13d8 <unwrapCookie>
+    133b:	39 d8                	cmp    %ebx,%eax
+    133d:	40 0f 94 c5          	sete   %bpl
+    1341:	40 0f b6 ed          	movzbl %bpl,%ebp
+    1345:	74 1a                	je     1361 <main+0x60>
+    1347:	48 8d 3d fe 0c 00 00 	lea    0xcfe(%rip),%rdi        # 204c <_IO_stdin_used+0x4c>
+    134e:	b8 00 00 00 00       	mov    $0x0,%eax
+    1353:	e8 18 fd ff ff       	callq  1070 <printf@plt>
+    1358:	89 e8                	mov    %ebp,%eax
+    135a:	48 83 c4 08          	add    $0x8,%rsp
+    135e:	5b                   	pop    %rbx
+    135f:	5d                   	pop    %rbp
+    1360:	c3                   	retq   
+    1361:	48 8d 3d f7 0c 00 00 	lea    0xcf7(%rip),%rdi        # 205f <_IO_stdin_used+0x5f>
+    1368:	eb e4                	jmp    134e <main+0x4d>
+
+000000000000136a <f1>:
+    136a:	89 f8                	mov    %edi,%eax
+    136c:	c1 f8 05             	sar    $0x5,%eax
+    136f:	83 e0 0f             	and    $0xf,%eax
+    1372:	74 01                	je     1375 <f1+0xb>
+    1374:	c3                   	retq   
+    1375:	b8 0c 00 00 00       	mov    $0xc,%eax
+    137a:	eb f8                	jmp    1374 <f1+0xa>
+
+000000000000137c <f2>:
+    137c:	89 f8                	mov    %edi,%eax
+    137e:	c1 f8 04             	sar    $0x4,%eax
+    1381:	83 e0 0f             	and    $0xf,%eax
+    1384:	74 01                	je     1387 <f2+0xb>
+    1386:	c3                   	retq   
+    1387:	b8 07 00 00 00       	mov    $0x7,%eax
+    138c:	eb f8                	jmp    1386 <f2+0xa>
+
+000000000000138e <f3>:
+    138e:	89 f8                	mov    %edi,%eax
+    1390:	c1 f8 08             	sar    $0x8,%eax
+    1393:	83 e0 0f             	and    $0xf,%eax
+    1396:	74 01                	je     1399 <f3+0xb>
+    1398:	c3                   	retq   
+    1399:	b8 0a 00 00 00       	mov    $0xa,%eax
+    139e:	eb f8                	jmp    1398 <f3+0xa>
+
+00000000000013a0 <wrapCookie>:
+    13a0:	f3 0f 1e fa          	endbr64 
+    13a4:	41 54                	push   %r12
+    13a6:	55                   	push   %rbp
+    13a7:	53                   	push   %rbx
+    13a8:	89 fb                	mov    %edi,%ebx
+    13aa:	e8 bb ff ff ff       	callq  136a <f1>
+    13af:	89 c5                	mov    %eax,%ebp
+    13b1:	89 df                	mov    %ebx,%edi
+    13b3:	e8 c4 ff ff ff       	callq  137c <f2>
+    13b8:	41 89 c4             	mov    %eax,%r12d
+    13bb:	89 df                	mov    %ebx,%edi
+    13bd:	e8 cc ff ff ff       	callq  138e <f3>
+    13c2:	8d 54 05 00          	lea    0x0(%rbp,%rax,1),%edx
+    13c6:	85 d2                	test   %edx,%edx
+    13c8:	7e 07                	jle    13d1 <wrapCookie+0x31>
+    13ca:	89 e8                	mov    %ebp,%eax
+    13cc:	5b                   	pop    %rbx
+    13cd:	5d                   	pop    %rbp
+    13ce:	41 5c                	pop    %r12
+    13d0:	c3                   	retq   
+    13d1:	44 89 e5             	mov    %r12d,%ebp
+    13d4:	29 c5                	sub    %eax,%ebp
+    13d6:	eb f2                	jmp    13ca <wrapCookie+0x2a>
+
+00000000000013d8 <unwrapCookie>:
+    13d8:	f3 0f 1e fa          	endbr64 
+    13dc:	8d 04 37             	lea    (%rdi,%rsi,1),%eax
+    13df:	c3                   	retq   
+
+00000000000013e0 <__libc_csu_init>:
+    13e0:	41 57                	push   %r15
+    13e2:	49 89 d7             	mov    %rdx,%r15
+    13e5:	41 56                	push   %r14
+    13e7:	49 89 f6             	mov    %rsi,%r14
+    13ea:	41 55                	push   %r13
+    13ec:	41 89 fd             	mov    %edi,%r13d
+    13ef:	41 54                	push   %r12
+    13f1:	4c 8d 25 f0 29 00 00 	lea    0x29f0(%rip),%r12        # 3de8 <__frame_dummy_init_array_entry>
+    13f8:	55                   	push   %rbp
+    13f9:	48 8d 2d f0 29 00 00 	lea    0x29f0(%rip),%rbp        # 3df0 <__init_array_end>
+    1400:	53                   	push   %rbx
+    1401:	4c 29 e5             	sub    %r12,%rbp
+    1404:	48 83 ec 08          	sub    $0x8,%rsp
+    1408:	e8 f3 fb ff ff       	callq  1000 <_init>
+    140d:	48 c1 fd 03          	sar    $0x3,%rbp
+    1411:	74 1b                	je     142e <__libc_csu_init+0x4e>
+    1413:	31 db                	xor    %ebx,%ebx
+    1415:	0f 1f 00             	nopl   (%rax)
+    1418:	4c 89 fa             	mov    %r15,%rdx
+    141b:	4c 89 f6             	mov    %r14,%rsi
+    141e:	44 89 ef             	mov    %r13d,%edi
+    1421:	41 ff 14 dc          	callq  *(%r12,%rbx,8)
+    1425:	48 83 c3 01          	add    $0x1,%rbx
+    1429:	48 39 dd             	cmp    %rbx,%rbp
+    142c:	75 ea                	jne    1418 <__libc_csu_init+0x38>
+    142e:	48 83 c4 08          	add    $0x8,%rsp
+    1432:	5b                   	pop    %rbx
+    1433:	5d                   	pop    %rbp
+    1434:	41 5c                	pop    %r12
+    1436:	41 5d                	pop    %r13
+    1438:	41 5e                	pop    %r14
+    143a:	41 5f                	pop    %r15
+    143c:	c3                   	retq   
+    143d:	0f 1f 00             	nopl   (%rax)
+
+0000000000001440 <__libc_csu_fini>:
+    1440:	c3                   	retq   
+
+Disassembly of section .fini:
+
+0000000000001444 <_fini>:
+    1444:	48 83 ec 08          	sub    $0x8,%rsp
+    1448:	48 83 c4 08          	add    $0x8,%rsp
+    144c:	c3                   	retq   
+slohoka1@remote05:~/i220b/submit/lab6/exercises/simple$ gdb feed-cookie-monster
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from feed-cookie-monster...done.
+(gdb) b unwrapCookie 
+Breakpoint 1 at 0x13d8
+(gdb) r
+Starting program: /import/linux/home1/slohoka1/projects/i220b/submit/lab6/exercises/simple/feed-cookie-monster 
+Me want cookie!
+0x23bc
+enter cookie unwrap key in hex: 23ae
+
+Breakpoint 1, 0x00005555555553d8 in unwrapCookie ()
+(gdb) dias[K[Ksass
+Dump of assembler code for function unwrapCookie:
+=> 0x00005555555553d8 <+0>:	endbr64 
+   0x00005555555553dc <+4>:	lea    (%rdi,%rsi,1),%eax
+   0x00005555555553df <+7>:	retq   
+End of assembler dump.
+(gdb) ni[K[Ki reg &[K$rdi
+rdi            0xd                 13
+(gdb) i reg $rsi
+rsi            0x23ae              9134
+(gdb) c
+Continuing.
+🥶 AARGH YUCK!!
+[Inferior 1 (process 3953308) exited normally]
+(gdb) q
+slohoka1@remote05:~/i220b/submit/lab6/exercises/simple$ ./feed-cookie-monster 
+Me want cookie!
+0x23bc
+enter cookie unwrap key in hex: 23af
+😂 CHOMP!!! CHOMP!!!
+slohoka1@remote05:~/i220b/submit/lab6/exercises/simple$ cd ..
+slohoka1@remote05:~/i220b/submit/lab6/exercises$ cd another-one/
+slohoka1@remote05:~/i220b/submit/lab6/exercises/another-one$ ls
+cookie-wrapper.h  cookie-wrapper.obj  feed-cookie-monster.c
+slohoka1@remote05:~/i220b/submit/lab6/exercises/another-one$ make -f ../Makefile 
+gcc -g -Og -Wall -std=c18   -c -o feed-cookie-monster.o feed-cookie-monster.c
+gcc feed-cookie-monster.o cookie-wrapper.obj -o feed-cookie-monster
+slohoka1@remote05:~/i220b/submit/lab6/exercises/another-one$ ./feed-cookie-monster 
+Me want cookie!
+0x23bc
+enter cookie unwrap key in hex: 1
+🥶 AARGH YUCK!!
+slohoka1@remote05:~/i220b/submit/lab6/exercises/another-one$ objdump -d feed-cookie-monster
+
+feed-cookie-monster:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	48 83 ec 08          	sub    $0x8,%rsp
+    1004:	48 8b 05 dd 2f 00 00 	mov    0x2fdd(%rip),%rax        # 3fe8 <__gmon_start__>
+    100b:	48 85 c0             	test   %rax,%rax
+    100e:	74 02                	je     1012 <_init+0x12>
+    1010:	ff d0                	callq  *%rax
+    1012:	48 83 c4 08          	add    $0x8,%rsp
+    1016:	c3                   	retq   
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 e2 2f 00 00    	pushq  0x2fe2(%rip)        # 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	ff 25 e4 2f 00 00    	jmpq   *0x2fe4(%rip)        # 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000001030 <__errno_location@plt>:
+    1030:	ff 25 e2 2f 00 00    	jmpq   *0x2fe2(%rip)        # 4018 <__errno_location@GLIBC_2.2.5>
+    1036:	68 00 00 00 00       	pushq  $0x0
+    103b:	e9 e0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001040 <__isoc99_fscanf@plt>:
+    1040:	ff 25 da 2f 00 00    	jmpq   *0x2fda(%rip)        # 4020 <__isoc99_fscanf@GLIBC_2.7>
+    1046:	68 01 00 00 00       	pushq  $0x1
+    104b:	e9 d0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001050 <puts@plt>:
+    1050:	ff 25 d2 2f 00 00    	jmpq   *0x2fd2(%rip)        # 4028 <puts@GLIBC_2.2.5>
+    1056:	68 02 00 00 00       	pushq  $0x2
+    105b:	e9 c0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001060 <fclose@plt>:
+    1060:	ff 25 ca 2f 00 00    	jmpq   *0x2fca(%rip)        # 4030 <fclose@GLIBC_2.2.5>
+    1066:	68 03 00 00 00       	pushq  $0x3
+    106b:	e9 b0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001070 <printf@plt>:
+    1070:	ff 25 c2 2f 00 00    	jmpq   *0x2fc2(%rip)        # 4038 <printf@GLIBC_2.2.5>
+    1076:	68 04 00 00 00       	pushq  $0x4
+    107b:	e9 a0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001080 <fprintf@plt>:
+    1080:	ff 25 ba 2f 00 00    	jmpq   *0x2fba(%rip)        # 4040 <fprintf@GLIBC_2.2.5>
+    1086:	68 05 00 00 00       	pushq  $0x5
+    108b:	e9 90 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001090 <fflush@plt>:
+    1090:	ff 25 b2 2f 00 00    	jmpq   *0x2fb2(%rip)        # 4048 <fflush@GLIBC_2.2.5>
+    1096:	68 06 00 00 00       	pushq  $0x6
+    109b:	e9 80 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010a0 <fopen@plt>:
+    10a0:	ff 25 aa 2f 00 00    	jmpq   *0x2faa(%rip)        # 4050 <fopen@GLIBC_2.2.5>
+    10a6:	68 07 00 00 00       	pushq  $0x7
+    10ab:	e9 70 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010b0 <__isoc99_scanf@plt>:
+    10b0:	ff 25 a2 2f 00 00    	jmpq   *0x2fa2(%rip)        # 4058 <__isoc99_scanf@GLIBC_2.7>
+    10b6:	68 08 00 00 00       	pushq  $0x8
+    10bb:	e9 60 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010c0 <exit@plt>:
+    10c0:	ff 25 9a 2f 00 00    	jmpq   *0x2f9a(%rip)        # 4060 <exit@GLIBC_2.2.5>
+    10c6:	68 09 00 00 00       	pushq  $0x9
+    10cb:	e9 50 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010d0 <fwrite@plt>:
+    10d0:	ff 25 92 2f 00 00    	jmpq   *0x2f92(%rip)        # 4068 <fwrite@GLIBC_2.2.5>
+    10d6:	68 0a 00 00 00       	pushq  $0xa
+    10db:	e9 40 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010e0 <strerror@plt>:
+    10e0:	ff 25 8a 2f 00 00    	jmpq   *0x2f8a(%rip)        # 4070 <strerror@GLIBC_2.2.5>
+    10e6:	68 0b 00 00 00       	pushq  $0xb
+    10eb:	e9 30 ff ff ff       	jmpq   1020 <.plt>
+
+Disassembly of section .plt.got:
+
+00000000000010f0 <__cxa_finalize@plt>:
+    10f0:	ff 25 02 2f 00 00    	jmpq   *0x2f02(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    10f6:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .text:
+
+0000000000001100 <_start>:
+    1100:	31 ed                	xor    %ebp,%ebp
+    1102:	49 89 d1             	mov    %rdx,%r9
+    1105:	5e                   	pop    %rsi
+    1106:	48 89 e2             	mov    %rsp,%rdx
+    1109:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    110d:	50                   	push   %rax
+    110e:	54                   	push   %rsp
+    110f:	4c 8d 05 9a 03 00 00 	lea    0x39a(%rip),%r8        # 14b0 <__libc_csu_fini>
+    1116:	48 8d 0d 33 03 00 00 	lea    0x333(%rip),%rcx        # 1450 <__libc_csu_init>
+    111d:	48 8d 3d dd 01 00 00 	lea    0x1dd(%rip),%rdi        # 1301 <main>
+    1124:	ff 15 b6 2e 00 00    	callq  *0x2eb6(%rip)        # 3fe0 <__libc_start_main@GLIBC_2.2.5>
+    112a:	f4                   	hlt    
+    112b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001130 <deregister_tm_clones>:
+    1130:	48 8d 3d 51 2f 00 00 	lea    0x2f51(%rip),%rdi        # 4088 <__TMC_END__>
+    1137:	48 8d 05 4a 2f 00 00 	lea    0x2f4a(%rip),%rax        # 4088 <__TMC_END__>
+    113e:	48 39 f8             	cmp    %rdi,%rax
+    1141:	74 15                	je     1158 <deregister_tm_clones+0x28>
+    1143:	48 8b 05 8e 2e 00 00 	mov    0x2e8e(%rip),%rax        # 3fd8 <_ITM_deregisterTMCloneTable>
+    114a:	48 85 c0             	test   %rax,%rax
+    114d:	74 09                	je     1158 <deregister_tm_clones+0x28>
+    114f:	ff e0                	jmpq   *%rax
+    1151:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1158:	c3                   	retq   
+    1159:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001160 <register_tm_clones>:
+    1160:	48 8d 3d 21 2f 00 00 	lea    0x2f21(%rip),%rdi        # 4088 <__TMC_END__>
+    1167:	48 8d 35 1a 2f 00 00 	lea    0x2f1a(%rip),%rsi        # 4088 <__TMC_END__>
+    116e:	48 29 fe             	sub    %rdi,%rsi
+    1171:	48 c1 fe 03          	sar    $0x3,%rsi
+    1175:	48 89 f0             	mov    %rsi,%rax
+    1178:	48 c1 e8 3f          	shr    $0x3f,%rax
+    117c:	48 01 c6             	add    %rax,%rsi
+    117f:	48 d1 fe             	sar    %rsi
+    1182:	74 14                	je     1198 <register_tm_clones+0x38>
+    1184:	48 8b 05 65 2e 00 00 	mov    0x2e65(%rip),%rax        # 3ff0 <_ITM_registerTMCloneTable>
+    118b:	48 85 c0             	test   %rax,%rax
+    118e:	74 08                	je     1198 <register_tm_clones+0x38>
+    1190:	ff e0                	jmpq   *%rax
+    1192:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1198:	c3                   	retq   
+    1199:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000011a0 <__do_global_dtors_aux>:
+    11a0:	80 3d 21 2f 00 00 00 	cmpb   $0x0,0x2f21(%rip)        # 40c8 <completed.7325>
+    11a7:	75 2f                	jne    11d8 <__do_global_dtors_aux+0x38>
+    11a9:	55                   	push   %rbp
+    11aa:	48 83 3d 46 2e 00 00 	cmpq   $0x0,0x2e46(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    11b1:	00 
+    11b2:	48 89 e5             	mov    %rsp,%rbp
+    11b5:	74 0c                	je     11c3 <__do_global_dtors_aux+0x23>
+    11b7:	48 8b 3d c2 2e 00 00 	mov    0x2ec2(%rip),%rdi        # 4080 <__dso_handle>
+    11be:	e8 2d ff ff ff       	callq  10f0 <__cxa_finalize@plt>
+    11c3:	e8 68 ff ff ff       	callq  1130 <deregister_tm_clones>
+    11c8:	c6 05 f9 2e 00 00 01 	movb   $0x1,0x2ef9(%rip)        # 40c8 <completed.7325>
+    11cf:	5d                   	pop    %rbp
+    11d0:	c3                   	retq   
+    11d1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    11d8:	c3                   	retq   
+    11d9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000011e0 <frame_dummy>:
+    11e0:	e9 7b ff ff ff       	jmpq   1160 <register_tm_clones>
+
+00000000000011e5 <getCookie>:
+    11e5:	55                   	push   %rbp
+    11e6:	53                   	push   %rbx
+    11e7:	48 83 ec 18          	sub    $0x18,%rsp
+    11eb:	48 8d 35 12 0e 00 00 	lea    0xe12(%rip),%rsi        # 2004 <_IO_stdin_used+0x4>
+    11f2:	48 8d 3d 0d 0e 00 00 	lea    0xe0d(%rip),%rdi        # 2006 <_IO_stdin_used+0x6>
+    11f9:	e8 a2 fe ff ff       	callq  10a0 <fopen@plt>
+    11fe:	48 85 c0             	test   %rax,%rax
+    1201:	74 53                	je     1256 <getCookie+0x71>
+    1203:	48 89 c3             	mov    %rax,%rbx
+    1206:	c7 44 24 0c ff ff ff 	movl   $0xffffffff,0xc(%rsp)
+    120d:	ff 
+    120e:	48 8d 54 24 0c       	lea    0xc(%rsp),%rdx
+    1213:	48 8d 35 0b 0e 00 00 	lea    0xe0b(%rip),%rsi        # 2025 <_IO_stdin_used+0x25>
+    121a:	48 89 c7             	mov    %rax,%rdi
+    121d:	b8 00 00 00 00       	mov    $0x0,%eax
+    1222:	e8 19 fe ff ff       	callq  1040 <__isoc99_fscanf@plt>
+    1227:	89 c5                	mov    %eax,%ebp
+    1229:	48 89 df             	mov    %rbx,%rdi
+    122c:	e8 2f fe ff ff       	callq  1060 <fclose@plt>
+    1231:	83 fd 01             	cmp    $0x1,%ebp
+    1234:	75 58                	jne    128e <getCookie+0xa9>
+    1236:	8b 74 24 0c          	mov    0xc(%rsp),%esi
+    123a:	48 8d 3d 05 0e 00 00 	lea    0xe05(%rip),%rdi        # 2046 <_IO_stdin_used+0x46>
+    1241:	b8 00 00 00 00       	mov    $0x0,%eax
+    1246:	e8 25 fe ff ff       	callq  1070 <printf@plt>
+    124b:	8b 44 24 0c          	mov    0xc(%rsp),%eax
+    124f:	48 83 c4 18          	add    $0x18,%rsp
+    1253:	5b                   	pop    %rbx
+    1254:	5d                   	pop    %rbp
+    1255:	c3                   	retq   
+    1256:	e8 d5 fd ff ff       	callq  1030 <__errno_location@plt>
+    125b:	8b 38                	mov    (%rax),%edi
+    125d:	e8 7e fe ff ff       	callq  10e0 <strerror@plt>
+    1262:	48 89 c1             	mov    %rax,%rcx
+    1265:	48 8d 15 9a 0d 00 00 	lea    0xd9a(%rip),%rdx        # 2006 <_IO_stdin_used+0x6>
+    126c:	48 8d 35 9e 0d 00 00 	lea    0xd9e(%rip),%rsi        # 2011 <_IO_stdin_used+0x11>
+    1273:	48 8b 3d 46 2e 00 00 	mov    0x2e46(%rip),%rdi        # 40c0 <stderr@@GLIBC_2.2.5>
+    127a:	b8 00 00 00 00       	mov    $0x0,%eax
+    127f:	e8 fc fd ff ff       	callq  1080 <fprintf@plt>
+    1284:	bf 01 00 00 00       	mov    $0x1,%edi
+    1289:	e8 32 fe ff ff       	callq  10c0 <exit@plt>
+    128e:	48 8b 0d 2b 2e 00 00 	mov    0x2e2b(%rip),%rcx        # 40c0 <stderr@@GLIBC_2.2.5>
+    1295:	ba 1b 00 00 00       	mov    $0x1b,%edx
+    129a:	be 01 00 00 00       	mov    $0x1,%esi
+    129f:	48 8d 3d 84 0d 00 00 	lea    0xd84(%rip),%rdi        # 202a <_IO_stdin_used+0x2a>
+    12a6:	e8 25 fe ff ff       	callq  10d0 <fwrite@plt>
+    12ab:	bf 01 00 00 00       	mov    $0x1,%edi
+    12b0:	e8 0b fe ff ff       	callq  10c0 <exit@plt>
+
+00000000000012b5 <getUnwrapKey>:
+    12b5:	48 83 ec 18          	sub    $0x18,%rsp
+    12b9:	b8 00 00 00 00       	mov    $0x0,%eax
+    12be:	83 f8 01             	cmp    $0x1,%eax
+    12c1:	74 35                	je     12f8 <getUnwrapKey+0x43>
+    12c3:	48 8d 3d be 0d 00 00 	lea    0xdbe(%rip),%rdi        # 2088 <_IO_stdin_used+0x88>
+    12ca:	b8 00 00 00 00       	mov    $0x0,%eax
+    12cf:	e8 9c fd ff ff       	callq  1070 <printf@plt>
+    12d4:	48 8b 3d c5 2d 00 00 	mov    0x2dc5(%rip),%rdi        # 40a0 <stdout@@GLIBC_2.2.5>
+    12db:	e8 b0 fd ff ff       	callq  1090 <fflush@plt>
+    12e0:	48 8d 74 24 0c       	lea    0xc(%rsp),%rsi
+    12e5:	48 8d 3d 3b 0d 00 00 	lea    0xd3b(%rip),%rdi        # 2027 <_IO_stdin_used+0x27>
+    12ec:	b8 00 00 00 00       	mov    $0x0,%eax
+    12f1:	e8 ba fd ff ff       	callq  10b0 <__isoc99_scanf@plt>
+    12f6:	eb c6                	jmp    12be <getUnwrapKey+0x9>
+    12f8:	8b 44 24 0c          	mov    0xc(%rsp),%eax
+    12fc:	48 83 c4 18          	add    $0x18,%rsp
+    1300:	c3                   	retq   
+
+0000000000001301 <main>:
+    1301:	55                   	push   %rbp
+    1302:	53                   	push   %rbx
+    1303:	48 83 ec 08          	sub    $0x8,%rsp
+    1307:	48 8d 3d 69 0d 00 00 	lea    0xd69(%rip),%rdi        # 2077 <_IO_stdin_used+0x77>
+    130e:	e8 3d fd ff ff       	callq  1050 <puts@plt>
+    1313:	b8 00 00 00 00       	mov    $0x0,%eax
+    1318:	e8 c8 fe ff ff       	callq  11e5 <getCookie>
+    131d:	89 c3                	mov    %eax,%ebx
+    131f:	89 c7                	mov    %eax,%edi
+    1321:	e8 7a 00 00 00       	callq  13a0 <wrapCookie>
+    1326:	89 c5                	mov    %eax,%ebp
+    1328:	b8 00 00 00 00       	mov    $0x0,%eax
+    132d:	e8 83 ff ff ff       	callq  12b5 <getUnwrapKey>
+    1332:	89 c6                	mov    %eax,%esi
+    1334:	89 ef                	mov    %ebp,%edi
+    1336:	e8 e2 00 00 00       	callq  141d <unwrapCookie>
+    133b:	39 d8                	cmp    %ebx,%eax
+    133d:	40 0f 94 c5          	sete   %bpl
+    1341:	40 0f b6 ed          	movzbl %bpl,%ebp
+    1345:	74 1a                	je     1361 <main+0x60>
+    1347:	48 8d 3d fe 0c 00 00 	lea    0xcfe(%rip),%rdi        # 204c <_IO_stdin_used+0x4c>
+    134e:	b8 00 00 00 00       	mov    $0x0,%eax
+    1353:	e8 18 fd ff ff       	callq  1070 <printf@plt>
+    1358:	89 e8                	mov    %ebp,%eax
+    135a:	48 83 c4 08          	add    $0x8,%rsp
+    135e:	5b                   	pop    %rbx
+    135f:	5d                   	pop    %rbp
+    1360:	c3                   	retq   
+    1361:	48 8d 3d f7 0c 00 00 	lea    0xcf7(%rip),%rdi        # 205f <_IO_stdin_used+0x5f>
+    1368:	eb e4                	jmp    134e <main+0x4d>
+
+000000000000136a <f1>:
+    136a:	89 f8                	mov    %edi,%eax
+    136c:	c1 f8 09             	sar    $0x9,%eax
+    136f:	83 e0 0f             	and    $0xf,%eax
+    1372:	74 01                	je     1375 <f1+0xb>
+    1374:	c3                   	retq   
+    1375:	b8 0c 00 00 00       	mov    $0xc,%eax
+    137a:	eb f8                	jmp    1374 <f1+0xa>
+
+000000000000137c <f2>:
+    137c:	89 f8                	mov    %edi,%eax
+    137e:	c1 f8 08             	sar    $0x8,%eax
+    1381:	83 e0 0f             	and    $0xf,%eax
+    1384:	74 01                	je     1387 <f2+0xb>
+    1386:	c3                   	retq   
+    1387:	b8 07 00 00 00       	mov    $0x7,%eax
+    138c:	eb f8                	jmp    1386 <f2+0xa>
+
+000000000000138e <f3>:
+    138e:	89 f8                	mov    %edi,%eax
+    1390:	c1 f8 07             	sar    $0x7,%eax
+    1393:	83 e0 0f             	and    $0xf,%eax
+    1396:	74 01                	je     1399 <f3+0xb>
+    1398:	c3                   	retq   
+    1399:	b8 0a 00 00 00       	mov    $0xa,%eax
+    139e:	eb f8                	jmp    1398 <f3+0xa>
+
+00000000000013a0 <wrapCookie>:
+    13a0:	f3 0f 1e fa          	endbr64 
+    13a4:	41 54                	push   %r12
+    13a6:	55                   	push   %rbp
+    13a7:	53                   	push   %rbx
+    13a8:	41 89 fc             	mov    %edi,%r12d
+    13ab:	e8 ba ff ff ff       	callq  136a <f1>
+    13b0:	89 c5                	mov    %eax,%ebp
+    13b2:	44 89 e7             	mov    %r12d,%edi
+    13b5:	e8 c2 ff ff ff       	callq  137c <f2>
+    13ba:	89 c3                	mov    %eax,%ebx
+    13bc:	44 89 e7             	mov    %r12d,%edi
+    13bf:	e8 ca ff ff ff       	callq  138e <f3>
+    13c4:	ba 00 00 00 00       	mov    $0x0,%edx
+    13c9:	83 fa 0f             	cmp    $0xf,%edx
+    13cc:	7f 1a                	jg     13e8 <wrapCookie+0x48>
+    13ce:	8d 0c 92             	lea    (%rdx,%rdx,4),%ecx
+    13d1:	01 d9                	add    %ebx,%ecx
+    13d3:	83 e1 0f             	and    $0xf,%ecx
+    13d6:	48 63 fa             	movslq %edx,%rdi
+    13d9:	48 8d 35 20 2d 00 00 	lea    0x2d20(%rip),%rsi        # 4100 <vals1>
+    13e0:	89 0c be             	mov    %ecx,(%rsi,%rdi,4)
+    13e3:	83 c2 01             	add    $0x1,%edx
+    13e6:	eb e1                	jmp    13c9 <wrapCookie+0x29>
+    13e8:	ba 00 00 00 00       	mov    $0x0,%edx
+    13ed:	eb 18                	jmp    1407 <wrapCookie+0x67>
+    13ef:	8d 0c 52             	lea    (%rdx,%rdx,2),%ecx
+    13f2:	01 c1                	add    %eax,%ecx
+    13f4:	83 e1 07             	and    $0x7,%ecx
+    13f7:	48 63 fa             	movslq %edx,%rdi
+    13fa:	48 8d 35 df 2c 00 00 	lea    0x2cdf(%rip),%rsi        # 40e0 <vals2>
+    1401:	89 0c be             	mov    %ecx,(%rsi,%rdi,4)
+    1404:	83 c2 01             	add    $0x1,%edx
+    1407:	83 fa 07             	cmp    $0x7,%edx
+    140a:	7e e3                	jle    13ef <wrapCookie+0x4f>
+    140c:	01 c5                	add    %eax,%ebp
+    140e:	85 ed                	test   %ebp,%ebp
+    1410:	7e 05                	jle    1417 <wrapCookie+0x77>
+    1412:	5b                   	pop    %rbx
+    1413:	5d                   	pop    %rbp
+    1414:	41 5c                	pop    %r12
+    1416:	c3                   	retq   
+    1417:	29 c3                	sub    %eax,%ebx
+    1419:	89 d8                	mov    %ebx,%eax
+    141b:	eb f5                	jmp    1412 <wrapCookie+0x72>
+
+000000000000141d <unwrapCookie>:
+    141d:	f3 0f 1e fa          	endbr64 
+    1421:	89 f9                	mov    %edi,%ecx
+    1423:	83 e1 0f             	and    $0xf,%ecx
+    1426:	83 e7 07             	and    $0x7,%edi
+    1429:	48 8d 05 b0 2c 00 00 	lea    0x2cb0(%rip),%rax        # 40e0 <vals2>
+    1430:	8b 14 b8             	mov    (%rax,%rdi,4),%edx
+    1433:	48 8d 05 c6 2c 00 00 	lea    0x2cc6(%rip),%rax        # 4100 <vals1>
+    143a:	03 14 88             	add    (%rax,%rcx,4),%edx
+    143d:	8d 04 92             	lea    (%rdx,%rdx,4),%eax
+    1440:	01 f0                	add    %esi,%eax
+    1442:	c3                   	retq   
+    1443:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+    144a:	00 00 00 
+    144d:	0f 1f 00             	nopl   (%rax)
+
+0000000000001450 <__libc_csu_init>:
+    1450:	41 57                	push   %r15
+    1452:	49 89 d7             	mov    %rdx,%r15
+    1455:	41 56                	push   %r14
+    1457:	49 89 f6             	mov    %rsi,%r14
+    145a:	41 55                	push   %r13
+    145c:	41 89 fd             	mov    %edi,%r13d
+    145f:	41 54                	push   %r12
+    1461:	4c 8d 25 80 29 00 00 	lea    0x2980(%rip),%r12        # 3de8 <__frame_dummy_init_array_entry>
+    1468:	55                   	push   %rbp
+    1469:	48 8d 2d 80 29 00 00 	lea    0x2980(%rip),%rbp        # 3df0 <__init_array_end>
+    1470:	53                   	push   %rbx
+    1471:	4c 29 e5             	sub    %r12,%rbp
+    1474:	48 83 ec 08          	sub    $0x8,%rsp
+    1478:	e8 83 fb ff ff       	callq  1000 <_init>
+    147d:	48 c1 fd 03          	sar    $0x3,%rbp
+    1481:	74 1b                	je     149e <__libc_csu_init+0x4e>
+    1483:	31 db                	xor    %ebx,%ebx
+    1485:	0f 1f 00             	nopl   (%rax)
+    1488:	4c 89 fa             	mov    %r15,%rdx
+    148b:	4c 89 f6             	mov    %r14,%rsi
+    148e:	44 89 ef             	mov    %r13d,%edi
+    1491:	41 ff 14 dc          	callq  *(%r12,%rbx,8)
+    1495:	48 83 c3 01          	add    $0x1,%rbx
+    1499:	48 39 dd             	cmp    %rbx,%rbp
+    149c:	75 ea                	jne    1488 <__libc_csu_init+0x38>
+    149e:	48 83 c4 08          	add    $0x8,%rsp
+    14a2:	5b                   	pop    %rbx
+    14a3:	5d                   	pop    %rbp
+    14a4:	41 5c                	pop    %r12
+    14a6:	41 5d                	pop    %r13
+    14a8:	41 5e                	pop    %r14
+    14aa:	41 5f                	pop    %r15
+    14ac:	c3                   	retq   
+    14ad:	0f 1f 00             	nopl   (%rax)
+
+00000000000014b0 <__libc_csu_fini>:
+    14b0:	c3                   	retq   
+
+Disassembly of section .fini:
+
+00000000000014b4 <_fini>:
+    14b4:	48 83 ec 08          	sub    $0x8,%rsp
+    14b8:	48 83 c4 08          	add    $0x8,%rsp
+    14bc:	c3                   	retq   
+slohoka1@remote05:~/i220b/submit/lab6/exercises/another-one$ gdb feed-cookie-monster
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from feed-cookie-monster...done.
+(gdb) b unwrapCookie 
+Breakpoint 1 at 0x141d
+(gdb) r
+Starting program: /import/linux/home1/slohoka1/projects/i220b/submit/lab6/exercises/another-one/feed-cookie-monster 
+Me want cookie!
+0x23bc
+enter cookie unwrap key in hex: 23bc
+
+Breakpoint 1, 0x000055555555541d in unwrapCookie ()
+(gdb) disass
+Dump of assembler code for function unwrapCookie:
+=> 0x000055555555541d <+0>:	endbr64 
+   0x0000555555555421 <+4>:	mov    %edi,%ecx
+   0x0000555555555423 <+6>:	and    $0xf,%ecx
+   0x0000555555555426 <+9>:	and    $0x7,%edi
+   0x0000555555555429 <+12>:	lea    0x2cb0(%rip),%rax        # 0x5555555580e0 <vals2>
+   0x0000555555555430 <+19>:	mov    (%rax,%rdi,4),%edx
+   0x0000555555555433 <+22>:	lea    0x2cc6(%rip),%rax        # 0x555555558100 <vals1>
+   0x000055555555543a <+29>:	add    (%rax,%rcx,4),%edx
+   0x000055555555543d <+32>:	lea    (%rdx,%rdx,4),%eax
+   0x0000555555555440 <+35>:	add    %esi,%eax
+   0x0000555555555442 <+37>:	retq   
+End of assembler dump.
+(gdb) i reg $e[Krg[Kdi
+rdi            0x7                 7
+(gdb) c
+Continuing.
+🥶 AARGH YUCK!!
+[Inferior 1 (process 3956449) exited normally]
+(gdb) q
+slohoka1@remote05:~/i220b/submit/lab6/exercises/another-one$ ./feed-cookie-monster 
+Me want cookie!
+0x23bc
+enter cookie unwrap key in hex: 2300
+🥶 AARGH YUCK!!
+slohoka1@remote05:~/i220b/submit/lab6/exercises/another-one$ ./feed-cookie-monster gdb feed-cookie-monster[7@objdump -d[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+feed-cookie-monster:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	48 83 ec 08          	sub    $0x8,%rsp
+    1004:	48 8b 05 dd 2f 00 00 	mov    0x2fdd(%rip),%rax        # 3fe8 <__gmon_start__>
+    100b:	48 85 c0             	test   %rax,%rax
+    100e:	74 02                	je     1012 <_init+0x12>
+    1010:	ff d0                	callq  *%rax
+    1012:	48 83 c4 08          	add    $0x8,%rsp
+    1016:	c3                   	retq   
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 e2 2f 00 00    	pushq  0x2fe2(%rip)        # 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	ff 25 e4 2f 00 00    	jmpq   *0x2fe4(%rip)        # 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000001030 <__errno_location@plt>:
+    1030:	ff 25 e2 2f 00 00    	jmpq   *0x2fe2(%rip)        # 4018 <__errno_location@GLIBC_2.2.5>
+    1036:	68 00 00 00 00       	pushq  $0x0
+    103b:	e9 e0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001040 <__isoc99_fscanf@plt>:
+    1040:	ff 25 da 2f 00 00    	jmpq   *0x2fda(%rip)        # 4020 <__isoc99_fscanf@GLIBC_2.7>
+    1046:	68 01 00 00 00       	pushq  $0x1
+    104b:	e9 d0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001050 <puts@plt>:
+    1050:	ff 25 d2 2f 00 00    	jmpq   *0x2fd2(%rip)        # 4028 <puts@GLIBC_2.2.5>
+    1056:	68 02 00 00 00       	pushq  $0x2
+    105b:	e9 c0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001060 <fclose@plt>:
+    1060:	ff 25 ca 2f 00 00    	jmpq   *0x2fca(%rip)        # 4030 <fclose@GLIBC_2.2.5>
+    1066:	68 03 00 00 00       	pushq  $0x3
+    106b:	e9 b0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001070 <printf@plt>:
+    1070:	ff 25 c2 2f 00 00    	jmpq   *0x2fc2(%rip)        # 4038 <printf@GLIBC_2.2.5>
+    1076:	68 04 00 00 00       	pushq  $0x4
+    107b:	e9 a0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001080 <fprintf@plt>:
+    1080:	ff 25 ba 2f 00 00    	jmpq   *0x2fba(%rip)        # 4040 <fprintf@GLIBC_2.2.5>
+    1086:	68 05 00 00 00       	pushq  $0x5
+    108b:	e9 90 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001090 <fflush@plt>:
+    1090:	ff 25 b2 2f 00 00    	jmpq   *0x2fb2(%rip)        # 4048 <fflush@GLIBC_2.2.5>
+    1096:	68 06 00 00 00       	pushq  $0x6
+    109b:	e9 80 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010a0 <fopen@plt>:
+    10a0:	ff 25 aa 2f 00 00    	jmpq   *0x2faa(%rip)        # 4050 <fopen@GLIBC_2.2.5>
+    10a6:	68 07 00 00 00       	pushq  $0x7
+    10ab:	e9 70 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010b0 <__isoc99_scanf@plt>:
+    10b0:	ff 25 a2 2f 00 00    	jmpq   *0x2fa2(%rip)        # 4058 <__isoc99_scanf@GLIBC_2.7>
+    10b6:	68 08 00 00 00       	pushq  $0x8
+    10bb:	e9 60 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010c0 <exit@plt>:
+    10c0:	ff 25 9a 2f 00 00    	jmpq   *0x2f9a(%rip)        # 4060 <exit@GLIBC_2.2.5>
+    10c6:	68 09 00 00 00       	pushq  $0x9
+    10cb:	e9 50 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010d0 <fwrite@plt>:
+    10d0:	ff 25 92 2f 00 00    	jmpq   *0x2f92(%rip)        # 4068 <fwrite@GLIBC_2.2.5>
+    10d6:	68 0a 00 00 00       	pushq  $0xa
+    10db:	e9 40 ff ff ff       	jmpq   1020 <.plt>
+
+00000000000010e0 <strerror@plt>:
+    10e0:	ff 25 8a 2f 00 00    	jmpq   *0x2f8a(%rip)        # 4070 <strerror@GLIBC_2.2.5>
+    10e6:	68 0b 00 00 00       	pushq  $0xb
+    10eb:	e9 30 ff ff ff       	jmpq   1020 <.plt>
+
+Disassembly of section .plt.got:
+
+00000000000010f0 <__cxa_finalize@plt>:
+    10f0:	ff 25 02 2f 00 00    	jmpq   *0x2f02(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    10f6:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .text:
+
+0000000000001100 <_start>:
+    1100:	31 ed                	xor    %ebp,%ebp
+    1102:	49 89 d1             	mov    %rdx,%r9
+    1105:	5e                   	pop    %rsi
+    1106:	48 89 e2             	mov    %rsp,%rdx
+    1109:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    110d:	50                   	push   %rax
+    110e:	54                   	push   %rsp
+    110f:	4c 8d 05 9a 03 00 00 	lea    0x39a(%rip),%r8        # 14b0 <__libc_csu_fini>
+    1116:	48 8d 0d 33 03 00 00 	lea    0x333(%rip),%rcx        # 1450 <__libc_csu_init>
+    111d:	48 8d 3d dd 01 00 00 	lea    0x1dd(%rip),%rdi        # 1301 <main>
+    1124:	ff 15 b6 2e 00 00    	callq  *0x2eb6(%rip)        # 3fe0 <__libc_start_main@GLIBC_2.2.5>
+    112a:	f4                   	hlt    
+    112b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001130 <deregister_tm_clones>:
+    1130:	48 8d 3d 51 2f 00 00 	lea    0x2f51(%rip),%rdi        # 4088 <__TMC_END__>
+    1137:	48 8d 05 4a 2f 00 00 	lea    0x2f4a(%rip),%rax        # 4088 <__TMC_END__>
+    113e:	48 39 f8             	cmp    %rdi,%rax
+    1141:	74 15                	je     1158 <deregister_tm_clones+0x28>
+    1143:	48 8b 05 8e 2e 00 00 	mov    0x2e8e(%rip),%rax        # 3fd8 <_ITM_deregisterTMCloneTable>
+    114a:	48 85 c0             	test   %rax,%rax
+    114d:	74 09                	je     1158 <deregister_tm_clones+0x28>
+    114f:	ff e0                	jmpq   *%rax
+    1151:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1158:	c3                   	retq   
+    1159:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001160 <register_tm_clones>:
+    1160:	48 8d 3d 21 2f 00 00 	lea    0x2f21(%rip),%rdi        # 4088 <__TMC_END__>
+    1167:	48 8d 35 1a 2f 00 00 	lea    0x2f1a(%rip),%rsi        # 4088 <__TMC_END__>
+    116e:	48 29 fe             	sub    %rdi,%rsi
+    1171:	48 c1 fe 03          	sar    $0x3,%rsi
+    1175:	48 89 f0             	mov    %rsi,%rax
+    1178:	48 c1 e8 3f          	shr    $0x3f,%rax
+    117c:	48 01 c6             	add    %rax,%rsi
+    117f:	48 d1 fe             	sar    %rsi
+    1182:	74 14                	je     1198 <register_tm_clones+0x38>
+    1184:	48 8b 05 65 2e 00 00 	mov    0x2e65(%rip),%rax        # 3ff0 <_ITM_registerTMCloneTable>
+    118b:	48 85 c0             	test   %rax,%rax
+    118e:	74 08                	je     1198 <register_tm_clones+0x38>
+    1190:	ff e0                	jmpq   *%rax
+    1192:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1198:	c3                   	retq   
+    1199:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000011a0 <__do_global_dtors_aux>:
+    11a0:	80 3d 21 2f 00 00 00 	cmpb   $0x0,0x2f21(%rip)        # 40c8 <completed.7325>
+    11a7:	75 2f                	jne    11d8 <__do_global_dtors_aux+0x38>
+    11a9:	55                   	push   %rbp
+    11aa:	48 83 3d 46 2e 00 00 	cmpq   $0x0,0x2e46(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    11b1:	00 
+    11b2:	48 89 e5             	mov    %rsp,%rbp
+    11b5:	74 0c                	je     11c3 <__do_global_dtors_aux+0x23>
+    11b7:	48 8b 3d c2 2e 00 00 	mov    0x2ec2(%rip),%rdi        # 4080 <__dso_handle>
+    11be:	e8 2d ff ff ff       	callq  10f0 <__cxa_finalize@plt>
+    11c3:	e8 68 ff ff ff       	callq  1130 <deregister_tm_clones>
+    11c8:	c6 05 f9 2e 00 00 01 	movb   $0x1,0x2ef9(%rip)        # 40c8 <completed.7325>
+    11cf:	5d                   	pop    %rbp
+    11d0:	c3                   	retq   
+    11d1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    11d8:	c3                   	retq   
+    11d9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000011e0 <frame_dummy>:
+    11e0:	e9 7b ff ff ff       	jmpq   1160 <register_tm_clones>
+
+00000000000011e5 <getCookie>:
+    11e5:	55                   	push   %rbp
+    11e6:	53                   	push   %rbx
+    11e7:	48 83 ec 18          	sub    $0x18,%rsp
+    11eb:	48 8d 35 12 0e 00 00 	lea    0xe12(%rip),%rsi        # 2004 <_IO_stdin_used+0x4>
+    11f2:	48 8d 3d 0d 0e 00 00 	lea    0xe0d(%rip),%rdi        # 2006 <_IO_stdin_used+0x6>
+    11f9:	e8 a2 fe ff ff       	callq  10a0 <fopen@plt>
+    11fe:	48 85 c0             	test   %rax,%rax
+    1201:	74 53                	je     1256 <getCookie+0x71>
+    1203:	48 89 c3             	mov    %rax,%rbx
+    1206:	c7 44 24 0c ff ff ff 	movl   $0xffffffff,0xc(%rsp)
+    120d:	ff 
+    120e:	48 8d 54 24 0c       	lea    0xc(%rsp),%rdx
+    1213:	48 8d 35 0b 0e 00 00 	lea    0xe0b(%rip),%rsi        # 2025 <_IO_stdin_used+0x25>
+    121a:	48 89 c7             	mov    %rax,%rdi
+    121d:	b8 00 00 00 00       	mov    $0x0,%eax
+    1222:	e8 19 fe ff ff       	callq  1040 <__isoc99_fscanf@plt>
+    1227:	89 c5                	mov    %eax,%ebp
+    1229:	48 89 df             	mov    %rbx,%rdi
+    122c:	e8 2f fe ff ff       	callq  1060 <fclose@plt>
+    1231:	83 fd 01             	cmp    $0x1,%ebp
+    1234:	75 58                	jne    128e <getCookie+0xa9>
+    1236:	8b 74 24 0c          	mov    0xc(%rsp),%esi
+    123a:	48 8d 3d 05 0e 00 00 	lea    0xe05(%rip),%rdi        # 2046 <_IO_stdin_used+0x46>
+    1241:	b8 00 00 00 00       	mov    $0x0,%eax
+    1246:	e8 25 fe ff ff       	callq  1070 <printf@plt>
+    124b:	8b 44 24 0c          	mov    0xc(%rsp),%eax
+    124f:	48 83 c4 18          	add    $0x18,%rsp
+    1253:	5b                   	pop    %rbx
+    1254:	5d                   	pop    %rbp
+    1255:	c3                   	retq   
+    1256:	e8 d5 fd ff ff       	callq  1030 <__errno_location@plt>
+    125b:	8b 38                	mov    (%rax),%edi
+    125d:	e8 7e fe ff ff       	callq  10e0 <strerror@plt>
+    1262:	48 89 c1             	mov    %rax,%rcx
+    1265:	48 8d 15 9a 0d 00 00 	lea    0xd9a(%rip),%rdx        # 2006 <_IO_stdin_used+0x6>
+    126c:	48 8d 35 9e 0d 00 00 	lea    0xd9e(%rip),%rsi        # 2011 <_IO_stdin_used+0x11>
+    1273:	48 8b 3d 46 2e 00 00 	mov    0x2e46(%rip),%rdi        # 40c0 <stderr@@GLIBC_2.2.5>
+    127a:	b8 00 00 00 00       	mov    $0x0,%eax
+    127f:	e8 fc fd ff ff       	callq  1080 <fprintf@plt>
+    1284:	bf 01 00 00 00       	mov    $0x1,%edi
+    1289:	e8 32 fe ff ff       	callq  10c0 <exit@plt>
+    128e:	48 8b 0d 2b 2e 00 00 	mov    0x2e2b(%rip),%rcx        # 40c0 <stderr@@GLIBC_2.2.5>
+    1295:	ba 1b 00 00 00       	mov    $0x1b,%edx
+    129a:	be 01 00 00 00       	mov    $0x1,%esi
+    129f:	48 8d 3d 84 0d 00 00 	lea    0xd84(%rip),%rdi        # 202a <_IO_stdin_used+0x2a>
+    12a6:	e8 25 fe ff ff       	callq  10d0 <fwrite@plt>
+    12ab:	bf 01 00 00 00       	mov    $0x1,%edi
+    12b0:	e8 0b fe ff ff       	callq  10c0 <exit@plt>
+
+00000000000012b5 <getUnwrapKey>:
+    12b5:	48 83 ec 18          	sub    $0x18,%rsp
+    12b9:	b8 00 00 00 00       	mov    $0x0,%eax
+    12be:	83 f8 01             	cmp    $0x1,%eax
+    12c1:	74 35                	je     12f8 <getUnwrapKey+0x43>
+    12c3:	48 8d 3d be 0d 00 00 	lea    0xdbe(%rip),%rdi        # 2088 <_IO_stdin_used+0x88>
+    12ca:	b8 00 00 00 00       	mov    $0x0,%eax
+    12cf:	e8 9c fd ff ff       	callq  1070 <printf@plt>
+    12d4:	48 8b 3d c5 2d 00 00 	mov    0x2dc5(%rip),%rdi        # 40a0 <stdout@@GLIBC_2.2.5>
+    12db:	e8 b0 fd ff ff       	callq  1090 <fflush@plt>
+    12e0:	48 8d 74 24 0c       	lea    0xc(%rsp),%rsi
+    12e5:	48 8d 3d 3b 0d 00 00 	lea    0xd3b(%rip),%rdi        # 2027 <_IO_stdin_used+0x27>
+    12ec:	b8 00 00 00 00       	mov    $0x0,%eax
+    12f1:	e8 ba fd ff ff       	callq  10b0 <__isoc99_scanf@plt>
+    12f6:	eb c6                	jmp    12be <getUnwrapKey+0x9>
+    12f8:	8b 44 24 0c          	mov    0xc(%rsp),%eax
+    12fc:	48 83 c4 18          	add    $0x18,%rsp
+    1300:	c3                   	retq   
+
+0000000000001301 <main>:
+    1301:	55                   	push   %rbp
+    1302:	53                   	push   %rbx
+    1303:	48 83 ec 08          	sub    $0x8,%rsp
+    1307:	48 8d 3d 69 0d 00 00 	lea    0xd69(%rip),%rdi        # 2077 <_IO_stdin_used+0x77>
+    130e:	e8 3d fd ff ff       	callq  1050 <puts@plt>
+    1313:	b8 00 00 00 00       	mov    $0x0,%eax
+    1318:	e8 c8 fe ff ff       	callq  11e5 <getCookie>
+    131d:	89 c3                	mov    %eax,%ebx
+    131f:	89 c7                	mov    %eax,%edi
+    1321:	e8 7a 00 00 00       	callq  13a0 <wrapCookie>
+    1326:	89 c5                	mov    %eax,%ebp
+    1328:	b8 00 00 00 00       	mov    $0x0,%eax
+    132d:	e8 83 ff ff ff       	callq  12b5 <getUnwrapKey>
+    1332:	89 c6                	mov    %eax,%esi
+    1334:	89 ef                	mov    %ebp,%edi
+    1336:	e8 e2 00 00 00       	callq  141d <unwrapCookie>
+    133b:	39 d8                	cmp    %ebx,%eax
+    133d:	40 0f 94 c5          	sete   %bpl
+    1341:	40 0f b6 ed          	movzbl %bpl,%ebp
+    1345:	74 1a                	je     1361 <main+0x60>
+    1347:	48 8d 3d fe 0c 00 00 	lea    0xcfe(%rip),%rdi        # 204c <_IO_stdin_used+0x4c>
+    134e:	b8 00 00 00 00       	mov    $0x0,%eax
+    1353:	e8 18 fd ff ff       	callq  1070 <printf@plt>
+    1358:	89 e8                	mov    %ebp,%eax
+    135a:	48 83 c4 08          	add    $0x8,%rsp
+    135e:	5b                   	pop    %rbx
+    135f:	5d                   	pop    %rbp
+    1360:	c3                   	retq   
+    1361:	48 8d 3d f7 0c 00 00 	lea    0xcf7(%rip),%rdi        # 205f <_IO_stdin_used+0x5f>
+    1368:	eb e4                	jmp    134e <main+0x4d>
+
+000000000000136a <f1>:
+    136a:	89 f8                	mov    %edi,%eax
+    136c:	c1 f8 09             	sar    $0x9,%eax
+    136f:	83 e0 0f             	and    $0xf,%eax
+    1372:	74 01                	je     1375 <f1+0xb>
+    1374:	c3                   	retq   
+    1375:	b8 0c 00 00 00       	mov    $0xc,%eax
+    137a:	eb f8                	jmp    1374 <f1+0xa>
+
+000000000000137c <f2>:
+    137c:	89 f8                	mov    %edi,%eax
+    137e:	c1 f8 08             	sar    $0x8,%eax
+    1381:	83 e0 0f             	and    $0xf,%eax
+    1384:	74 01                	je     1387 <f2+0xb>
+    1386:	c3                   	retq   
+    1387:	b8 07 00 00 00       	mov    $0x7,%eax
+    138c:	eb f8                	jmp    1386 <f2+0xa>
+
+000000000000138e <f3>:
+    138e:	89 f8                	mov    %edi,%eax
+    1390:	c1 f8 07             	sar    $0x7,%eax
+    1393:	83 e0 0f             	and    $0xf,%eax
+    1396:	74 01                	je     1399 <f3+0xb>
+    1398:	c3                   	retq   
+    1399:	b8 0a 00 00 00       	mov    $0xa,%eax
+    139e:	eb f8                	jmp    1398 <f3+0xa>
+
+00000000000013a0 <wrapCookie>:
+    13a0:	f3 0f 1e fa          	endbr64 
+    13a4:	41 54                	push   %r12
+    13a6:	55                   	push   %rbp
+    13a7:	53                   	push   %rbx
+    13a8:	41 89 fc             	mov    %edi,%r12d
+    13ab:	e8 ba ff ff ff       	callq  136a <f1>
+    13b0:	89 c5                	mov    %eax,%ebp
+    13b2:	44 89 e7             	mov    %r12d,%edi
+    13b5:	e8 c2 ff ff ff       	callq  137c <f2>
+    13ba:	89 c3                	mov    %eax,%ebx
+    13bc:	44 89 e7             	mov    %r12d,%edi
+    13bf:	e8 ca ff ff ff       	callq  138e <f3>
+    13c4:	ba 00 00 00 00       	mov    $0x0,%edx
+    13c9:	83 fa 0f             	cmp    $0xf,%edx
+    13cc:	7f 1a                	jg     13e8 <wrapCookie+0x48>
+    13ce:	8d 0c 92             	lea    (%rdx,%rdx,4),%ecx
+    13d1:	01 d9                	add    %ebx,%ecx
+    13d3:	83 e1 0f             	and    $0xf,%ecx
+    13d6:	48 63 fa             	movslq %edx,%rdi
+    13d9:	48 8d 35 20 2d 00 00 	lea    0x2d20(%rip),%rsi        # 4100 <vals1>
+    13e0:	89 0c be             	mov    %ecx,(%rsi,%rdi,4)
+    13e3:	83 c2 01             	add    $0x1,%edx
+    13e6:	eb e1                	jmp    13c9 <wrapCookie+0x29>
+    13e8:	ba 00 00 00 00       	mov    $0x0,%edx
+    13ed:	eb 18                	jmp    1407 <wrapCookie+0x67>
+    13ef:	8d 0c 52             	lea    (%rdx,%rdx,2),%ecx
+    13f2:	01 c1                	add    %eax,%ecx
+    13f4:	83 e1 07             	and    $0x7,%ecx
+    13f7:	48 63 fa             	movslq %edx,%rdi
+    13fa:	48 8d 35 df 2c 00 00 	lea    0x2cdf(%rip),%rsi        # 40e0 <vals2>
+    1401:	89 0c be             	mov    %ecx,(%rsi,%rdi,4)
+    1404:	83 c2 01             	add    $0x1,%edx
+    1407:	83 fa 07             	cmp    $0x7,%edx
+    140a:	7e e3                	jle    13ef <wrapCookie+0x4f>
+    140c:	01 c5                	add    %eax,%ebp
+    140e:	85 ed                	test   %ebp,%ebp
+    1410:	7e 05                	jle    1417 <wrapCookie+0x77>
+    1412:	5b                   	pop    %rbx
+    1413:	5d                   	pop    %rbp
+    1414:	41 5c                	pop    %r12
+    1416:	c3                   	retq   
+    1417:	29 c3                	sub    %eax,%ebx
+    1419:	89 d8                	mov    %ebx,%eax
+    141b:	eb f5                	jmp    1412 <wrapCookie+0x72>
+
+000000000000141d <unwrapCookie>:
+    141d:	f3 0f 1e fa          	endbr64 
+    1421:	89 f9                	mov    %edi,%ecx
+    1423:	83 e1 0f             	and    $0xf,%ecx
+    1426:	83 e7 07             	and    $0x7,%edi
+    1429:	48 8d 05 b0 2c 00 00 	lea    0x2cb0(%rip),%rax        # 40e0 <vals2>
+    1430:	8b 14 b8             	mov    (%rax,%rdi,4),%edx
+    1433:	48 8d 05 c6 2c 00 00 	lea    0x2cc6(%rip),%rax        # 4100 <vals1>
+    143a:	03 14 88             	add    (%rax,%rcx,4),%edx
+    143d:	8d 04 92             	lea    (%rdx,%rdx,4),%eax
+    1440:	01 f0                	add    %esi,%eax
+    1442:	c3                   	retq   
+    1443:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+    144a:	00 00 00 
+    144d:	0f 1f 00             	nopl   (%rax)
+
+0000000000001450 <__libc_csu_init>:
+    1450:	41 57                	push   %r15
+    1452:	49 89 d7             	mov    %rdx,%r15
+    1455:	41 56                	push   %r14
+    1457:	49 89 f6             	mov    %rsi,%r14
+    145a:	41 55                	push   %r13
+    145c:	41 89 fd             	mov    %edi,%r13d
+    145f:	41 54                	push   %r12
+    1461:	4c 8d 25 80 29 00 00 	lea    0x2980(%rip),%r12        # 3de8 <__frame_dummy_init_array_entry>
+    1468:	55                   	push   %rbp
+    1469:	48 8d 2d 80 29 00 00 	lea    0x2980(%rip),%rbp        # 3df0 <__init_array_end>
+    1470:	53                   	push   %rbx
+    1471:	4c 29 e5             	sub    %r12,%rbp
+    1474:	48 83 ec 08          	sub    $0x8,%rsp
+    1478:	e8 83 fb ff ff       	callq  1000 <_init>
+    147d:	48 c1 fd 03          	sar    $0x3,%rbp
+    1481:	74 1b                	je     149e <__libc_csu_init+0x4e>
+    1483:	31 db                	xor    %ebx,%ebx
+    1485:	0f 1f 00             	nopl   (%rax)
+    1488:	4c 89 fa             	mov    %r15,%rdx
+    148b:	4c 89 f6             	mov    %r14,%rsi
+    148e:	44 89 ef             	mov    %r13d,%edi
+    1491:	41 ff 14 dc          	callq  *(%r12,%rbx,8)
+    1495:	48 83 c3 01          	add    $0x1,%rbx
+    1499:	48 39 dd             	cmp    %rbx,%rbp
+    149c:	75 ea                	jne    1488 <__libc_csu_init+0x38>
+    149e:	48 83 c4 08          	add    $0x8,%rsp
+    14a2:	5b                   	pop    %rbx
+    14a3:	5d                   	pop    %rbp
+    14a4:	41 5c                	pop    %r12
+    14a6:	41 5d                	pop    %r13
+    14a8:	41 5e                	pop    %r14
+    14aa:	41 5f                	pop    %r15
+    14ac:	c3                   	retq   
+    14ad:	0f 1f 00             	nopl   (%rax)
+
+00000000000014b0 <__libc_csu_fini>:
+    14b0:	c3                   	retq   
+
+Disassembly of section .fini:
+
+00000000000014b4 <_fini>:
+    14b4:	48 83 ec 08          	sub    $0x8,%rsp
+    14b8:	48 83 c4 08          	add    $0x8,%rsp
+    14bc:	c3                   	retq   
+slohoka1@remote05:~/i220b/submit/lab6/exercises/another-one$ cat ../.cookie 
+0x23bc
+slohoka1@remote05:~/i220b/submit/lab6/exercises/another-one$ gdb un[K[Kfeed-cookie-monster
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from feed-cookie-monster...done.
+(gdb) b ur[KnwrapCookie 
+Breakpoint 1 at 0x141d
+(gdb) r
+Starting program: /import/linux/home1/slohoka1/projects/i220b/submit/lab6/exercises/another-one/feed-cookie-monster 
+Me want cookie!
+0x23bc
+enter cookie unwrap key in hex: 23aa
+
+Breakpoint 1, 0x000055555555541d in unwrapCookie ()
+(gdb) disass
+Dump of assembler code for function unwrapCookie:
+=> 0x000055555555541d <+0>:	endbr64 
+   0x0000555555555421 <+4>:	mov    %edi,%ecx
+   0x0000555555555423 <+6>:	and    $0xf,%ecx
+   0x0000555555555426 <+9>:	and    $0x7,%edi
+   0x0000555555555429 <+12>:	lea    0x2cb0(%rip),%rax        # 0x5555555580e0 <vals2>
+   0x0000555555555430 <+19>:	mov    (%rax,%rdi,4),%edx
+   0x0000555555555433 <+22>:	lea    0x2cc6(%rip),%rax        # 0x555555558100 <vals1>
+   0x000055555555543a <+29>:	add    (%rax,%rcx,4),%edx
+   0x000055555555543d <+32>:	lea    (%rdx,%rdx,4),%eax
+   0x0000555555555440 <+35>:	add    %esi,%eax
+   0x0000555555555442 <+37>:	retq   
+End of assembler dump.
+(gdb) i reg $edi
+edi            0x7                 7
+(gdb) i reg $esi
+esi            0x23aa              9130
+(gdb) a[Kni
+0x0000555555555421 in unwrapCookie ()
+(gdb) ni
+0x0000555555555423 in unwrapCookie ()
+(gdb) n
+Single stepping until exit from function unwrapCookie,
+which has no line number information.
+main () at feed-cookie-monster.c:45
+45	  printf(gotIt ? "😂 CHOMP!!! CHOMP!!!\n" : "🥶 AARGH YUCK!!\n");
+(gdb) $[Kc
+Continuing.
+🥶 AARGH YUCK!!
+[Inferior 1 (process 3957885) exited normally]
+(gdb) r
+Starting program: /import/linux/home1/slohoka1/projects/i220b/submit/lab6/exercises/another-one/feed-cookie-monster 
+Me want cookie!
+0x23bc
+enter cookie unwrap key in hex: 1
+
+Breakpoint 1, 0x000055555555541d in unwrapCookie ()
+(gdb) ni[K[Kp ni
+No symbol "ni" in current context.
+(gdb) ni
+0x0000555555555421 in unwrapCookie ()
+(gdb) $[Ki reg %ecx
+Invalid register `%ecx'
+(gdb) ni
+0x0000555555555423 in unwrapCookie ()
+(gdb) nii reg %ecx
+Invalid register `%ecx'
+(gdb) p $[K[K[Ki reg %ecx[1Pecx$ecx
+ecx            0x7                 7
+(gdb) ni
+0x0000555555555426 in unwrapCookie ()
+(gdb) i red[Kg $edi
+edi            0x7                 7
+(gdb) p ((int8)[K[K*)0x5555555580e0)[0]@16
+$1 = {7, 2, 5, 0, 3, 6, 1, 4, 3, 8, 13, 2, 7, 12, 1, 6}
+(gdb) ni
+0x0000555555555429 in unwrapCookie ()
+(gdb) ni
+0x0000555555555430 in unwrapCookie ()
+(gdb) i reg %edx
+Invalid register `%edx'
+(gdb) i reg %edx[1Pedx$edx
+edx            0xf7f908d0          -134674224
+(gdb) ni
+0x0000555555555433 in unwrapCookie ()
+(gdb) nii reg $edx%edx[C[C[C[C[C[Cni[Kp ((int*)0x5555555580e0)[0]@16[1P)[0]@16[1P)[0]@16[1P)[0]@161)[0]@160)[0]@160)[0]@16
+$2 = {3, 8, 13, 2, 7, 12, 1, 6, 11, 0, 5, 10, 15, 4, 9, 14}
+(gdb) p $rdx[$rdx * 4]
+cannot subscript something of type `int64_t'
+(gdb) p $rdx[$rdx * 4][1@([1@i[1@n[1@t[1@)[1@([C[C[C[C[C[C[C[C)]
+cannot subscript something of type `int64_t'
+(gdb) p $rdx[(int)($rdx * 4)][1@([1@i[1@n[1@t[1@*[1@)[C[1@([C[C[C[C[C[C[C[C[C[C[1@)
+Cannot access memory at address 0x44
+(gdb) i reg %esi[1Pesi$esi
+esi            0x1                 1
+(gdb) $[Ki reg $rdx
+rdx            0x4                 4
+(gdb) ni
+0x000055555555543a in unwrapCookie ()
+(gdb) nii reg $rdx
+rdx            0x4                 4
+(gdb) i reg $rdx[C[C[C[C[C[Cni[K
+0x000055555555543d in unwrapCookie ()
+(gdb) nii reg $rdx
+rdx            0xa                 10
+(gdb) i reg $rdx[C[C[C[C[C[Cni[K
+0x0000555555555440 in unwrapCookie ()
+(gdb) nii reg $rdx
+rdx            0xa                 10
+(gdb) $[Ki reg $rdx[1Px[1Pxexax
+eax            0x32                50
+(gdb) i reg $eaxrdx[C[C[C[C[C[Cni[K
+0x0000555555555442 in unwrapCookie ()
+(gdb) i reg $esi
+esi            0x1                 1
+(gdb) i reg $esi[K[Kax
+eax            0x33                51
+(gdb) c
+Continuing.
+🥶 AARGH YUCK!!
+[Inferior 1 (process 3958204) exited normally]
+(gdb) q
+slohoka1@remote05:~/i220b/submit/lab6/exercises/another-one$ ./feed-cookie-monster 
+Me want cookie!
+0x23bc
+enter cookie unwrap key in hex: 238a
+😂 CHOMP!!! CHOMP!!!
+slohoka1@remote05:~/i220b/submit/lab6/exercises/another-one$ exit
+
+Script done on 2021-10-12 16:33:17-04:00 [COMMAND_EXIT_CODE="1"]

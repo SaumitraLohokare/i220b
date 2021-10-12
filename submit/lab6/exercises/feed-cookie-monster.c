@@ -20,6 +20,7 @@ static int getCookie() {
     fprintf(stderr, "unable to scan cookie file\n");
     exit(1);
   }
+  printf("0x%x\n", cookie);
   return cookie;
 }
 
