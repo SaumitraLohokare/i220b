@@ -24,6 +24,16 @@ linkNewNode(Node* p0, int val) {
     p0->next = p;
     return p;
 }
+
+static Node*
+unlinkNode(IntSet* set, Node* p0) {
+    Node* p = p0->next;
+    p0->next = p->next;
+    free(p);
+    set->len -= 1;
+    return p0->next;
+}
+
 /** Return a new empty int-set.  Returns NULL on error with errno set.
  */
 void *newIntSet() {
@@ -80,12 +90,28 @@ int addMultipleIntSet(void *intSet, const int elements[], int nElements) {
  *  elements in the updated intSetA.  Returns < 0 on error.
  */
 int unionIntSet(void *intSetA, void *intSetB) {
+    IntSet* setA = (IntSet*) intSetA;
     IntSet* setB = (IntSet*) intSetB;
-    int ret = -1;
-    for (Node* p = setB->dummy.next; p != NULL; p = p->next) {
-        ret = addIntSet(intSetA, p->val);
-        if (ret < 0) return ret;
+    Node* pA0 = &setA->dummy;
+    Node* pB = setB->dummy.next;
+    for (; pA0->next != NULL && pB != NULL; ) {
+        if (pA0->next->val < pB->val) {
+            pA0 = pA0->next;
+        } else if (pA0->next->val == pB->val) {
+            pA0 = pA0->next;
+            pB = pB->next;
+        } else {
+            if (addIntSet(intSetA, pB->val) < 0) return -1;
+            pA0 = pA0->next;
+            pB = pB->next;
+        }
     }
+
+    for (; pB != NULL; pB = pB->next) {
+        if (addIntSet(intSetA, pB->val) < 0) return -1;
+        pA0 = pA0->next;
+    }
+
     return nElementsIntSet(intSetA);
 }
 
@@ -93,19 +119,21 @@ int unionIntSet(void *intSetA, void *intSetB) {
  *  of elements in the updated intSetA.  Returns < 0 on error.
  */
 int intersectionIntSet(void *intSetA, void *intSetB) {
+    IntSet* setA = (IntSet*) intSetA;
     IntSet* setB = (IntSet*) intSetB;
-    void* setC = newIntSet();
-    int ret = -1;
+    Node* pA0 = &setA->dummy;
+    Node* pB = setB->dummy.next;
 
-    for (Node* p = setB->dummy.next; p != NULL; p = p->next) {
-        if (isInIntSet(intSetA, p->val)) {
-            ret = addIntSet(setC, p->val);
-            if (ret < 0) return ret;
+    for (; pA0->next != NULL && pB != NULL; ) {
+        if (pA0->next->val < pB->val) {
+            unlinkNode(setA, pA0);
+        } else if (pA0->next->val == pB->val) {
+            pA0 = pA0->next;
+            pB = pB->next;
+        } else {
+            pB = pB->next;
         }
     }
-    // prolly should free intSetA but it was causing a double free
-    // freeIntSet(intSetA);
-    intSetA = setC;
 
     return nElementsIntSet(intSetA);
 }
@@ -142,4 +170,3 @@ const void *stepIntSetIterator(const void *intSetIterator) {
     const Node* p = (Node *) intSetIterator;
     return p->next;
 }
-

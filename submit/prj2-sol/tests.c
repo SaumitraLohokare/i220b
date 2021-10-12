@@ -455,6 +455,19 @@ START_TEST(largerSmallerUnion)
 }
 END_TEST
 
+START_TEST(equalUnion)
+{
+  const int elements1[] = { 33, 54, 53, 33, 53 };
+  const int nElements1 = sizeof(elements1)/sizeof(elements1[0]);
+  const int elements2[] = { 33, 54, 53, 33, 53 };
+  const int nElements2 = sizeof(elements2)/sizeof(elements2[0]);
+  const int unionElements[] = { 33, 53, 54 };
+  const int nUnionElements = sizeof(unionElements)/sizeof(unionElements[0]);
+  unionTest(elements1, nElements1, elements2, nElements2,
+            unionElements, nUnionElements);
+}
+END_TEST
+
 START_TEST(interleavedUnion)
 {
   const int elements1[] = { 1, 33, 54, 3, 45,   };
@@ -478,6 +491,7 @@ unionIntSetSuite(void)
   tcase_add_test(unionTests, nonEmptyEmptyUnion);
   tcase_add_test(unionTests, smallerLargerUnion);
   tcase_add_test(unionTests, largerSmallerUnion);
+  tcase_add_test(unionTests, equalUnion);
   tcase_add_test(unionTests, interleavedUnion);
   suite_add_tcase(suite, unionTests);
   return suite;
@@ -522,7 +536,15 @@ END_TEST
 
 
 //TODO: add more intersection tests.
-
+START_TEST(disjointNonEmptySet)
+{
+  const int elements1[] = { 1, 2, 3 };
+  const int nElements1 = sizeof(elements1)/sizeof(elements1[0]);
+  const int elements2[] = { 4, 5, 6 };
+  const int nElements2 = sizeof(elements2)/sizeof(elements2[0]);
+  intersectionTest(elements1, nElements1, elements2, nElements2, NULL, 0);
+}
+END_TEST
 
 static Suite *
 intersectionIntSetSuite(void)
@@ -531,6 +553,7 @@ intersectionIntSetSuite(void)
   TCase *intersectionTests = tcase_create("intersection");
   tcase_add_test(intersectionTests, emptyEmptyIntersection);
   tcase_add_test(intersectionTests, emptyNonEmptyIntersection);
+  tcase_add_test(intersectionTests, disjointNonEmptySet);
   //TODO: for each test added above tcase_add_test(intersectionTests, ...)
 
   suite_add_tcase(suite, intersectionTests);
