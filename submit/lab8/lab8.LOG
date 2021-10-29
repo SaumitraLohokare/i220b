@@ -1,0 +1,726 @@
+Script started on 2021-10-28 19:11:57-04:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="100" LINES="54"]
+slohoka1@remote07:~/i220b/submit/lab8$ cd exercises/
+slohoka1@remote07:~/i220b/submit/lab8/exercises$ ls
+1  2  3  4  5  6  cpuid1  cpuid2  parity  rip  rotate  rsp
+slohoka1@remote07:~/i220b/submit/lab8/exercises$ cd rotate/
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rotate$ ls
+Makefile  rotate.c
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rotate$ make
+cc -S -Wall -Og -std=c18 rotate.c
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rotate$ cat roat[K[Ktate.s
+	.file	"rotate.c"
+	.text
+	.globl	f
+	.type	f, @function
+f:
+.LFB2:
+	.cfi_startproc
+	movl	%edx, %ecx
+	roll	%cl, %edi
+	rorl	%cl, %esi
+	leal	(%rdi,%rsi), %eax
+	ret
+	.cfi_endproc
+.LFE2:
+	.size	f, .-f
+	.ident	"GCC: (Debian 8.3.0-6) 8.3.0"
+	.section	.note.GNU-stack,"",@progbits
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rotate$ cat ro[Kotate.c
+#include <limits.h>
+
+inline unsigned
+rotl(unsigned x, int shift)
+{
+  return (x << shift) | (x >> (sizeof(x)*CHAR_BIT - shift));
+}
+
+inline unsigned
+rotr(unsigned x, int shift)
+{
+  return (x >> shift) | (x << (sizeof(x)*CHAR_BIT - shift));
+}
+
+unsigned
+f(unsigned a, unsigned b, unsigned n)
+{
+  return rotl(a, n) + rotr(b, n);
+}
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rotate$ cd ..
+slohoka1@remote07:~/i220b/submit/lab8/exercises$ cd cpuid
+bash: cd: cpuid: No such file or directory
+slohoka1@remote07:~/i220b/submit/lab8/exercises$ cd cpuid1
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid1$ ls
+cpuid.s  main.c  Makefile
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid1$ cat cpuid.s 
+#get_cpuid(int *eaxP, int *ebxP, int *ecxP, int *edxP).
+#rdi = eaxP, rsi = ebxP, rdx = edxP, rcx = ecxP
+	.text
+	.globl get_cpuid
+get_cpuid:
+	pushq   %rcx
+	pushq   %rdx
+	xorl 	%eax, %eax	#setup cpuid opcode to 0
+	cpuid
+	#largest param in %eax
+	#12-char manufacturer string in ebx, edx, ecx.
+	movl	%eax, (%rdi)	#store eax cpuid result
+	movl	%ebx, (%rsi)	#store ebx cpuid result
+	popq	%rax		#pop address for edxP
+	movl    %edx, (%rax)    #store edx cpuid result
+	popq    %rax		#pop address for ecxP
+	movl	%ecx, (%rax)	#store ecx cpuid result
+	ret
+	
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid1$ make
+cc -g -Wall -std=c18 -Og   -c -o main.o main.c
+cc -c -g -Wall -std=c18 -Og cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid1$ ./cpuid
+cpuid: eax = 0x14; ebx = 0x756e6547; edx = 0x49656e69; ecx = 0x6c65746e
+vendor: GenuineIntel
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid1$ cat main.
+cat: main.: No such file or directory
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid1$ cat main.c
+#include <stdio.h>
+#include <stdlib.h>
+
+/** External routine which returns cpuid info in *eax, *ebx, *ecx, *edx
+ *  (corresponding to values returned in like-named registers by x86
+ *  cpuid instruction).
+ */
+void get_cpuid(int *eax, int *ebx, int *ecx, int *edx);
+
+/** Decode vendor string in ebx:edx:ecx into vendor_string (which
+ *  is assumed to be large enough.
+ */
+static void
+decode_vendor_string(int ebx, int ecx, int edx, char *vendor_string)
+{
+  *( ((int *)vendor_string) + 0 ) = ebx;
+  *( ((int *)vendor_string) + 1 ) = edx;
+  *( ((int *)vendor_string) + 2 ) = ecx;
+  *(char *)(((int *)vendor_string + 3)) = '\0';
+}
+
+/** Output cpuid for cpuid-op set to 0 on stdout. Decode and output
+ *  vendor info too.
+ */
+int
+main(int argc, const char *argv[])
+{
+  int eax, ebx, edx, ecx;
+  get_cpuid(&eax, &ebx, &edx, &ecx);
+  printf("cpuid: eax = 0x%x; ebx = 0x%x; edx = 0x%x; ecx = 0x%x\n",
+         eax, ebx, edx, ecx);
+  char vendor_string[3*4 + 1];
+  decode_vendor_string(ebx, ecx, edx, vendor_string);
+  printf("vendor: %s\n", vendor_string);
+  return 0;
+}
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid1$ cd ..
+slohoka1@remote07:~/i220b/submit/lab8/exercises$ cd cpuid2
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ls
+cpuid.s  main.c  Makefile
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ cat cpuid.s 
+#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).
+#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).	
+	.text
+	.globl get_cpuid
+get_cpuid:
+	pushq   %rcx
+	pushq   %rdx
+	xorl 	%eax, %eax	#setup cpuid opcode to 0
+	cpuid
+	#largest param in %eax
+	#12-char manufacturer string in ebx, edx, ecx.
+	movl	%eax, (%rdi)	#store eax cpuid result
+	movl	%ebx, (%rsi)	#store ebx cpuid result
+	popq	%rax		#pop address for edxP
+	movl    %edx, (%rax)    #store edx cpuid result
+	popq    %rax		#pop address for ecxP
+	movl	%ecx, (%rax)	#store ecx cpuid result
+	ret
+	
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ nano get[K[K[Kcpuid.s 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 19 lines ](B[m[H(B[0;7m  GNU nano 3.2                                  cpuid.s                                             [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[4d#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).[42m [5;5H(B[0;1m[32m.text[6;5H(B[0m[32m.globl[39m(B[m get_cpuid[7d(B[0;1m[31mget_cpuid:[8;5H[39m(B[mpushq   %rcx[9;5Hpushq   %rdx[10;5Hxorl    %eax, %eax  #setup cpuid opcode to 0[11;5Hcpuid[12;5H#largest param in %eax[13;5H#12-char manufacturer string in ebx, edx, ecx.[14;5Hmovl    %eax, (%rdi)    #store eax cpuid result[15;5Hmovl    %ebx, (%rsi)    #store ebx cpuid result[16;5Hpopq    %rax[16;25H#pop address for edxP[17;5Hmovl    %edx, (%rax)    #store edx cpuid result[18;5Hpopq    %rax[18;25H#pop address for ecxP[19;5Hmovl    %ecx, (%rax)    #store ecx cpuid result[20;5Hret[21d[42m    [3d[49m(B[m[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[8;17H[?12l[?25h[?25l[9d[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l%[?12l[?25h[?25lr[?12l[?25h[?25ld[?12l[?25h[?25lx[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l%[?12l[?25h[?25lr[?12l[?25h[?25ld[?12l[?25h[?25lx[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[52d[K[9;14H[?12l[?25h[?25l[?12l[?25h[?25l%[?12l[?25h[?25lr[?12l[?25h[?25ld[?12l[?25h[?25lx[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[9;16H [?12l[?25h[?25l [?12l[?25h[?25l8[?12l[?25h[?25l[10d[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25ll[?12l[?25h[?25l [?12l[?25h[?25l[4P[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25lm[?12l[?25h[?25lo[?12l[?25h[?25lv     %eax, %eax  #setup cpuid opcode to 0[8G[?12l[?25h[?25ll[?12l[?25h[?25l [?12l[?25h[?25l   [?12l[?25h[?25l%[?12l[?25h[?25le[?12l[?25h[?25la[?12l[?25h[?25lx[?12l[?25h[?25l, %eax [16G[?12l[?25h[?25l, %eax [15G[?12l[?25h[?25l, %eax[4P[14G[?12l[?25h[?25le, %eax    #setup cpuid opcode to 0[10;15H[?12l[?25h[?25ld, %eax[16G[?12l[?25h[?25li, %eax[17G[?12l[?25h[?25l,[?12l[?25h[?25l [?12l[?25h[?25l%[?12l[?25h[?25le[?12l[?25h[?25la[?12l[?25h[?25lx[?12l[?25h[?25l[11;10H[?12l[?25h[?25l[12;23H[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25li)[4P[?12l[?25h[?25lsi)    #store eax cpuid result[14;23H[?12l[?25h[?25l[15d[?12l[?25h[?25li[?12l[?25h[?25l)[4P[?12l[?25h[?25l) [?12l[?25h[?25ld)[?12l[?25h[?25lx)    #store ebx cpuid result[15;24H[?12l[?25h[?25l[16;21H[?12l[?25h[?25l[17;24H[?12l[?25h[?25l[18;21H[?12l[?25h[?25l[19;24H[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote 19 lines ](B[m[19;24H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ make
+cc -g -Wall -std=c18   -c -o main.o main.c
+cc -c -g -Wall -std=c18 cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./cpuid 0
+Segmentation fault
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ cat cpuid.s
+#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).
+#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).	
+	.text
+	.globl get_cpuid
+get_cpuid:
+	pushq   %rcx
+	pushq   %r8
+	movl 	%edi, %eax	#setup cpuid opcode to 0
+	cpuid
+	#largest param in %eax
+	#12-char manufacturer string in ebx, edx, ecx.
+	movl	%eax, (%rsi)	#store eax cpuid result
+	movl	%ebx, (%rdx)	#store ebx cpuid result
+	popq	%rax		#pop address for edxP
+	movl    %edx, (%rax)    #store edx cpuid result
+	popq    %rax		#pop address for ecxP
+	movl	%ecx, (%rax)	#store ecx cpuid result
+	ret
+	
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ cat cpuid.s[2P./cpuid 0[5Pmakenano cpuid.s 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 19 lines ](B[m[H(B[0;7m  GNU nano 3.2                                  cpuid.s                                             [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[4d#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).[42m [5;5H(B[0;1m[32m.text[6;5H(B[0m[32m.globl[39m(B[m get_cpuid[7d(B[0;1m[31mget_cpuid:[8;5H[39m(B[mpushq   %rcx[9;5Hpushq   %r8[10;5Hmovl    %edi, %eax  #setup cpuid opcode to 0[11;5Hcpuid[12;5H#largest param in %eax[13;5H#12-char manufacturer string in ebx, edx, ecx.[14;5Hmovl    %eax, (%rsi)    #store eax cpuid result[15;5Hmovl    %ebx, (%rdx)    #store ebx cpuid result[16;5Hpopq    %rax[16;25H#pop address for edxP[17;5Hmovl    %edx, (%rax)    #store edx cpuid result[18;5Hpopq    %rax[18;25H#pop address for ecxP[19;5Hmovl    %ecx, (%rax)    #store ecx cpuid result[20;5Hret[21d[42m    [3d[49m(B[m[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l    [?12l[?25h[?25lp[?12l[?25h[?25lu[?12l[?25h[?25ls[?12l[?25h[?25lh[?12l[?25h[?25lq[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l%[?12l[?25h[?25lr[?12l[?25h[?25lc[?12l[?25h[?25lx[?12l[?25h[?25l[1;91H(B[0;7mModified[52d(B[m[K[1;99H[8;16H [?12l[?25h[?25l [?12l[?25h[?25l8[?12l[?25h[?25l[9d[?12l[?25h[?25l [?12l[?25h[?25lc[?12l[?25h[?25lx[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote 19 lines ](B[m[9;17H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ nano cpuid.s [2Pcat cpuid.s[2P./cpuid 0[5Pmake
+cc -c -g -Wall -std=c18 cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ makenano cpuid.s [2Pcat cpuid.s[2P./cpuid 0
+Segmentation fault
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./cpuid 0[5Pmakenano cpuid.s 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 19 lines ](B[m[H(B[0;7m  GNU nano 3.2                                  cpuid.s                                             [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[4d#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).[42m [5;5H(B[0;1m[32m.text[6;5H(B[0m[32m.globl[39m(B[m get_cpuid[7d(B[0;1m[31mget_cpuid:[8;5H[39m(B[mpushq   %r8[9;5Hpushq   %rcx[10;5Hmovl    %edi, %eax  #setup cpuid opcode to 0[11;5Hcpuid[12;5H#largest param in %eax[13;5H#12-char manufacturer string in ebx, edx, ecx.[14;5Hmovl    %eax, (%rsi)    #store eax cpuid result[15;5Hmovl    %ebx, (%rdx)    #store ebx cpuid result[16;5Hpopq    %rax[16;25H#pop address for edxP[17;5Hmovl    %edx, (%rax)    #store edx cpuid result[18;5Hpopq    %rax[18;25H#pop address for ecxP[19;5Hmovl    %ecx, (%rax)    #store ecx cpuid result[20;5Hret[21d[42m    [3d[49m(B[m[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[C[?12l[?25h[?25l[8d[?12l[?25h[?25l    [?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l(B[0;7mmovl    %(B[m[?12l[?25h[?25l[5Gmovl    %[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[10;8H [?12l[?25h[?25l[4P[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25lx[?12l[?25h[?25lo[?12l[?25h[?25lr     %edi, %eax  #setup cpuid opcode to 0[8G[?12l[?25h[?25ll[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;44H(B[0;7mWrote 19 lines ](B[m[10;9H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ nano cpuid.s [4P./cpuid 0[5Pmake
+cc -c -g -Wall -std=c18 cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ makenano cpuid.s [4P./cpuid 0
+Segmentation fault
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./cpuid 0[5Pmakenano cpuid.s 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 19 lines ](B[m[H(B[0;7m  GNU nano 3.2                                  cpuid.s                                             [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[4d#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).[42m [5;5H(B[0;1m[32m.text[6;5H(B[0m[32m.globl[39m(B[m get_cpuid[7d(B[0;1m[31mget_cpuid:[8;5H[39m(B[mpushq   %r8[9;5Hpushq   %rcx[10;5Hxorl    %edi, %eax  #setup cpuid opcode to 0[11;5Hcpuid[12;5H#largest param in %eax[13;5H#12-char manufacturer string in ebx, edx, ecx.[14;5Hmovl    %eax, (%rsi)    #store eax cpuid result[15;5Hmovl    %ebx, (%rdx)    #store ebx cpuid result[16;5Hpopq    %rax[16;25H#pop address for edxP[17;5Hmovl    %edx, (%rax)    #store edx cpuid result[18;5Hpopq    %rax[18;25H#pop address for ecxP[19;5Hmovl    %ecx, (%rax)    #store ecx cpuid result[20;5Hret[21d[42m    [3d[49m(B[m[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25l    [?12l[?25h[?25lm[?12l[?25h[?25lo[?12l[?25h[?25lv[?12l[?25h[?25ll[?12l[?25h[?25l    [?12l[?25h[?25l%[?12l[?25h[?25le[?12l[?25h[?25lax, [?12l[?25h[?25l[52d[K[14;20H[?12l[?25h[?25l%[?12l[?25h[?25lr[?12l[?25h[?25ls[?12l[?25h[?25li[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[14;23H)[4P[?12l[?25h[?25l) [?12l[?25h[?25ld)[?12l[?25h[?25li)    #store eax cpuid result[14;24H[?12l[?25h[?25l[15d[?12l[?25h[?25l)[4P[?12l[?25h[?25l) [?12l[?25h[?25ls)[?12l[?25h[?25li)    #store ebx cpuid result[15;24H[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote 19 lines ](B[m[15;24H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ nano cpuid.s [4P./cpuid 0
+Segmentation fault
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./cpuid 0nano cpuid.s [4P./cpuid 0nano cpuid.s [4P./cpuid 0[Kmake
+cc -c -g -Wall -std=c18 cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ make./cpuid 0
+Segmentation fault
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./cpuid 0[5Pmake./cpuid 0
+Segmentation fault
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./cpuid 0[5Pmake./cpuid 0nano cpuid.s 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 19 lines ](B[m[H(B[0;7m  GNU nano 3.2                                  cpuid.s                                             [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[4d#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).[42m [5;5H(B[0;1m[32m.text[6;5H(B[0m[32m.globl[39m(B[m get_cpuid[7d(B[0;1m[31mget_cpuid:[8;5H[39m(B[mpushq   %r8[9;5Hpushq   %rcx[10;5Hxorl    %edi, %eax  #setup cpuid opcode to 0[11;5Hcpuid[12;5H#largest param in %eax[13;5H#12-char manufacturer string in ebx, edx, ecx.[14;5Hmovl    %eax, (%rdi)    #store eax cpuid result[15;5Hmovl    %ebx, (%rsi)    #store ebx cpuid result[16;5Hpopq    %rax[16;25H#pop address for edxP[17;5Hmovl    %edx, (%rax)    #store edx cpuid result[18;5Hpopq    %rax[18;25H#pop address for ecxP[19;5Hmovl    %ecx, (%rax)    #store ecx cpuid result[20;5Hret[21d[42m    [3d[49m(B[m[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25l    [?12l[?25h[?25lm[?12l[?25h[?25lo[?12l[?25h[?25lv[?12l[?25h[?25ll[?12l[?25h[?25l    [?12l[?25h[?25l%[?12l[?25h[?25le[?12l[?25h[?25la[?12l[?25h[?25lx[?12l[?25h[?25l,[?12l[?25h[?25l [?12l[?25h[?25l[52d[K[14;20H[?12l[?25h[?25l%[?12l[?25h[?25lr[?12l[?25h[?25ld[?12l[?25h[?25li[?12l[?25h[?25l[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[14;22Hi)[4P[?12l[?25h[?25lsi)    #store eax cpuid result[14;23H[?12l[?25h[?25l[15d[?12l[?25h[?25li[?12l[?25h[?25l)[4P[?12l[?25h[?25l) [?12l[?25h[?25ld)[?12l[?25h[?25lx)    #store ebx cpuid result[15;24H[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote 19 lines ](B[m[15;24H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ nano cpuid.s 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 19 lines ](B[m[H(B[0;7m  GNU nano 3.2                                  cpuid.s                                             [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[4d#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).[42m [5;5H(B[0;1m[32m.text[6;5H(B[0m[32m.globl[39m(B[m get_cpuid[7d(B[0;1m[31mget_cpuid:[8;5H[39m(B[mpushq   %r8[9;5Hpushq   %rcx[10;5Hxorl    %edi, %eax  #setup cpuid opcode to 0[11;5Hcpuid[12;5H#largest param in %eax[13;5H#12-char manufacturer string in ebx, edx, ecx.[14;5Hmovl    %eax, (%rsi)    #store eax cpuid result[15;5Hmovl    %ebx, (%rdx)    #store ebx cpuid result[16;5Hpopq    %rax[16;25H#pop address for edxP[17;5Hmovl    %edx, (%rax)    #store edx cpuid result[18;5Hpopq    %rax[18;25H#pop address for ecxP[19;5Hmovl    %ecx, (%rax)    #store ecx cpuid result[20;5Hret[21d[42m    [3d[49m(B[m[?12l[?25h[?25l[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l    [?12l[?25h[?25l[A[?12l[?25h[?25lc[?12l[?25h[?25l[A[?12l[?25h[?25lo[?12l[?25h[?25lr[?12l[?25h[?25ll[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[10;8H [?12l[?25h[?25l[4P[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[54;1H[?12l[?25h[?1049l[23;0;0t[?1l>Use "fg" to return to nano.
+
+[1]+  Stopped                 nano cpuid.s
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ nano cpuid.s 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52d(B[0;7mFile cpuid.s is being edited (by slohoka1 with nano 3.2, PID 1083804); continue?                    [53;1H Y(B[m Yes[54d(B[0;7m N(B[m No[54;17H(B[0;7m^C(B[m Cancel[52;81H[?12l[?25h[?25l[52;42H[1K (B[0;7m[ Reading File ](B[m[K[52;42H(B[0;7m[ Read 19 lines ](B[m[H(B[0;7m  GNU nano 3.2                                  cpuid.s                                             [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[4d#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).[42m [5;5H(B[0;1m[32m.text[6;5H(B[0m[32m.globl[39m(B[m get_cpuid[7d(B[0;1m[31mget_cpuid:[8;5H[39m(B[mpushq   %r8[9;5Hpushq   %rcx[10;5Hxorl    %edi, %eax  #setup cpuid opcode to 0[11;5Hcpuid[12;5H#largest param in %eax[13;5H#12-char manufacturer string in ebx, edx, ecx.[14;5Hmovl    %eax, (%rsi)    #store eax cpuid result[15;5Hmovl    %ebx, (%rdx)    #store ebx cpuid result[16;5Hpopq    %rax[16;25H#pop address for edxP[17;5Hmovl    %edx, (%rax)    #store edx cpuid result[18;5Hpopq    %rax[18;25H#pop address for ecxP[19;5Hmovl    %ecx, (%rax)    #store ecx cpuid result[20;5Hret[21d[42m    [3d[49m(B[m[?12l[?25h[?25l[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l    [?12l[?25h[?25lx[?12l[?25h[?25lo[?12l[?25h[?25lr[?12l[?25h[?25ll[?12l[?25h[?25l [?12l[?25h[?25l   [?12l[?25h[?25l%[?12l[?25h[?25le[?12l[?25h[?25ld[?12l[?25h[?25li[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[10;16H, %eax [16G[?12l[?25h[?25l, %eax [15G[?12l[?25h[?25la, %eax[52d[K[10;16H[?12l[?25h[?25lx, %eax[17G[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote 19 lines ](B[m[10;17H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ nano cpuid.s [K[K[K[K[K[K[K[K[K[K[K[K[Ka[Kmake
+cc -c -g -Wall -std=c18 cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./cp[Kpuid 0
+Segmentation fault
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ nano cpuid.s
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 19 lines ](B[m[H(B[0;7m  GNU nano 3.2                                  cpuid.s                                             [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[4d#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).[42m [5;5H(B[0;1m[32m.text[6;5H(B[0m[32m.globl[39m(B[m get_cpuid[7d(B[0;1m[31mget_cpuid:[8;5H[39m(B[mpushq   %r8[9;5Hpushq   %rcx[10;5Hxorl    %eax, %eax  #setup cpuid opcode to 0[11;5Hcpuid[12;5H#largest param in %eax[13;5H#12-char manufacturer string in ebx, edx, ecx.[14;5Hmovl    %eax, (%rsi)    #store eax cpuid result[15;5Hmovl    %ebx, (%rdx)    #store ebx cpuid result[16;5Hpopq    %rax[16;25H#pop address for edxP[17;5Hmovl    %edx, (%rax)    #store edx cpuid result[18;5Hpopq    %rax[18;25H#pop address for ecxP[19;5Hmovl    %ecx, (%rax)    #store ecx cpuid result[20;5Hret[21d[42m    [3d[49m(B[m[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l    [?12l[?25h[?25lx[?12l[?25h[?25lo[?12l[?25h[?25lr[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[10;7Hl [?12l[?25h[?25ll[4P[?12l[?25h[?25ll [?12l[?25h[?25lml[?12l[?25h[?25lol     %eax, %eax  #setup cpuid opcode to 0[7G[?12l[?25h[?25lvl[?12l[?25h[?25ll[?12l[?25h[?25l [?12l[?25h[?25l   [?12l[?25h[?25l%[?12l[?25h[?25le[?12l[?25h[?25la[?12l[?25h[?25lx, %eax [10;15H[?12l[?25h[?25lx[?12l[?25h[?25l, %eax [52d[K[10;15H[?12l[?25h[?25l, %eax[4P[14G[?12l[?25h[?25lr, %eax    #setup cpuid opcode to 0[10;15H[?12l[?25h[?25ld, %eax[16G[?12l[?25h[?25li, %eax[17G[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25lv[?12l[?25h[?25ll[?12l[?25h[?25l [?12l[?25h[?25lq[?12l[?25h[?25l [?12l[?25h[?25l   [?12l[?25h[?25l%[?12l[?25h[?25lr[?12l[?25h[?25ld[?12l[?25h[?25li[?12l[?25h[?25l,[?12l[?25h[?25l [?12l[?25h[?25l%[?12l[?25h[?25le[?12l[?25h[?25lax [?12l[?25h[?25lrax[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote 19 lines ](B[m[10;21H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ make
+cc -c -g -Wall -std=c18 cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./cpuid 0
+Segmentation fault
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ gdb cpuid
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from cpuid...done.
+(gdb) b main[K[K[K[Kget_cpuid 
+Breakpoint 1 at 0x127c: file cpuid.s, line 6.
+(gdb) r 0
+Starting program: /import/linux/home1/slohoka1/projects/i220b/submit/lab8/exercises/cpuid2/cpuid 0
+
+Breakpoint 1, get_cpuid () at cpuid.s:6
+6		pushq   %r8
+(gdb) ni
+get_cpuid () at cpuid.s:7
+7		pushq   %rcx
+(gdb) ni
+get_cpuid () at cpuid.s:8
+8		movq 	%rdi, %rax	#setup cpuid opcode to 0
+(gdb) ni
+9		cpuid
+(gdb) ni
+12		movl	%eax, (%rsi)	#store eax cpuid result
+(gdb) ni
+13		movl	%ebx, (%rdx)	#store ebx cpuid result
+(gdb) ni
+
+Program received signal SIGSEGV, Segmentation fault.
+get_cpuid () at cpuid.s:13
+13		movl	%ebx, (%rdx)	#store ebx cpuid result
+(gdb) backtrace
+#0  get_cpuid () at cpuid.s:13
+#1  0x00007fffffffe630 in ?? ()
+#2  0x00007fffffffe62c in ?? ()
+#3  0x000055555555521b in main (argc=2, argv=0x7fffffffe728) at main.c:34
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 1084423] will be killed.
+
+Quit anyway? (y or n) y
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ gdb cpuid./cpuid 0[5Pmakenano cpuid.s
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 19 lines ](B[m[H(B[0;7m  GNU nano 3.2                                  cpuid.s                                             [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[4d#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).[42m [5;5H(B[0;1m[32m.text[6;5H(B[0m[32m.globl[39m(B[m get_cpuid[7d(B[0;1m[31mget_cpuid:[8;5H[39m(B[mpushq   %r8[9;5Hpushq   %rcx[10;5Hmovq    %rdi, %rax  #setup cpuid opcode to 0[11;5Hcpuid[12;5H#largest param in %eax[13;5H#12-char manufacturer string in ebx, edx, ecx.[14;5Hmovl    %eax, (%rsi)    #store eax cpuid result[15;5Hmovl    %ebx, (%rdx)    #store ebx cpuid result[16;5Hpopq    %rax[16;25H#pop address for edxP[17;5Hmovl    %edx, (%rax)    #store edx cpuid result[18;5Hpopq    %rax[18;25H#pop address for ecxP[19;5Hmovl    %ecx, (%rax)    #store ecx cpuid result[20;5Hret[21d[42m    [3d[49m(B[m[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[A[?12l[?25h[?25l[9;17H[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[10;51r[10;1HM[1;54r[10;1H[42m    [49m(B[m[?12l[?25h[?25l    p[?12l[?25h[?25lu[?12l[?25h[?25ls[?12l[?25h[?25lh[?12l[?25h[?25lq[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [?12l[?25h[?25l[42m   [49m(B[m[?12l[?25h[?25l   %[?12l[?25h[?25lr[?12l[?25h[?25ld[?12l[?25h[?25lx[?12l[?25h[?25l[11d[?12l[?25h[?25l[52d[K[12;10H[?12l[?25h[?25l[13;17H[?12l[?25h[?25l[14d[?12l[?25h[?25l[15d[?12l[?25h[?25l[15;52H[?12l[?25h[?25l7[16;52r8[16dM[1;54r[16;1H[42m    [49m(B[m[?12l[?25h[?25l    p[?12l[?25h[?25lo[?12l[?25h[?25lp[?12l[?25h[?25lq[?12l[?25h[?25l[42m    [49m(B[m[?12l[?25h[?25l    %[?12l[?25h[?25lr[?12l[?25h[?25la[?12l[?25h[?25lx[?12l[?25h[?25l[17d[?12l[?25h[?25l,[?12l[?25h[?25l [?12l[?25h[?25l([?12l[?25h[?25l%[?12l[?25h[?25lr[?12l[?25h[?25ld[?12l[?25h[?25lx)[4P[?12l[?25h[?25lax)    #store ebx cpuid result[17;23H[?12l[?25h[?25lx[?12l[?25h[?25l)[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote 21 lines ](B[m[17;25H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ nano cpuid.s[3Pgdb cpuid./cpuid 0[5Pmake
+cc -c -g -Wall -std=c18 cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ makenano cpuid.s[3Pgdb cpuid./cpuid 0
+cpuid(0): eax = 0x14; ebx = 0x756e6547; edx = 0x6c65746e; ecx = 0x49656e69
+vendor: GenuntelineI
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./cpuid 0[K1
+cpuid(1): eax = 0x406f1; ebx = 0x3040800; edx = 0xfffa3223; ecx = 0x1f8bfbff
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./[K./cpuid1/cpuid 
+cpuid: eax = 0x14; ebx = 0x756e6547; edx = 0x49656e69; ecx = 0x6c65746e
+vendor: GenuineIntel
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ nano cpuid.s
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 21 lines ](B[m[H(B[0;7m  GNU nano 3.2                                  cpuid.s                                             [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[4d#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).[42m [5;5H(B[0;1m[32m.text[6;5H(B[0m[32m.globl[39m(B[m get_cpuid[7d(B[0;1m[31mget_cpuid:[8;5H[39m(B[mpushq   %r8[9;5Hpushq   %rcx[10;5Hpushq   %rdx[11;5Hmovq    %rdi, %rax  #setup cpuid opcode to 0[12;5Hcpuid[13;5H#largest param in %eax[14;5H#12-char manufacturer string in ebx, edx, ecx.[15;5Hmovl    %eax, (%rsi)    #store eax cpuid result[16;5Hpopq    %rax[17;5Hmovl    %ebx, (%rax)    #store ebx cpuid result[18;5Hpopq    %rax[18;25H#pop address for edxP[19;5Hmovl    %edx, (%rax)    #store edx cpuid result[20;5Hpopq    %rax[20;25H#pop address for ecxP[21;5Hmovl    %ecx, (%rax)    #store ecx cpuid result[22;5Hret[23d[42m    [3d[49m(B[m[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[9;17H[?12l[?25h[?25l[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[9;15Hx[K[?12l[?25h[?25ldx[?12l[?25h[?25l[10d[?12l[?25h[?25lx[K[?12l[?25h[?25lcx[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;44H(B[0;7mWrote 21 lines ](B[m[10;16H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ nano cpuid.s../cpuid1/cpuid [7P/cpuid 10[5Pmake
+cc -c -g -Wall -std=c18 cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ makenano cpuid.s../cpuid1/cpuid [7P/cpuid 10
+cpuid(0): eax = 0x14; ebx = 0x49656e69; edx = 0x6c65746e; ecx = 0x756e6547
+vendor: ineIntelGenu
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./cpuid 0[5Pmakenano cpuid.s
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 21 lines ](B[m[H(B[0;7m  GNU nano 3.2                                  cpuid.s                                             [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[4d#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).[42m [5;5H(B[0;1m[32m.text[6;5H(B[0m[32m.globl[39m(B[m get_cpuid[7d(B[0;1m[31mget_cpuid:[8;5H[39m(B[mpushq   %r8[9;5Hpushq   %rdx[10;5Hpushq   %rcx[11;5Hmovq    %rdi, %rax  #setup cpuid opcode to 0[12;5Hcpuid[13;5H#largest param in %eax[14;5H#12-char manufacturer string in ebx, edx, ecx.[15;5Hmovl    %eax, (%rsi)    #store eax cpuid result[16;5Hpopq    %rax[17;5Hmovl    %ebx, (%rax)    #store ebx cpuid result[18;5Hpopq    %rax[18;25H#pop address for edxP[19;5Hmovl    %edx, (%rax)    #store edx cpuid result[20;5Hpopq    %rax[20;25H#pop address for ecxP[21;5Hmovl    %ecx, (%rax)    #store ecx cpuid result[22;5Hret[23d[42m    [3d[49m(B[m[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[8;16H[?12l[?25h[?25l[9d[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[9;15Hx[K[?12l[?25h[?25lcx[?12l[?25h[?25l[10d[?12l[?25h[?25lx[K[?12l[?25h[?25ldx[?12l[?25h[?25l[A[?12l[?25h[?25lx[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l8[?12l[?25h[?25l[A[?12l[?25h[?25l [?12l[?25h[?25lc[?12l[?25h[?25lx[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;44H(B[0;7mWrote 21 lines ](B[m[8;17H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ nano cpuid.s[3P./cpuid 0[5Pmake
+cc -c -g -Wall -std=c18 cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ makenano cpuid.s[3P./cpuid 0
+cpuid(0): eax = 0x14; ebx = 0x756e6547; edx = 0x49656e69; ecx = 0x6c65746e
+vendor: GenuineIntel
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./cpuid 0[K1
+cpuid(1): eax = 0x406f1; ebx = 0x40800; edx = 0x1f8bfbff; ecx = 0xfffa3223
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./cpuid 1[K2
+cpuid(2): eax = 0x76036301; ebx = 0xf0b5ff; edx = 0xc30000; ecx = 0x0
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ ./cpuid 2[K3
+cpuid(3): eax = 0x0; ebx = 0x0; edx = 0x0; ecx = 0x0
+slohoka1@remote07:~/i220b/submit/lab8/exercises/cpuid2$ cd ..
+slohoka1@remote07:~/i220b/submit/lab8/exercises$ cd parity/
+slohoka1@remote07:~/i220b/submit/lab8/exercises/parity$ ls
+main.c	Makefile  parity.s
+slohoka1@remote07:~/i220b/submit/lab8/exercises/parity$ b[Knano parity.s 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;49H(B[0;7m 8 lines ](B[m[H(B[0;7m  GNU nano 3.2                                  parity.s                                            [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3;5H(B[0;1m[32m.text[4;5H(B[0m[32m.globl[39m(B[m get_parity[5d#edi contains n[42m [6d(B[0;1m[31mget_parity:[8;5H[39m(B[m#@[31mTODO[39m(B[m: add code here to set eax to 1 iff edi has even parity[9;5Hret[10d[42m    [3d[49m(B[m[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[7d[42m    [49m(B[m[?12l[?25h[?25l    m[?12l[?25h[?25lo[?12l[?25h[?25lv[?12l[?25h[?25ll[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l %[?12l[?25h[?25le[?12l[?25h[?25ld[?12l[?25h[?25li[?12l[?25h[?25l,[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l %[?12l[?25h[?25le[?12l[?25h[?25la[?12l[?25h[?25lx[?12l[?25h[?25l7[8;51r8[8dM[1;54r[8;1H[42m    [49m(B[m[?12l[?25h[?25l    d[?12l[?25h[?25l[42m    [49m(B[m[K[?12l[?25h[?25l    x[?12l[?25h[?25lo[?12l[?25h[?25lr[52d[K[8;8H[?12l[?25h[?25ll[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l $[?12l[?25h[?25l0[?12l[?25h[?25l,[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l %[?12l[?25h[?25le[?12l[?25h[?25la[?12l[?25h[?25lx[?12l[?25h[?25l7[9;52r8[9dM[1;54r[9;1H[42m    [49m(B[m[?12l[?25h[?25l    e[?12l[?25h[?25lv[?12l[?25h[?25le[?12l[?25h[?25ln[?12l[?25h[?25lP[?12l[?25h[?25l(B[0;1m[31m    evenP:[39m(B[m[?12l[?25h[?25l[A[?12l[?25h[?25l[18G[?12l[?25h[?25l7[9;52r8[9dM[1;54r[9;1H[42m    [49m(B[m[?12l[?25h[?25l    j[?12l[?25h[?25lp[?12l[?25h[?25le[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l[42m    [49m(B[m[?12l[?25h[?25l[K[?12l[?25h[?25l [?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25ll[?12l[?25h[?25l     %edi, %eax[7;13H[?12l[?25h[?25l[8d[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l     $0, %eax[8;13H[?12l[?25h[?25l[9;8H[?12l[?25h[?25l[?12l[?25h[?25le[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l[42m    [49m(B[m[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[1P    [?12l[?25h[?25l[8d[?12l[?25h[?25l[1P    [?12l[?25h[?25l[9d[?12l[?25h[?25l[8G     e[?12l[?25h[?25lv[?12l[?25h[?25le[?12l[?25h[?25ln[?12l[?25h[?25lP[?12l[?25h[?25l[A[?12l[?25h[?25l[9d[?12l[?25h[?25l7[10;52r8[10dM[1;54r[10;1H[42m    [49m(B[m[?12l[?25h[?25l[11d[?12l[?25h[?25l[11G[?12l[?25h[?25l[10;5H[?12l[?25h[?25l    m[?12l[?25h[?25lo[?12l[?25h[?25lv[?12l[?25h[?25ll[?12l[?25h[?25l[42m    [49m(B[m[?12l[?25h[?25l    $[?12l[?25h[?25l0[?12l[?25h[?25l,[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l %[?12l[?25h[?25le[?12l[?25h[?25la[?12l[?25h[?25lx[?12l[?25h[?25l7[11;52r8[11dM[1;54r[11;1H[42m    [49m(B[m[?12l[?25h[?25l    r[?12l[?25h[?25le[?12l[?25h[?25lt[?12l[?25h[?25l[12d[?12l[?25h[?25l[11G[?12l[?25h[?25l[13d[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[13;66H[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25lT[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m    [49m(B[m[K[?12l[?25h[?25l    m[?12l[?25h[?25lo[?12l[?25h[?25lv[?12l[?25h[?25ll[?12l[?25h[?25l[42m    [49m(B[m[?12l[?25h[?25l    $[?12l[?25h[?25l1[?12l[?25h[?25l,[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l %[?12l[?25h[?25le[?12l[?25h[?25la[?12l[?25h[?25lx[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote 13 lines ](B[m[13;21H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/parity$ make
+cc -g -Wall -std=c18 -Og   -c -o main.o main.c
+cc -c -g -Wall -std=c18 -Og parity.s -o parity.o
+cc main.o parity.o -o parity
+slohoka1@remote07:~/i220b/submit/lab8/exercises/parity$ ./parity
+usage: ./parity INT1...
+slohoka1@remote07:~/i220b/submit/lab8/exercises/parity$ ./parity 1
+parity(1) = 0
+slohoka1@remote07:~/i220b/submit/lab8/exercises/parity$ ./parity 1[K2
+parity(2) = 0
+slohoka1@remote07:~/i220b/submit/lab8/exercises/parity$ ./parity 2[K1 2 3 4 5
+parity(1) = 0
+parity(2) = 0
+parity(3) = 1
+parity(4) = 0
+parity(5) = 1
+slohoka1@remote07:~/i220b/submit/lab8/exercises/parity$ cd ..
+slohoka1@remote07:~/i220b/submit/lab8/exercises$ cle[K[K[Kls[K[Kcd rip/
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rip$ d[Kls
+Makefile  rip.c
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rip$ cat rip.c 
+#include <stdio.h>
+
+/** Return instruction pointer for return */
+static void *
+get_rip(void)
+{
+  void *rip;
+  __asm__("leaq (%%rip), %0": "=r"(rip));
+  return rip;
+}
+
+int main() {
+  printf("&get_rip() = %p; rip = %p\n", get_rip, get_rip());
+  return 0;
+}
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rip$ make
+cc -Wall -Og -std=c18 -S rip.c
+cc -Wall -Og -std=c18    rip.c   -o rip
+objdump -d rip > rip.dump
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rip$ ./rip
+&get_rip() = 0x560824c63135; rip = 0x560824c6313c
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rip$ cat rip.dump
+
+rip:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	48 83 ec 08          	sub    $0x8,%rsp
+    1004:	48 8b 05 dd 2f 00 00 	mov    0x2fdd(%rip),%rax        # 3fe8 <__gmon_start__>
+    100b:	48 85 c0             	test   %rax,%rax
+    100e:	74 02                	je     1012 <_init+0x12>
+    1010:	ff d0                	callq  *%rax
+    1012:	48 83 c4 08          	add    $0x8,%rsp
+    1016:	c3                   	retq   
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 e2 2f 00 00    	pushq  0x2fe2(%rip)        # 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	ff 25 e4 2f 00 00    	jmpq   *0x2fe4(%rip)        # 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000001030 <printf@plt>:
+    1030:	ff 25 e2 2f 00 00    	jmpq   *0x2fe2(%rip)        # 4018 <printf@GLIBC_2.2.5>
+    1036:	68 00 00 00 00       	pushq  $0x0
+    103b:	e9 e0 ff ff ff       	jmpq   1020 <.plt>
+
+Disassembly of section .plt.got:
+
+0000000000001040 <__cxa_finalize@plt>:
+    1040:	ff 25 b2 2f 00 00    	jmpq   *0x2fb2(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    1046:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .text:
+
+0000000000001050 <_start>:
+    1050:	31 ed                	xor    %ebp,%ebp
+    1052:	49 89 d1             	mov    %rdx,%r9
+    1055:	5e                   	pop    %rsi
+    1056:	48 89 e2             	mov    %rsp,%rdx
+    1059:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    105d:	50                   	push   %rax
+    105e:	54                   	push   %rsp
+    105f:	4c 8d 05 6a 01 00 00 	lea    0x16a(%rip),%r8        # 11d0 <__libc_csu_fini>
+    1066:	48 8d 0d 03 01 00 00 	lea    0x103(%rip),%rcx        # 1170 <__libc_csu_init>
+    106d:	48 8d 3d c9 00 00 00 	lea    0xc9(%rip),%rdi        # 113d <main>
+    1074:	ff 15 66 2f 00 00    	callq  *0x2f66(%rip)        # 3fe0 <__libc_start_main@GLIBC_2.2.5>
+    107a:	f4                   	hlt    
+    107b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001080 <deregister_tm_clones>:
+    1080:	48 8d 3d a9 2f 00 00 	lea    0x2fa9(%rip),%rdi        # 4030 <__TMC_END__>
+    1087:	48 8d 05 a2 2f 00 00 	lea    0x2fa2(%rip),%rax        # 4030 <__TMC_END__>
+    108e:	48 39 f8             	cmp    %rdi,%rax
+    1091:	74 15                	je     10a8 <deregister_tm_clones+0x28>
+    1093:	48 8b 05 3e 2f 00 00 	mov    0x2f3e(%rip),%rax        # 3fd8 <_ITM_deregisterTMCloneTable>
+    109a:	48 85 c0             	test   %rax,%rax
+    109d:	74 09                	je     10a8 <deregister_tm_clones+0x28>
+    109f:	ff e0                	jmpq   *%rax
+    10a1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    10a8:	c3                   	retq   
+    10a9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000010b0 <register_tm_clones>:
+    10b0:	48 8d 3d 79 2f 00 00 	lea    0x2f79(%rip),%rdi        # 4030 <__TMC_END__>
+    10b7:	48 8d 35 72 2f 00 00 	lea    0x2f72(%rip),%rsi        # 4030 <__TMC_END__>
+    10be:	48 29 fe             	sub    %rdi,%rsi
+    10c1:	48 c1 fe 03          	sar    $0x3,%rsi
+    10c5:	48 89 f0             	mov    %rsi,%rax
+    10c8:	48 c1 e8 3f          	shr    $0x3f,%rax
+    10cc:	48 01 c6             	add    %rax,%rsi
+    10cf:	48 d1 fe             	sar    %rsi
+    10d2:	74 14                	je     10e8 <register_tm_clones+0x38>
+    10d4:	48 8b 05 15 2f 00 00 	mov    0x2f15(%rip),%rax        # 3ff0 <_ITM_registerTMCloneTable>
+    10db:	48 85 c0             	test   %rax,%rax
+    10de:	74 08                	je     10e8 <register_tm_clones+0x38>
+    10e0:	ff e0                	jmpq   *%rax
+    10e2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    10e8:	c3                   	retq   
+    10e9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000010f0 <__do_global_dtors_aux>:
+    10f0:	80 3d 39 2f 00 00 00 	cmpb   $0x0,0x2f39(%rip)        # 4030 <__TMC_END__>
+    10f7:	75 2f                	jne    1128 <__do_global_dtors_aux+0x38>
+    10f9:	55                   	push   %rbp
+    10fa:	48 83 3d f6 2e 00 00 	cmpq   $0x0,0x2ef6(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    1101:	00 
+    1102:	48 89 e5             	mov    %rsp,%rbp
+    1105:	74 0c                	je     1113 <__do_global_dtors_aux+0x23>
+    1107:	48 8b 3d 1a 2f 00 00 	mov    0x2f1a(%rip),%rdi        # 4028 <__dso_handle>
+    110e:	e8 2d ff ff ff       	callq  1040 <__cxa_finalize@plt>
+    1113:	e8 68 ff ff ff       	callq  1080 <deregister_tm_clones>
+    1118:	c6 05 11 2f 00 00 01 	movb   $0x1,0x2f11(%rip)        # 4030 <__TMC_END__>
+    111f:	5d                   	pop    %rbp
+    1120:	c3                   	retq   
+    1121:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1128:	c3                   	retq   
+    1129:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001130 <frame_dummy>:
+    1130:	e9 7b ff ff ff       	jmpq   10b0 <register_tm_clones>
+
+0000000000001135 <get_rip>:
+    1135:	48 8d 05 00 00 00 00 	lea    0x0(%rip),%rax        # 113c <get_rip+0x7>
+    113c:	c3                   	retq   
+
+000000000000113d <main>:
+    113d:	48 83 ec 08          	sub    $0x8,%rsp
+    1141:	e8 ef ff ff ff       	callq  1135 <get_rip>
+    1146:	48 89 c2             	mov    %rax,%rdx
+    1149:	48 8d 35 e5 ff ff ff 	lea    -0x1b(%rip),%rsi        # 1135 <get_rip>
+    1150:	48 8d 3d ad 0e 00 00 	lea    0xead(%rip),%rdi        # 2004 <_IO_stdin_used+0x4>
+    1157:	b8 00 00 00 00       	mov    $0x0,%eax
+    115c:	e8 cf fe ff ff       	callq  1030 <printf@plt>
+    1161:	b8 00 00 00 00       	mov    $0x0,%eax
+    1166:	48 83 c4 08          	add    $0x8,%rsp
+    116a:	c3                   	retq   
+    116b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001170 <__libc_csu_init>:
+    1170:	41 57                	push   %r15
+    1172:	49 89 d7             	mov    %rdx,%r15
+    1175:	41 56                	push   %r14
+    1177:	49 89 f6             	mov    %rsi,%r14
+    117a:	41 55                	push   %r13
+    117c:	41 89 fd             	mov    %edi,%r13d
+    117f:	41 54                	push   %r12
+    1181:	4c 8d 25 60 2c 00 00 	lea    0x2c60(%rip),%r12        # 3de8 <__frame_dummy_init_array_entry>
+    1188:	55                   	push   %rbp
+    1189:	48 8d 2d 60 2c 00 00 	lea    0x2c60(%rip),%rbp        # 3df0 <__init_array_end>
+    1190:	53                   	push   %rbx
+    1191:	4c 29 e5             	sub    %r12,%rbp
+    1194:	48 83 ec 08          	sub    $0x8,%rsp
+    1198:	e8 63 fe ff ff       	callq  1000 <_init>
+    119d:	48 c1 fd 03          	sar    $0x3,%rbp
+    11a1:	74 1b                	je     11be <__libc_csu_init+0x4e>
+    11a3:	31 db                	xor    %ebx,%ebx
+    11a5:	0f 1f 00             	nopl   (%rax)
+    11a8:	4c 89 fa             	mov    %r15,%rdx
+    11ab:	4c 89 f6             	mov    %r14,%rsi
+    11ae:	44 89 ef             	mov    %r13d,%edi
+    11b1:	41 ff 14 dc          	callq  *(%r12,%rbx,8)
+    11b5:	48 83 c3 01          	add    $0x1,%rbx
+    11b9:	48 39 dd             	cmp    %rbx,%rbp
+    11bc:	75 ea                	jne    11a8 <__libc_csu_init+0x38>
+    11be:	48 83 c4 08          	add    $0x8,%rsp
+    11c2:	5b                   	pop    %rbx
+    11c3:	5d                   	pop    %rbp
+    11c4:	41 5c                	pop    %r12
+    11c6:	41 5d                	pop    %r13
+    11c8:	41 5e                	pop    %r14
+    11ca:	41 5f                	pop    %r15
+    11cc:	c3                   	retq   
+    11cd:	0f 1f 00             	nopl   (%rax)
+
+00000000000011d0 <__libc_csu_fini>:
+    11d0:	c3                   	retq   
+
+Disassembly of section .fini:
+
+00000000000011d4 <_fini>:
+    11d4:	48 83 ec 08          	sub    $0x8,%rsp
+    11d8:	48 83 c4 08          	add    $0x8,%rsp
+    11dc:	c3                   	retq   
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rip$ cd ../rsp
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ ls
+Makefile  rsp.c
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ nano rsp.c 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 16 lines ](B[m[H(B[0;7m  GNU nano 3.2                                   rsp.c                                              [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d(B[0;1m[36m#include[39m(B[m (B[0;1m[33m<stdio.h>[5d[34m/** Return value of %rsp register just before return */[6d(B[0m[32mstatic[39m(B[m [32mvoid[39m(B[m *[7dget_rsp([32mvoid[39m(B[m)[8d{[9d [32mvoid[39m(B[m *rsp;[10;3H(B[0;1m[34m//@[37m[43mTODO[39;49m[34m: inline assembly to set rsp C var to value of %rsp register[11;3H(B[0m[35mreturn[39m(B[m rsp;[12d}[14d[32mint[39m(B[m main() {[15;3H[32mint[39m(B[m stkVar;[16;3Hprintf((B[0;1m[33m"&stkVar = %p; rsp = %p\n"[39m(B[m, &stkVar, get_rsp());[17;3H[35mreturn[39m(B[m 0;[18d}[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[10;70H[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[11;51r[11;1HM[1;54r[11;1H[42m  [49m(B[m[?12l[?25h[?25l  _[?12l[?25h[?25l(B[0;1m[31m__[39m(B[m[?12l[?25h[?25l__a[?12l[?25h[?25ls[?12l[?25h[?25lm[?12l[?25h[?25l_[?12l[?25h[?25l  [36m__asm__[39m(B[m[?12l[?25h[?25l([?12l[?25h[?25l)[?12l[?25h[?25l;[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;44H(B[0;7mWrote 17 lines ](B[m[11;11H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ nano rsp.c ls[Kcd ../rsp[K[Kip
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rip$ cd ../rip[K[K[K[K[K[K[K[K[Knano rip.c
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 15 lines ](B[m[H(B[0;7m  GNU nano 3.2                                   rip.c                                              [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d(B[0;1m[36m#include[39m(B[m (B[0;1m[33m<stdio.h>[5d[34m/** Return instruction pointer for return */[6d(B[0m[32mstatic[39m(B[m [32mvoid[39m(B[m *[7dget_rip([32mvoid[39m(B[m)[8d{[9d [32mvoid[39m(B[m *rip;[10;3H[36m__asm__[39m(B[m((B[0;1m[33m"leaq (%%rip), %0"[39m(B[m: (B[0;1m[33m"=r"[39m(B[m(rip));[11;3H[35mreturn[39m(B[m rip;[12d}[14d[32mint[39m(B[m main() {[15;3Hprintf((B[0;1m[33m"&get_rip() = %p; rip = %p\n"[39m(B[m, get_rip, get_rip());[16;3H[35mreturn[39m(B[m 0;[17d}[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[10;42H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/rip$ nano rip.c[1Pcd ../ripnano rsp.c ls[Kcd ../rsp
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ cd ../rspnano rip.c[1Pcd ../ripnano rsp.c 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 17 lines ](B[m[H(B[0;7m  GNU nano 3.2                                   rsp.c                                              [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d(B[0;1m[36m#include[39m(B[m (B[0;1m[33m<stdio.h>[5d[34m/** Return value of %rsp register just before return */[6d(B[0m[32mstatic[39m(B[m [32mvoid[39m(B[m *[7dget_rsp([32mvoid[39m(B[m)[8d{[9d [32mvoid[39m(B[m *rsp;[10;3H(B[0;1m[34m//@[37m[43mTODO[39;49m[34m: inline assembly to set rsp C var to value of %rsp register[11;3H(B[0m[36m__asm__[39m(B[m();[12;3H[35mreturn[39m(B[m rsp;[13d}[15d[32mint[39m(B[m main() {[16;3H[32mint[39m(B[m stkVar;[17;3Hprintf((B[0;1m[33m"&stkVar = %p; rsp = %p\n"[39m(B[m, &stkVar, get_rsp());[18;3H[35mreturn[39m(B[m 0;[19d}[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[11;13H[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[11;11H");[?12l[?25h[?25ll);[?12l[?25h[?25le);[?12l[?25h[?25la);[?12l[?25h[?25lq);[?12l[?25h[?25l );[?12l[?25h[?25l();[?12l[?25h[?25l%);[?12l[?25h[?25l%%);[?12l[?25h[?25lr);[?12l[?25h[?25ls);[?12l[?25h[?25lp);[?12l[?25h[?25l));[?12l[?25h[?25l,);[?12l[?25h[?25l );[52d[K[11;26H[?12l[?25h[?25l%);[?12l[?25h[?25lo);[?12l[?25h[?25l);[K[?12l[?25h[?25l0);[?12l[?25h[?25l[11;11H(B[0;1m[33m"leaq (%%rsp), %0"[39m(B[m);[?12l[?25h[?25l:);[?12l[?25h[?25l );[?12l[?25h[?25l");[?12l[?25h[?25l=);[?12l[?25h[?25lr);[?12l[?25h[?25l(B[0;1m[33m"=r"[39m(B[m);[?12l[?25h[?25l();[?12l[?25h[?25lr);[?12l[?25h[?25ls);[?12l[?25h[?25lp);[?12l[?25h[?25l));[?12l[?25h[?25l);[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote 17 lines ](B[m[11;42H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ make
+cc -Wall -Og -std=c18 -S rsp.c
+cc -Wall -Og -std=c18    rsp.c   -o rsp
+objdump -d rsp > rsp.dump
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ ./rsp
+&stkVar = 0x7ffc9ce12fbc; rsp = 0x7ffc9ce12fa8
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ cat rsp.dump
+
+rsp:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	48 83 ec 08          	sub    $0x8,%rsp
+    1004:	48 8b 05 dd 2f 00 00 	mov    0x2fdd(%rip),%rax        # 3fe8 <__gmon_start__>
+    100b:	48 85 c0             	test   %rax,%rax
+    100e:	74 02                	je     1012 <_init+0x12>
+    1010:	ff d0                	callq  *%rax
+    1012:	48 83 c4 08          	add    $0x8,%rsp
+    1016:	c3                   	retq   
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 e2 2f 00 00    	pushq  0x2fe2(%rip)        # 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	ff 25 e4 2f 00 00    	jmpq   *0x2fe4(%rip)        # 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000001030 <printf@plt>:
+    1030:	ff 25 e2 2f 00 00    	jmpq   *0x2fe2(%rip)        # 4018 <printf@GLIBC_2.2.5>
+    1036:	68 00 00 00 00       	pushq  $0x0
+    103b:	e9 e0 ff ff ff       	jmpq   1020 <.plt>
+
+Disassembly of section .plt.got:
+
+0000000000001040 <__cxa_finalize@plt>:
+    1040:	ff 25 b2 2f 00 00    	jmpq   *0x2fb2(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    1046:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .text:
+
+0000000000001050 <_start>:
+    1050:	31 ed                	xor    %ebp,%ebp
+    1052:	49 89 d1             	mov    %rdx,%r9
+    1055:	5e                   	pop    %rsi
+    1056:	48 89 e2             	mov    %rsp,%rdx
+    1059:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    105d:	50                   	push   %rax
+    105e:	54                   	push   %rsp
+    105f:	4c 8d 05 6a 01 00 00 	lea    0x16a(%rip),%r8        # 11d0 <__libc_csu_fini>
+    1066:	48 8d 0d 03 01 00 00 	lea    0x103(%rip),%rcx        # 1170 <__libc_csu_init>
+    106d:	48 8d 3d c6 00 00 00 	lea    0xc6(%rip),%rdi        # 113a <main>
+    1074:	ff 15 66 2f 00 00    	callq  *0x2f66(%rip)        # 3fe0 <__libc_start_main@GLIBC_2.2.5>
+    107a:	f4                   	hlt    
+    107b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001080 <deregister_tm_clones>:
+    1080:	48 8d 3d a9 2f 00 00 	lea    0x2fa9(%rip),%rdi        # 4030 <__TMC_END__>
+    1087:	48 8d 05 a2 2f 00 00 	lea    0x2fa2(%rip),%rax        # 4030 <__TMC_END__>
+    108e:	48 39 f8             	cmp    %rdi,%rax
+    1091:	74 15                	je     10a8 <deregister_tm_clones+0x28>
+    1093:	48 8b 05 3e 2f 00 00 	mov    0x2f3e(%rip),%rax        # 3fd8 <_ITM_deregisterTMCloneTable>
+    109a:	48 85 c0             	test   %rax,%rax
+    109d:	74 09                	je     10a8 <deregister_tm_clones+0x28>
+    109f:	ff e0                	jmpq   *%rax
+    10a1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    10a8:	c3                   	retq   
+    10a9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000010b0 <register_tm_clones>:
+    10b0:	48 8d 3d 79 2f 00 00 	lea    0x2f79(%rip),%rdi        # 4030 <__TMC_END__>
+    10b7:	48 8d 35 72 2f 00 00 	lea    0x2f72(%rip),%rsi        # 4030 <__TMC_END__>
+    10be:	48 29 fe             	sub    %rdi,%rsi
+    10c1:	48 c1 fe 03          	sar    $0x3,%rsi
+    10c5:	48 89 f0             	mov    %rsi,%rax
+    10c8:	48 c1 e8 3f          	shr    $0x3f,%rax
+    10cc:	48 01 c6             	add    %rax,%rsi
+    10cf:	48 d1 fe             	sar    %rsi
+    10d2:	74 14                	je     10e8 <register_tm_clones+0x38>
+    10d4:	48 8b 05 15 2f 00 00 	mov    0x2f15(%rip),%rax        # 3ff0 <_ITM_registerTMCloneTable>
+    10db:	48 85 c0             	test   %rax,%rax
+    10de:	74 08                	je     10e8 <register_tm_clones+0x38>
+    10e0:	ff e0                	jmpq   *%rax
+    10e2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    10e8:	c3                   	retq   
+    10e9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000010f0 <__do_global_dtors_aux>:
+    10f0:	80 3d 39 2f 00 00 00 	cmpb   $0x0,0x2f39(%rip)        # 4030 <__TMC_END__>
+    10f7:	75 2f                	jne    1128 <__do_global_dtors_aux+0x38>
+    10f9:	55                   	push   %rbp
+    10fa:	48 83 3d f6 2e 00 00 	cmpq   $0x0,0x2ef6(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    1101:	00 
+    1102:	48 89 e5             	mov    %rsp,%rbp
+    1105:	74 0c                	je     1113 <__do_global_dtors_aux+0x23>
+    1107:	48 8b 3d 1a 2f 00 00 	mov    0x2f1a(%rip),%rdi        # 4028 <__dso_handle>
+    110e:	e8 2d ff ff ff       	callq  1040 <__cxa_finalize@plt>
+    1113:	e8 68 ff ff ff       	callq  1080 <deregister_tm_clones>
+    1118:	c6 05 11 2f 00 00 01 	movb   $0x1,0x2f11(%rip)        # 4030 <__TMC_END__>
+    111f:	5d                   	pop    %rbp
+    1120:	c3                   	retq   
+    1121:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1128:	c3                   	retq   
+    1129:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001130 <frame_dummy>:
+    1130:	e9 7b ff ff ff       	jmpq   10b0 <register_tm_clones>
+
+0000000000001135 <get_rsp>:
+    1135:	48 8d 04 24          	lea    (%rsp),%rax
+    1139:	c3                   	retq   
+
+000000000000113a <main>:
+    113a:	48 83 ec 18          	sub    $0x18,%rsp
+    113e:	e8 f2 ff ff ff       	callq  1135 <get_rsp>
+    1143:	48 8d 74 24 0c       	lea    0xc(%rsp),%rsi
+    1148:	48 89 c2             	mov    %rax,%rdx
+    114b:	48 8d 3d b2 0e 00 00 	lea    0xeb2(%rip),%rdi        # 2004 <_IO_stdin_used+0x4>
+    1152:	b8 00 00 00 00       	mov    $0x0,%eax
+    1157:	e8 d4 fe ff ff       	callq  1030 <printf@plt>
+    115c:	b8 00 00 00 00       	mov    $0x0,%eax
+    1161:	48 83 c4 18          	add    $0x18,%rsp
+    1165:	c3                   	retq   
+    1166:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+    116d:	00 00 00 
+
+0000000000001170 <__libc_csu_init>:
+    1170:	41 57                	push   %r15
+    1172:	49 89 d7             	mov    %rdx,%r15
+    1175:	41 56                	push   %r14
+    1177:	49 89 f6             	mov    %rsi,%r14
+    117a:	41 55                	push   %r13
+    117c:	41 89 fd             	mov    %edi,%r13d
+    117f:	41 54                	push   %r12
+    1181:	4c 8d 25 60 2c 00 00 	lea    0x2c60(%rip),%r12        # 3de8 <__frame_dummy_init_array_entry>
+    1188:	55                   	push   %rbp
+    1189:	48 8d 2d 60 2c 00 00 	lea    0x2c60(%rip),%rbp        # 3df0 <__init_array_end>
+    1190:	53                   	push   %rbx
+    1191:	4c 29 e5             	sub    %r12,%rbp
+    1194:	48 83 ec 08          	sub    $0x8,%rsp
+    1198:	e8 63 fe ff ff       	callq  1000 <_init>
+    119d:	48 c1 fd 03          	sar    $0x3,%rbp
+    11a1:	74 1b                	je     11be <__libc_csu_init+0x4e>
+    11a3:	31 db                	xor    %ebx,%ebx
+    11a5:	0f 1f 00             	nopl   (%rax)
+    11a8:	4c 89 fa             	mov    %r15,%rdx
+    11ab:	4c 89 f6             	mov    %r14,%rsi
+    11ae:	44 89 ef             	mov    %r13d,%edi
+    11b1:	41 ff 14 dc          	callq  *(%r12,%rbx,8)
+    11b5:	48 83 c3 01          	add    $0x1,%rbx
+    11b9:	48 39 dd             	cmp    %rbx,%rbp
+    11bc:	75 ea                	jne    11a8 <__libc_csu_init+0x38>
+    11be:	48 83 c4 08          	add    $0x8,%rsp
+    11c2:	5b                   	pop    %rbx
+    11c3:	5d                   	pop    %rbp
+    11c4:	41 5c                	pop    %r12
+    11c6:	41 5d                	pop    %r13
+    11c8:	41 5e                	pop    %r14
+    11ca:	41 5f                	pop    %r15
+    11cc:	c3                   	retq   
+    11cd:	0f 1f 00             	nopl   (%rax)
+
+00000000000011d0 <__libc_csu_fini>:
+    11d0:	c3                   	retq   
+
+Disassembly of section .fini:
+
+00000000000011d4 <_fini>:
+    11d4:	48 83 ec 08          	sub    $0x8,%rsp
+    11d8:	48 83 c4 08          	add    $0x8,%rsp
+    11dc:	c3                   	retq   
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ The stack pointer is diff[K[K[K[Kfirst subtracted by 0.18[K[K[Kx18 t hen the rsp value is checked then the pointer is restored. By this[K[K[K[K[K[K[KDue to this the two returned values are d ifferent.
+bash: The: command not found
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ exit
+There are stopped jobs.
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ git h[Kce[Kheckout -b lab8
+Switched to a new branch 'lab8'
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ git add .
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ git push -u origin lab8
+Enter passphrase for key '/home/slohoka1/.ssh/id_ed25519': 
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'lab8' on GitHub by visiting:[K
+remote:      https://github.com/SaumitraLohokare/i220b/pull/new/lab8[K
+remote: 
+To github.com:SaumitraLohokare/i220b.git
+ * [new branch]      lab8 -> lab8
+Branch 'lab8' set up to track remote branch 'lab8' from 'origin'.
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ git push -u origin lab8add .[K
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ git add .[K[K[K[K[Kcommit -m "Completed lab8"
+[lab8 8a35711] Completed lab8
+ Committer: Saumitra Lohokare <slohoka1@cs.binghamton.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 3 files changed, 45 insertions(+)
+ create mode 100644 submit/lab8/exercises/rsp/.gitignore
+ create mode 100644 submit/lab8/exercises/rsp/Makefile
+ create mode 100644 submit/lab8/exercises/rsp/rsp.c
+slohoka1@remote07:~/i220b/submit/lab8/exercises/rsp$ git push
+Enter passphrase for key '/home/slohoka1/.ssh/id_ed25519': 
+Enumerating objects: 11, done.
+Count
