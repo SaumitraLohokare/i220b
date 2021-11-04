@@ -1,0 +1,454 @@
+Script started on 2021-11-04 16:31:38-04:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="100" LINES="54"]
+slohoka1@remote03:~/i220b/submit/lab9$ cd exercises/
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ ls
+1  quote-files
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ cd quote-files/
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ ls
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echp[Ko \\
+\
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo \'
+'
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo \*
+*
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo \$HOME\\[K"\\
+$HOME"\
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo '\'
+\
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo '\\'
+\\
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo '*$~'
+*$~
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo '\''
+> '
+\
+
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo "\"\\"
+"\
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo "$HOME"
+/home/slohoka1
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo \
+> abs[Kc
+abc
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ ls | grep -e *\$*
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ ls | grep -e *\$*[C[1P *\$*[1P *\$*[1P*\$*
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ ls | grep *\$*[K[K[K[K[K[K[K[K[K[K[K[K
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ ls *\$*
+'1$2'  'a$b'
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ ls *\$*[1P*'*
+"'12"  "a'b"
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ ls *\'*[K[K[K[K\\*
+'\\ab'
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ ls \\*[K[K[K..[K[K??
+-rw-r----- 1 slohoka1 slohoka1 0 Nov  4 16:28 '**'
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ ls ??[C ??- ??- ??
+'**'   -l
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ env
+SHELL=/bin/bash
+DERBY_HOME=/usr/lib/jvm/java-8-oracle/db
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+KRB5CCNAME=FILE:/tmp/krb5cc_15880_14SMMwuRsz
+PWD=/home/slohoka1/i220b/submit/lab9/exercises/quote-files
+LOGNAME=slohoka1
+XDG_SESSION_TYPE=tty
+J2REDIR=/usr/lib/jvm/java-8-oracle/jre
+VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
+HOME=/home/slohoka1
+LANG=en_US.UTF-8
+_VIRTUALENVWRAPPER_API= mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv
+SSH_CONNECTION=149.125.75.156 57312 128.226.114.203 22
+CHAINENV_CONFIG_ROOT=/home/slohoka1/.config/chainenv
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+J2SDKDIR=/usr/lib/jvm/java-8-oracle
+USER=slohoka1
+SHLVL=2
+XDG_SESSION_ID=6467
+LD_LIBRARY_PATH=.:/home/slohoka1/cs220/lib
+XDG_RUNTIME_DIR=/run/user/15880
+CHAINENV_SHELL=bash
+SSH_CLIENT=149.125.75.156 57312 22
+PATH=/home/slohoka1/.config/chainenv/shims:/opt/chainenv/bin:/home/slohoka1/cs220/bin:/home/slohoka1/.config/chainenv/shims:/opt/chainenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/15880/bus
+SSH_TTY=/dev/pts/0
+CHAINENV_ROOT=/opt/chainenv
+OLDPWD=/home/slohoka1/i220b/submit/lab9/exercises
+_=/usr/bin/env
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo $HOME
+/home/slohoka1
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo $PATH
+/home/slohoka1/.config/chainenv/shims:/opt/chainenv/bin:/home/slohoka1/cs220/bin:/home/slohoka1/.config/chainenv/shims:/opt/chainenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo $xxx
+
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo[K[K[K[Kxxx=123
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ xxx=123echo $xxx
+123
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ env \[K| grep xx
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ env | grep xxx
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ export xxx
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ export xxx[4@nv | grep[C[C[C[C[K
+xxx=123
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ export xx=456
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ export xx=456nv | grep xx
+xxx=123
+xx=456
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ p=$PAH[KTH
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ $p
+bash: /home/slohoka1/.config/chainenv/shims:/opt/chainenv/bin:/home/slohoka1/cs220/bin:/home/slohoka1/.config/chainenv/shims:/opt/chainenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin: No such file or directory
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo $p
+/home/slohoka1/.config/chainenv/shims:/opt/chainenv/bin:/home/slohoka1/cs220/bin:/home/slohoka1/.config/chainenv/shims:/opt/chainenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ $PATH=''
+bash: /home/slohoka1/.config/chainenv/shims:/opt/chainenv/bin:/home/slohoka1/cs220/bin:/home/slohoka1/.config/chainenv/shims:/opt/chainenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin=: No such file or directory
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ echo $PATH
+/home/slohoka1/.config/chainenv/shims:/opt/chainenv/bin:/home/slohoka1/cs220/bin:/home/slohoka1/.config/chainenv/shims:/opt/chainenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ PATH=
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ PATH=echo $PATH
+
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ ls
+bash: ls: No such file or directory
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ PATH=
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ PATH=p
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ ls
+bash: ls: command not found
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ lsPATH=p$p
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ PATH=$pls[K
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ ls ; wc *
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l
+0 **
+0 1$2
+0 '12
+0 1"2
+0 a$b
+0 \\ab
+0 a"b
+0 a'b
+0 total
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ find -L ~/cs220 -name '*.c'
+/home/slohoka1/cs220/exercises/questions/src/final/as-fns.c
+/home/slohoka1/cs220/exercises/questions/src/midterm/asm-to-c.c
+/home/slohoka1/cs220/exercises/questions/src/x86/fns-asm.c
+/home/slohoka1/cs220/hw/hw2-sol/sorted-list/main.c
+/home/slohoka1/cs220/hw/hw2-sol/sorted-list/sorted-list.c
+/home/slohoka1/cs220/labs/gdb/exercises/1-hello-args/hello.c
+/home/slohoka1/cs220/labs/gdb/exercises/2-hello-upcase-args/hello.c
+/home/slohoka1/cs220/labs/lab1/exercises/1-hello/hello.c
+/home/slohoka1/cs220/labs/lab1/exercises/3-multifile/main.c
+/home/slohoka1/cs220/labs/lab1/exercises/3-multifile/quadr.c
+/home/slohoka1/cs220/labs/lab1/exercises/4-from-scratch/key-value.c
+/home/slohoka1/cs220/labs/lab1/exercises/4-from-scratch/main.c
+/home/slohoka1/cs220/labs/lab1/exercises/4-from-scratch/process-file.c
+/home/slohoka1/cs220/labs/lab1/exercises/5-auto-dependencies/main.c
+/home/slohoka1/cs220/labs/lab1/exercises/5-auto-dependencies/quadr.c
+/home/slohoka1/cs220/labs/lab2/exercises/1-hello-args/hello.c
+/home/slohoka1/cs220/labs/lab2/exercises/2-hello-upcase-args/hello.c
+/home/slohoka1/cs220/labs/lab3/exercises/4/sum-ints.c
+/home/slohoka1/cs220/labs/lab3/exercises/c-stdin-stdout/sum-ints.c
+/home/slohoka1/cs220/labs/lab4/exercises/1/pointers.c
+/home/slohoka1/cs220/labs/lab4/exercises/2/in-pointers.c
+/home/slohoka1/cs220/labs/lab4/exercises/3/bad-types.c
+/home/slohoka1/cs220/labs/lab4/exercises/4/cast-types.c
+/home/slohoka1/cs220/labs/lab4/exercises/5/void-pointers.c
+/home/slohoka1/cs220/labs/lab4/exercises/6/in-voids.c
+/home/slohoka1/cs220/labs/lab4/exercises/7/bug-program.c
+/home/slohoka1/cs220/labs/lab4/exercises/bad-types/bad-types.c
+/home/slohoka1/cs220/labs/lab4/exercises/bug-program/bug-program.c
+/home/slohoka1/cs220/labs/lab4/exercises/cast-types/cast-types.c
+/home/slohoka1/cs220/labs/lab4/exercises/in-pointers/in-pointers.c
+/home/slohoka1/cs220/labs/lab4/exercises/in-voids/in-voids.c
+/home/slohoka1/cs220/labs/lab4/exercises/pointers/pointers.c
+/home/slohoka1/cs220/labs/lab4/exercises/void-pointers/void-pointers.c
+/home/slohoka1/cs220/labs/make/exercises/1-hello/hello.c
+/home/slohoka1/cs220/labs/make/exercises/3-multifile/main.c
+/home/slohoka1/cs220/labs/make/exercises/3-multifile/quadr.c
+/home/slohoka1/cs220/labs/make/exercises/4-from-scratch/key-value.c
+/home/slohoka1/cs220/labs/make/exercises/4-from-scratch/main.c
+/home/slohoka1/cs220/labs/make/exercises/4-from-scratch/process-file.c
+/home/slohoka1/cs220/labs/make/exercises/5-auto-dependencies/main.c
+/home/slohoka1/cs220/labs/make/exercises/5-auto-dependencies/quadr.c
+/home/slohoka1/cs220/labs/pointers/exercises/1/pointers.c
+/home/slohoka1/cs220/labs/pointers/exercises/2/in-pointers.c
+/home/slohoka1/cs220/labs/pointers/exercises/3/bad-types.c
+/home/slohoka1/cs220/labs/pointers/exercises/4/cast-types.c
+/home/slohoka1/cs220/labs/pointers/exercises/5/void-pointers.c
+/home/slohoka1/cs220/labs/pointers/exercises/6/in-voids.c
+/home/slohoka1/cs220/labs/pointers/exercises/7/bug-program.c
+/home/slohoka1/cs220/labs/pointers/exercises/bad-types/bad-types.c
+/home/slohoka1/cs220/labs/pointers/exercises/bug-program/bug-program.c
+/home/slohoka1/cs220/labs/pointers/exercises/cast-types/cast-types.c
+/home/slohoka1/cs220/labs/pointers/exercises/in-pointers/in-pointers.c
+/home/slohoka1/cs220/labs/pointers/exercises/in-voids/in-voids.c
+/home/slohoka1/cs220/labs/pointers/exercises/pointers/pointers.c
+/home/slohoka1/cs220/labs/pointers/exercises/void-pointers/void-pointers.c
+/home/slohoka1/cs220/labs/unix-cli/exercises/4/sum-ints.c
+/home/slohoka1/cs220/labs/unix-cli/exercises/c-stdin-stdout/sum-ints.c
+/home/slohoka1/cs220/labs/assembly-language/exercises/2/identify.c
+/home/slohoka1/cs220/labs/assembly-language/exercises/hello.c
+/home/slohoka1/cs220/labs/assembly-language/exercises/identify/identify.c
+/home/slohoka1/cs220/labs/lab5/exercises/2/identify.c
+/home/slohoka1/cs220/labs/lab5/exercises/hello.c
+/home/slohoka1/cs220/labs/lab5/exercises/identify/identify.c
+/home/slohoka1/cs220/labs/decoding-binary/exercises/1/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/decoding-binary/exercises/2/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/decoding-binary/exercises/3/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/decoding-binary/exercises/another-one/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/decoding-binary/exercises/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/decoding-binary/exercises/full-example/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/decoding-binary/exercises/simple/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/lab6/exercises/1/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/lab6/exercises/2/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/lab6/exercises/3/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/lab6/exercises/another-one/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/lab6/exercises/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/lab6/exercises/full-example/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/lab6/exercises/simple/feed-cookie-monster.c
+/home/slohoka1/cs220/labs/lab7/exercises/1/log10.c
+/home/slohoka1/cs220/labs/lab7/exercises/2/def1.c
+/home/slohoka1/cs220/labs/lab7/exercises/2/def2.c
+/home/slohoka1/cs220/labs/lab7/exercises/2/main.c
+/home/slohoka1/cs220/labs/lab7/exercises/3/f.c
+/home/slohoka1/cs220/labs/lab7/exercises/3/main.c
+/home/slohoka1/cs220/labs/lab7/exercises/4/log10.c
+/home/slohoka1/cs220/labs/lab7/exercises/5/addvec.c
+/home/slohoka1/cs220/labs/lab7/exercises/5/multvec.c
+/home/slohoka1/cs220/labs/lab7/exercises/5/testvec.c
+/home/slohoka1/cs220/labs/lab7/exercises/7/circ.c
+/home/slohoka1/cs220/labs/lab7/exercises/7/rect.c
+/home/slohoka1/cs220/labs/lab7/exercises/7/testgeom.c
+/home/slohoka1/cs220/labs/lab7/exercises/libgeom/circ.c
+/home/slohoka1/cs220/labs/lab7/exercises/libgeom/rect.c
+/home/slohoka1/cs220/labs/lab7/exercises/libgeom/testgeom.c
+/home/slohoka1/cs220/labs/lab7/exercises/libvec/addvec.c
+/home/slohoka1/cs220/labs/lab7/exercises/libvec/multvec.c
+/home/slohoka1/cs220/labs/lab7/exercises/libvec/testvec.c
+/home/slohoka1/cs220/labs/lab7/exercises/log10/log10.c
+/home/slohoka1/cs220/labs/lab7/exercises/multiple-defs/f.c
+/home/slohoka1/cs220/labs/lab7/exercises/multiple-defs/main.c
+/home/slohoka1/cs220/labs/lab7/exercises/multiple-symbols/def1.c
+/home/slohoka1/cs220/labs/lab7/exercises/multiple-symbols/def2.c
+/home/slohoka1/cs220/labs/lab7/exercises/multiple-symbols/main.c
+/home/slohoka1/cs220/labs/lab7/exercises/static-dynamic/log10.c
+/home/slohoka1/cs220/labs/linking/exercises/1/log10.c
+/home/slohoka1/cs220/labs/linking/exercises/2/def1.c
+/home/slohoka1/cs220/labs/linking/exercises/2/def2.c
+/home/slohoka1/cs220/labs/linking/exercises/2/main.c
+/home/slohoka1/cs220/labs/linking/exercises/3/f.c
+/home/slohoka1/cs220/labs/linking/exercises/3/main.c
+/home/slohoka1/cs220/labs/linking/exercises/4/log10.c
+/home/slohoka1/cs220/labs/linking/exercises/5/addvec.c
+/home/slohoka1/cs220/labs/linking/exercises/5/multvec.c
+/home/slohoka1/cs220/labs/linking/exercises/5/testvec.c
+/home/slohoka1/cs220/labs/linking/exercises/7/circ.c
+/home/slohoka1/cs220/labs/linking/exercises/7/rect.c
+/home/slohoka1/cs220/labs/linking/exercises/7/testgeom.c
+/home/slohoka1/cs220/labs/linking/exercises/libgeom/circ.c
+/home/slohoka1/cs220/labs/linking/exercises/libgeom/rect.c
+/home/slohoka1/cs220/labs/linking/exercises/libgeom/testgeom.c
+/home/slohoka1/cs220/labs/linking/exercises/libvec/addvec.c
+/home/slohoka1/cs220/labs/linking/exercises/libvec/multvec.c
+/home/slohoka1/cs220/labs/linking/exercises/libvec/testvec.c
+/home/slohoka1/cs220/labs/linking/exercises/log10/log10.c
+/home/slohoka1/cs220/labs/linking/exercises/multiple-defs/f.c
+/home/slohoka1/cs220/labs/linking/exercises/multiple-defs/main.c
+/home/slohoka1/cs220/labs/linking/exercises/multiple-symbols/def1.c
+/home/slohoka1/cs220/labs/linking/exercises/multiple-symbols/def2.c
+/home/slohoka1/cs220/labs/linking/exercises/multiple-symbols/main.c
+/home/slohoka1/cs220/labs/linking/exercises/static-dynamic/log10.c
+/home/slohoka1/cs220/labs/lab8/exercises/1/rotate.c
+/home/slohoka1/cs220/labs/lab8/exercises/2/main.c
+/home/slohoka1/cs220/labs/lab8/exercises/3/main.c
+/home/slohoka1/cs220/labs/lab8/exercises/4/main.c
+/home/slohoka1/cs220/labs/lab8/exercises/5/rip.c
+/home/slohoka1/cs220/labs/lab8/exercises/6/rsp.c
+/home/slohoka1/cs220/labs/lab8/exercises/cpuid1/main.c
+/home/slohoka1/cs220/labs/lab8/exercises/cpuid2/main.c
+/home/slohoka1/cs220/labs/lab8/exercises/parity/main.c
+/home/slohoka1/cs220/labs/lab8/exercises/rip/rip.c
+/home/slohoka1/cs220/labs/lab8/exercises/rotate/rotate.c
+/home/slohoka1/cs220/labs/lab8/exercises/rsp/rsp.c
+/home/slohoka1/cs220/labs/mixing-c-with-assembly/exercises/1/rotate.c
+/home/slohoka1/cs220/labs/mixing-c-with-assembly/exercises/2/main.c
+/home/slohoka1/cs220/labs/mixing-c-with-assembly/exercises/3/main.c
+/home/slohoka1/cs220/labs/mixing-c-with-assembly/exercises/4/main.c
+/home/slohoka1/cs220/labs/mixing-c-with-assembly/exercises/5/rip.c
+/home/slohoka1/cs220/labs/mixing-c-with-assembly/exercises/6/rsp.c
+/home/slohoka1/cs220/labs/mixing-c-with-assembly/exercises/cpuid1/main.c
+/home/slohoka1/cs220/labs/mixing-c-with-assembly/exercises/cpuid2/main.c
+/home/slohoka1/cs220/labs/mixing-c-with-assembly/exercises/parity/main.c
+/home/slohoka1/cs220/labs/mixing-c-with-assembly/exercises/rip/rip.c
+/home/slohoka1/cs220/labs/mixing-c-with-assembly/exercises/rotate/rotate.c
+/home/slohoka1/cs220/labs/mixing-c-with-assembly/exercises/rsp/rsp.c
+/home/slohoka1/cs220/projects/prj1/prj1-sol/file-utils.c
+/home/slohoka1/cs220/projects/prj1/prj1-sol/main.c
+/home/slohoka1/cs220/projects/prj1/prj1-sol/morse.c
+/home/slohoka1/cs220/projects/prj1/prj1-sol/tests.c
+/home/slohoka1/cs220/projects/prj1-sol/file-utils.c
+/home/slohoka1/cs220/projects/prj1-sol/main.c
+/home/slohoka1/cs220/projects/prj1-sol/morse.c
+/home/slohoka1/cs220/projects/prj1-sol/tests.c
+/home/slohoka1/cs220/projects/prj2/prj2-sol/int-set-strings.c
+/home/slohoka1/cs220/projects/prj2/prj2-sol/main.c
+/home/slohoka1/cs220/projects/prj2/prj2-sol/tests.c
+/home/slohoka1/cs220/projects/prj2-sol/int-set-strings.c
+/home/slohoka1/cs220/projects/prj2-sol/int-set.c
+/home/slohoka1/cs220/projects/prj2-sol/main.c
+/home/slohoka1/cs220/projects/prj2-sol/tests.c
+/home/slohoka1/cs220/slides/c-intro/code/arith.c
+/home/slohoka1/cs220/slides/c-intro/code/bases.c
+/home/slohoka1/cs220/slides/c-intro/code/out-bits.c
+/home/slohoka1/cs220/slides/c-intro/code/sum-args.c
+/home/slohoka1/cs220/slides/c-intro/code/sum.c
+/home/slohoka1/cs220/slides/c-intro/code/sum0.c
+/home/slohoka1/cs220/slides/c-intro/code/wc.c
+/home/slohoka1/cs220/slides/c-intro/code/count-1s-1.c
+/home/slohoka1/cs220/slides/c-intro/code/count-1s-2.c
+/home/slohoka1/cs220/slides/c-intro/code/endian.c
+/home/slohoka1/cs220/slides/c-intro/code/kilo-powers.c
+/home/slohoka1/cs220/slides/c-intro/code/str-to-int.c
+/home/slohoka1/cs220/slides/c-intro/code/dangling-pointer.c
+/home/slohoka1/cs220/slides/c-intro/code/scopes-example.c
+/home/slohoka1/cs220/slides/c-intro/code/sorted-list/main.c
+/home/slohoka1/cs220/slides/c-intro/code/sorted-list/sorted-list.c
+/home/slohoka1/cs220/slides/c-intro/code/vector-scalar-mult.c
+/home/slohoka1/cs220/slides/intro/code/hello.c
+/home/slohoka1/cs220/slides/x86/code/abs-diff.c
+/home/slohoka1/cs220/slides/x86/code/acc-fact.c
+/home/slohoka1/cs220/slides/x86/code/arith.c
+/home/slohoka1/cs220/slides/x86/code/array-access.c
+/home/slohoka1/cs220/slides/x86/code/cmp-sets.c
+/home/slohoka1/cs220/slides/x86/code/conditional-move.c
+/home/slohoka1/cs220/slides/x86/code/div-mod.c
+/home/slohoka1/cs220/slides/x86/code/dynamic-array.c
+/home/slohoka1/cs220/slides/x86/code/fact-do-while.c
+/home/slohoka1/cs220/slides/x86/code/fact-while.c
+/home/slohoka1/cs220/slides/x86/code/find.c
+/home/slohoka1/cs220/slides/x86/code/indirect-goto.c
+/home/slohoka1/cs220/slides/x86/code/move.c
+/home/slohoka1/cs220/slides/x86/code/mstore/main.c
+/home/slohoka1/cs220/slides/x86/code/mstore/mstore.c
+/home/slohoka1/cs220/slides/x86/code/point3.c
+/home/slohoka1/cs220/slides/x86/code/read-point.c
+/home/slohoka1/cs220/slides/x86/code/rec-fact.c
+/home/slohoka1/cs220/slides/x86/code/scale.c
+/home/slohoka1/cs220/slides/x86/code/stack-frame.c
+/home/slohoka1/cs220/slides/x86/code/structs.c
+/home/slohoka1/cs220/slides/x86/code/switch.c
+/home/slohoka1/cs220/slides/x86/code/vframe.c
+/home/slohoka1/cs220/slides/x86/code/base-index.c
+/home/slohoka1/cs220/slides/x86/code/displ-base-index.c
+/home/slohoka1/cs220/slides/x86/code/displ-base.c
+/home/slohoka1/cs220/slides/x86/code/imm.c
+/home/slohoka1/cs220/slides/x86/code/indir.c
+/home/slohoka1/cs220/slides/x86/code/sub.c
+/home/slohoka1/cs220/slides/x86/code/sum.c
+/home/slohoka1/cs220/slides/x86/code/area.c
+/home/slohoka1/cs220/slides/x86/code/base-scaled-index.c
+/home/slohoka1/cs220/slides/x86/code/displ-base-scaled-index.c
+/home/slohoka1/cs220/slides/x86/code/geom.c
+/home/slohoka1/cs220/slides/x86/code/shift.c
+/home/slohoka1/cs220/slides/x86/code/sum-dist-origin.c
+/home/slohoka1/cs220/slides/x86/code/abs-diff-s.c
+/home/slohoka1/cs220/slides/x86/code/sum-dist-origin-s.c
+/home/slohoka1/cs220/slides/more-c/code/enum-strings.c
+/home/slohoka1/cs220/slides/more-c/code/float-decode.c
+/home/slohoka1/cs220/slides/more-c/code/oo-shapes/circle.c
+/home/slohoka1/cs220/slides/more-c/code/oo-shapes/main.c
+/home/slohoka1/cs220/slides/more-c/code/oo-shapes/rect.c
+/home/slohoka1/cs220/slides/more-c/code/oo-shapes/shape.c
+/home/slohoka1/cs220/slides/more-c/code/stack/main.c
+/home/slohoka1/cs220/slides/more-c/code/stack/stack.c
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ find -L ~/cs220 -name '*.c' | e[Kwc -l
+232
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ find -L ~/cs220 -name '*.c' | wc -l[C[1P[1P
+232
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ find[K[K[K[Kfind -L ~/cs220 -name *.c | wc -l[C[C[1P[1P[1P[1P[1P[1P[1P[1P[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1@2[1@>[1@/[1@d[1@e[1@v[1@/[1@n[1@u[1@l[1@l[C[C[C[C[C[C[K[K[K[K[K[K >c-files.l ist[K[K[Kst &
+[1] 246835
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ jobs
+[1]+  Running                 find / -name *.c 2> /dev/null > c-files.lst &
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ kill %1
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ kill %1[3Pjobs
+[1]+  Terminated              find / -name *.c 2> /dev/null > c-files.lst
+slohoka1@remote03:~/i220b/submit/lab9/exercises/quote-files$ cd ~
+slohoka1@remote03:~$ pwd
+/home/slohoka1
+slohoka1@remote03:~$ xx=123
+slohoka1@remote03:~$ pwd; echo $xx; {[K(xx-abc; cd /; pwd; echo $xx); echo $xx;[K
+/home/slohoka1
+123
+bash: xx-abc: command not found
+/
+123
+123
+slohoka1@remote03:~$ pwd; echo $xx; (xx-abc; cd /; pwd; echo $xx); echo $xx[1P[1@=
+/home/slohoka1
+123
+/
+abc
+123
+slohoka1@remote03:~$ (cd ~cs220[K[K[K[K[K/cs220; git log -l)
+error: switch `l' requires a value
+slohoka1@remote03:~$ (cd ~/cs220; git log -l)[1P)1)
+[?1h=[33mcommit 4ca413434ed8d8fb17a9b0757221347554195042[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Nov 3 21:09:45 2021 -0400[m
+[m
+    announce exercises[m
+[K[?1l>slohoka1@remote03:~$ cd i220b/submit/lab9
+slohoka1@remote03:~/i220b/submit/lab9$ cd exercises/
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ grep -i 'MAIN('`find ~cs220[K[K[K[K[K/cs220/projects/[K -name '*.c[K[ch] '`
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ grep -i 'MAIN('`find ~/cs220/projects -name '*.[ch]'`[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C'`find ~/cs220/projects -name '*.[ch]'`[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C'`find ~/cs220/projects -name '*.[ch]'` [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1@m[1@ai'`find ~/cs220/projects -name '*.[ch]'` [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cn'`find ~/cs220/projects -name '*.[ch]'`[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C('`find ~/cs220/projects -name '*.[ch]'`[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ grep -i 'main('`find ~/cs220/projects -name '*.[ch]'`[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C `find ~/cs220/projects -name '*.[ch]'`[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+/home/slohoka1/cs220/projects/prj1/prj1-sol/main.c:main(int argc, const char *argv[])
+/home/slohoka1/cs220/projects/prj1/prj1-sol/tests.c:main(void)
+/home/slohoka1/cs220/projects/prj1-sol/main.c:main(int argc, const char *argv[])
+/home/slohoka1/cs220/projects/prj1-sol/tests.c:main(void)
+/home/slohoka1/cs220/projects/prj2/prj2-sol/main.c:main(int argc, const char *argv[])
+/home/slohoka1/cs220/projects/prj2/prj2-sol/tests.c:main(void)
+/home/slohoka1/cs220/projects/prj2-sol/main.c:main(int argc, const char *argv[])
+/home/slohoka1/cs220/projects/prj2-sol/tests.c:main(void)
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ grep -i 'main(' `find ~/cs220/projects -name '*.[ch]'` | wc -l
+8
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ echo $?
+0
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ false; echo 123
+123
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ false; echo 123[1P3[1P3[1P3[1P3[1P3[1P3[1P3[1P3[1P3[1P3[1P3[1P3[1P3[1P3e3c3h3o3 3$3?3
+03
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ echo $?3false; echo 123[1P[1P[1P[1P[1P[1@t[1@r[1@u[1@e
+123
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ true; echo 123[6Pecho $?3
+03
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ false && echo 123
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ true && echo 123
+123
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ false || echo 123
+123
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ true || echo 123
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ sleep 10
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ sleep 5 && echo 123
+123
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ sleep 5 && echo 123[1P
+[1] 249250
+123
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ sleep 5 & echo 123[1@&[C[C[C[C[C[C[C[C[C &
+[2] 249298
+[1]   Done                    sleep 5
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ 123
+
+[2]+  Done                    sleep 5 && echo 123
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ echo 123 && sleep 5
+123
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ echo 123 && sleep 5sleep 5 && echo 123 &
+[1] 249584
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ ls
+1  quote-files
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ 123
+
+[1]+  Done                    sleep 5 && echo 123
+slohoka1@remote03:~/i220b/submit/lab9/exercises$ exit
+
+Script done on 2021-11-04 16:54:57-04:00 [COMMAND_EXIT_CODE="0"]
