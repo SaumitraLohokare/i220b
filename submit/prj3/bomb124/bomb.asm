@@ -358,7 +358,7 @@ Disassembly of section .text:
     1369:	00 00 
     136b:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
     1370:	31 c0                	xor    %eax,%eax
-    1372:	48 8d 4c 24 04       	lea    0x4(%rsp),%rcx
+    1372:	48 8d 4c 24 04       	lea    0x4(%rsp),%rcx   
     1377:	48 89 e2             	mov    %rsp,%rdx
     137a:	48 8d 35 e4 19 00 00 	lea    0x19e4(%rip),%rsi        # 2d65 <array.3591+0x265>
     1381:	e8 4a fc ff ff       	callq  fd0 <__isoc99_sscanf@plt>
@@ -550,10 +550,10 @@ Disassembly of section .text:
     15e6:	4c 89 f5             	mov    %r14,%rbp
     15e9:	41 8b 06             	mov    (%r14),%eax
     15ec:	83 e8 01             	sub    $0x1,%eax
-    15ef:	83 f8 05             	cmp    $0x5,%eax
+    15ef:	83 f8 05             	cmp    $0x5,%eax                # eax <= 5 == true
     15f2:	0f 87 47 ff ff ff    	ja     153f <phase_6+0x3a>
     15f8:	49 83 ff 06          	cmp    $0x6,%r15
-    15fc:	0f 84 47 ff ff ff    	je     1549 <phase_6+0x44>
+    15fc:	0f 84 47 ff ff ff    	je     1549 <phase_6+0x44>      # jump if $r15 == 6
     1602:	4c 89 fb             	mov    %r15,%rbx
     1605:	eb cb                	jmp    15d2 <phase_6+0xcd>
     1607:	48 8b 5b 08          	mov    0x8(%rbx),%rbx
