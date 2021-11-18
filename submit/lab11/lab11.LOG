@@ -1,0 +1,666 @@
+Script started on 2021-11-18 13:30:14-05:00 [TERM="xterm-256color" TTY="/dev/pts/10" COLUMNS="100" LINES="54"]
+slohoka1@remote02:~/i220b/submit/lab11$ cp -pr ~/cs220/labs/lab11/exercises/[K .
+slohoka1@remote02:~/i220b/submit/lab11$ ls
+exercises  lab11.LOG
+slohoka1@remote02:~/i220b/submit/lab11$ cd exercises/
+slohoka1@remote02:~/i220b/submit/lab11/exercises$ ls
+2  3  4  5  coverage  int-search  matmul-cache	parity
+slohoka1@remote02:~/i220b/submit/lab11/exercises$ time ls 
+2  3  4  5  coverage  int-search  matmul-cache	parity
+
+real	0m0.006s
+user	0m0.002s
+sys	0m0.000s
+slohoka1@remote02:~/i220b/submit/lab11/exercises$ time sleep 5
+
+real	0m5.006s
+user	0m0.001s
+sys	0m0.001s
+slohoka1@remote02:~/i220b/submit/lab11/exercises$ timw[Ke wc -l `find /etc -type f 2?[K>/dev/null` 2>/dev/ null | tail
+      21 /etc/xattr.conf
+      23 /etc/sysfs.conf
+      25 /etc/e2scrub.conf
+       0 /etc/netgroup
+      98 /etc/rsyslog-haproxy.conf
+      92 /etc/rsyslog-normal.conf
+       1 /etc/login.warn
+      45 /etc/ethertypes
+      14 /etc/xinetd.conf
+  281972 total
+
+real	0m2.629s
+user	0m0.098s
+sys	0m0.262s
+slohoka1@remote02:~/i220b/submit/lab11/exercises$ time wc -l `find /etc -type f 2>/dev/null` 2>/dev/null | tail
+      21 /etc/xattr.conf
+      23 /etc/sysfs.conf
+      25 /etc/e2scrub.conf
+       0 /etc/netgroup
+      98 /etc/rsyslog-haproxy.conf
+      92 /etc/rsyslog-normal.conf
+       1 /etc/login.warn
+      45 /etc/ethertypes
+      14 /etc/xinetd.conf
+  281972 total
+
+real	0m1.182s
+user	0m0.028s
+sys	0m0.254s
+slohoka1@remote02:~/i220b/submit/lab11/exercises$ time wc -l `find /etc -type f 2>/dev/null` 2>/dev/null | tail
+      21 /etc/xattr.conf
+      23 /etc/sysfs.conf
+      25 /etc/e2scrub.conf
+       0 /etc/netgroup
+      98 /etc/rsyslog-haproxy.conf
+      92 /etc/rsyslog-normal.conf
+       1 /etc/login.warn
+      45 /etc/ethertypes
+      14 /etc/xinetd.conf
+  281972 total
+
+real	0m0.665s
+user	0m0.062s
+sys	0m0.158s
+slohoka1@remote02:~/i220b/submit/lab11/exercises$ time wc -l `find /etc -type f 2>/dev/null` 2>/dev/null | tail
+      21 /etc/xattr.conf
+      23 /etc/sysfs.conf
+      25 /etc/e2scrub.conf
+       0 /etc/netgroup
+      98 /etc/rsyslog-haproxy.conf
+      92 /etc/rsyslog-normal.conf
+       1 /etc/login.warn
+      45 /etc/ethertypes
+      14 /etc/xinetd.conf
+  281972 total
+
+real	0m0.621s
+user	0m0.045s
+sys	0m0.154s
+slohoka1@remote02:~/i220b/submit/lab11/exercises$ cd parity
+slohoka1@remote02:~/i220b/submit/lab11/exercises/parity$ nano [K[K[K[K[Kcat main.c 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define DEBUG_OPT  "-d"
+
+int parity_tests(int nTests, int doDebug);
+
+int 
+main(int argc, const char *argv[])
+{
+  int nTests = -1;
+  if (argc == 1 || argc > 3 || 
+      (argc == 3 && strcmp(argv[1], DEBUG_OPT) != 0) ||
+      ((nTests = atoi(argv[argc - 1])) <= 0)) {
+    fprintf(stderr, "usage: %s [%s] NUM_TESTS\n", argv[0], DEBUG_OPT);
+    exit(1);
+  }
+  printf("%d\n", parity_tests(nTests, argc == 3));
+  return 0;
+}	
+slohoka1@remote02:~/i220b/submit/lab11/exercises/parity$ make
+cc -g -Wall -std=c18 -O1   -c -o parity-c.o parity-c.c
+cc -g -Wall -std=c18 -O1   -c -o main.o main.c
+cc   parity-c.o main.o   -o parity-c
+cc -g -Wall -std=c18 -O1   -c -o parity-s.o parity-s.c
+cc   parity-s.o main.o   -o parity-s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/parity$ ./parity-c -d 10
+67: 0
+c6: 1
+69: 1
+73: 0
+51: 0
+ff: 1
+4a: 0
+ec: 0
+29: 0
+cd: 0
+3
+slohoka1@remote02:~/i220b/submit/lab11/exercises/parity$ ./parity-s -d 10
+67: 0
+c6: 1
+69: 1
+73: 0
+51: 0
+ff: 1
+4a: 0
+ec: 0
+29: 0
+cd: 0
+3
+slohoka1@remote02:~/i220b/submit/lab11/exercises/parity$ tim[K[K[K./parity-s -d 10c[C[C[C[C[C[C[1@t[1@i[1@m[1@e[1@ 
+67: 0
+c6: 1
+69: 1
+73: 0
+51: 0
+ff: 1
+4a: 0
+ec: 0
+29: 0
+cd: 0
+3
+
+real	0m0.002s
+user	0m0.000s
+sys	0m0.001s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/parity$ time ./parity-c -d 10[5P./parity-s[C[C[C[C[C[C[1@t[1@i[1@m[1@e[1@ 
+67: 0
+c6: 1
+69: 1
+73: 0
+51: 0
+ff: 1
+4a: 0
+ec: 0
+29: 0
+cd: 0
+3
+
+real	0m0.002s
+user	0m0.001s
+sys	0m0.000s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/parity$ time ./parity-s -d 10c[C[C[C[C[C[C[1P 10[1P 10[1P10[C[C[C00
+492
+
+real	0m0.003s
+user	0m0.001s
+sys	0m0.000s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/parity$ time ./parity-c 1000000000
+^C
+
+real	0m9.246s
+user	0m9.245s
+sys	0m0.000s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/parity$ time ./parity-c 1000000000[K[K[K[K[K
+4982
+
+real	0m0.002s
+user	0m0.002s
+sys	0m0.000s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/parity$ time ./parity-c 100000
+50104
+
+real	0m0.006s
+user	0m0.005s
+sys	0m0.000s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/parity$ time ./parity-c 1000000
+500043
+
+real	0m0.037s
+user	0m0.036s
+sys	0m0.000s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/parity$ time ./parity-c 1000000[C[1P 1000000s 1000000
+499757
+
+real	0m0.019s
+user	0m0.018s
+sys	0m0.000s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/parity$ cd ..
+slohoka1@remote02:~/i220b/submit/lab11/exercises$ cd matmul-cache/
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ cat simple-matmul.c 
+#include "matmul.h"
+
+void
+matrix_multiply(int n, double a[][n], double b[][n], double c[][n])
+{
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      c[i][j] = 0;
+      for (int k = 0; k < n; k++) {
+	c[i][j] += a[i][k]*b[k][j];
+      }
+    }
+  }
+}
+
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ cat simple-matmul.c [C[C[C[C[C[C[C[C[C[1P [1P [1P [1P [1P [1P [1P [1P [1P [1P [1P [1P [1P [1P [1P t r a nspose-matmul.c 
+#include "matmul.h"
+
+#include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/** Fill in matrix t[n][n] as the transpose of matrix a[n][n].  That is,
+ *  for all i, j set t[i][j] to a[j][i].
+ */
+static void
+matrix_transpose(int n, double a[][n], double t[][n])
+{
+  //@TODO add your code here
+}
+
+
+void
+matrix_multiply(int n, double a[][n], double b[][n], double c[][n])
+{
+  double (*tmp)[n] = malloc(sizeof(double[n][n]));
+  if (!tmp) {
+    fprintf(stderr, "could not malloc transpose matrix: %s\n",
+            strerror(errno));
+    exit(1);
+  }
+  matrix_transpose(n, b, tmp);
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      c[i][j] = 0;
+      for (int k = 0; k < n; k++) {
+        c[i][j] += a[i][k]*tmp[j][k];
+      }
+    }
+  }
+}
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ nano transpose-matmul.c 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;42H(B[0;7m[ Read 36 lines ](B[m[H(B[0;7m  GNU nano 3.2                             transpose-matmul.c                                       [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d(B[0;1m[36m#include[39m(B[m (B[0;1m[33m"matmul.h"[5d[36m#include[39m(B[m (B[0;1m[33m<errno.h>[6d[36m#include[39m(B[m (B[0;1m[33m<stdio.h>[7d[36m#include[39m(B[m (B[0;1m[33m<stdlib.h>[8d[36m#include[39m(B[m (B[0;1m[33m<string.h>[10d[34m/** Fill in matrix t[n][n] as the transpose of matrix a[n][n].  That is,[11d *  for all i, j set t[i][j] to a[j][i].[12d */[13d(B[0m[32mstatic[39m(B[m [32mvoid[14d[39m(B[mmatrix_transpose([32mint[39m(B[m n, [32mdouble[39m(B[m a[][n], [32mdouble[39m(B[m t[][n])[15d{[16d (B[0;1m[34m//@[37m[43mTODO[39;49m[34m add your code here[17d[39m(B[m}[20d[32mvoid[21d[39m(B[mmatrix_multiply([32mint[39m(B[m n, [32mdouble[39m(B[m a[][n], [32mdouble[39m(B[m b[][n], [32mdouble[39m(B[m c[][n])[22d{[23d [32mdouble[39m(B[m (*tmp)[n] = malloc([32msizeof[39m(B[m([32mdouble[39m(B[m[n][n]));[24;3H(B[0;1m[33mif[39m(B[m (!tmp) {[25;5Hfprintf(stderr, (B[0;1m[33m"could not malloc transpose matrix: %s\n"[39m(B[m,[26;13Hstrerror(errno));[27;5Hexit(1);[28;3H}[29dmatrix_transpose(n, b, tmp);[30;3H(B[0;1m[33mfor[39m(B[m ([32mint[39m(B[m i = 0; i < n; i++) {[31;5H(B[0;1m[33mfor[39m(B[m ([32mint[39m(B[m j = 0; j < n; j++) {[32;7Hc[i][j] = 0;[33;7H(B[0;1m[33mfor[39m(B[m ([32mint[39m(B[m k = 0; k < n; k++) {[34;9Hc[i][j] += a[i][k]*tmp[j][k];[35;7H}[36;5H}[37;3H}[38d}[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[16;29H[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[16;28H [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [52d[K[16;17H[?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l(B[0;1m[34mTOD[39m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l/[K[?12l[?25h[?25l[42m  [49m(B[m[K[?12l[?25h[?25l  f[?12l[?25h[?25lo[?12l[?25h[?25l(B[0;1m[33mfor[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l ([?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25l[32mint[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l i[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l =[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l 0[?12l[?25h[?25l;[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l i[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l <[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l n[?12l[?25h[?25l;[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l i[?12l[?25h[?25l+[?12l[?25h[?25l+[?12l[?25h[?25l)[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l {[?12l[?25h[?25l7[17;52r8[17dM[1;54r[17;1H[42m  [49m(B[m[?12l[?25h[?25l  }[?12l[?25h[?25l[A[?12l[?25h[?25l[16;32H[?12l[?25h[?25l7[17;52r8[17dM[1;54r[17;1H[42m  [49m(B[m[?12l[?25h[?25l[42m  [49m(B[m[?12l[?25h[?25l    f[?12l[?25h[?25lo[?12l[?25h[?25l(B[0;1m[33mfor[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l ([?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25l[32mint[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l j[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l =[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l 0[?12l[?25h[?25l;[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l j[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l <[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l n[?12l[?25h[?25l;[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l j[?12l[?25h[?25l+[?12l[?25h[?25l+[?12l[?25h[?25l)[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l {[?12l[?25h[?25l7[18;52r8[18dM[1;54r[18;1H[42m    [49m(B[m[?12l[?25h[?25l    }[?12l[?25h[?25l[A[?12l[?25h[?25l[17;34H[?12l[?25h[?25l7[18;52r8[18dM[1;54r[18;1H[42m    [49m(B[m[?12l[?25h[?25l[42m    [49m(B[m[?12l[?25h[?25l[1K t[?12l[?25h[?25l[[?12l[?25h[?25li[?12l[?25h[?25l][?12l[?25h[?25l[[?12l[?25h[?25lj[?12l[?25h[?25l][?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l =[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l a[?12l[?25h[?25l[[?12l[?25h[?25lj[?12l[?25h[?25l][?12l[?25h[?25l[[?12l[?25h[?25li[?12l[?25h[?25l][?12l[?25h[?25l;[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote 40 lines ](B[m[18;27H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ make
+cc -g -Wall -std=c18 -O1   -c -o main.o main.c
+cc -g -Wall -std=c18 -O1   -c -o simple-matmul.o simple-matmul.c
+cc main.o simple-matmul.o  -o simple-matmul
+cc -g -Wall -std=c18 -O1   -c -o transpose-matmul.o transpose-matmul.c
+cc main.o transpose-matmul.o  -o transpose-matmul
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ ./simple-matmul 4 1
+2.22116e+17 7.02729e+17 9.76657e+17 2.08306e+17 
+2.17616e+18 2.16772e+18 3.40213e+18 1.2273e+18 
+4.86494e+18 4.48803e+18 7.27046e+18 2.8719e+18 
+7.68709e+18 2.14813e+18 5.99903e+18 4.12269e+18 
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ ./simple-matmul 4 1[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Ktranspose-matmul 4 1
+2.22116e+17 7.02729e+17 9.76657e+17 2.08306e+17 
+2.17616e+18 2.16772e+18 3.40213e+18 1.2273e+18 
+4.86494e+18 4.48803e+18 7.27046e+18 2.8719e+18 
+7.68709e+18 2.14813e+18 5.99903e+18 4.12269e+18 
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ time ./simple-matmul 1500 1
+
+real	0m13.869s
+user	0m13.851s
+sys	0m0.016s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ time ./simple-matmul 1500 1[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Ktranspose-matmul 1500 1
+
+real	0m12.651s
+user	0m12.633s
+sys	0m0.016s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ time ./transpose-matmul 1500 1
+
+real	0m12.650s
+user	0m12.636s
+sys	0m0.012s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ for s in `seq 1000 500 2500`' \
+> do \
+>   echo -n "*** Size $s: simple"; tm[Kime ./simple-matmul $s 1; echo; \
+> for s in `seq 1000 500 2500`' \
+do \
+  echo -n "*** Size $s: simple"; time ./simple-matmul $s 1; echo; \[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K  echo -n "*** Size $s: transpa[Kose"; time ./transpose-matmul $s 1; echo; \
+> done
+> 
+> 
+> 
+> 
+> 
+> bash: unexpected EOF while looking for matching `''
+bash: syntax error: unexpected end of file
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ for s in `seq 1000 500 2500`' \
+do \
+  echo -n "*** Size $s: simple"; time ./simple-matmul $s 1; echo; \
+  echo -n "*** Size $s: transpose"; time ./transpose-matmul $s 1; echo; \
+done
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Ptime ./transpose-matmul 1500 1
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[A[A[A[A[A[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cfor s in `seq 1000 500 2500`' \
+do \
+  echo -n "*** Size $s: simple"; time ./simple-matmul $s 1; echo; \
+  echo -n "*** Size $s: transpose"; time ./transpose-matmul $s 1; echo; \
+done
+
+
+
+
+
+[A[A[A[A[A[A[C[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P \
+
+
+
+
+
+
+
+
+
+bash: syntax error near unexpected token `time'
+bash: syntax error near unexpected token `done'
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$   echo -n "*** Size $s: transpose"; time ./transpose-matmul $s 1; echo; done[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cfor s in `seq 1000 500 2500` do   echo -n "*** Size $s: simple"; time ./simple-matmul $s 1; echo; \[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+bash: syntax error near unexpected token `time'
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ for s in `seq 1000 500 2500`; \
+> > do \
+bash: syntax error near unexpected token `>'
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ >   echo -n "*** Size $s: simple"; time ./simple-matmul $s 1 ; echo ; \
+> >   echo -n "*** Size $s: transpose"; time ./transpose-matmul $s 1 ; echo ; \
+> > done[1P done[C[C[1Pdone[C[C>   echo -n "*** Size $s: simple"; time ./simple-matmul $s 1 ; echo ; >   echo -n "*** Size $s: transpose"; time ./transpose-matmul $s 1 ; echo ; \[A[C[Cdone[K
+[K[A[C[C[C[C[C[C
+bash: syntax error near unexpected token `done'
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ done
+bash: syntax error near unexpected token `done'
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ nano run.sh
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;45H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 3.2                                   run.sh                                             [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[3d[36m#[39m(B[m[?12l[?25h[?25l[36m![39m(B[m[?12l[?25h[?25l[36m/[39m(B[m[?12l[?25h[?25l[36mb[39m(B[m[?12l[?25h[?25l[36mo[39m(B[m[?12l[?25h[?25l [?12l[?25h[?25l[36mo[39m(B[m[?12l[?25h[?25l[36mn[39m(B[m[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[36mi[39m(B[m[?12l[?25h[?25l[36mn[39m(B[m[?12l[?25h[?25l[36m/[39m(B[m[?12l[?25h[?25l[36mb[39m(B[m[?12l[?25h[?25l[36ma[39m(B[m[?12l[?25h[?25l[36ms[39m(B[m[?12l[?25h[?25l[36mh[39m(B[m[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25lf[?12l[?25h[?25lo[?12l[?25h[?25l[32mfor[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l s[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l i[52d[K[5;8H[?12l[?25h[?25l[32min[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [32m`[39m(B[m[?12l[?25h[?25ls[?12l[?25h[?25le[?12l[?25h[?25lq[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l 1[?12l[?25h[?25l0[?12l[?25h[?25l0[?12l[?25h[?25l0[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l 0[?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l 5[?12l[?25h[?25l0[?12l[?25h[?25l0[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l 2[?12l[?25h[?25l5[?12l[?25h[?25l0[?12l[?25h[?25l0[?12l[?25h[?25l[32m`[39m(B[m[?12l[?25h[?25l[32m;[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [32m\[39m(B[m[?12l[?25h[?25l[6d[?12l[?25h[?25ld[?12l[?25h[?25l[32mdo[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [32m\[39m(B[m[?12l[?25h[?25l[7d[?12l[?25h[?25l[42m    [49m(B[m[?12l[?25h[?25l    e[?12l[?25h[?25lc[?12l[?25h[?25lh[?12l[?25h[?25l(B[0;1m[34mecho[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l -[?12l[?25h[?25l(B[0;1m[35m -n[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l "[?12l[?25h[?25l*[?12l[?25h[?25l*[?12l[?25h[?25l*[?12l[?25h[?25lS[?12l[?25h[?25li[?12l[?25h[?25lz[?12l[?25h[?25le[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [32m$[39m(B[m[?12l[?25h[?25l(B[0;1m[31m$s[39m(B[m[?12l[?25h[?25l[32m:[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l s[?12l[?25h[?25li[?12l[?25h[?25lm[?12l[?25h[?25lp[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25l[7;13H(B[0;1m[33m"***Size $s: simple"[39m(B[m[?12l[?25h[?25l[32m;[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l t[?12l[?25h[?25li[?12l[?25h[?25lm[?12l[?25h[?25l[32mtime[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l .[?12l[?25h[?25l/[?12l[?25h[?25ls[?12l[?25h[?25li[?12l[?25h[?25lm[?12l[?25h[?25l[42m    [49m(B[m[?12l[?25h[?25l[K[?12l[?25h[?25l [?12l[?25h[?25lm[?12l[?25h[?25lp[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25l-[?12l[?25h[?25lm[?12l[?25h[?25la[?12l[?25h[?25lm[?12l[?25h[?25l [?12l[?25h[?25lt[?12l[?25h[?25lm[?12l[?25h[?25lu[?12l[?25h[?25ll[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [32m$[39m(B[m[?12l[?25h[?25l(B[0;1m[31m$s[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l 1[?12l[?25h[?25l[32m;[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l e[?12l[?25h[?25lc[?12l[?25h[?25lh[?12l[?25h[?25l(B[0;1m[34mecho[39m(B[m[?12l[?25h[?25l[32m;[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [32m\[39m(B[m[?12l[?25h[?25l[8d[42m    [49m(B[m[?12l[?25h[?25l    e[?12l[?25h[?25lc[?12l[?25h[?25lh[?12l[?25h[?25l(B[0;1m[34mecho[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l -[?12l[?25h[?25l(B[0;1m[35m -n[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l "[?12l[?25h[?25l*[?12l[?25h[?25l*[?12l[?25h[?25l*[?12l[?25h[?25lS[?12l[?25h[?25li[?12l[?25h[?25lz[?12l[?25h[?25le[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [32m$[39m(B[m[?12l[?25h[?25l(B[0;1m[31m$s[39m(B[m[?12l[?25h[?25l[32m:[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l s[?12l[?25h[?25li[?12l[?25h[?25lm[?12l[?25h[?25lp[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25l[8;13H(B[0;1m[33m"***Size $s: simple"[39m(B[m[?12l[?25h[?25l[32m;[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l t[?12l[?25h[?25li[?12l[?25h[?25lm[?12l[?25h[?25lw[?12l[?25h[?25l [?12l[?25h[?25l[32mtime[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l .[?12l[?25h[?25l/[?12l[?25h[?25lt[?12l[?25h[?25lr[?12l[?25h[?25la[?12l[?25h[?25ln[?12l[?25h[?25ls[?12l[?25h[?25lp[?12l[?25h[?25lo[?12l[?25h[?25ls[?12l[?25h[?25le[?12l[?25h[?25l-[?12l[?25h[?25lm[?12l[?25h[?25la[?12l[?25h[?25lt[?12l[?25h[?25lm[?12l[?25h[?25lu[?12l[?25h[?25ll[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l[1P[?12l[?25h[?25l(B[0;1m[33mt"(B[0m[32m;[39m(B[m [32mtime[39m(B[m ./transpose-matmul[8;27H[?12l[?25h[?25l(B[0;1m[33mr"(B[0m[32m;[39m(B[m [32mtime[39m(B[m ./transpose-matmul[8;28H[?12l[?25h[?25l(B[0;1m[33ma"(B[0m[32m;[39m(B[m [32mtime[39m(B[m ./transpose-matmul[8;29H[?12l[?25h[?25l(B[0;1m[33mn"(B[0m[32m;[39m(B[m [32mtime[39m(B[m ./transpose-matmul[8;30H[?12l[?25h[?25l(B[0;1m[33ms"(B[0m[32m;[39m(B[m [32mtime[39m(B[m ./transpose-matmul[8;31H[?12l[?25h[?25l(B[0;1m[33mp"(B[0m[32m;[39m(B[m [32mtime[39m(B[m ./transpose-matmul[8;32H[?12l[?25h[?25l(B[0;1m[33mo"(B[0m[32m;[39m(B[m [32mtime[39m(B[m ./transpose-matmul[8;33H[?12l[?25h[?25l(B[0;1m[33ms"(B[0m[32m;[39m(B[m [32mtime[39m(B[m ./transpose-matmul[8;34H[?12l[?25h[?25l(B[0;1m[33me"(B[0m[32m;[39m(B[m [32mtime[39m(B[m ./transpose-matmul[8;35H[?12l[?25h[?25l[8;61H[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [32m$[39m(B[m[?12l[?25h[?25l(B[0;1m[31m$s[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l 1[?12l[?25h[?25l[32m;[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l e[?12l[?25h[?25lc[?12l[?25h[?25lh[?12l[?25h[?25l(B[0;1m[34mecho[39m(B[m[?12l[?25h[?25l[32m;[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [32m\[39m(B[m[?12l[?25h[?25l[9d[42m    [49m(B[m[?12l[?25h[?25l[K[?12l[?25h[?25ld[?12l[?25h[?25l[32mdo[39m(B[m[?12l[?25h[?25ldon[?12l[?25h[?25l[32mdone[39m(B[m[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote 7 lines ](B[m[9;5H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ ./run.sh
+bash: ./run.sh: Permission denied
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ chmod -[K+x run.sh
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ ./run.sh 
+***Size 1000: simple
+
+real	0m3.812s
+user	0m3.774s
+sys	0m0.036s
+
+***Size 1000: transpose
+real	0m3.731s
+user	0m3.718s
+sys	0m0.012s
+
+***Size 1500: simple
+real	0m14.088s
+user	0m14.067s
+sys	0m0.020s
+
+***Size 1500: transpose
+real	0m12.668s
+user	0m12.636s
+sys	0m0.024s
+
+***Size 2000: simple
+real	0m38.360s
+user	0m38.316s
+sys	0m0.036s
+
+***Size 2000: transpose
+real	0m30.123s
+user	0m30.093s
+sys	0m0.020s
+
+***Size 2500: simple
+real	1m13.950s
+user	1m13.434s
+sys	0m0.504s
+
+***Size 2500: transpose
+real	0m59.586s
+user	0m59.092s
+sys	0m0.488s
+
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ 
+slohoka1@remote02:~/i220b/submit/lab11/exercises/matmul-cache$ cd ..
+slohoka1@remote02:~/i220b/submit/lab11/exercises$ cd int-search/
+slohoka1@remote02:~/i220b/submit/lab11/exercises/int-search$ ls
+binary-search.c  int_compare.c	int_compare.h  linear-search.c	main.c	Makefile
+slohoka1@remote02:~/i220b/submit/lab11/exercises/int-search$ nano linear-search.c 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;49H(B[0;7m 6 lines ](B[m[H(B[0;7m  GNU nano 3.2                              linear-search.c                                         [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d(B[0;1m[34m/** Return index of element in a[nElements]; < 0 if not found. */[4d(B[0m[32mint[5d[39m(B[msearch_for_element([32mint[39m(B[m a[], [32mint[39m(B[m nElements, [32mint[39m(B[m element)[6d{[7d (B[0;1m[34m//@[37m[43mTODO[39;49m[34m add your code here to meet above spec.[8d[39m(B[m}[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[A[?12l[?25h[?25l[7;49H[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[7;48H [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[52d[K[7;30H[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l[42m [49m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l(B[0;1m[34mTOD[39m(B[m[K[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l/[K[?12l[?25h[?25l[42m  [49m(B[m[K[?12l[?25h[?25l  f[?12l[?25h[?25lo[?12l[?25h[?25l(B[0;1m[33mfor[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l ([?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25l[32mint[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l i[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l =[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l 0[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l [?12l[?25h[?25l;[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l i[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l <[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l n[?12l[?25h[?25lE[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25lm[?12l[?25h[?25le[?12l[?25h[?25ln[?12l[?25h[?25lt[?12l[?25h[?25ls[?12l[?25h[?25l;[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l i[?12l[?25h[?25l+[?12l[?25h[?25l+[?12l[?25h[?25l)[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l {[?12l[?25h[?25l7[8;52r8[8dM[1;54r[8;1H[42m  [49m(B[m[?12l[?25h[?25l7[8;52r8M[1;54r[9;3H[?12l[?25h[?25l  }[?12l[?25h[?25l[A[?12l[?25h[?25l[42m    [49m(B[m[?12l[?25h[?25l    i[?12l[?25h[?25l(B[0;1m[33mif[39m(B[m[?12l[?25h[?25l([?12l[?25h[?25la[?12l[?25h[?25l[[?12l[?25h[?25li[?12l[?25h[?25l][?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l =[?12l[?25h[?25l=[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l e[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25lm[?12l[?25h[?25le[?12l[?25h[?25ln[?12l[?25h[?25lt[?12l[?25h[?25l[A[?12l[?25h[?25l[8d[?12l[?25h[?25l)[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l r[?12l[?25h[?25le[?12l[?25h[?25lt[?12l[?25h[?25lu[?12l[?25h[?25lr[?12l[?25h[?25l[25G[35mreturn[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l i[?12l[?25h[?25l;[?12l[?25h[?25l[9;4H[?12l[?25h[?25l7[10;52r8[10dM[1;54r[10;1H[42m  [49m(B[m[?12l[?25h[?25l  r[?12l[?25h[?25le[?12l[?25h[?25lt[?12l[?25h[?25lu[?12l[?25h[?25lr[?12l[?25h[?25l  [35mreturn[39m(B[m[?12l[?25h[?25l[42m [49m(B[m[?12l[?25h[?25l -[?12l[?25h[?25l1[?12l[?25h[?25l;[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote 9 lines ](B[m[10;13H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote02:~/i220b/submit/lab11/exercises/int-search$ make
+cc -g -Wall -std=c18 -O1   -c -o linear-search.o linear-search.c
+cc -g -Wall -std=c18 -O1   -c -o main.o main.c
+cc -g -Wall -std=c18 -O1   -c -o int_compare.o int_compare.c
+cc   linear-search.o main.o int_compare.o   -o linear-search
+cc -g -Wall -std=c18 -O1   -c -o binary-search.o binary-search.c
+cc   binary-search.o main.o int_compare.o   -o binary-search
+slohoka1@remote02:~/i220b/submit/lab11/exercises/int-search$ ./linear-search 100 1
+slohoka1@remote02:~/i220b/submit/lab11/exercises/int-search$ time ./linear-search 100 1[1P[1@2[C[C0 1[C[C[C[C[K2000
+
+real	0m7.685s
+user	0m7.679s
+sys	0m0.004s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/int-search$ time ./linear-search 2000 2000[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kbinary-search 2000 2000
+
+real	0m0.466s
+user	0m0.460s
+sys	0m0.004s
+slohoka1@remote02:~/i220b/submit/lab11/exercises/int-search$ cd ..
+slohoka1@remote02:~/i220b/submit/lab11/exercises$ cd coverage/
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ make
+cc -g -Wall -std=c18 -fprofile-arcs -ftest-coverage    coverage.c   -o coverage
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ ./coverage 200 2000 2999
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ ls
+coverage  coverage.c  coverage.gcda  coverage.gcno  Makefile
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ gcov coverage.gcda
+File 'coverage.c'
+Lines executed:12.50% of 24
+Creating 'coverage.c.gcov'
+
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ cat coverage.c.gcov 
+        -:    0:Source:coverage.c
+        -:    0:Graph:coverage.gcno
+        -:    0:Data:coverage.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:static int v[] = {
+        -:    4:  211,  333, 319, 411, 911, 1001,
+        -:    5:};
+        -:    6:
+    #####:    7:static int compute(int a, int b, int c) {
+    #####:    8:  int s = v[2];
+    #####:    9:  if (v[0] < a && a < v[1]) {
+    #####:   10:    if (b < v[2]) { 
+    #####:   11:      s += v[2];
+    #####:   12:      if (c < v[3]) {
+    #####:   13:	s += v[4];
+        -:   14:      }
+        -:   15:      else {
+    #####:   16:	s += v[3];
+        -:   17:      }
+        -:   18:    }
+        -:   19:    else {
+    #####:   20:      s += v[1];
+    #####:   21:      if (c < v[1]) {
+    #####:   22:	s += v[4];
+        -:   23:      }
+        -:   24:      else {
+    #####:   25:	s += v[2];
+        -:   26:      }
+        -:   27:    }
+        -:   28:  }
+        -:   29:  else {
+    #####:   30:    if (b < v[3]) {
+    #####:   31:      if (c < v[4]) {
+    #####:   32:	s += v[5];
+        -:   33:      }
+        -:   34:      else {
+    #####:   35:	s += v[1];
+        -:   36:      }
+        -:   37:    }
+        -:   38:    else {
+    #####:   39:      if (c < v[2]) {
+    #####:   40:	s += v[1];
+        -:   41:      }
+        -:   42:      else {
+    #####:   43:	s += v[3];
+        -:   44:      }
+        -:   45:    }
+        -:   46:  }
+    #####:   47:  return s;
+        -:   48:}
+        -:   49:
+        -:   50:int 
+        1:   51:main()
+        -:   52:{
+        -:   53:  int a, b, c;
+        1:   54:  while (scanf("%d %d %d", &a, &b, &c) == 3) {
+    #####:   55:    printf("compute(%d, %d, %d) = %d\n", a, b, c, compute(a, b, c));
+        -:   56:  }
+        1:   57:  return 0;
+        -:   58:}
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ ./coverage
+200 2000 2999
+compute(200, 2000, 2999) = 730
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ na[K[Knano test.dat
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;45H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 3.2                                  test.dat                                            [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[3d212 318 410[4d212 318 412[5d212 320 210[6d212 320 212[7d210 318 0[8d210 318 912[9d210 412 0[10d210 412 320[52d[K[10;12H[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote 8 lines ](B[m[10;12H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ nano test.dat[3P./coverage <tea[Kst.dat 
+compute(212, 318, 410) = 1549
+compute(212, 318, 412) = 1049
+compute(212, 320, 210) = 1563
+compute(212, 320, 212) = 1563
+compute(210, 318, 0) = 1320
+compute(210, 318, 912) = 652
+compute(210, 412, 0) = 652
+compute(210, 412, 320) = 730
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ ls
+coverage  coverage.c  coverage.c.gcov  coverage.gcda  coverage.gcno  Makefile  test.dat
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ gcov coverage.gcda
+File 'coverage.c'
+Lines executed:95.83% of 24
+Creating 'coverage.c.gcov'
+
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ cat coverage.c.gcov 
+        -:    0:Source:coverage.c
+        -:    0:Graph:coverage.gcno
+        -:    0:Data:coverage.gcda
+        -:    0:Runs:3
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:static int v[] = {
+        -:    4:  211,  333, 319, 411, 911, 1001,
+        -:    5:};
+        -:    6:
+        9:    7:static int compute(int a, int b, int c) {
+        9:    8:  int s = v[2];
+        9:    9:  if (v[0] < a && a < v[1]) {
+        8:   10:    if (b < v[2]) { 
+        2:   11:      s += v[2];
+        2:   12:      if (c < v[3]) {
+        1:   13:	s += v[4];
+        -:   14:      }
+        -:   15:      else {
+        1:   16:	s += v[3];
+        -:   17:      }
+        -:   18:    }
+        -:   19:    else {
+        2:   20:      s += v[1];
+        2:   21:      if (c < v[1]) {
+        2:   22:	s += v[4];
+        -:   23:      }
+        -:   24:      else {
+    #####:   25:	s += v[2];
+        -:   26:      }
+        -:   27:    }
+        -:   28:  }
+        -:   29:  else {
+        5:   30:    if (b < v[3]) {
+        2:   31:      if (c < v[4]) {
+        1:   32:	s += v[5];
+        -:   33:      }
+        -:   34:      else {
+        1:   35:	s += v[1];
+        -:   36:      }
+        -:   37:    }
+        -:   38:    else {
+        3:   39:      if (c < v[2]) {
+        1:   40:	s += v[1];
+        -:   41:      }
+        -:   42:      else {
+        2:   43:	s += v[3];
+        -:   44:      }
+        -:   45:    }
+        -:   46:  }
+        9:   47:  return s;
+        -:   48:}
+        -:   49:
+        -:   50:int 
+        3:   51:main()
+        -:   52:{
+        -:   53:  int a, b, c;
+       12:   54:  while (scanf("%d %d %d", &a, &b, &c) == 3) {
+        9:   55:    printf("compute(%d, %d, %d) = %d\n", a, b, c, compute(a, b, c));
+        -:   56:  }
+        3:   57:  return 0;
+        -:   58:}
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ nano test.dat 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;43H(B[0;7m[ Reading File ](B[m[52;49H(B[0;7m 8 lines ](B[m[H(B[0;7m  GNU nano 3.2                                  test.dat                                            [1;99H(B[m[53d(B[0;7m^G(B[m Get Help   (B[0;7m^O(B[m Write Out  (B[0;7m^W(B[m Where Is   (B[0;7m^K(B[m Cut Text   (B[0;7m^J(B[m Justify    (B[0;7m^C(B[m Cur Pos    (B[0;7mM-U(B[m Undo[54d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Uncut Text (B[0;7m^T(B[m To Spell   (B[0;7m^_(B[m Go To Line (B[0;7mM-E(B[m Redo[52d[3d[39;49m(B[m212 318 410[4d212 318 412[5d212 320 210[6d212 320 212[7d210 318 0[8d210 318 912[9d210 412 0[10d210 412 320[3d[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[6;12H[?12l[?25h[?25l[1;91H(B[0;7mModified(B[m[6;11H [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l9[?12l[?25h[?25l9[?12l[?25h[?25l9[?12l[?25h[?25l[1;99H[1;91H(B[0;7m        (B[m[52;42H(B[0;7m[ Wrote[52;59H(B[m[6;12H[?12l[?25h[?25l[52d[J[54;100H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ nano test.dat [6@cat coverage.c.gcov[C[2Pgcov coverage.gcdals[K./coverage <test.dat 
+compute(212, 318, 410) = 1549
+compute(212, 318, 412) = 1049
+compute(212, 320, 210) = 1563
+compute(212, 320, 999) = 971
+compute(210, 318, 0) = 1320
+compute(210, 318, 912) = 652
+compute(210, 412, 0) = 652
+compute(210, 412, 320) = 730
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ ./coverage <test.dat [7Pnano [C[C[C[C[C[C[C[C[C[6@cat coverage.c.gcov[C[2Pgcov coverage.gcda
+File 'coverage.c'
+Lines executed:100.00% of 24
+Creating 'coverage.c.gcov'
+
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ gcov coverage.gcda./coverage <test.dat [7Pnano [C[C[C[C[C[C[C[C[C[7@./coverage <[C[C[C[C[C[C[C[C[C[3Pgcov coverage.gcda[Kgcov coverage.gcda./coverage <test.dat [7Pnano [C[C[C[C[C[C[C[C[C[6@cat coverage.c.gcov[C[2Pgcov coverage.gcdacat coverage.c.gcov [6Pnano test.dat[C[6@cat coverage.c.gcov[C
+        -:    0:Source:coverage.c
+        -:    0:Graph:coverage.gcno
+        -:    0:Data:coverage.gcda
+        -:    0:Runs:4
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:static int v[] = {
+        -:    4:  211,  333, 319, 411, 911, 1001,
+        -:    5:};
+        -:    6:
+       17:    7:static int compute(int a, int b, int c) {
+       17:    8:  int s = v[2];
+       17:    9:  if (v[0] < a && a < v[1]) {
+       16:   10:    if (b < v[2]) { 
+        4:   11:      s += v[2];
+        4:   12:      if (c < v[3]) {
+        2:   13:	s += v[4];
+        -:   14:      }
+        -:   15:      else {
+        2:   16:	s += v[3];
+        -:   17:      }
+        -:   18:    }
+        -:   19:    else {
+        4:   20:      s += v[1];
+        4:   21:      if (c < v[1]) {
+        3:   22:	s += v[4];
+        -:   23:      }
+        -:   24:      else {
+        1:   25:	s += v[2];
+        -:   26:      }
+        -:   27:    }
+        -:   28:  }
+        -:   29:  else {
+        9:   30:    if (b < v[3]) {
+        4:   31:      if (c < v[4]) {
+        2:   32:	s += v[5];
+        -:   33:      }
+        -:   34:      else {
+        2:   35:	s += v[1];
+        -:   36:      }
+        -:   37:    }
+        -:   38:    else {
+        5:   39:      if (c < v[2]) {
+        2:   40:	s += v[1];
+        -:   41:      }
+        -:   42:      else {
+        3:   43:	s += v[3];
+        -:   44:      }
+        -:   45:    }
+        -:   46:  }
+       17:   47:  return s;
+        -:   48:}
+        -:   49:
+        -:   50:int 
+        4:   51:main()
+        -:   52:{
+        -:   53:  int a, b, c;
+       21:   54:  while (scanf("%d %d %d", &a, &b, &c) == 3) {
+       17:   55:    printf("compute(%d, %d, %d) = %d\n", a, b, c, compute(a, b, c));
+        -:   56:  }
+        4:   57:  return 0;
+        -:   58:}
+slohoka1@remote02:~/i220b/submit/lab11/exercises/coverage$ cd[K[Kexit
+
+Script done on 2021-11-18 14:50:19-05:00 [COMMAND_EXIT_CODE="0"]
