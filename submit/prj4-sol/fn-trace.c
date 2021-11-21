@@ -26,6 +26,13 @@ new_fns_data(void *rootFn)
 	fnsData->len = 0;
 	fnsData->cap = INIT_SIZE;
 	fnsData->list = calloc(fnsData->cap, sizeof(FnInfo));
+
+	FnInfo* root = (FnInfo*) rootFn;
+	Lde* lde = new_lde();
+
+	printf("OP len: %d", get_op_length(lde, root));
+
+	free_lde(lde);
 	return NULL;
 }
 
