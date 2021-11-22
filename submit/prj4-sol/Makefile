@@ -1,4 +1,4 @@
-HOME = /mnt/d/cs220# TODO Remove this lne before submitting
+#HOME = /mnt/d/cs220# TODO Remove this lne before submitting
 COURSE = cs220
 
 COURSE_DIR = $(HOME)/$(COURSE)
