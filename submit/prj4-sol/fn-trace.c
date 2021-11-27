@@ -38,8 +38,10 @@ new_fns_data(void *rootFn)
 {
 	FnsData *fnsData = make_fns_data();
 	Lde* lde = new_lde();
+	printf("Starting trace\n");
 	traceFn(rootFn, lde, fnsData);
 	free_lde(lde);
+	printf("Ending trace\n");
 	return (const FnsData*) fnsData;
 }
 
@@ -106,6 +108,7 @@ static inline bool is_ret(unsigned op) {
 //TODO: add auxiliary functions
 
 void traceFn(void* addr, Lde* lde, FnsData* fd) {
+	printf("Tracing: %p\n", addr);
 	int len = 1; // start with 1 cuz size of RET is 1 (it is ignored in the while loop)
 	int in = 0;
 	int out = 0;
