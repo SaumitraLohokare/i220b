@@ -27,8 +27,6 @@ struct FnsDataImpl {
 	int len, cap;
 };
 
-void** tracingFns; // functions that we are tracing
-
 typedef const unsigned char instruction;
 
 /** Return pointer to opaque data structure containing collection of
@@ -118,34 +116,28 @@ static inline bool is_ret(unsigned op) {
 
 void traceFn(void* addr, Lde* lde, FnsData* fd) {
 	printf("Tracing: %p\n", addr);
-	int len = 1; // start with 1 cuz size of RET is 1 (it is ignored in the while loop)
-	int in = 0;
-	int out = 0;
-	void* fnAddr = addr;
+	FnInfo* ret = malloc(sizeof(FnInfo));
+	ret->address = (void*) fnAddr;
+	ret->length = 1;
+	ret->nInCalls = 0;
+	ret->nOutCalls = 0;
+	add_item(fd, ret);
+
 	instruction* i = (instruction*) addr;
-	// printf("i == %p\n", i);
 	while (!is_ret(*i)) {
 		int l = get_op_length(lde, i);
-		// printf("\tInstruction length: %d\n", l);
-		len += l;
+		ret->length += l;
 		if (is_call(*i)) {
 			int next_call_offset = *((int *)(i+1));
 			void* next_call = (void*)(i + l + next_call_offset);
-			// printf("Next call to: %p\n", next_call);
-			if (!contains_fn(fd, next_call)) 
+			if (!contains_fn(fd, next_call))
 				traceFn(next_call, lde, fd);
-			out += 1;
+			ret->out += 1;
 		}
 		i += l;
 	}
-	// printf("\tReached return\n");
-	FnInfo* ret = malloc(sizeof(FnInfo));
-	ret->address = (void*) fnAddr;
-	ret->length = len;
-	ret->nInCalls = in;
-	ret->nOutCalls = out;
+
 	printf("%p: nInCalls:\t%d; nOutCalls:\t%d; length:\t%d\n", ret->address, ret->nInCalls, ret->nOutCalls, ret->length);
-	add_item(fd, ret);
 	return;
 }
 
