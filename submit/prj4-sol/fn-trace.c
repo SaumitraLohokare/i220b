@@ -185,8 +185,9 @@ int compare(const void* A, const void* B) {
 
 // contains function to check if a function is present in the list or not
 bool contains_fn(FnsData* fd, void* addr) {
-	for (const FnInfo *fip = next_fn_info(fd, NULL); fip != NULL; fip = next_fn_info(fd, fip)) {
+	for (FnInfo *fip = next_fn_info(fd, NULL); fip != NULL; fip = next_fn_info(fd, fip)) {
 		if (fip->address == addr) {
+			fip->nInCalls += 1;
 			return true;
 		}
 	}
