@@ -13,11 +13,12 @@ static inline bool is_ret(unsigned op);
 
 FnInfo* new_fn_info();
 FnsData* make_fns_data();
-void add_element(FnsData*, FnInfo*);
+void add_item(FnsData*, FnInfo*);
 void grow(FnsData*);
 int compare(const void*, const void*);
+bool contains_fn(FnsData*, void*);
 
-const FnInfo* traceFn(void*, Lde*);
+void traceFn(void*, Lde*, FnsData*);
 
 enum { INIT_SIZE = 2 };
 
@@ -35,11 +36,11 @@ typedef const unsigned char instruction;
 const FnsData *
 new_fns_data(void *rootFn)
 {
-	// FnsData *fnsData = make_fns_data();
+	FnsData *fnsData = make_fns_data();
 	Lde* lde = new_lde();
-	traceFn(rootFn, lde);
+	traceFn(rootFn, lde, fnsData);
 	free_lde(lde);
-	return NULL;
+	return (const FnsData*) fnsData;
 }
 
 /** Free all resources occupied by fnsData. fnsData must have been
@@ -49,7 +50,6 @@ new_fns_data(void *rootFn)
 void
 free_fns_data(FnsData *fd)
 {
-	// // ? Not sure though
 	for (int i = 0; i < fd->len; i++) {
 		FnInfo* p = fd->list[i];
 		if (p != NULL)
@@ -75,11 +75,13 @@ free_fns_data(FnsData *fd)
 const FnInfo *
 next_fn_info(const FnsData *fd, const FnInfo *last)
 {
-  for (int i = 0; i < fd->len - 1; i++) {
-	if (!compare((const void*)fd->list[i], (const void*)last))
-		return fd->list[i+1];
-  }
-  return NULL;
+	if (fd == NULL) return NULL;
+	if (last == NULL) return fd->list[0];
+	for (int i = 0; i < fd->len - 1; i++) {
+		if (!compare((const void*)fd->list[i], (const void*)last))
+			return fd->list[i+1];
+	}
+	return NULL;
 }
 
 
@@ -103,44 +105,37 @@ static inline bool is_ret(unsigned op) {
 
 //TODO: add auxiliary functions
 
-//TODO: get rid of this recursion variable once done
-
-int nRecursion = 20;
-const FnInfo* traceFn(void* addr, Lde* lde) {
-	if (nRecursion <= 0) return NULL;
-	nRecursion -= 1;
-	printf("Recursion: %d\n", nRecursion);
+void traceFn(void* addr, Lde* lde, FnsData* fd) {
 	int len = 1; // start with 1 cuz size of RET is 1 (it is ignored in the while loop)
 	int in = 0;
 	int out = 0;
 	void* fnAddr = addr;
 	instruction* i = (instruction*) addr;
-	printf("i == %p\n", i);
+	// printf("i == %p\n", i);
 	while (!is_ret(*i)) {
-		printf("---\n");
 		int l = get_op_length(lde, i);
-		printf("\tInstruction length: %d\n", l);
+		// printf("\tInstruction length: %d\n", l);
 		len += l;
 		if (is_call(*i)) {
-			int next_call_offset = *((int *)(i+1)); // ?????
+			int next_call_offset = *((int *)(i+1));
 			void* next_call = (void*)(i + l + next_call_offset);
-			printf("Next call to: %p\n", next_call);
-			traceFn(next_call, lde);
+			// printf("Next call to: %p\n", next_call);
+			if (!contains_fn(fd, next_call)) 
+				traceFn(next_call, lde, fd);
 			out += 1;
 		}
 		i += l;
 	}
-	printf("\tReached return\n");
+	// printf("\tReached return\n");
 	FnInfo* ret = malloc(sizeof(FnInfo));
 	ret->address = (void*) fnAddr;
 	ret->length = len;
 	ret->nInCalls = in;
 	ret->nOutCalls = out;
 	printf("%p: nInCalls:\t%d; nOutCalls:\t%d; length:\t%d\n", ret->address, ret->nInCalls, ret->nOutCalls, ret->length);
-	return (const FnInfo*) ret;
+	add_item(fd, ret);
+	return;
 }
-
-// grow
 
 FnInfo* new_fn_info(void* addr, unsigned len, unsigned in, unsigned out) {
 	FnInfo* ret = malloc(sizeof(FnInfo));
@@ -179,4 +174,12 @@ int compare(const void* A, const void* B) {
 	FnInfo* a = (FnInfo*) A;
 	FnInfo* b = (FnInfo*) B;
 	return (a->address - b->address);
+}
+
+// contains function to check if a function is present in the list or not
+bool contains_fn(FnsData* fd, void* addr) {
+	for (FnInfo *fip = next_fn_info(fnsData, NULL); fip != NULL; fip = next_fn_info(fnsData, fip)) {
+		if (fip->address == addr) return true;
+	}
+	return false;
 }
