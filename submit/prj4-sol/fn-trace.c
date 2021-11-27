@@ -27,6 +27,8 @@ struct FnsDataImpl {
 	int len, cap;
 };
 
+void** tracingFns; // functions that we are tracing
+
 typedef const unsigned char instruction;
 
 /** Return pointer to opaque data structure containing collection of
@@ -77,12 +79,19 @@ free_fns_data(FnsData *fd)
 const FnInfo *
 next_fn_info(const FnsData *fd, const FnInfo *last)
 {
-	if (fd == NULL) return NULL;
-	if (last == NULL) return fd->list[0];
+	if (fd == NULL) {
+		printf("fd NULL\n");
+		return NULL;
+	}
+	if (last == NULL) {
+		printf("last NULL\n");
+		return fd->list[0];
+	}
 	for (int i = 0; i < fd->len - 1; i++) {
 		if (!compare((const void*)fd->list[i], (const void*)last))
 			return fd->list[i+1];
 	}
+	printf("Returning NULL\n");
 	return NULL;
 }
 
@@ -181,8 +190,13 @@ int compare(const void* A, const void* B) {
 
 // contains function to check if a function is present in the list or not
 bool contains_fn(FnsData* fd, void* addr) {
+	printf("Contains: fd: %p, addr: %p\n", fd, addr);
 	for (FnInfo *fip = next_fn_info(fd, NULL); fip != NULL; fip = next_fn_info(fd, fip)) {
-		if (fip->address == addr) return true;
+		printf("\tfip->address: %p\n", fip->address);
+		if (fip->address == addr) {
+			printf("%p == %p\n", fip->address, addr);
+			return true;
+		}
 	}
 	return false;
 }
