@@ -17,7 +17,7 @@ void add_element(FnsData*, FnInfo*);
 void grow(FnsData*);
 int compare(const void*, const void*);
 
-const FnInfo* traceFn(void*);
+const FnInfo* traceFn(void*, Lde*);
 
 enum { INIT_SIZE = 2 };
 
@@ -36,7 +36,9 @@ const FnsData *
 new_fns_data(void *rootFn)
 {
 	// FnsData *fnsData = make_fns_data();
-
+	Lde* lde = new_lde();
+	traceFn(rootFn, lde);
+	free_lde(lde);
 	return NULL;
 }
 
@@ -102,8 +104,9 @@ static inline bool is_ret(unsigned op) {
 //TODO: add auxiliary functions
 
 //TODO: get rid of this recursion variable once done
+
 int nRecursion = 20;
-const FnInfo* traceFn(void* addr) {
+const FnInfo* traceFn(void* addr, Lde* lde) {
 	if (nRecursion <= 0) return NULL;
 	nRecursion -= 1;
 	printf("Recursion: %d\n", nRecursion);
@@ -112,16 +115,17 @@ const FnInfo* traceFn(void* addr) {
 	int out = 0;
 	void* fnAddr = addr;
 	instruction* i = (instruction*) addr;
-	Lde* lde = new_lde();
-
+	printf("i == %p\n", i);
 	while (!is_ret(*i)) {
+		printf("---\n");
 		int l = get_op_length(lde, i);
 		printf("\tInstruction length: %d\n", l);
 		len += l;
 		if (is_call(*i)) {
-			void* next_call = *((void**)(i+1)); // ?????
+			int next_call_offset = *((int *)(i+1)); // ?????
+			void* next_call = (void*)(i + l + next_call_offset);
 			printf("Next call to: %p\n", next_call);
-			// traceFn(next_call);
+			traceFn(next_call, lde);
 			out += 1;
 		}
 		i += l;
