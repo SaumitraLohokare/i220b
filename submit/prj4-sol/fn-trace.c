@@ -36,13 +36,13 @@ typedef const unsigned char instruction;
 const FnsData *
 new_fns_data(void *rootFn)
 {
-	FnsData *fnsData = make_fns_data();
+	FnsData *fd = make_fns_data();
 	Lde* lde = new_lde();
-	printf("Starting trace\n");
-	traceFn(rootFn, lde, fnsData);
+	traceFn(rootFn, lde, fd);
 	free_lde(lde);
-	printf("Ending trace\n");
-	return (const FnsData*) fnsData;
+
+	qsort(fd->list, fd->len, sizeof(FnInfo*), compare);
+	return (const FnsData*) fd;
 }
 
 /** Free all resources occupied by fnsData. fnsData must have been
@@ -78,18 +78,15 @@ const FnInfo *
 next_fn_info(const FnsData *fd, const FnInfo *last)
 {
 	if (fd == NULL) {
-		printf("fd NULL\n");
 		return NULL;
 	}
 	if (last == NULL) {
-		printf("last NULL\n");
 		return fd->list[0];
 	}
 	for (int i = 0; i < fd->len - 1; i++) {
 		if (!compare((const void*)fd->list[i], (const void*)last))
 			return fd->list[i+1];
 	}
-	printf("Returning NULL\n");
 	return NULL;
 }
 
@@ -115,12 +112,7 @@ static inline bool is_ret(unsigned op) {
 //TODO: add auxiliary functions
 
 void traceFn(void* addr, Lde* lde, FnsData* fd) {
-	printf("Tracing: %p\n", addr);
-	FnInfo* ret = malloc(sizeof(FnInfo));
-	ret->address = (void*) fnAddr;
-	ret->length = 1;
-	ret->nInCalls = 0;
-	ret->nOutCalls = 0;
+	FnInfo* ret = new_fn_info(addr, 1, 0, 0);
 	add_item(fd, ret);
 
 	instruction* i = (instruction*) addr;
@@ -132,12 +124,10 @@ void traceFn(void* addr, Lde* lde, FnsData* fd) {
 			void* next_call = (void*)(i + l + next_call_offset);
 			if (!contains_fn(fd, next_call))
 				traceFn(next_call, lde, fd);
-			ret->out += 1;
+			ret->nOutCalls += 1;
 		}
 		i += l;
 	}
-
-	printf("%p: nInCalls:\t%d; nOutCalls:\t%d; length:\t%d\n", ret->address, ret->nInCalls, ret->nOutCalls, ret->length);
 	return;
 }
 
@@ -160,33 +150,38 @@ FnsData* make_fns_data() {
 
 // add
 void add_item(FnsData* fd, FnInfo* fi) {
-	if (fd->len >= fd->cap)
+	if (fd->len >= fd->cap) {
 		grow(fd);
+	}
 	fd->list[fd->len] = fi;
 	fd->len += 1;
 
 	// sort
-	qsort(fd->list, fd->len, sizeof(FnInfo*), compare);
 }
 
 void grow(FnsData* fd) {
+	FnInfo* list[fd->len];
+	for (int i = 0; i < fd->len; i++) {
+		list[i] = fd->list[i];
+	}
 	fd->cap *= 2;
 	fd->list = calloc(fd->cap, sizeof(FnInfo*));
+	for (int i = 0; i < fd->len; i++) {
+		fd->list[i] = list[i];
+	}
 }
 
 int compare(const void* A, const void* B) {
 	FnInfo* a = (FnInfo*) A;
 	FnInfo* b = (FnInfo*) B;
-	return (a->address - b->address);
+	int ret = (b->address - a->address);
+	return ret;
 }
 
 // contains function to check if a function is present in the list or not
 bool contains_fn(FnsData* fd, void* addr) {
-	printf("Contains: fd: %p, addr: %p\n", fd, addr);
-	for (FnInfo *fip = next_fn_info(fd, NULL); fip != NULL; fip = next_fn_info(fd, fip)) {
-		printf("\tfip->address: %p\n", fip->address);
+	for (const FnInfo *fip = next_fn_info(fd, NULL); fip != NULL; fip = next_fn_info(fd, fip)) {
 		if (fip->address == addr) {
-			printf("%p == %p\n", fip->address, addr);
 			return true;
 		}
 	}
