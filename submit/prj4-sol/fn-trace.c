@@ -20,6 +20,8 @@ bool contains_fn(FnsData*, void*);
 
 void traceFn(void*, Lde*, FnsData*);
 
+void sort_fns(FnsData*);
+
 enum { INIT_SIZE = 2 };
 
 struct FnsDataImpl {
@@ -41,7 +43,8 @@ new_fns_data(void *rootFn)
 	traceFn(rootFn, lde, fd);
 	free_lde(lde);
 
-	qsort(fd->list, fd->len, sizeof(FnInfo*), compare);
+//	qsort(fd->list, fd->len, sizeof(FnInfo*), compare);
+	sort_fns(fd);
 	return (const FnsData*) fd;
 }
 
@@ -174,16 +177,31 @@ void grow(FnsData* fd) {
 int compare(const void* A, const void* B) {
 	FnInfo* a = (FnInfo*) A;
 	FnInfo* b = (FnInfo*) B;
-	int ret = (b->address - a->address);
+	long n1 = (long) a->address;
+	long n2 = (long) b->address;
+	int ret = n1 - n2;
 	return ret;
 }
 
 // contains function to check if a function is present in the list or not
 bool contains_fn(FnsData* fd, void* addr) {
-	for (const FnInfo *fip = next_fn_info(fd, NULL); fip != NULL; fip = next_fn_info(fd, fip)) {
+	for (FnInfo *fip = next_fn_info(fd, NULL); fip != NULL; fip = next_fn_info(fd, fip)) {
 		if (fip->address == addr) {
+			fip->nInCalls += 1;
 			return true;
 		}
 	}
 	return false;
+}
+
+void sort_fns(FnsData* fd) {
+	for (int i = 0; i < fd->len; i++) {
+		for (int j = 0; j < fd->len - i - 1; j++) {
+			if (fd->list[j]->address > fd->list[j+1]->address) {
+				FnInfo* temp = fd->list[j];
+				fd->list[j] = fd->list[j+1];
+				fd->list[j+1] = temp;
+			}
+		}
+	}
 }
