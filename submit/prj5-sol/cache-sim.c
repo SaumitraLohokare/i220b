@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 unsigned long get_tag(CacheParams *params, MemAddr addr) {
 	return (addr >> (params->nLineBits + params->nSetBits));
@@ -50,14 +51,16 @@ CacheSet* new_cache_set(unsigned capacity) {
 void add_line(CacheSet* list, MemAddr address) {
 	// TODO ?? Add check for capcity here or not?
 	if (list->length >= list->capacity) {
-		// ?? printf("Error: Overflowing a set\n");
+		printf("Error: Overflowing a set\n");
 		return;
 	}
 
 	CacheLine* temp = list->head;
 	list->head = new_cache_line(address);
 	list->head->next = temp;
-	temp->prev = list->head;
+	if (temp != NULL) temp->prev = list->head; // check for the first node added
+
+	if (list->tail == NULL) list->tail = list->head;
 
 	list->length += 1;
 }
@@ -76,7 +79,7 @@ MemAddr replace_line(CacheSet *set, CacheParams *params, MemAddr addr) {
 		set->tail = temp;
 
 		replaced = temp2->address;
-		free(temp2);
+		if (temp2 != NULL) free(temp2);
 		break;
 	}
 	case MRU_R: {
@@ -89,7 +92,7 @@ MemAddr replace_line(CacheSet *set, CacheParams *params, MemAddr addr) {
 		set->head = temp;
 
 		replaced = temp2->address;
-		free(temp2);
+		if (temp2 != NULL) free(temp2);
 		break;
 	}
 	case RANDOM_R: {
@@ -106,7 +109,7 @@ MemAddr replace_line(CacheSet *set, CacheParams *params, MemAddr addr) {
 				temp->next->prev = temp2;
 
 				replaced = temp->address;
-				free(temp);
+				if (temp != NULL) free(temp);
 				break;
 			}
 			pos--;
@@ -119,26 +122,33 @@ MemAddr replace_line(CacheSet *set, CacheParams *params, MemAddr addr) {
 
 bool contains_tag(CacheSet *set, MemAddr addr, CacheParams *params) {
 	unsigned long tag = get_tag(params, addr);
+	printf("Searching for tag %ld.\n", tag);
+	// TODO Fix infinite loop
 	for (CacheLine *line = set->head; line != NULL; line = line->next) {
 		unsigned long check = get_tag(params, line->address);
+		printf("Found tag: %ld.\n", check);
 		if (check == tag) {
 			// Update set for most recently used
 			switch (params->replacement) {
 			case LRU_R:
 				// move_to_head(line);
-				line->prev->next = line->next;
-				line->next->prev = line->prev;
+				printf("%p\n", line);
+				printf("Error 1\n");
+				if (line->prev != NULL) line->prev->next = line->next;
+				if (line->next != NULL) line->next->prev = line->prev;
 
+				printf("Error 2\n");
 				line->next = set->head;
 				line->prev = NULL;
+				printf("Error 3\n");
 				set->head->prev = line;
 				set->head = line;
 
 				break;
 			case MRU_R:
 				// move_to_tail(line);
-				line->prev->next = line->next;
-				line->next->prev = line->prev;
+				if (line->prev != NULL) line->prev->next = line->next;
+				if (line->next != NULL) line->next->prev = line->prev;
 
 				line->prev = set->tail;
 				line->next = NULL;
@@ -177,10 +187,18 @@ struct CacheSimImpl {
 CacheSim *
 new_cache_sim(const CacheParams *params)
 {
+	printf("Created a new cache sim\n");
 	CacheSim* sim = malloc(sizeof(CacheSim));
 	sim->params = *params;
 	sim->nSets = (1u << params->nSetBits);
 	sim->sets = calloc(sim->nSets, sizeof(CacheSet));
+
+	for (int i = 0; i < sim->nSets; i++) {
+		sim->sets[i].head = NULL;
+		sim->sets[i].tail = NULL;
+		sim->sets[i].length = 0;
+		sim->sets[i].capacity = params->nLinesPerSet;
+	}
   	return sim;
 }
 
@@ -199,17 +217,24 @@ free_cache_sim(CacheSim *cache)
 CacheResult
 cache_sim_result(CacheSim *cache, MemAddr addr)
 {
+	printf("Called with: 0x%lx\n", addr);
+
 	CacheResult result = { 0, 0 };
 
 	unsigned long set = get_set(&cache->params, addr);
+	printf("Set -> %ld\n", set);
 
 	if (contains_tag(&cache->sets[set], addr, &cache->params)) { // HIT
+		printf("Hit\n");
 		result.status = CACHE_HIT;
 	} else { // MISS
+		printf("Miss ");
 		if (cache->sets[set].length >= cache->sets[set].capacity) { // REPLACE
+			printf("with replace.\n");
 			result.status = CACHE_MISS_WITH_REPLACE;
 			result.replaceAddr = replace_line(&cache->sets[set], &cache->params, addr);
 		} else { // NO REPLACE
+			printf("without replace.\n");
 			result.status = CACHE_MISS_WITHOUT_REPLACE;
 			add_line(&cache->sets[set], addr);
 		}
