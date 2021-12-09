@@ -5,7 +5,6 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 unsigned long get_tag(CacheParams *params, MemAddr addr) {
 	return (addr >> (params->nLineBits + params->nSetBits));
@@ -49,9 +48,7 @@ CacheSet* new_cache_set(unsigned capacity) {
 }
 
 void add_line(CacheSet* list, MemAddr address) {
-	// TODO ?? Add check for capcity here or not?
 	if (list->length >= list->capacity) {
-		printf("Error: Overflowing a set\n");
 		return;
 	}
 
@@ -105,8 +102,8 @@ MemAddr replace_line(CacheSet *set, CacheParams *params, MemAddr addr) {
 
 				temp2->prev = temp->prev;
 				temp2->next = temp->next;
-				temp->prev->next = temp2;
-				temp->next->prev = temp2;
+				if (temp->prev != NULL) temp->prev->next = temp2;
+				if (temp->next != NULL) temp->next->prev = temp2;
 
 				replaced = temp->address;
 				if (temp != NULL) free(temp);
@@ -122,45 +119,45 @@ MemAddr replace_line(CacheSet *set, CacheParams *params, MemAddr addr) {
 
 bool contains_tag(CacheSet *set, MemAddr addr, CacheParams *params) {
 	unsigned long tag = get_tag(params, addr);
-	printf("Searching for tag %ld.\n", tag);
-	// TODO Fix infinite loop
+	bool flag = false;
+
 	for (CacheLine *line = set->head; line != NULL; line = line->next) {
 		unsigned long check = get_tag(params, line->address);
-		printf("Found tag: %ld.\n", check);
 		if (check == tag) {
-			// Update set for most recently used
-			switch (params->replacement) {
-			case LRU_R:
-				// move_to_head(line);
-				printf("%p\n", line);
-				printf("Error 1\n");
-				if (line->prev != NULL) line->prev->next = line->next;
-				if (line->next != NULL) line->next->prev = line->prev;
+			flag = true;
+			if (params->replacement == LRU_R) {
+				// move line to head
+				if (set->head == line) continue;
+				if (set->tail == line) set->tail = line->prev;
 
-				printf("Error 2\n");
-				line->next = set->head;
+				if (line->next != NULL) line->next->prev = line->prev;
+				if (line->prev != NULL) line->prev->next = line->next;
+				line->next = NULL;
 				line->prev = NULL;
-				printf("Error 3\n");
+
+				line->next = set->head;
 				set->head->prev = line;
 				set->head = line;
+			} else if (params->replacement == MRU_R) {
+				// move line to tail
+				if (set->head == line) set->head = line->next;
+				if (set->tail == line) continue;
 
-				break;
-			case MRU_R:
-				// move_to_tail(line);
-				if (line->prev != NULL) line->prev->next = line->next;
 				if (line->next != NULL) line->next->prev = line->prev;
+				if (line->prev != NULL) line->prev->next = line->next;
+				line->next = NULL;
+				line->prev = NULL;
 
 				line->prev = set->tail;
-				line->next = NULL;
 				set->tail->next = line;
 				set->tail = line;
-				break;
-			case RANDOM_R: break; // For Random replacement we do not need most recently used
+			} else {
+				// dont do anything
 			}
-			return true;
+			break;
 		}
 	}
-	return false;
+	return flag;
 }
 
 void free_cache_set(CacheSet *set) {
@@ -187,7 +184,6 @@ struct CacheSimImpl {
 CacheSim *
 new_cache_sim(const CacheParams *params)
 {
-	printf("Created a new cache sim\n");
 	CacheSim* sim = malloc(sizeof(CacheSim));
 	sim->params = *params;
 	sim->nSets = (1u << params->nSetBits);
@@ -217,24 +213,17 @@ free_cache_sim(CacheSim *cache)
 CacheResult
 cache_sim_result(CacheSim *cache, MemAddr addr)
 {
-	printf("Called with: 0x%lx\n", addr);
-
 	CacheResult result = { 0, 0 };
 
 	unsigned long set = get_set(&cache->params, addr);
-	printf("Set -> %ld\n", set);
 
 	if (contains_tag(&cache->sets[set], addr, &cache->params)) { // HIT
-		printf("Hit\n");
 		result.status = CACHE_HIT;
 	} else { // MISS
-		printf("Miss ");
 		if (cache->sets[set].length >= cache->sets[set].capacity) { // REPLACE
-			printf("with replace.\n");
 			result.status = CACHE_MISS_WITH_REPLACE;
 			result.replaceAddr = replace_line(&cache->sets[set], &cache->params, addr);
 		} else { // NO REPLACE
-			printf("without replace.\n");
 			result.status = CACHE_MISS_WITHOUT_REPLACE;
 			add_line(&cache->sets[set], addr);
 		}
