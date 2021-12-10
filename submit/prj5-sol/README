@@ -2,5 +2,7 @@ Name:		Saumitra Lohokare
 B-Number:	B00926896
 Email:		slohoka1@binghamton.edu
 
-Add text here as needed.
-
+LRU and RANDOM work as expected, but MRU seems to produce incosistent results.
+I am making sure to use a the list of lines as a "stack" to make sure I get the
+most recently used line (Also every time we get a hit I am updating the stack to 
+put that line on the top), but it still seems to give not correct results.
