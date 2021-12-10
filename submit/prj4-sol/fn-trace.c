@@ -115,7 +115,7 @@ static inline bool is_ret(unsigned op) {
 //TODO: add auxiliary functions
 
 void traceFn(void* addr, Lde* lde, FnsData* fd) {
-	FnInfo* ret = new_fn_info(addr, 1, 0, 0);
+	FnInfo* ret = new_fn_info(addr, 0, 0, 0);
 	add_item(fd, ret);
 
 	instruction* i = (instruction*) addr;
